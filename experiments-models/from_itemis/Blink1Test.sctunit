@@ -1,0 +1,149 @@
+testclass blink1Test for statechart blink1 {
+	@Test
+	operation test00 () {
+	}
+
+	@Test
+	operation test01 () {
+	}
+
+	@Test
+	operation test02 () {
+	}
+
+	@Test
+	operation test03 () {
+	}
+
+	@Test
+	operation test04 () {
+	}
+
+	@Test
+	operation test05 () {
+	}
+
+	@Test
+	operation test06 () {
+	}
+
+	@Test
+	operation test07 () {
+	}
+
+	@Test
+	operation test08 () {
+	}
+
+	@Test
+	operation test09 () {
+	}
+
+	@Test
+	operation test10 () {
+	}
+
+	@Test
+	operation test11 () {
+	}
+
+	@Test
+	operation test13 () {
+	}
+
+	@Test
+	operation test14 () {
+	    assert !active (blink1.esp.Blink)
+	}
+
+	@Test
+	operation test15 () {
+	    assert !active (blink1.esp.Blink.blinky.Off)
+	}
+
+	@Test
+	operation test16 () {
+	    assert !active (blink1.esp.Idle)
+	}
+
+	@Test
+	operation test17 () {
+	    assert !active (blink1.esp.Blink.blinky.On)
+	}
+
+	@Test
+	operation test18 () {
+	}
+
+	@Test
+	operation test19 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test21 () {
+	}
+
+	@Test
+	operation test24 () {
+	}
+
+	@Test
+	operation test25 () {
+	    assert !is_active
+	    exit
+	}
+
+	@Test
+	operation test26 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test27 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test28 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test29 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test30 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test31 () {
+	    assert !is_active
+	    assert !is_final
+	}
+
+	@Test
+	operation test32 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test34 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test35 () {
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test36 () {
+	    assert !is_active
+	}
+
+}

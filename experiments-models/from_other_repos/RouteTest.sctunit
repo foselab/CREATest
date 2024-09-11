@@ -1,0 +1,149 @@
+testclass RouteTest for statechart Route {
+	@Test
+	operation test00 () {
+	}
+
+	@Test
+	operation test01 () {
+	}
+
+	@Test
+	operation test03 () {
+	}
+
+	@Test
+	operation test04 () {
+	    assert !active (Route.main_region.Active)
+	}
+
+	@Test
+	operation test05 () {
+	    assert !active (Route.main_region.Unlock)
+	}
+
+	@Test
+	operation test06 () {
+	    assert !active (Route.main_region.Emergency_Shutdown)
+	}
+
+	@Test
+	operation test07 () {
+	    assert !active (Route.main_region.Wait)
+	}
+
+	@Test
+	operation test08 () {
+	    assert !active (Route.main_region.Active.processing.Completed)
+	}
+
+	@Test
+	operation test09 () {
+	    assert !active (Route.main_region.Active.processing.Flank_Turning)
+	}
+
+	@Test
+	operation test10 () {
+	    assert !active (Route.main_region.Active.processing.Signal_Updating)
+	}
+
+	@Test
+	operation test11 () {
+	    assert !active (Route.main_region.Active.processing.Section_Activation)
+	}
+
+	@Test
+	operation test12 () {
+	    assert !active (Route.main_region.Active.processing.Signal_Turning)
+	}
+
+	@Test
+	operation test13 () {
+	    assert !active (Route.main_region.Active.processing.Switch_Turning)
+	}
+
+	@Test
+	operation test14 () {
+	    assert !active (Route.main_region.Start)
+	}
+
+	@Test
+	operation test15 () {
+	    assert !active (Route.main_region._final_)
+	}
+
+	@Test
+	operation test16 () {
+	    assert !active (Route.main_region.Disable)
+	}
+
+	@Test
+	operation test17 () {
+	}
+
+	@Test
+	operation test18 () {
+	    assert !is_final
+	}
+
+	@Test
+	operation test19 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test21 () {
+	}
+
+	@Test
+	operation test23 () {
+	    exit
+	}
+
+	@Test
+	operation test24 () {
+	}
+
+	@Test
+	operation test27 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test28 () {
+	}
+
+	@Test
+	operation test29 () {
+	}
+
+	@Test
+	operation test31 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test32 () {
+	}
+
+	@Test
+	operation test33 () {
+	}
+
+	@Test
+	operation test34 () {
+	}
+
+	@Test
+	operation test35 () {
+	}
+
+	@Test
+	operation test36 () {
+	}
+
+	@Test
+	operation test39 () {
+	    exit
+	}
+
+}

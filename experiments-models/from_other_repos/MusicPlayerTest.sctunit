@@ -1,0 +1,351 @@
+testclass musicPlayerTest for statechart musicPlayer {
+	@Test
+	operation test000 () {
+	}
+
+	@Test
+	operation test001 () {
+	}
+
+	@Test
+	operation test002 () {
+	}
+
+	@Test
+	operation test003 () {
+	}
+
+	@Test
+	operation test004 () {
+	}
+
+	@Test
+	operation test005 () {
+	}
+
+	@Test
+	operation test006 () {
+	}
+
+	@Test
+	operation test007 () {
+	}
+
+	@Test
+	operation test008 () {
+	}
+
+	@Test
+	operation test009 () {
+	}
+
+	@Test
+	operation test010 () {
+	}
+
+	@Test
+	operation test011 () {
+	}
+
+	@Test
+	operation test012 () {
+	}
+
+	@Test
+	operation test013 () {
+	}
+
+	@Test
+	operation test014 () {
+	}
+
+	@Test
+	operation test015 () {
+	}
+
+	@Test
+	operation test016 () {
+	}
+
+	@Test
+	operation test017 () {
+	}
+
+	@Test
+	operation test018 () {
+	}
+
+	@Test
+	operation test019 () {
+	}
+
+	@Test
+	operation test020 () {
+	}
+
+	@Test
+	operation test021 () {
+	}
+
+	@Test
+	operation test022 () {
+	}
+
+	@Test
+	operation test023 () {
+	}
+
+	@Test
+	operation test024 () {
+	}
+
+	@Test
+	operation test025 () {
+	}
+
+	@Test
+	operation test026 () {
+	}
+
+	@Test
+	operation test027 () {
+	}
+
+	@Test
+	operation test028 () {
+	    assert !active (musicPlayer.main_region.Speaker.functions.functions.timer.Timer_Clcok)
+	}
+
+	@Test
+	operation test029 () {
+	    assert !active (musicPlayer.main_region.Speaker.functions.functions)
+	}
+
+	@Test
+	operation test030 () {
+	    assert !active (musicPlayer.main_region.Speaker.modes.Network)
+	}
+
+	@Test
+	operation test031 () {
+	    assert !active (musicPlayer.main_region.Speaker.modes.Aux)
+	}
+
+	@Test
+	operation test032 () {
+	    assert !active (musicPlayer.main_region.Speaker.modes.USB)
+	}
+
+	@Test
+	operation test033 () {
+	    assert !active (musicPlayer.main_region.Speaker.functions.functions.timer.Timer_Clcok.r2.CheckClockTime)
+	}
+
+	@Test
+	operation test034 () {
+	    assert !active (musicPlayer.main_region.Speaker.functions.functions.timer.Timer_Clcok.r1.Ttimer)
+	}
+
+	@Test
+	operation test035 () {
+	    assert !active (musicPlayer.main_region.Speaker.modes.Clock_Display.r1.chooseTimerOrStopwatch)
+	}
+
+	@Test
+	operation test036 () {
+	    assert !active (musicPlayer.main_region.Speaker.modes.Clock_Display.r1.Timer.r1.Ring)
+	}
+
+	@Test
+	operation test037 () {
+	    assert !active (musicPlayer.main_region.Speaker.modes.Aux.r1.aux)
+	}
+
+	@Test
+	operation test038 () {
+	    assert !active (musicPlayer.main_region.Speaker.modes.USB.r1.Stop)
+	}
+
+	@Test
+	operation test039 () {
+	    assert !active (musicPlayer.main_region.Speaker.modes.Clock_Display.r1.stopwatch)
+	}
+
+	@Test
+	operation test040 () {
+	}
+
+	@Test
+	operation test041 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test043 () {
+	}
+
+	@Test
+	operation test044 () {
+	    assert !is_final
+	}
+
+	@Test
+	operation test045 () {
+	    exit
+	    assert !is_final
+	}
+
+	@Test
+	operation test047 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test048 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test049 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test050 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test051 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test052 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test053 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test056 () {
+	}
+
+	@Test
+	operation test058 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test059 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test060 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test061 () {
+	}
+
+	@Test
+	operation test064 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test066 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test075 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test076 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test078 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test080 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test082 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test083 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test084 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test086 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test087 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test088 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test090 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test094 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test095 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test097 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test098 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test101 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test102 () {
+	    assert !is_active
+	}
+
+}

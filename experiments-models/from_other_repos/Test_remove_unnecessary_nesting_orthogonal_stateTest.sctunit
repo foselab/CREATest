@@ -1,0 +1,166 @@
+testclass test_remove_unnecessary_nesting_orthogonal_stateTest for statechart test_remove_unnecessary_nesting_orthogonal_state {
+	@Test
+	operation test00 () {
+	}
+
+	@Test
+	operation test01 () {
+	}
+
+	@Test
+	operation test02 () {
+	}
+
+	@Test
+	operation test03 () {
+	}
+
+	@Test
+	operation test04 () {
+	}
+
+	@Test
+	operation test05 () {
+	}
+
+	@Test
+	operation test06 () {
+	}
+
+	@Test
+	operation test08 () {
+	    enter
+	    triggerWithoutEvent
+	    assert is_active
+	}
+
+	@Test
+	operation test09 () {
+	    enter
+	    raise operate
+	    assert is_active
+	}
+
+	@Test
+	operation test10 () {
+	    enter
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test11 () {
+	    enter
+	    raise operate
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test12 () {
+	    enter
+	    assert is_active
+	    assert active (test_remove_unnecessary_nesting_orthogonal_state.main_region.A)
+	}
+
+	@Test
+	operation test13 () {
+	    enter
+	    raise operate
+	    assert is_active
+	    assert active (test_remove_unnecessary_nesting_orthogonal_state.main_region.C.E.F)
+	}
+
+	@Test
+	operation test14 () {
+	    enter
+	    raise operate
+	    assert is_active
+	    assert active (test_remove_unnecessary_nesting_orthogonal_state.main_region.C.D.B)
+	}
+
+	@Test
+	operation test15 () {
+	    enter
+	    raise operate
+	    assert is_active
+	    assert active (test_remove_unnecessary_nesting_orthogonal_state.main_region.C)
+	}
+
+	@Test
+	operation test16 () {
+	}
+
+	@Test
+	operation test17 () {
+	    assert !active (test_remove_unnecessary_nesting_orthogonal_state.main_region.C)
+	}
+
+	@Test
+	operation test18 () {
+	    assert !active (test_remove_unnecessary_nesting_orthogonal_state.main_region.A)
+	}
+
+	@Test
+	operation test19 () {
+	    assert !active (test_remove_unnecessary_nesting_orthogonal_state.main_region.C.E.F)
+	}
+
+	@Test
+	operation test20 () {
+	    assert !active (test_remove_unnecessary_nesting_orthogonal_state.main_region.C.D.B)
+	}
+
+	@Test
+	operation test21 () {
+	    raise operate
+	    assert !is_final
+	}
+
+	@Test
+	operation test22 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test23 () {
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test24 () {
+	    exit
+	    assert !is_final
+	}
+
+	@Test
+	operation test25 () {
+	    exit
+	    assert !is_final
+	}
+
+	@Test
+	operation test26 () {
+	    assert !is_active
+	    assert !is_final
+	}
+
+	@Test
+	operation test27 () {
+	    enter
+	    assert !is_active
+	}
+
+	@Test
+	operation test28 () {
+	    assert !is_active
+	    enter
+	    raise operate
+	    raise operate
+	    assert is_active
+	}
+
+}

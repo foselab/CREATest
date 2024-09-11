@@ -1,0 +1,131 @@
+testclass C2SimplifiedTest for statechart C2 {
+	@Test
+	operation test04 () {
+	    enter
+	    proceed 1s
+	    enter
+	    proceed 1s
+	    triggerWithoutEvent
+	    assert is_active
+	}
+
+	@Test
+	operation test05 () {
+	    exit
+	    assert !is_final
+	}
+
+	@Test
+	operation test06 () {
+	    enter
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test07 () {
+	    enter
+	    proceed 1s
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test08 () {
+	    enter
+	    assert is_active
+	    assert active (C2.main_region.Initial)
+	}
+
+	@Test
+	operation test09 () {
+	    enter
+	    proceed 1s
+	    proceed 1s
+	    assert is_active
+	    assert active (C2.main_region.One)
+	}
+
+	@Test
+	operation test10 () {
+	    enter
+	    proceed 1s
+	    assert is_active
+	    assert active (C2.main_region.Temp)
+	}
+
+	@Test
+	operation test11 () {
+	}
+
+	@Test
+	operation test12 () {
+	    assert !active (C2.main_region.Initial)
+	}
+
+	@Test
+	operation test13 () {
+	    assert !active (C2.main_region.Zero)
+	}
+
+	@Test
+	operation test14 () {
+	    assert !active (C2.main_region.One)
+	}
+
+	@Test
+	operation test15 () {
+	    assert !active (C2.main_region.Temp)
+	}
+
+	@Test
+	operation test16 () {
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test17 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test19 () {
+	    enter
+	    proceed 1s
+	    triggerWithoutEvent
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test20 () {
+	    assert !is_final
+	}
+
+	@Test
+	operation test21 () {
+	    enter
+	    proceed 1s
+	    proceed 1s
+	    triggerWithoutEvent
+	    assert is_active
+	}
+
+	@Test
+	operation test22 () {
+	    enter
+	    triggerWithoutEvent
+	    assert is_active
+	}
+
+	@Test
+	operation test23 () {
+	    proceed 1s
+	    assert !is_active
+	}
+
+}

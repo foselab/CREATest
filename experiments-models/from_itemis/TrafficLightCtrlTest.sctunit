@@ -1,0 +1,271 @@
+testclass TrafficLightCtrlTest for statechart TrafficLightCtrl {
+	@Test
+	operation test00 () {
+	}
+
+	@Test
+	operation test01 () {
+	}
+
+	@Test
+	operation test02 () {
+	}
+
+	@Test
+	operation test03 () {
+	}
+
+	@Test
+	operation test04 () {
+	}
+
+	@Test
+	operation test05 () {
+	}
+
+	@Test
+	operation test06 () {
+	}
+
+	@Test
+	operation test07 () {
+	}
+
+	@Test
+	operation test08 () {
+	}
+
+	@Test
+	operation test09 () {
+	}
+
+	@Test
+	operation test10 () {
+	}
+
+	@Test
+	operation test11 () {
+	}
+
+	@Test
+	operation test12 () {
+	}
+
+	@Test
+	operation test13 () {
+	}
+
+	@Test
+	operation test14 () {
+	}
+
+	@Test
+	operation test15 () {
+	    assert !active (TrafficLightCtrl.main.main.trafficlight.normal)
+	}
+
+	@Test
+	operation test16 () {
+	    assert !active (TrafficLightCtrl.main.main.trafficlight.interrupted)
+	}
+
+	@Test
+	operation test17 () {
+	    assert !is_active
+	    assert !active (TrafficLightCtrl.main.main)
+	}
+
+	@Test
+	operation test18 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test19 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test20 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test21 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test22 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test23 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test24 () {
+	    assert !is_active
+	    assert !active (TrafficLightCtrl.main.main.trafficlight.interrupted.blinking.Yellow)
+	}
+
+	@Test
+	operation test25 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test26 () {
+	    assert !is_active
+	    assert !active (TrafficLightCtrl.main.main.trafficlight.interrupted.blinking.Black)
+	}
+
+	@Test
+	operation test27 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test28 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test29 () {
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test31 () {
+	    assert !is_active
+	    exit
+	}
+
+	@Test
+	operation test33 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test36 () {
+	    raise disableTimer
+	    assert !is_active
+	}
+
+	@Test
+	operation test37 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test38 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test39 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test40 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test41 () {
+	    raise resetTimer
+	    assert !is_active
+	}
+
+	@Test
+	operation test42 () {
+	    raise enableTimer
+	    assert !is_active
+	}
+
+	@Test
+	operation test44 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test45 () {
+	    assert !is_active
+	    assert !is_final
+	}
+
+	@Test
+	operation test46 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test47 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test48 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test49 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test50 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test51 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test52 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test53 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test54 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test55 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test56 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test57 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test58 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test59 () {
+	    assert !is_active
+	}
+
+}

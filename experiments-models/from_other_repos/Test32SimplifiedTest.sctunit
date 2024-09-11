@@ -1,0 +1,124 @@
+testclass test32SimplifiedTest for statechart test32 {
+	@Test
+	operation test02 () {
+	}
+
+	@Test
+	operation test03 () {
+	}
+
+	@Test
+	operation test04 () {
+	    enter
+	    raise Panel.btn_pressed
+	    triggerWithoutEvent
+	    assert is_active
+	}
+
+	@Test
+	operation test05 () {
+	    enter
+	    triggerWithoutEvent
+	    assert is_active
+	}
+
+	@Test
+	operation test06 () {
+	    enter
+	    raise Panel.btn_pressed
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test07 () {
+	    enter
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test08 () {
+	    enter
+	    raise Panel.btn_pressed
+	    assert is_active
+	    assert active (test32.main_region.Pause)
+	}
+
+	@Test
+	operation test09 () {
+	    enter
+	    assert is_active
+	    assert active (test32.main_region.Standard)
+	}
+
+	@Test
+	operation test10 () {
+	}
+
+	@Test
+	operation test11 () {
+	    assert !active (test32.main_region.Pause)
+	}
+
+	@Test
+	operation test12 () {
+	    assert !active (test32.main_region.Standard)
+	}
+
+	@Test
+	operation test13 () {
+	    triggerWithoutEvent
+	    assert !is_active
+	}
+
+	@Test
+	operation test14 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test15 () {
+	    exit
+	    assert !is_final
+	}
+
+	@Test
+	operation test17 () {
+	    assert !is_active
+	    enter
+	    raise Panel.btn_pressed
+	    proceed 1000000ns
+	    assert is_active
+	}
+
+	@Test
+	operation test19 () {
+	    assert !is_final
+	    assert !is_active
+	}
+
+	@Test
+	operation test21 () {
+	    assert !is_active
+	    enter
+	    raise Panel.btn_pressed
+	    raise Panel.btn_pressed
+	    assert is_active
+	}
+
+	@Test
+	operation test22 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test23 () {
+	    assert !is_active
+	    enter
+	    assert is_active
+	}
+
+}

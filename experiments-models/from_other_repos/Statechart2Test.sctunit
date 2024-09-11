@@ -1,0 +1,1157 @@
+testclass Statechart2Test for statechart Statechart2 {
+	@Test
+	operation test000 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test001 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test002 () {
+	}
+
+	@Test
+	operation test003 () {
+	}
+
+	@Test
+	operation test004 () {
+	}
+
+	@Test
+	operation test005 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test006 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test007 () {
+	}
+
+	@Test
+	operation test008 () {
+	}
+
+	@Test
+	operation test009 () {
+	}
+
+	@Test
+	operation test010 () {
+	}
+
+	@Test
+	operation test011 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test012 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test013 () {
+	}
+
+	@Test
+	operation test014 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test015 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test016 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test017 () {
+	}
+
+	@Test
+	operation test018 () {
+	}
+
+	@Test
+	operation test019 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test020 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test021 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test022 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test023 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test024 () {
+	}
+
+	@Test
+	operation test025 () {
+	}
+
+	@Test
+	operation test026 () {
+	}
+
+	@Test
+	operation test027 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test028 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test029 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test030 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test031 () {
+	}
+
+	@Test
+	operation test032 () {
+	}
+
+	@Test
+	operation test033 () {
+	}
+
+	@Test
+	operation test034 () {
+	}
+
+	@Test
+	operation test035 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test036 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test037 () {
+	}
+
+	@Test
+	operation test038 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test039 () {
+	}
+
+	@Test
+	operation test040 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test041 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test042 () {
+	}
+
+	@Test
+	operation test043 () {
+	}
+
+	@Test
+	operation test044 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test045 () {
+	}
+
+	@Test
+	operation test046 () {
+	}
+
+	@Test
+	operation test047 () {
+	}
+
+	@Test
+	operation test048 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test049 () {
+	}
+
+	@Test
+	operation test050 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test051 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test052 () {
+	}
+
+	@Test
+	operation test053 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test054 () {
+	}
+
+	@Test
+	operation test055 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test056 () {
+	}
+
+	@Test
+	operation test057 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test058 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test059 () {
+	}
+
+	@Test
+	operation test060 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test061 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test062 () {
+	}
+
+	@Test
+	operation test063 () {
+	}
+
+	@Test
+	operation test064 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test065 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test066 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test067 () {
+	}
+
+	@Test
+	operation test068 () {
+	}
+
+	@Test
+	operation test069 () {
+	}
+
+	@Test
+	operation test070 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test071 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test072 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test073 () {
+	}
+
+	@Test
+	operation test074 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test075 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test076 () {
+	}
+
+	@Test
+	operation test077 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test078 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test079 () {
+	}
+
+	@Test
+	operation test080 () {
+	}
+
+	@Test
+	operation test081 () {
+	}
+
+	@Test
+	operation test082 () {
+	}
+
+	@Test
+	operation test083 () {
+	}
+
+	@Test
+	operation test084 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test085 () {
+	}
+
+	@Test
+	operation test086 () {
+	}
+
+	@Test
+	operation test087 () {
+	}
+
+	@Test
+	operation test088 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test089 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test090 () {
+	}
+
+	@Test
+	operation test091 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test092 () {
+	}
+
+	@Test
+	operation test093 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test094 () {
+	}
+
+	@Test
+	operation test095 () {
+	}
+
+	@Test
+	operation test096 () {
+	}
+
+	@Test
+	operation test097 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test098 () {
+	}
+
+	@Test
+	operation test099 () {
+	}
+
+	@Test
+	operation test100 () {
+	}
+
+	@Test
+	operation test101 () {
+	}
+
+	@Test
+	operation test102 () {
+	}
+
+	@Test
+	operation test103 () {
+	}
+
+	@Test
+	operation test104 () {
+	}
+
+	@Test
+	operation test105 () {
+	}
+
+	@Test
+	operation test106 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test107 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test108 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test109 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test110 () {
+	}
+
+	@Test
+	operation test111 () {
+	}
+
+	@Test
+	operation test112 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test113 () {
+	    assert !active (Statechart2.s.Autonomous_Mode___Logging.Calibration_on_entry_to_the_maze.Calibration)
+	}
+
+	@Test
+	operation test114 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test115 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test116 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test117 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test118 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test119 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test120 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test121 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test122 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test123 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test124 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test125 () {
+	    assert !is_active
+	    assert !active (Statechart2.s.Manual_Mode.Manual_Mode.turning_right)
+	}
+
+	@Test
+	operation test126 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test127 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test128 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test130 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test131 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test132 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test133 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test134 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test135 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test137 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test138 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test140 () {
+	}
+
+	@Test
+	operation test141 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test142 () {
+	    exit
+	    assert !is_final
+	}
+
+	@Test
+	operation test143 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test144 () {
+	}
+
+	@Test
+	operation test145 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test146 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test147 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test148 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test149 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test150 () {
+	}
+
+	@Test
+	operation test151 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test152 () {
+	}
+
+	@Test
+	operation test153 () {
+	}
+
+	@Test
+	operation test154 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test155 () {
+	}
+
+	@Test
+	operation test156 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test157 () {
+	}
+
+	@Test
+	operation test158 () {
+	}
+
+	@Test
+	operation test159 () {
+	}
+
+	@Test
+	operation test160 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test161 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test162 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test163 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test164 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test165 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test166 () {
+	}
+
+	@Test
+	operation test167 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test168 () {
+	}
+
+	@Test
+	operation test169 () {
+	}
+
+	@Test
+	operation test170 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test171 () {
+	}
+
+	@Test
+	operation test172 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test173 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test174 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test175 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test176 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test177 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test178 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test179 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test180 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test181 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test182 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test183 () {
+	}
+
+	@Test
+	operation test184 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test185 () {
+	}
+
+	@Test
+	operation test186 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test187 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test188 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test189 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test190 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test191 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test192 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test193 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test194 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test195 () {
+	}
+
+	@Test
+	operation test196 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test197 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test198 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test199 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test200 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test201 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test202 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test203 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test204 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test205 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test206 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test207 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test208 () {
+	}
+
+	@Test
+	operation test209 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test210 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test211 () {
+	}
+
+	@Test
+	operation test212 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test213 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test214 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test215 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test216 () {
+	}
+
+	@Test
+	operation test217 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test218 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test225 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test226 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test227 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test228 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test229 () {
+	}
+
+	@Test
+	operation test230 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test231 () {
+	}
+
+	@Test
+	operation test232 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test233 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test234 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test235 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test236 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test237 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test238 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test239 () {
+	}
+
+	@Test
+	operation test240 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test241 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test242 () {
+	}
+
+	@Test
+	operation test243 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test244 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test245 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test246 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test247 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test248 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test249 () {
+	}
+
+	@Test
+	operation test250 () {
+	}
+
+	@Test
+	operation test251 () {
+	}
+
+	@Test
+	operation test252 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test253 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test254 () {
+	}
+
+	@Test
+	operation test255 () {
+	}
+
+	@Test
+	operation test256 () {
+	    assert !is_active
+	}
+
+}

@@ -1,0 +1,224 @@
+testclass MqttClientStatechartSimplifiedTest for statechart MqttClientStatechart {
+	@Test
+	operation test03 () {
+	}
+
+	@Test
+	operation test04 () {
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test05 () {
+	    enter
+	    exit
+	    assert !is_final
+	}
+
+	@Test
+	operation test06 () {
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test07 () {
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test08 () {
+	    enter
+	    assert is_active
+	    assert active (MqttClientStatechart.main_region.Undefined)
+	}
+
+	@Test
+	operation test09 () {
+	}
+
+	@Test
+	operation test10 () {
+	    assert !active (MqttClientStatechart.main_region.Offline)
+	}
+
+	@Test
+	operation test11 () {
+	    assert !active (MqttClientStatechart.main_region.Online.r1.PublishMessages)
+	}
+
+	@Test
+	operation test12 () {
+	    assert !active (MqttClientStatechart.main_region.Online)
+	}
+
+	@Test
+	operation test13 () {
+	    assert !is_active
+	    assert !active (MqttClientStatechart.main_region.Undefined)
+	}
+
+	@Test
+	operation test14 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test15 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test16 () {
+	    assert !active (MqttClientStatechart.main_region.Offline.r1.ConfigureMqtt)
+	}
+
+	@Test
+	operation test17 () {
+	    assert !active (MqttClientStatechart.main_region.Offline.r1.SetStationMode)
+	}
+
+	@Test
+	operation test18 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test19 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test20 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test21 () {
+	    assert !active (MqttClientStatechart.main_region.Online.r1.ConnectToBroker)
+	}
+
+	@Test
+	operation test22 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test23 () {
+	    assert !active (MqttClientStatechart.main_region.Online.r1.Entry)
+	}
+
+	@Test
+	operation test24 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test25 () {
+	    assert !active (MqttClientStatechart.main_region.Undefined.r1.Start)
+	    assert !is_active
+	}
+
+	@Test
+	operation test26 () {
+	    assert !active (MqttClientStatechart.main_region.Undefined.r1.ResetSystem)
+	    assert !is_active
+	}
+
+	@Test
+	operation test27 () {
+	    assert !is_active
+	    assert !active (MqttClientStatechart.main_region.Undefined.r1.RestartModule)
+	}
+
+	@Test
+	operation test28 () {
+	    assert !active (MqttClientStatechart.main_region.Undefined.r1.TestModule)
+	}
+
+	@Test
+	operation test29 () {
+	    assert !active (MqttClientStatechart.main_region.Undefined.r1.ResetModule)
+	}
+
+	@Test
+	operation test30 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test31 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test32 () {
+	    proceed 1 cycle
+	    assert !is_active
+	}
+
+	@Test
+	operation test33 () {
+	    assert !is_active
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test34 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test37 () {
+	    raise WizFi360.ready
+	}
+
+	@Test
+	operation test38 () {
+	    raise WizFi360.fail
+	}
+
+	@Test
+	operation test39 () {
+	}
+
+	@Test
+	operation test40 () {
+	    raise WizFi360.ok
+	}
+
+	@Test
+	operation test41 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test42 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test43 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test44 () {
+	    enter
+	    proceed 1 cycle
+	    assert is_active
+	}
+
+	@Test
+	operation test45 () {
+	    enter
+	    proceed 1s
+	    proceed 1 cycle
+	    exit
+	    assert !is_active
+	}
+
+}

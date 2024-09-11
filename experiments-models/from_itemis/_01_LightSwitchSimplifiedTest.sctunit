@@ -1,0 +1,94 @@
+testclass _01_LightSwitchSimplifiedTest for statechart _01_LightSwitch {
+	@Test
+	operation test01 () {
+	    enter
+	    raise switch
+	    triggerWithoutEvent
+	    assert is_active
+	}
+
+	@Test
+	operation test02 () {
+	    enter
+	    triggerWithoutEvent
+	    assert is_active
+	}
+
+	@Test
+	operation test03 () {
+	    exit
+	    assert !is_final
+	}
+
+	@Test
+	operation test04 () {
+	    enter
+	    raise switch
+	    assert is_active
+	    assert active (_01_LightSwitch.main.On)
+	}
+
+	@Test
+	operation test05 () {
+	    enter
+	    assert is_active
+	    assert active (_01_LightSwitch.main.Off)
+	}
+
+	@Test
+	operation test06 () {
+	}
+
+	@Test
+	operation test07 () {
+	    assert !active (_01_LightSwitch.main.On)
+	}
+
+	@Test
+	operation test08 () {
+	    assert !active (_01_LightSwitch.main.Off)
+	}
+
+	@Test
+	operation test09 () {
+	    enter
+	    raise switch
+	    raise switch
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test10 () {
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test11 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test12 () {
+	    triggerWithoutEvent
+	    assert !is_active
+	}
+
+	@Test
+	operation test13 () {
+	    assert !is_final
+	    assert !is_active
+	}
+
+	@Test
+	operation test14 () {
+	    enter
+	    raise switch
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+}

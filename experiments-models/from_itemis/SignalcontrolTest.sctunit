@@ -1,0 +1,195 @@
+testclass signalcontrolTest for statechart signalcontrol {
+	@Test
+	operation test00 () {
+	    raise right: false
+	}
+
+	@Test
+	operation test01 () {
+	    raise left: false
+	}
+
+	@Test
+	operation test02 () {
+	    raise stopBlinking
+	}
+
+	@Test
+	operation test03 () {
+	}
+
+	@Test
+	operation test04 () {
+	}
+
+	@Test
+	operation test05 () {
+	}
+
+	@Test
+	operation test06 () {
+	}
+
+	@Test
+	operation test07 () {
+	}
+
+	@Test
+	operation test08 () {
+	}
+
+	@Test
+	operation test09 () {
+	}
+
+	@Test
+	operation test10 () {
+	}
+
+	@Test
+	operation test11 () {
+	}
+
+	@Test
+	operation test12 () {
+	}
+
+	@Test
+	operation test13 () {
+	}
+
+	@Test
+	operation test14 () {
+	}
+
+	@Test
+	operation test15 () {
+	}
+
+	@Test
+	operation test16 () {
+	}
+
+	@Test
+	operation test17 () {
+	    raise stopBlinking
+	    enter
+	}
+
+	@Test
+	operation test18 () {
+	    enter
+	}
+
+	@Test
+	operation test19 () {
+	    enter
+	    exit
+	}
+
+	@Test
+	operation test20 () {
+	}
+
+	@Test
+	operation test21 () {
+	}
+
+	@Test
+	operation test24 () {
+	    enter
+	}
+
+	@Test
+	operation test25 () {
+	}
+
+	@Test
+	operation test26 () {
+	}
+
+	@Test
+	operation test27 () {
+	}
+
+	@Test
+	operation test28 () {
+	}
+
+	@Test
+	operation test29 () {
+	}
+
+	@Test
+	operation test30 () {
+	}
+
+	@Test
+	operation test31 () {
+	}
+
+	@Test
+	operation test32 () {
+	}
+
+	@Test
+	operation test33 () {
+	}
+
+	@Test
+	operation test34 () {
+	}
+
+	@Test
+	operation test35 () {
+	    raise hazard
+	}
+
+	@Test
+	operation test36 () {
+	    enter
+	}
+
+	@Test
+	operation test37 () {
+	}
+
+	@Test
+	operation test38 () {
+	    exit
+	}
+
+	@Test
+	operation test39 () {
+	    exit
+	}
+
+	@Test
+	operation test40 () {
+	    enter
+	}
+
+	@Test
+	operation test41 () {
+	}
+
+	@Test
+	operation test43 () {
+	}
+
+	@Test
+	operation test44 () {
+	}
+
+	@Test
+	operation test45 () {
+	    assert !is_final
+	}
+
+	@Test
+	operation test47 () {
+	    assert !is_active
+	    triggerWithoutEvent
+	}
+
+}

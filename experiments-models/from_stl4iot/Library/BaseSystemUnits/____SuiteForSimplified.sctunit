@@ -1,0 +1,9 @@
+testsuite SuiteForSimplified {
+	AirConditioner_UnitSimplifiedTest,
+	//Elevator_UnitSimplifiedTest,
+	FireAlarm_UnitSimplifiedTest,
+	LEDLight_UnitSimplifiedTest,
+	Microwave_UnitSimplifiedTest,
+	TrafficLight_UnitSimplifiedTest,
+	TV_UnitSimplifiedTest
+}

@@ -1,0 +1,174 @@
+testclass ZowiSCTTest for statechart ZowiSCT {
+	@Test
+	operation test00 () {
+	}
+
+	@Test
+	operation test01 () {
+	}
+
+	@Test
+	operation test02 () {
+	}
+
+	@Test
+	operation test03 () {
+	}
+
+	@Test
+	operation test04 () {
+	}
+
+	@Test
+	operation test07 () {
+	    assert !active (ZowiSCT.main_region.ObstacleDetected)
+	}
+
+	@Test
+	operation test08 () {
+	    assert !active (ZowiSCT.main_region.IsSomeOneHere)
+	}
+
+	@Test
+	operation test09 () {
+	    assert !active (ZowiSCT.main_region.Awake)
+	}
+
+	@Test
+	operation test10 () {
+	    assert !active (ZowiSCT.main_region.ObstacleDetected.RemoveTheObstacle.WalkForward)
+	}
+
+	@Test
+	operation test11 () {
+	    assert !active (ZowiSCT.main_region.ObstacleDetected.RemoveTheObstacle.WalkBack)
+	}
+
+	@Test
+	operation test12 () {
+	    assert !active (ZowiSCT.main_region.IsSomeOneHere.Changing_mood.Sad)
+	}
+
+	@Test
+	operation test13 () {
+	    assert !active (ZowiSCT.main_region.IsSomeOneHere.Changing_mood.Suprised)
+	}
+
+	@Test
+	operation test14 () {
+	    assert !active (ZowiSCT.main_region.Awake.walkAndAvoidObstacles.WaitForWalking)
+	}
+
+	@Test
+	operation test15 () {
+	    assert !active (ZowiSCT.main_region.Awake.walkAndAvoidObstacles.TurnLeft)
+	}
+
+	@Test
+	operation test16 () {
+	    assert !active (ZowiSCT.main_region.Awake.walkAndAvoidObstacles.WaitForTurn)
+	}
+
+	@Test
+	operation test17 () {
+	    assert !active (ZowiSCT.main_region.Awake.walkAndAvoidObstacles.WalkStraight)
+	}
+
+	@Test
+	operation test18 () {
+	}
+
+	@Test
+	operation test19 () {
+	    assert !active (ZowiSCT.main_region.WelcomeZowi)
+	}
+
+	@Test
+	operation test20 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test21 () {
+	    exit
+	    assert !is_final
+	}
+
+	@Test
+	operation test24 () {
+	}
+
+	@Test
+	operation test25 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test26 () {
+	}
+
+	@Test
+	operation test27 () {
+	}
+
+	@Test
+	operation test28 () {
+	}
+
+	@Test
+	operation test29 () {
+	}
+
+	@Test
+	operation test30 () {
+	}
+
+	@Test
+	operation test31 () {
+	    proceed 2s
+	}
+
+	@Test
+	operation test32 () {
+	    assert !is_final
+	}
+
+	@Test
+	operation test33 () {
+	}
+
+	@Test
+	operation test34 () {
+	    exit
+	}
+
+	@Test
+	operation test35 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test36 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test37 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test38 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test39 () {
+	}
+
+	@Test
+	operation test40 () {
+	    assert !is_active
+	}
+
+}

@@ -1,0 +1,78 @@
+testclass ASimplifiedTest for statechart A {
+	@Test
+	operation test04 () {
+	    enter
+	    triggerWithoutEvent
+	    assert is_active
+	}
+
+	@Test
+	operation test05 () {
+	    enter
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test06 () {
+	    enter
+	    assert is_active
+	    assert active (A.main_region.StateA)
+	}
+
+	@Test
+	operation test07 () {
+	}
+
+	@Test
+	operation test08 () {
+	    assert !active (A.main_region.StateA)
+	}
+
+	@Test
+	operation test09 () {
+	    proceed 1s
+	    assert !is_final
+	}
+
+	@Test
+	operation test10 () {
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test11 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test12 () {
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test15 () {
+	    assert !is_active
+	    assert !is_final
+	}
+
+	@Test
+	operation test16 () {
+	    assert !is_active
+	    enter
+	    proceed 2s
+	    assert is_active
+	}
+
+	@Test
+	operation test17 () {
+	    assert !is_active
+	    enter
+	    proceed 1s
+	    assert is_active
+	}
+
+}

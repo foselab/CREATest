@@ -1,0 +1,181 @@
+testclass _05_PresenceSimulationLightSwitchSimplifiedTest for statechart _05_PresenceSimulationLightSwitch {
+	@Test
+	operation test00 () {
+	    triggerWithoutEvent
+	    assert !is_active
+	}
+
+	@Test
+	operation test01 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test04 () {
+	}
+
+	@Test
+	operation test05 () {
+	}
+
+	@Test
+	operation test06 () {
+	    enter
+	    raise hmi.switch
+	    raise hmi.switch
+	}
+
+	@Test
+	operation test07 () {
+	    enter
+	    raise hmi.toggleMode
+	    assert is_active
+	}
+
+	@Test
+	operation test08 () {
+	    enter
+	    raise hmi.switch
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test09 () {
+	    enter
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test10 () {
+	    enter
+	    raise hmi.toggleMode
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test11 () {
+	    enter
+	    assert is_active
+	    assert active (_05_PresenceSimulationLightSwitch.main.Manual.mode.Off)
+	}
+
+	@Test
+	operation test12 () {
+	    enter
+	    assert is_active
+	    assert active (_05_PresenceSimulationLightSwitch.main.Manual)
+	}
+
+	@Test
+	operation test13 () {
+	    enter
+	    raise hmi.toggleMode
+	    assert is_active
+	    assert !active (_05_PresenceSimulationLightSwitch.main.Manual)
+	}
+
+	@Test
+	operation test14 () {
+	}
+
+	@Test
+	operation test15 () {
+	    assert !active (_05_PresenceSimulationLightSwitch.main.Manual)
+	}
+
+	@Test
+	operation test16 () {
+	    assert !active (_05_PresenceSimulationLightSwitch.main.Presence_Simulation.mode.Active)
+	}
+
+	@Test
+	operation test17 () {
+	    assert !active (_05_PresenceSimulationLightSwitch.main.Presence_Simulation.mode.Active.presence.Absent)
+	}
+
+	@Test
+	operation test18 () {
+	    assert !active (_05_PresenceSimulationLightSwitch.main.Presence_Simulation.mode.Active.presence.Present)
+	}
+
+	@Test
+	operation test19 () {
+	    assert !active (_05_PresenceSimulationLightSwitch.main.Manual.mode.On)
+	}
+
+	@Test
+	operation test20 () {
+	    assert !active (_05_PresenceSimulationLightSwitch.main.Manual.mode.Off)
+	}
+
+	@Test
+	operation test21 () {
+	    assert !active (_05_PresenceSimulationLightSwitch.main.Presence_Simulation.mode.Active.schedule.Waiting)
+	}
+
+	@Test
+	operation test22 () {
+	    assert !active (_05_PresenceSimulationLightSwitch.main.Presence_Simulation)
+	}
+
+	@Test
+	operation test23 () {
+	    assert !active (_05_PresenceSimulationLightSwitch.main.Presence_Simulation.mode.Idle)
+	}
+
+	@Test
+	operation test25 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test26 () {
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test27 () {
+	    exit
+	    assert !is_final
+	}
+
+	@Test
+	operation test30 () {
+	    enter
+	    raise hmi.switch
+	}
+
+	@Test
+	operation test32 () {
+	    assert !is_final
+	    assert !is_active
+	}
+
+	@Test
+	operation test33 () {
+	    enter
+	    raise hmi.switch
+	    raise hmi.toggleMode
+	}
+
+	@Test
+	operation test34 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test35 () {
+	    assert !is_active
+	    enter
+	    raise hmi.toggleMode
+	    raise hmi.toggleMode
+	    assert is_active
+	}
+
+}

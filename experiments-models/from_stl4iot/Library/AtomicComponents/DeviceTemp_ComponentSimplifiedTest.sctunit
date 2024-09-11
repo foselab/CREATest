@@ -1,0 +1,127 @@
+testclass DeviceTemp_ComponentSimplifiedTest for statechart DeviceTemp_Component {
+	@Test
+	operation test00 () {
+	    proceed 1s
+	    assert !is_final
+	}
+
+	@Test
+	operation test03 () {
+	}
+
+	@Test
+	operation test04 () {
+	}
+
+	@Test
+	operation test05 () {
+	    exit
+	    assert !is_final
+	}
+
+	@Test
+	operation test06 () {
+	    enter
+	    assert is_active
+	    assert !active (DeviceTemp_Component._DeviceTemp_Component_._Temperature_Component_._Monitoring_Device_Temperature_.coolingState)
+	}
+
+	@Test
+	operation test07 () {
+	    enter
+	    assert is_active
+	    assert active (DeviceTemp_Component._DeviceTemp_Component_._Temperature_Component_._Monitoring_Device_Temperature_.restState)
+	}
+
+	@Test
+	operation test08 () {
+	    enter
+	    assert is_active
+	    assert active (DeviceTemp_Component._DeviceTemp_Component_._Temperature_Component_)
+	}
+
+	@Test
+	operation test09 () {
+	}
+
+	@Test
+	operation test10 () {
+	    assert !active (DeviceTemp_Component._DeviceTemp_Component_._Temperature_Component_._Monitoring_Device_Temperature_.coolingState)
+	}
+
+	@Test
+	operation test11 () {
+	    assert !active (DeviceTemp_Component._DeviceTemp_Component_._Temperature_Component_)
+	}
+
+	@Test
+	operation test12 () {
+	    assert !active (DeviceTemp_Component._DeviceTemp_Component_._Temperature_Component_._Monitoring_Device_Temperature_.coolingState._Device_Cooling_Down_.cooling)
+	}
+
+	@Test
+	operation test13 () {
+	    assert !active (DeviceTemp_Component._DeviceTemp_Component_._Temperature_Component_._Monitoring_Device_Temperature_.overheat)
+	}
+
+	@Test
+	operation test14 () {
+	    assert !active (DeviceTemp_Component._DeviceTemp_Component_._Temperature_Component_._Monitoring_Device_Temperature_.heatingUp)
+	}
+
+	@Test
+	operation test15 () {
+	    assert !active (DeviceTemp_Component._DeviceTemp_Component_._Temperature_Component_._Monitoring_Device_Temperature_.coolingState._Device_Cooling_Down_.fully_rested)
+	}
+
+	@Test
+	operation test16 () {
+	    assert !active (DeviceTemp_Component._DeviceTemp_Component_._Temperature_Component_._Monitoring_Device_Temperature_.restState)
+	}
+
+	@Test
+	operation test17 () {
+	    triggerWithoutEvent
+	    assert !is_final
+	}
+
+	@Test
+	operation test18 () {
+	    assert !is_active
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test19 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test21 () {
+	    enter
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test22 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test23 () {
+	    assert !is_active
+	    assert !is_final
+	}
+
+	@Test
+	operation test26 () {
+	    assert !is_active
+	    enter
+	    raise Heat.continue
+	    assert is_active
+	}
+
+}

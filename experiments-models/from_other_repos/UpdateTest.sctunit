@@ -1,0 +1,148 @@
+testclass UpdateTest for statechart Update {
+	@Test
+	operation test00 () {
+	}
+
+	@Test
+	operation test01 () {
+	}
+
+	@Test
+	operation test02 () {
+	}
+
+	@Test
+	operation test03 () {
+	}
+
+	@Test
+	operation test04 () {
+	}
+
+	@Test
+	operation test05 () {
+	}
+
+	@Test
+	operation test07 () {
+	}
+
+	@Test
+	operation test08 () {
+	}
+
+	@Test
+	operation test09 () {
+	}
+
+	@Test
+	operation test10 () {
+	    assert !active (Update.main_region.Failed)
+	}
+
+	@Test
+	operation test11 () {
+	    assert !active (Update.main_region.Wait_Bootloader)
+	}
+
+	@Test
+	operation test12 () {
+	    assert !active (Update.main_region.Flash_Check)
+	}
+
+	@Test
+	operation test13 () {
+	    assert !active (Update.main_region.Flash_Rest)
+	}
+
+	@Test
+	operation test14 () {
+	    assert !active (Update.main_region.Flash_Request)
+	}
+
+	@Test
+	operation test15 () {
+	    assert !active (Update.main_region.Reset)
+	}
+
+	@Test
+	operation test16 () {
+	    assert !active (Update.main_region.Flash_Complete_Page)
+	}
+
+	@Test
+	operation test17 () {
+	    assert !active (Update.main_region.Ping)
+	}
+
+	@Test
+	operation test18 () {
+	}
+
+	@Test
+	operation test19 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test21 () {
+	    assert !is_final
+	}
+
+	@Test
+	operation test22 () {
+	}
+
+	@Test
+	operation test23 () {
+	}
+
+	@Test
+	operation test24 () {
+	}
+
+	@Test
+	operation test26 () {
+	}
+
+	@Test
+	operation test27 () {
+	}
+
+	@Test
+	operation test28 () {
+	}
+
+	@Test
+	operation test30 () {
+	}
+
+	@Test
+	operation test33 () {
+	}
+
+	@Test
+	operation test34 () {
+	}
+
+	@Test
+	operation test35 () {
+	}
+
+	@Test
+	operation test36 () {
+	}
+
+	@Test
+	operation test38 () {
+	    assert !is_active
+	    exit
+	}
+
+	@Test
+	operation test39 () {
+	    exit
+	    assert !is_active
+	}
+
+}

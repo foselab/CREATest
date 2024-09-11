@@ -1,0 +1,201 @@
+testclass LampadaTest for statechart Lampada {
+	@Test
+	operation test00 () {
+	    raise poweron
+	}
+
+	@Test
+	operation test01 () {
+	}
+
+	@Test
+	operation test02 () {
+	}
+
+	@Test
+	operation test03 () {
+	}
+
+	@Test
+	operation test04 () {
+	}
+
+	@Test
+	operation test05 () {
+	}
+
+	@Test
+	operation test07 () {
+	    enter
+	    raise poweron
+	    raise poweroff
+	    assert is_active
+	}
+
+	@Test
+	operation test08 () {
+	    enter
+	    raise poweron
+	    raise pushbutton
+	    raise poweron
+	    assert is_active
+	}
+
+	@Test
+	operation test09 () {
+	    raise poweron
+	    enter
+	    raise poweron
+	    assert is_active
+	}
+
+	@Test
+	operation test10 () {
+	    enter
+	    raise poweron
+	    raise pushbutton
+	    raise pushbutton
+	    raise poweroff
+	    assert is_active
+	}
+
+	@Test
+	operation test11 () {
+	    enter
+	    triggerWithoutEvent
+	    assert is_active
+	}
+
+	@Test
+	operation test12 () {
+	    enter
+	    raise poweron
+	    raise pushbutton
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test13 () {
+	    enter
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test14 () {
+	    enter
+	    raise poweron
+	    raise pushbutton
+	    assert is_active
+	    assert active (Lampada.main_region.ON)
+	}
+
+	@Test
+	operation test15 () {
+	    enter
+	    raise poweron
+	    assert is_active
+	    assert active (Lampada.main_region.STANDBY)
+	}
+
+	@Test
+	operation test16 () {
+	    enter
+	    assert is_active
+	    assert active (Lampada.main_region.OFF)
+	}
+
+	@Test
+	operation test17 () {
+	}
+
+	@Test
+	operation test18 () {
+	    assert !active (Lampada.main_region.STANDBY)
+	}
+
+	@Test
+	operation test19 () {
+	    assert !active (Lampada.main_region.ON)
+	}
+
+	@Test
+	operation test20 () {
+	    assert !active (Lampada.main_region.OFF)
+	}
+
+	@Test
+	operation test21 () {
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test22 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test23 () {
+	    exit
+	}
+
+	@Test
+	operation test24 () {
+	    exit
+	}
+
+	@Test
+	operation test25 () {
+	    enter
+	    assert !is_active
+	}
+
+	@Test
+	operation test26 () {
+	}
+
+	@Test
+	operation test27 () {
+	    raise poweron
+	    raise pushbutton
+	    enter
+	    raise poweroff
+	    assert is_active
+	}
+
+	@Test
+	operation test28 () {
+	    assert !is_final
+	}
+
+	@Test
+	operation test29 () {
+	}
+
+	@Test
+	operation test30 () {
+	    assert !is_active
+	    raise poweroff
+	}
+
+	@Test
+	operation test31 () {
+	    enter
+	    raise poweron
+	    raise pushbutton
+	    raise pushbutton
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test32 () {
+	    assert !is_active
+	}
+
+}

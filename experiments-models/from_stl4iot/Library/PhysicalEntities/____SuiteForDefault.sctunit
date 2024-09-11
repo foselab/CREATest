@@ -1,0 +1,4 @@
+testsuite ____SuiteForDefault {
+	PhysicalEntity_TemplateTest,
+	Ultrasonic_MotionDetectorTest
+}

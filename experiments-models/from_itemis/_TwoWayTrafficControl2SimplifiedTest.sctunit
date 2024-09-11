@@ -1,0 +1,131 @@
+testclass _TwoWayTrafficControl2SimplifiedTest for statechart _TwoWayTrafficControl2 {
+	@Test
+	operation test01 () {
+	}
+
+	@Test
+	operation test02 () {
+	    enter
+	    proceed 1 cycle
+	    assert is_active
+	}
+
+	@Test
+	operation test03 () {
+	    exit
+	    assert !is_final
+	}
+
+	@Test
+	operation test04 () {
+	    enter
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test05 () {
+	    enter
+	    assert is_active
+	    assert !active (_TwoWayTrafficControl2.main.Operate)
+	}
+
+	@Test
+	operation test06 () {
+	    enter
+	    assert is_active
+	    assert active (_TwoWayTrafficControl2.main.Off)
+	}
+
+	@Test
+	operation test07 () {
+	}
+
+	@Test
+	operation test08 () {
+	    assert !active (_TwoWayTrafficControl2.main.Operate.r.Process_B)
+	}
+
+	@Test
+	operation test09 () {
+	    assert !active (_TwoWayTrafficControl2.main.Operate.r.Process_A)
+	}
+
+	@Test
+	operation test10 () {
+	    assert !active (_TwoWayTrafficControl2.main.Standby)
+	}
+
+	@Test
+	operation test11 () {
+	    assert !active (_TwoWayTrafficControl2.main.Operate)
+	}
+
+	@Test
+	operation test12 () {
+	    assert !active (_TwoWayTrafficControl2.main.Off)
+	}
+
+	@Test
+	operation test13 () {
+	    raise on
+	    enter
+	    proceed 1 cycle
+	    proceed 1 cycle
+	    assert is_active
+	}
+
+	@Test
+	operation test14 () {
+	    proceed 1 cycle
+	    assert !is_final
+	}
+
+	@Test
+	operation test15 () {
+	    assert !is_active
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test16 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test17 () {
+	    raise standby
+	    assert !is_active
+	}
+
+	@Test
+	operation test18 () {
+	    raise operate
+	    assert !is_active
+	}
+
+	@Test
+	operation test19 () {
+	    raise off
+	    assert !is_active
+	}
+
+	@Test
+	operation test20 () {
+	    raise on
+	    enter
+	    proceed 1 cycle
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test21 () {
+	    assert !is_final
+	    assert !is_active
+	}
+
+}

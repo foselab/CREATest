@@ -1,0 +1,203 @@
+testclass SignalControllerSimplifiedTest for statechart SignalController {
+	@Test
+	operation test00 () {
+	    triggerWithoutEvent
+	    assert !is_final
+	}
+
+	@Test
+	operation test01 () {
+	    raise start
+	    assert !is_active
+	}
+
+	@Test
+	operation test02 () {
+	    raise failed
+	    assert !is_final
+	}
+
+	@Test
+	operation test03 () {
+	    raise extend
+	    assert !is_active
+	}
+
+	@Test
+	operation test04 () {
+	    raise enable
+	    assert !is_final
+	}
+
+	@Test
+	operation test05 () {
+	    raise completedShunt
+	    assert !is_active
+	}
+
+	@Test
+	operation test06 () {
+	    raise completedMain
+	    assert !is_active
+	}
+
+	@Test
+	operation test07 () {
+	    raise completedDistant
+	    assert !is_active
+	}
+
+	@Test
+	operation test08 () {
+	    raise clear
+	    assert !is_active
+	}
+
+	@Test
+	operation test10 () {
+	    exit
+	    assert !is_final
+	}
+
+	@Test
+	operation test11 () {
+	}
+
+	@Test
+	operation test12 () {
+	    assert !active (SignalController.main_region.Operating.Processing.Tour_State.Processing.Waiting)
+	}
+
+	@Test
+	operation test13 () {
+	    assert !active (SignalController.main_region.Operating.Processing.Shunting_State.Processing.Waiting)
+	}
+
+	@Test
+	operation test14 () {
+	    assert !active (SignalController.main_region.Operating.Processing.Shunting_State)
+	}
+
+	@Test
+	operation test15 () {
+	    assert !active (SignalController.main_region.Operating)
+	}
+
+	@Test
+	operation test16 () {
+	    assert !active (SignalController.main_region.Init)
+	}
+
+	@Test
+	operation test17 () {
+	    assert !active (SignalController.main_region.Init.Init_process.Turning.shunt.Completed)
+	}
+
+	@Test
+	operation test18 () {
+	    assert !active (SignalController.main_region.Init.Init_process.Turning.shunt.Turn)
+	}
+
+	@Test
+	operation test19 () {
+	    assert !active (SignalController.main_region.Init.Init_process.Turning.distant.Turn)
+	}
+
+	@Test
+	operation test20 () {
+	    assert !active (SignalController.main_region.Failed)
+	}
+
+	@Test
+	operation test21 () {
+	    assert !active (SignalController.main_region.Operating.Processing.Pending.Pending.Go_Shunt)
+	}
+
+	@Test
+	operation test22 () {
+	    assert !active (SignalController.main_region.Operating.Processing.Tour_State.Processing.Waiting.Tour_waiting.Extend)
+	}
+
+	@Test
+	operation test23 () {
+	    assert !active (SignalController.main_region.Operating.Processing.Tour_State.Processing.Waiting.Tour_waiting.Stop_Shunt)
+	}
+
+	@Test
+	operation test24 () {
+	    assert !active (SignalController.main_region.Operating.Processing.Tour_State.Processing.Waiting.Tour_waiting.Delay)
+	}
+
+	@Test
+	operation test25 () {
+	    assert !active (SignalController.main_region.Operating.Processing.Tour_State.Processing.Waiting.Tour_waiting.Off_Distant)
+	}
+
+	@Test
+	operation test26 () {
+	    assert !active (SignalController.main_region.Operating.Processing.Tour_State.Processing.Waiting.Tour_waiting.Stop_Distant)
+	}
+
+	@Test
+	operation test27 () {
+	    assert !active (SignalController.main_region.Operating.Processing.Shunting_State.Processing.Waiting.Shunt_waiting.Stop)
+	}
+
+	@Test
+	operation test28 () {
+	    assert !active (SignalController.main_region.Operating.Processing.Shunting_State.Processing.Idle)
+	}
+
+	@Test
+	operation test29 () {
+	    assert !active (SignalController.main_region.Operating.Processing.Unlocked)
+	}
+
+	@Test
+	operation test30 () {
+	    assert !active (SignalController.main_region.Init.Init_process.Turning.main.Completed)
+	}
+
+	@Test
+	operation test31 () {
+	    assert !active (SignalController.main_region.Operating.Processing.Tour_State)
+	}
+
+	@Test
+	operation test32 () {
+	    assert !active (SignalController.main_region.Wait_for_Start)
+	}
+
+	@Test
+	operation test34 () {
+	    raise disable
+	    assert !is_final
+	}
+
+	@Test
+	operation test35 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test36 () {
+	    assert !is_active
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test40 () {
+	    assert !is_final
+	    assert !is_active
+	}
+
+	@Test
+	operation test50 () {
+	    enter
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+}

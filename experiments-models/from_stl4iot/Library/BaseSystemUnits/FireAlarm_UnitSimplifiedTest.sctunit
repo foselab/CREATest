@@ -1,0 +1,276 @@
+testclass FireAlarm_UnitSimplifiedTest for statechart FireAlarm_Unit {
+	@Test
+	operation test00 () {
+	    raise Timer.reset
+	}
+
+	@Test
+	operation test01 () {
+	    raise Timer.enable
+	}
+
+	@Test
+	operation test02 () {
+	    raise Timer.disable
+	}
+
+	@Test
+	operation test03 () {
+	    proceed 1s
+	    assert !is_final
+	}
+
+	@Test
+	operation test05 () {
+	    enter
+	    raise Alarm.on
+	    enter
+	    raise Mode.danger
+	}
+
+	@Test
+	operation test06 () {
+	    assert !active (FireAlarm_Unit._FireAlarm_Unit_._Fire_Alarm_Running_.Status.Warning.Level.final_warning)
+	}
+
+	@Test
+	operation test07 () {
+	}
+
+	@Test
+	operation test08 () {
+	}
+
+	@Test
+	operation test09 () {
+	}
+
+	@Test
+	operation test10 () {
+	}
+
+	@Test
+	operation test12 () {
+	    enter
+	    raise Alarm.on
+	    raise Alarm.off
+	    assert is_active
+	}
+
+	@Test
+	operation test13 () {
+	    enter
+	    raise Mode.danger
+	    enter
+	    raise Mode.safe
+	}
+
+	@Test
+	operation test14 () {
+	    enter
+	    raise Mode.warning
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test15 () {
+	    exit
+	    assert !is_final
+	}
+
+	@Test
+	operation test16 () {
+	    enter
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test17 () {
+	    enter
+	    assert !active (FireAlarm_Unit._FireAlarm_Unit_._Fire_Alarm_Running_.Timer_Status._timer_running_)
+	}
+
+	@Test
+	operation test18 () {
+	    enter
+	    raise Mode.danger
+	}
+
+	@Test
+	operation test19 () {
+	}
+
+	@Test
+	operation test20 () {
+	    assert !active (FireAlarm_Unit._FireAlarm_Unit_._Fire_Alarm_Running_.Timer_Status._timer_running_)
+	}
+
+	@Test
+	operation test21 () {
+	    assert !active (FireAlarm_Unit._FireAlarm_Unit_._Fire_Alarm_Running_.Monitoring_Sensor_Level._Threshold_Reached_)
+	}
+
+	@Test
+	operation test22 () {
+	    assert !active (FireAlarm_Unit._FireAlarm_Unit_._Fire_Alarm_Running_.Monitoring_Sensor_Level._Sensor_Triggered_)
+	}
+
+	@Test
+	operation test23 () {
+	    assert !active (FireAlarm_Unit._FireAlarm_Unit_._Fire_Alarm_Running_.Status.Danger)
+	}
+
+	@Test
+	operation test24 () {
+	    assert !active (FireAlarm_Unit._FireAlarm_Unit_._Fire_Alarm_Running_.Status.Warning)
+	}
+
+	@Test
+	operation test25 () {
+	    assert !active (FireAlarm_Unit._FireAlarm_Unit_._Fire_Alarm_Running_)
+	    assert !is_active
+	}
+
+	@Test
+	operation test26 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test27 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test28 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test29 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test30 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test31 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test32 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test33 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test34 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test35 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test36 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test37 () {
+	    assert !is_active
+	    assert !active (FireAlarm_Unit._FireAlarm_Unit_._Fire_Alarm_Running_.Status.Warning.Level.initial_warning)
+	}
+
+	@Test
+	operation test38 () {
+	    assert !active (FireAlarm_Unit._FireAlarm_Unit_._Fire_Alarm_Running_.Status.Safe)
+	    assert !is_active
+	}
+
+	@Test
+	operation test39 () {
+	    assert !is_active
+	    assert !active (FireAlarm_Unit._FireAlarm_Unit_._Fire_Alarm_Running_.Alarm_Switch.Alarm_On)
+	}
+
+	@Test
+	operation test40 () {
+	    assert !is_active
+	    assert !active (FireAlarm_Unit._FireAlarm_Unit_._Fire_Alarm_Running_.Alarm_Switch.Alarm_Off)
+	}
+
+	@Test
+	operation test41 () {
+	    triggerWithoutEvent
+	    assert !is_active
+	}
+
+	@Test
+	operation test42 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test43 () {
+	    assert !is_active
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test45 () {
+	    enter
+	    raise Mode.danger
+	    raise Mode.safe
+	}
+
+	@Test
+	operation test46 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test47 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test48 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test51 () {
+	    assert !is_active
+	    assert !is_final
+	}
+
+	@Test
+	operation test52 () {
+	    enter
+	    raise Mode.danger
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test53 () {
+	    enter
+	    raise Mode.warning
+	    raise Mode.danger
+	}
+
+}

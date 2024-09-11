@@ -1,0 +1,229 @@
+testclass _01_no_hierarchySimplifiedTest for statechart _01_no_hierarchy {
+	@Test
+	operation test00 () {
+	    proceed 30s
+	    assert !is_final
+	}
+
+	@Test
+	operation test02 () {
+	}
+
+	@Test
+	operation test03 () {
+	}
+
+	@Test
+	operation test04 () {
+	}
+
+	@Test
+	operation test05 () {
+	    enter
+	    proceed 1 cycle
+	    assert is_active
+	}
+
+	@Test
+	operation test06 () {
+	    enter
+	    raise sensor.motion
+	    proceed 1 cycle
+	    proceed 1 cycle
+	    assert is_active
+	}
+
+	@Test
+	operation test07 () {
+	    raise sensor.motion
+	    enter
+	    proceed 1 cycle
+	    raise sensor.motion
+	    proceed 1 cycle
+	    assert is_active
+	}
+
+	@Test
+	operation test08 () {
+	    enter
+	    raise sensor.motion
+	    proceed 1 cycle
+	    raise user.on_button
+	    proceed 1 cycle
+	    assert is_active
+	}
+
+	@Test
+	operation test09 () {
+	    enter
+	    raise user.on_button
+	    proceed 1 cycle
+	    proceed 1 cycle
+	    assert is_active
+	}
+
+	@Test
+	operation test10 () {
+	    exit
+	    assert !is_final
+	}
+
+	@Test
+	operation test11 () {
+	    enter
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test12 () {
+	    enter
+	    raise sensor.motion
+	    proceed 1 cycle
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test13 () {
+	    enter
+	    raise user.on_button
+	    proceed 1 cycle
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test14 () {
+	    enter
+	    assert is_active
+	    assert active (_01_no_hierarchy.main_region.MotionDetectionMode)
+	}
+
+	@Test
+	operation test15 () {
+	    enter
+	    raise sensor.motion
+	    proceed 1 cycle
+	    assert is_active
+	    assert active (_01_no_hierarchy.main_region.MotionDetected)
+	}
+
+	@Test
+	operation test16 () {
+	    enter
+	    raise user.on_button
+	    proceed 1 cycle
+	    assert is_active
+	    assert active (_01_no_hierarchy.main_region.ManualMode)
+	}
+
+	@Test
+	operation test17 () {
+	}
+
+	@Test
+	operation test18 () {
+	    assert !active (_01_no_hierarchy.main_region.TwilightDetected)
+	}
+
+	@Test
+	operation test19 () {
+	    assert !active (_01_no_hierarchy.main_region.MotionDetectionMode)
+	}
+
+	@Test
+	operation test20 () {
+	    assert !active (_01_no_hierarchy.main_region.MotionDetected)
+	}
+
+	@Test
+	operation test21 () {
+	    assert !active (_01_no_hierarchy.main_region.TwilightDetectionMode)
+	}
+
+	@Test
+	operation test22 () {
+	    assert !active (_01_no_hierarchy.main_region.ManualMode)
+	}
+
+	@Test
+	operation test23 () {
+	    enter
+	    raise user.mode_button
+	    proceed 1 cycle
+	    proceed 1 cycle
+	    assert is_active
+	}
+
+	@Test
+	operation test24 () {
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test25 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test28 () {
+	    raise lum_sensor.dark
+	}
+
+	@Test
+	operation test29 () {
+	    assert !is_final
+	}
+
+	@Test
+	operation test31 () {
+	    enter
+	    raise sensor.motion
+	    proceed 1 cycle
+	    raise user.mode_button
+	    proceed 1 cycle
+	    assert is_active
+	}
+
+	@Test
+	operation test32 () {
+	    raise lum_sensor.bright
+	}
+
+	@Test
+	operation test33 () {
+	    enter
+	    raise user.on_button
+	    proceed 1 cycle
+	    raise user.on_button
+	    proceed 1 cycle
+	    assert is_active
+	}
+
+	@Test
+	operation test34 () {
+	    enter
+	    raise user.mode_button
+	    proceed 1 cycle
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test35 () {
+	    raise user.off_button
+	}
+
+	@Test
+	operation test36 () {
+	    proceed 1 cycle
+	    assert !is_final
+	}
+
+}

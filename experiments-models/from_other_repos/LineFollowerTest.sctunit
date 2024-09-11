@@ -1,0 +1,367 @@
+testclass LineFollowerTest for statechart LineFollower {
+	@Test
+	operation test00 () {
+	    proceed 100ms
+	}
+
+	@Test
+	operation test01 () {
+	}
+
+	@Test
+	operation test02 () {
+	}
+
+	@Test
+	operation test03 () {
+	}
+
+	@Test
+	operation test04 () {
+	}
+
+	@Test
+	operation test05 () {
+	}
+
+	@Test
+	operation test06 () {
+	}
+
+	@Test
+	operation test07 () {
+	}
+
+	@Test
+	operation test08 () {
+	}
+
+	@Test
+	operation test09 () {
+	}
+
+	@Test
+	operation test10 () {
+	}
+
+	@Test
+	operation test11 () {
+	}
+
+	@Test
+	operation test12 () {
+	}
+
+	@Test
+	operation test13 () {
+	}
+
+	@Test
+	operation test14 () {
+	}
+
+	@Test
+	operation test15 () {
+	}
+
+	@Test
+	operation test16 () {
+	}
+
+	@Test
+	operation test17 () {
+	}
+
+	@Test
+	operation test18 () {
+	}
+
+	@Test
+	operation test19 () {
+	}
+
+	@Test
+	operation test20 () {
+	}
+
+	@Test
+	operation test21 () {
+	}
+
+	@Test
+	operation test22 () {
+	}
+
+	@Test
+	operation test23 () {
+	}
+
+	@Test
+	operation test24 () {
+	}
+
+	@Test
+	operation test25 () {
+	}
+
+	@Test
+	operation test26 () {
+	}
+
+	@Test
+	operation test27 () {
+	}
+
+	@Test
+	operation test28 () {
+	}
+
+	@Test
+	operation test29 () {
+	}
+
+	@Test
+	operation test30 () {
+	}
+
+	@Test
+	operation test31 () {
+	}
+
+	@Test
+	operation test32 () {
+	}
+
+	@Test
+	operation test33 () {
+	}
+
+	@Test
+	operation test34 () {
+	}
+
+	@Test
+	operation test35 () {
+	}
+
+	@Test
+	operation test36 () {
+	}
+
+	@Test
+	operation test37 () {
+	}
+
+	@Test
+	operation test38 () {
+	}
+
+	@Test
+	operation test39 () {
+	}
+
+	@Test
+	operation test40 () {
+	}
+
+	@Test
+	operation test41 () {
+	}
+
+	@Test
+	operation test42 () {
+	}
+
+	@Test
+	operation test43 () {
+	}
+
+	@Test
+	operation test44 () {
+	}
+
+	@Test
+	operation test46 () {
+	}
+
+	@Test
+	operation test47 () {
+	}
+
+	@Test
+	operation test48 () {
+	}
+
+	@Test
+	operation test49 () {
+	    assert !active (LineFollower.State_Transitions.Forward)
+	}
+
+	@Test
+	operation test50 () {
+	    assert !active (LineFollower.PID_Calculater.PID_Compute)
+	}
+
+	@Test
+	operation test51 () {
+	    assert !active (LineFollower.State_Transitions.Static_State)
+	}
+
+	@Test
+	operation test52 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test53 () {
+	    exit
+	}
+
+	@Test
+	operation test54 () {
+	    assert !is_active
+	    exit
+	}
+
+	@Test
+	operation test57 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test58 () {
+	    assert !is_final
+	    assert !is_active
+	}
+
+	@Test
+	operation test59 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test60 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test61 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test62 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test63 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test64 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test65 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test66 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test67 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test68 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test70 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test71 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test72 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test73 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test74 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test75 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test76 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test77 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test78 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test79 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test80 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test81 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test82 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test83 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test84 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test85 () {
+	    assert !is_active
+	}
+
+}

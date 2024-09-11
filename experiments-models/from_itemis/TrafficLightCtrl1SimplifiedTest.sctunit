@@ -1,0 +1,182 @@
+testclass TrafficLightCtrl1SimplifiedTest for statechart TrafficLightCtrl1 {
+	@Test
+	operation test00 () {
+	    proceed 7s
+	    assert !is_active
+	}
+
+	@Test
+	operation test02 () {
+	}
+
+	@Test
+	operation test03 () {
+	}
+
+	@Test
+	operation test04 () {
+	    enter
+	    proceed 1 cycle
+	    assert is_active
+	}
+
+	@Test
+	operation test05 () {
+	    raise onOff
+	    enter
+	    proceed 1 cycle
+	    proceed 1 cycle
+	    assert is_active
+	}
+
+	@Test
+	operation test07 () {
+	    raise onOff
+	    enter
+	    proceed 1 cycle
+	    assert active (TrafficLightCtrl1.main_region.on.r1.Safe)
+	}
+
+	@Test
+	operation test08 () {
+	}
+
+	@Test
+	operation test09 () {
+	    assert !active (TrafficLightCtrl1.main_region.off)
+	}
+
+	@Test
+	operation test10 () {
+	    assert !active (TrafficLightCtrl1.main_region.on.r1.PedWaiting)
+	}
+
+	@Test
+	operation test11 () {
+	    assert !active (TrafficLightCtrl1.main_region.off.r1.YellowOff)
+	}
+
+	@Test
+	operation test12 () {
+	    assert !active (TrafficLightCtrl1.main_region.off.r1.YellowOn)
+	}
+
+	@Test
+	operation test13 () {
+	    assert !active (TrafficLightCtrl1.main_region.on.r1.Safe)
+	}
+
+	@Test
+	operation test14 () {
+	    assert !active (TrafficLightCtrl1.main_region.on.r1.StreetPrepare)
+	}
+
+	@Test
+	operation test15 () {
+	    assert !active (TrafficLightCtrl1.main_region.on.r1.PedestrianRed)
+	}
+
+	@Test
+	operation test16 () {
+	    assert !active (TrafficLightCtrl1.main_region.on.r1.PedestrianGreen)
+	}
+
+	@Test
+	operation test17 () {
+	    assert !active (TrafficLightCtrl1.main_region.on.r1.StreetRed)
+	}
+
+	@Test
+	operation test18 () {
+	    assert !active (TrafficLightCtrl1.main_region.on.r1.StreetAttention)
+	}
+
+	@Test
+	operation test19 () {
+	    assert !active (TrafficLightCtrl1.main_region.on.r1.PedWaiting.r1.waitOff)
+	}
+
+	@Test
+	operation test20 () {
+	    assert !active (TrafficLightCtrl1.main_region.on.r1.PedWaiting.r1.waitOn)
+	}
+
+	@Test
+	operation test21 () {
+	    assert !is_active
+	    assert !active (TrafficLightCtrl1.main_region.on)
+	}
+
+	@Test
+	operation test22 () {
+	    assert !is_active
+	    assert !active (TrafficLightCtrl1.main_region.on.r1.StreetGreen)
+	}
+
+	@Test
+	operation test23 () {
+	    proceed 1 cycle
+	    assert !is_final
+	}
+
+	@Test
+	operation test24 () {
+	    assert !is_active
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test25 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test30 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test31 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test32 () {
+	    raise pedestrianRequest
+	    assert !is_active
+	}
+
+	@Test
+	operation test33 () {
+	    raise onOff
+	    enter
+	    proceed 1 cycle
+	    raise onOff
+	    proceed 1 cycle
+	    assert !is_final
+	}
+
+	@Test
+	operation test34 () {
+	    assert !is_final
+	    assert !is_active
+	}
+
+	@Test
+	operation test36 () {
+	    raise onOff
+	    enter
+	    proceed 1 cycle
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test37 () {
+	    enter
+	    exit
+	    assert !is_final
+	}
+
+}

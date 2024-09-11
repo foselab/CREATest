@@ -1,0 +1,199 @@
+testclass ConfigureSimplifiedTest for statechart Configure {
+	@Test
+	operation test00 () {
+	    enter
+	    raise connected
+	    assert is_active
+	}
+
+	@Test
+	operation test06 () {
+	    enter
+	    raise connected
+	    raise completed
+	    assert is_active
+	}
+
+	@Test
+	operation test07 () {
+	    enter
+	    raise connected
+	    assert is_active
+	}
+
+	@Test
+	operation test08 () {
+	    enter
+	    raise connected
+	    triggerWithoutEvent
+	    assert is_active
+	}
+
+	@Test
+	operation test09 () {
+	    enter
+	    triggerWithoutEvent
+	    assert is_active
+	}
+
+	@Test
+	operation test10 () {
+	    exit
+	    assert !is_final
+	}
+
+	@Test
+	operation test11 () {
+	    enter
+	    raise connected
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test12 () {
+	    enter
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test13 () {
+	    enter
+	    raise connected
+	    assert is_active
+	}
+
+	@Test
+	operation test14 () {
+	    enter
+	    raise connected
+	    raise completed
+	    assert is_active
+	    assert active (Configure.main_region.Booted)
+	}
+
+	@Test
+	operation test15 () {
+	    enter
+	    assert is_active
+	    assert active (Configure.main_region.Failed)
+	}
+
+	@Test
+	operation test16 () {
+	    enter
+	    raise connected
+	    assert is_active
+	    assert active (Configure.main_region.Configure)
+	}
+
+	@Test
+	operation test17 () {
+	    enter
+	    assert is_active
+	    assert active (Configure.main_region.Wait_for_Connect)
+	}
+
+	@Test
+	operation test18 () {
+	}
+
+	@Test
+	operation test19 () {
+	    assert !active (Configure.main_region.Booted)
+	}
+
+	@Test
+	operation test20 () {
+	    assert !active (Configure.main_region.Failed)
+	}
+
+	@Test
+	operation test21 () {
+	    assert !active (Configure.main_region.Configure)
+	}
+
+	@Test
+	operation test22 () {
+	    assert !active (Configure.main_region.Wait_for_Boot)
+	}
+
+	@Test
+	operation test23 () {
+	    assert !active (Configure.main_region.Wait_for_Connect)
+	}
+
+	@Test
+	operation test25 () {
+	    raise completed
+	    assert !is_active
+	}
+
+	@Test
+	operation test26 () {
+	    assert !is_active
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test27 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test30 () {
+	    enter
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test31 () {
+	    enter
+	    raise connected
+	    raise completed
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test32 () {
+	    assert !is_final
+	    assert !is_active
+	}
+
+	@Test
+	operation test33 () {
+	    enter
+	    raise connected
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test34 () {
+	    assert !is_active
+	    enter
+	    raise connected
+	    raise completed
+	    raise completed
+	    assert is_active
+	}
+
+	@Test
+	operation test35 () {
+	    assert !is_active
+	    enter
+	    raise connected
+	    assert is_active
+	    assert active (Configure.main_region.Wait_for_Boot)
+	}
+
+}

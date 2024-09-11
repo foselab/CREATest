@@ -1,0 +1,196 @@
+testclass EventBuffersDisabledTest for statechart EventBuffersDisabled {
+	@Test
+	operation test00 () {
+	}
+
+	@Test
+	operation test01 () {
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test02 () {
+	}
+
+	@Test
+	operation test03 () {
+	}
+
+	@Test
+	operation test04 () {
+	}
+
+	@Test
+	operation test06 () {
+	    raise l1
+	    enter
+	    proceed 1 cycle
+	    proceed 1 cycle
+	    assert is_active
+	}
+
+	@Test
+	operation test07 () {
+	    enter
+	    raise l2
+	    proceed 1 cycle
+	    proceed 1 cycle
+	    assert is_active
+	}
+
+	@Test
+	operation test08 () {
+	    enter
+	    raise l2
+	    proceed 1 cycle
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test09 () {
+	    enter
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test10 () {
+	    raise e
+	    enter
+	    proceed 1 cycle
+	    assert is_active
+	    assert active (EventBuffersDisabled.r2.D)
+	}
+
+	@Test
+	operation test11 () {
+	    enter
+	    assert is_active
+	    assert active (EventBuffersDisabled.r2.C)
+	}
+
+	@Test
+	operation test12 () {
+	    enter
+	    assert is_active
+	    assert active (EventBuffersDisabled.r1.A)
+	}
+
+	@Test
+	operation test13 () {
+	    assert !active (EventBuffersDisabled.r2.D)
+	}
+
+	@Test
+	operation test14 () {
+	    assert !active (EventBuffersDisabled.r2.C)
+	}
+
+	@Test
+	operation test15 () {
+	    assert !active (EventBuffersDisabled.r1.B)
+	}
+
+	@Test
+	operation test16 () {
+	}
+
+	@Test
+	operation test17 () {
+	    assert !active (EventBuffersDisabled.r1.A)
+	}
+
+	@Test
+	operation test18 () {
+	    proceed 1 cycle
+	    assert !is_active
+	}
+
+	@Test
+	operation test19 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test20 () {
+	    assert !is_active
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test21 () {
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test22 () {
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test23 () {
+	    enter
+	    assert !is_active
+	}
+
+	@Test
+	operation test24 () {
+	    proceed 1 cycle
+	    assert !is_active
+	}
+
+	@Test
+	operation test25 () {
+	    raise e
+	    assert !is_active
+	    enter
+	    proceed 1 cycle
+	    raise f
+	    proceed 1 cycle
+	    assert is_active
+	}
+
+	@Test
+	operation test26 () {
+	    assert !is_final
+	    assert !is_active
+	}
+
+	@Test
+	operation test27 () {
+	    raise l2
+	    assert !is_active
+	    enter
+	    proceed 1 cycle
+	    assert active (EventBuffersDisabled.r1.B)
+	}
+
+	@Test
+	operation test28 () {
+	    assert !is_active
+	    enter
+	    raise l2
+	    proceed 1 cycle
+	    raise e
+	    proceed 1 cycle
+	    assert is_active
+	}
+
+	@Test
+	operation test29 () {
+	    raise l1
+	    enter
+	    proceed 1 cycle
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+}

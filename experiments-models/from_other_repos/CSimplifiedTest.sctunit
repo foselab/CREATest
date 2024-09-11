@@ -1,0 +1,110 @@
+testclass CSimplifiedTest for statechart C {
+	@Test
+	operation test04 () {
+	    enter
+	    proceed 1s
+	    enter
+	    assert is_active
+	    proceed 1s
+	    assert !is_active
+	}
+
+	@Test
+	operation test05 () {
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test06 () {
+	    enter
+	    assert is_active
+	    assert active (C.main_region.Initial)
+	}
+
+	@Test
+	operation test07 () {
+	    enter
+	    proceed 1s
+	    assert is_active
+	    assert active (C.main_region.One)
+	}
+
+	@Test
+	operation test08 () {
+	}
+
+	@Test
+	operation test09 () {
+	    assert !active (C.main_region.Initial)
+	}
+
+	@Test
+	operation test10 () {
+	    assert !active (C.main_region.One)
+	}
+
+	@Test
+	operation test11 () {
+	    assert !active (C.main_region.Zero)
+	}
+
+	@Test
+	operation test12 () {
+	    triggerWithoutEvent
+	    assert !is_active
+	}
+
+	@Test
+	operation test13 () {
+	    assert !is_active
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test14 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test16 () {
+	    enter
+	    proceed 1s
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test17 () {
+	    assert !is_final
+	    assert !is_active
+	}
+
+	@Test
+	operation test18 () {
+	    assert !is_active
+	    enter
+	    proceed 1s
+	    triggerWithoutEvent
+	    assert is_active
+	}
+
+	@Test
+	operation test19 () {
+	    enter
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test20 () {
+	    assert !is_active
+	    enter
+	    triggerWithoutEvent
+	    assert is_active
+	}
+
+}

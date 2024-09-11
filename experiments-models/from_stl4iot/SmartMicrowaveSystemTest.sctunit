@@ -1,0 +1,295 @@
+testclass SmartMicrowaveSystemTest for statechart SmartMicrowaveSystem {
+	@Test
+	operation test00 () {
+	}
+
+	@Test
+	operation test01 () {
+	}
+
+	@Test
+	operation test02 () {
+	}
+
+	@Test
+	operation test03 () {
+	}
+
+	@Test
+	operation test04 () {
+	}
+
+	@Test
+	operation test05 () {
+	}
+
+	@Test
+	operation test06 () {
+	}
+
+	@Test
+	operation test07 () {
+	}
+
+	@Test
+	operation test08 () {
+	}
+
+	@Test
+	operation test09 () {
+	}
+
+	@Test
+	operation test10 () {
+	}
+
+	@Test
+	operation test11 () {
+	}
+
+	@Test
+	operation test12 () {
+	}
+
+	@Test
+	operation test13 () {
+	}
+
+	@Test
+	operation test14 () {
+	}
+
+	@Test
+	operation test15 () {
+	}
+
+	@Test
+	operation test16 () {
+	}
+
+	@Test
+	operation test17 () {
+	}
+
+	@Test
+	operation test18 () {
+	}
+
+	@Test
+	operation test19 () {
+	}
+
+	@Test
+	operation test20 () {
+	}
+
+	@Test
+	operation test21 () {
+	}
+
+	@Test
+	operation test22 () {
+	}
+
+	@Test
+	operation test23 () {
+	}
+
+	@Test
+	operation test24 () {
+	}
+
+	@Test
+	operation test25 () {
+	}
+
+	@Test
+	operation test26 () {
+	}
+
+	@Test
+	operation test27 () {
+	}
+
+	@Test
+	operation test28 () {
+	    assert !active (SmartMicrowaveSystem._SmartMicrowaveSystem_.SmartMicrowaveSystem)
+	}
+
+	@Test
+	operation test29 () {
+	}
+
+	@Test
+	operation test30 () {
+	}
+
+	@Test
+	operation test31 () {
+	}
+
+	@Test
+	operation test32 () {
+	}
+
+	@Test
+	operation test33 () {
+	}
+
+	@Test
+	operation test34 () {
+	}
+
+	@Test
+	operation test35 () {
+	}
+
+	@Test
+	operation test36 () {
+	}
+
+	@Test
+	operation test37 () {
+	    assert !active (SmartMicrowaveSystem._SmartMicrowaveSystem_.SmartMicrowaveSystem.ActuatorComponent.off)
+	}
+
+	@Test
+	operation test38 () {
+	    assert !active (SmartMicrowaveSystem._SmartMicrowaveSystem_.SmartMicrowaveSystem.ActuatorComponent._Actuator_Updates_)
+	}
+
+	@Test
+	operation test39 () {
+	    assert !active (SmartMicrowaveSystem._SmartMicrowaveSystem_.SmartMicrowaveSystem.SystemStatus.on)
+	}
+
+	@Test
+	operation test40 () {
+	    assert !active (SmartMicrowaveSystem._SmartMicrowaveSystem_.SmartMicrowaveSystem.ActuatorComponent._Device_Functioning_)
+	}
+
+	@Test
+	operation test41 () {
+	}
+
+	@Test
+	operation test42 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test43 () {
+	    exit
+	}
+
+	@Test
+	operation test45 () {
+	}
+
+	@Test
+	operation test46 () {
+	}
+
+	@Test
+	operation test50 () {
+	}
+
+	@Test
+	operation test51 () {
+	}
+
+	@Test
+	operation test52 () {
+	}
+
+	@Test
+	operation test53 () {
+	}
+
+	@Test
+	operation test54 () {
+	}
+
+	@Test
+	operation test55 () {
+	}
+
+	@Test
+	operation test56 () {
+	}
+
+	@Test
+	operation test58 () {
+	}
+
+	@Test
+	operation test59 () {
+	}
+
+	@Test
+	operation test61 () {
+	}
+
+	@Test
+	operation test62 () {
+	}
+
+	@Test
+	operation test63 () {
+	}
+
+	@Test
+	operation test64 () {
+	}
+
+	@Test
+	operation test66 () {
+	}
+
+	@Test
+	operation test67 () {
+	    assert !is_active
+	    exit
+	}
+
+	@Test
+	operation test68 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test69 () {
+	    assert !is_active
+	    assert !is_final
+	}
+
+	@Test
+	operation test70 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test71 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test72 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test73 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test74 () {
+	}
+
+	@Test
+	operation test75 () {
+	    assert !is_active
+	}
+
+}

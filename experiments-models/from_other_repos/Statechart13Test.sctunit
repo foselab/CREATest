@@ -1,0 +1,201 @@
+testclass Statechart13Test for statechart Statechart13 {
+	@Test
+	operation test00 () {
+	}
+
+	@Test
+	operation test01 () {
+	}
+
+	@Test
+	operation test02 () {
+	}
+
+	@Test
+	operation test03 () {
+	}
+
+	@Test
+	operation test05 () {
+	}
+
+	@Test
+	operation test06 () {
+	}
+
+	@Test
+	operation test07 () {
+	}
+
+	@Test
+	operation test08 () {
+	}
+
+	@Test
+	operation test09 () {
+	    assert !active (Statechart13.main_region.Controller.r1.Smart_and_Dumb_Mode)
+	}
+
+	@Test
+	operation test10 () {
+	    assert !active (Statechart13.main_region.Controller)
+	}
+
+	@Test
+	operation test11 () {
+	}
+
+	@Test
+	operation test12 () {
+	}
+
+	@Test
+	operation test13 () {
+	}
+
+	@Test
+	operation test14 () {
+	}
+
+	@Test
+	operation test15 () {
+	}
+
+	@Test
+	operation test16 () {
+	}
+
+	@Test
+	operation test17 () {
+	}
+
+	@Test
+	operation test18 () {
+	}
+
+	@Test
+	operation test19 () {
+	}
+
+	@Test
+	operation test20 () {
+	}
+
+	@Test
+	operation test21 () {
+	    assert !active (Statechart13.main_region.Controller.r1.Smart_and_Dumb_Mode.r1.Yellow)
+	}
+
+	@Test
+	operation test22 () {
+	    assert !active (Statechart13.main_region.Controller.r1.Smart_and_Dumb_Mode.r1.Green)
+	}
+
+	@Test
+	operation test23 () {
+	    assert !active (Statechart13.main_region.Controller.r1.Smart_and_Dumb_Mode.r1.Red)
+	}
+
+	@Test
+	operation test24 () {
+	}
+
+	@Test
+	operation test25 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test26 () {
+	    assert !is_active
+	    exit
+	}
+
+	@Test
+	operation test29 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test30 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test31 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test32 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test33 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test34 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test36 () {
+	    assert !is_active
+	    assert !is_final
+	}
+
+	@Test
+	operation test38 () {
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test39 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test40 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test41 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test42 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test43 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test44 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test45 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test48 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test49 () {
+	    assert !is_active
+	}
+
+}

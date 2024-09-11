@@ -1,0 +1,168 @@
+testclass _01_No_HistorySimplifiedTest for statechart _01_No_History {
+	@Test
+	operation test00 () {
+	    proceed 30s
+	    assert !is_final
+	}
+
+	@Test
+	operation test02 () {
+	}
+
+	@Test
+	operation test03 () {
+	    enter
+	    proceed 1 cycle
+	    assert is_active
+	}
+
+	@Test
+	operation test04 () {
+	    exit
+	    assert !is_final
+	}
+
+	@Test
+	operation test05 () {
+	    enter
+	    assert is_active
+	    assert active (_01_No_History.main_region.AutomaticMode.r1.MotionDetectionMode.r1.Idle)
+	}
+
+	@Test
+	operation test06 () {
+	    enter
+	    assert is_active
+	    assert active (_01_No_History.main_region.AutomaticMode.r1.MotionDetectionMode)
+	}
+
+	@Test
+	operation test07 () {
+	    enter
+	    assert is_active
+	    assert active (_01_No_History.main_region.AutomaticMode)
+	}
+
+	@Test
+	operation test08 () {
+	}
+
+	@Test
+	operation test09 () {
+	    assert !active (_01_No_History.main_region.AutomaticMode.r1.MotionDetectionMode)
+	}
+
+	@Test
+	operation test10 () {
+	    assert !active (_01_No_History.main_region.AutomaticMode.r1.TwilightDetectionMode)
+	}
+
+	@Test
+	operation test11 () {
+	    assert !active (_01_No_History.main_region.AutomaticMode.r1.MotionDetectionMode.r1.MotionDetected)
+	}
+
+	@Test
+	operation test12 () {
+	    assert !active (_01_No_History.main_region.AutomaticMode.r1.MotionDetectionMode.r1.Idle)
+	}
+
+	@Test
+	operation test13 () {
+	    assert !active (_01_No_History.main_region.AutomaticMode.r1.TwilightDetectionMode.r1.TwilightDetected)
+	}
+
+	@Test
+	operation test14 () {
+	    assert !active (_01_No_History.main_region.AutomaticMode.r1.TwilightDetectionMode.r1.Idle)
+	}
+
+	@Test
+	operation test15 () {
+	    assert !active (_01_No_History.main_region.AutomaticMode)
+	}
+
+	@Test
+	operation test16 () {
+	    assert !active (_01_No_History.main_region.ManualMode)
+	}
+
+	@Test
+	operation test17 () {
+	    proceed 1 cycle
+	    assert !is_final
+	}
+
+	@Test
+	operation test18 () {
+	    assert !is_active
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test19 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test22 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test23 () {
+	    assert !is_final
+	    assert !is_active
+	}
+
+	@Test
+	operation test24 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test26 () {
+	    raise user.on_button
+	    assert !is_active
+	    enter
+	    proceed 1 cycle
+	    assert is_active
+	}
+
+	@Test
+	operation test27 () {
+	    enter
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test28 () {
+	    raise sensor.motion
+	}
+
+	@Test
+	operation test29 () {
+	    raise user.off_button
+	    assert !is_active
+	}
+
+	@Test
+	operation test30 () {
+	    raise user.mode_button
+	    assert !is_active
+	}
+
+	@Test
+	operation test31 () {
+	    raise lum_sensor.dark
+	}
+
+	@Test
+	operation test32 () {
+	    raise lum_sensor.bright
+	}
+
+}

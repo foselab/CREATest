@@ -1,0 +1,10 @@
+testsuite ____SuiteForDefault {
+	sampleTest,
+	SmartFireSystemTest,
+	SmartHubSystemTest,
+	SmartLightHUBTest,
+	SmartLightSystemTest,
+	SmartMicrowaveSystemTest,
+	SmartTrafficLightSystemTest,
+	SmartTVSystemTest
+}

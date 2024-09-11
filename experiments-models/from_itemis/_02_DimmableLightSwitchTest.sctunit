@@ -1,0 +1,161 @@
+testclass _02_DimmableLightSwitchTest for statechart _02_DimmableLightSwitch {
+	@Test
+	operation test00 () {
+	    enter
+	    raise switch
+	    raise switch
+	    raise switch
+	    raise changeBrightness
+	    assert is_active
+	}
+
+	@Test
+	operation test01 () {
+	    raise changeBrightness
+	}
+
+	@Test
+	operation test02 () {
+	}
+
+	@Test
+	operation test03 () {
+	}
+
+	@Test
+	operation test04 () {
+	}
+
+	@Test
+	operation test05 () {
+	    enter
+	    raise switch
+	    assert is_active
+	}
+
+	@Test
+	operation test06 () {
+	}
+
+	@Test
+	operation test08 () {
+	}
+
+	@Test
+	operation test09 () {
+	    enter
+	    raise switch
+	    raise switch
+	    raise switch
+	    raise changeBrightness
+	    assert is_active
+	}
+
+	@Test
+	operation test10 () {
+	    enter
+	    raise switch
+	    triggerWithoutEvent
+	    assert is_active
+	}
+
+	@Test
+	operation test11 () {
+	    enter
+	    raise changeBrightness
+	    assert is_active
+	}
+
+	@Test
+	operation test12 () {
+	    enter
+	    raise switch
+	    exit
+	}
+
+	@Test
+	operation test13 () {
+	    enter
+	    assert is_active
+	    exit
+	}
+
+	@Test
+	operation test14 () {
+	    enter
+	    raise switch
+	    assert is_active
+	    assert active (_02_DimmableLightSwitch.main.On)
+	}
+
+	@Test
+	operation test15 () {
+	    enter
+	    assert is_active
+	    assert active (_02_DimmableLightSwitch.main.Off)
+	}
+
+	@Test
+	operation test16 () {
+	}
+
+	@Test
+	operation test17 () {
+	    assert !active (_02_DimmableLightSwitch.main.On)
+	}
+
+	@Test
+	operation test18 () {
+	    assert !active (_02_DimmableLightSwitch.main.Off)
+	}
+
+	@Test
+	operation test19 () {
+	    raise switch
+	    raise changeBrightness
+	}
+
+	@Test
+	operation test20 () {
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test21 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test22 () {
+	    exit
+	}
+
+	@Test
+	operation test23 () {
+	    assert !is_active
+	    exit
+	}
+
+	@Test
+	operation test24 () {
+	    assert !is_final
+	    assert !is_active
+	}
+
+	@Test
+	operation test25 () {
+	    enter
+	    assert !is_active
+	}
+
+	@Test
+	operation test26 () {
+	    enter
+	    raise switch
+	    raise switch
+	    raise switch
+	    raise changeBrightness
+	}
+
+}

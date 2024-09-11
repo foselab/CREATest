@@ -1,0 +1,207 @@
+testclass BouncingBallTest for statechart BouncingBall {
+	@Test
+	operation test00 () {
+	    enter
+	    enter
+	    proceed 1 cycle
+	    proceed 1 cycle
+	}
+
+	@Test
+	operation test01 () {
+	    enter
+	    proceed 1 cycle
+	    assert is_active
+	}
+
+	@Test
+	operation test02 () {
+	}
+
+	@Test
+	operation test03 () {
+	}
+
+	@Test
+	operation test04 () {
+	}
+
+	@Test
+	operation test05 () {
+	}
+
+	@Test
+	operation test06 () {
+	}
+
+	@Test
+	operation test07 () {
+	}
+
+	@Test
+	operation test08 () {
+	}
+
+	@Test
+	operation test09 () {
+	}
+
+	@Test
+	operation test11 () {
+	}
+
+	@Test
+	operation test12 () {
+	}
+
+	@Test
+	operation test13 () {
+	}
+
+	@Test
+	operation test14 () {
+	    enter
+	    proceed 1 cycle
+	    proceed 1 cycle
+	}
+
+	@Test
+	operation test15 () {
+	    exit
+	}
+
+	@Test
+	operation test16 () {
+	    enter
+	    proceed 1 cycle
+	    exit
+	}
+
+	@Test
+	operation test17 () {
+	    enter
+	    exit
+	}
+
+	@Test
+	operation test18 () {
+	    enter
+	    proceed 1 cycle
+	    proceed 1 cycle
+	    assert is_active
+	    assert active (BouncingBall.main_region.Rest)
+	}
+
+	@Test
+	operation test19 () {
+	    enter
+	    proceed 1 cycle
+	    assert is_active
+	    assert active (BouncingBall.main_region.Bounce)
+	}
+
+	@Test
+	operation test20 () {
+	    enter
+	    assert active (BouncingBall.main_region.In_the_air)
+	}
+
+	@Test
+	operation test21 () {
+	    assert !active (BouncingBall.main_region.Rest)
+	}
+
+	@Test
+	operation test22 () {
+	    assert !active (BouncingBall.main_region.Bounce)
+	}
+
+	@Test
+	operation test23 () {
+	}
+
+	@Test
+	operation test24 () {
+	    assert !active (BouncingBall.main_region.In_the_air)
+	}
+
+	@Test
+	operation test25 () {
+	    assert !is_active
+	    proceed 1 cycle
+	}
+
+	@Test
+	operation test26 () {
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test27 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test28 () {
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test29 () {
+	    enter
+	    assert !is_active
+	}
+
+	@Test
+	operation test30 () {
+	    assert !is_active
+	    assert !is_final
+	}
+
+	@Test
+	operation test31 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test32 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test33 () {
+	    enter
+	    proceed 1 cycle
+	    proceed 1 cycle
+	    proceed 1 cycle
+	}
+
+	@Test
+	operation test34 () {
+	    proceed 1 cycle
+	    assert !is_active
+	}
+
+	@Test
+	operation test35 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test36 () {
+	    enter
+	    proceed 1 cycle
+	    proceed 1 cycle
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test37 () {
+	    enter
+	    proceed 1 cycle
+	}
+
+}

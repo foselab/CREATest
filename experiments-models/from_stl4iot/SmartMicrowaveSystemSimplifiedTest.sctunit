@@ -1,0 +1,177 @@
+testclass SmartMicrowaveSystemSimplifiedTest for statechart SmartMicrowaveSystem {
+	@Test
+	operation test00 () {
+	    assert !is_final
+	}
+
+	@Test
+	operation test01 () {
+	    assert !is_final
+	}
+
+	@Test
+	operation test02 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test03 () {
+	    assert !is_final
+	}
+
+	@Test
+	operation test04 () {
+	    assert !is_final
+	}
+
+	@Test
+	operation test05 () {
+	}
+
+	@Test
+	operation test06 () {
+	}
+
+	@Test
+	operation test07 () {
+	    assert !is_final
+	}
+
+	@Test
+	operation test08 () {
+	}
+
+	@Test
+	operation test09 () {
+	}
+
+	@Test
+	operation test10 () {
+	    assert !active (SmartMicrowaveSystem._SmartMicrowaveSystem_.SmartMicrowaveSystem.trackingDeviceTemperature._Initialize_DeviceTemp_Component_)
+	}
+
+	@Test
+	operation test11 () {
+	    assert !active (SmartMicrowaveSystem._SmartMicrowaveSystem_.SmartMicrowaveSystem.PowerCalculatorComponent._Initialize_Power_Component_)
+	}
+
+	@Test
+	operation test12 () {
+	    assert !active (SmartMicrowaveSystem._SmartMicrowaveSystem_.SmartMicrowaveSystem.NetworkComponent._Initialize_WiFi_Component_)
+	}
+
+	@Test
+	operation test13 () {
+	    assert !active (SmartMicrowaveSystem._SmartMicrowaveSystem_.SmartMicrowaveSystem.SensorComponent._Initialize_Sensor_Component_)
+	}
+
+	@Test
+	operation test14 () {
+	    assert !active (SmartMicrowaveSystem._SmartMicrowaveSystem_.SmartMicrowaveSystem.trackingDeviceTemperature.off)
+	}
+
+	@Test
+	operation test15 () {
+	    assert !active (SmartMicrowaveSystem._SmartMicrowaveSystem_.SmartMicrowaveSystem.trackingDeviceTemperature._Initialize_DeviceTemp_Component_.updating._Temperature_Updates_)
+	}
+
+	@Test
+	operation test16 () {
+	    assert !active (SmartMicrowaveSystem._SmartMicrowaveSystem_.SmartMicrowaveSystem.PowerCalculatorComponent.off)
+	}
+
+	@Test
+	operation test17 () {
+	    assert !active (SmartMicrowaveSystem._SmartMicrowaveSystem_.SmartMicrowaveSystem.PowerCalculatorComponent._Initialize_Power_Component_.updating._Power_Updates_)
+	}
+
+	@Test
+	operation test18 () {
+	    assert !active (SmartMicrowaveSystem._SmartMicrowaveSystem_.SmartMicrowaveSystem.NetworkComponent.off)
+	}
+
+	@Test
+	operation test19 () {
+	    assert !active (SmartMicrowaveSystem._SmartMicrowaveSystem_.SmartMicrowaveSystem.NetworkComponent._Initialize_WiFi_Component_.updating._WiFi_Updates_)
+	}
+
+	@Test
+	operation test20 () {
+	    assert !active (SmartMicrowaveSystem._SmartMicrowaveSystem_.SmartMicrowaveSystem.SensorComponent.off)
+	}
+
+	@Test
+	operation test21 () {
+	    assert !active (SmartMicrowaveSystem._SmartMicrowaveSystem_.SmartMicrowaveSystem.SensorComponent._Initialize_Sensor_Component_.updating._Sensor_Updates_)
+	}
+
+	@Test
+	operation test22 () {
+	    assert !active (SmartMicrowaveSystem._SmartMicrowaveSystem_.SmartMicrowaveSystem.ControllerComponent.off)
+	}
+
+	@Test
+	operation test23 () {
+	    assert !active (SmartMicrowaveSystem._SmartMicrowaveSystem_.SmartMicrowaveSystem.ControllerComponent._Initialize_Controller_Component_.updating._Controller_Updates_)
+	}
+
+	@Test
+	operation test24 () {
+	    assert !active (SmartMicrowaveSystem._SmartMicrowaveSystem_.SmartMicrowaveSystem.ActuatorComponent._Device_Functioning_)
+	}
+
+	@Test
+	operation test25 () {
+	    assert !active (SmartMicrowaveSystem._SmartMicrowaveSystem_.SmartMicrowaveSystem.ActuatorComponent._Actuator_Updates_)
+	}
+
+	@Test
+	operation test26 () {
+	    assert !active (SmartMicrowaveSystem._SmartMicrowaveSystem_.SmartMicrowaveSystem.SystemStatus.on)
+	}
+
+	@Test
+	operation test27 () {
+	    assert !is_active
+	    assert !active (SmartMicrowaveSystem._SmartMicrowaveSystem_.SmartMicrowaveSystem)
+	}
+
+	@Test
+	operation test28 () {
+	    assert !is_active
+	    assert !active (SmartMicrowaveSystem._SmartMicrowaveSystem_.SmartMicrowaveSystem.SystemStatus.off)
+	}
+
+	@Test
+	operation test29 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test31 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test32 () {
+	    exit
+	    assert !is_final
+	}
+
+	@Test
+	operation test34 () {
+	    assert !is_final
+	    assert !is_active
+	}
+
+	@Test
+	operation test35 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test36 () {
+	    assert !is_active
+	}
+
+}

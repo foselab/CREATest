@@ -1,0 +1,123 @@
+testclass Network_ComponentTest for statechart Network_Component {
+	@Test
+	operation test00 () {
+	}
+
+	@Test
+	operation test01 () {
+	}
+
+	@Test
+	operation test02 () {
+	}
+
+	@Test
+	operation test03 () {
+	}
+
+	@Test
+	operation test04 () {
+	}
+
+	@Test
+	operation test05 () {
+	}
+
+	@Test
+	operation test07 () {
+	}
+
+	@Test
+	operation test08 () {
+	    assert !active (Network_Component._Network_Component_._Network_Component_Working_._Network_Connection_.checkingForNetworkConnection._CheckingForConnectionUpdates_.connectingToServer)
+	}
+
+	@Test
+	operation test09 () {
+	    assert !active (Network_Component._Network_Component_._Network_Component_Working_._Network_Connection_.checkingForNetworkConnection)
+	}
+
+	@Test
+	operation test10 () {
+	    assert !active (Network_Component._Network_Component_._Network_Component_Working_)
+	}
+
+	@Test
+	operation test11 () {
+	}
+
+	@Test
+	operation test12 () {
+	}
+
+	@Test
+	operation test13 () {
+	    assert !active (Network_Component._Network_Component_._Network_Component_Working_._Network_Connection_.checkingForNetworkConnection._CheckingForConnectionUpdates_.connectingToServer._Server_Connection_.failure)
+	}
+
+	@Test
+	operation test14 () {
+	}
+
+	@Test
+	operation test15 () {
+	    assert !active (Network_Component._Network_Component_._Network_Component_Working_._Network_Connection_.checkingForNetworkConnection._CheckingForConnectionUpdates_.connectingToServer._Server_Connection_.success)
+	}
+
+	@Test
+	operation test16 () {
+	}
+
+	@Test
+	operation test17 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test18 () {
+	    exit
+	}
+
+	@Test
+	operation test20 () {
+	    assert !is_active
+	    exit
+	}
+
+	@Test
+	operation test22 () {
+	    assert !is_active
+	    assert !is_final
+	}
+
+	@Test
+	operation test24 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test25 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test26 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test27 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test28 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test30 () {
+	    assert !is_active
+	}
+
+}

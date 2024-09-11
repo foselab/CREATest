@@ -1,0 +1,11 @@
+testsuite SuiteForCluster3 {
+	FireAlarm_UnitSimplifiedTest,
+	SmartTemplateSimplifiedTest,
+	SmartLightSystemSimplifiedTest,
+	SmartMicrowaveSystemSimplifiedTest,
+	SmartTrafficLightSystemSimplifiedTest,
+	SmartTVSystemSimplifiedTest,
+	ArduinoHMISimplifiedTest,
+	MqttClientStatechartSimplifiedTest,
+	onoffSimplifiedTest
+}

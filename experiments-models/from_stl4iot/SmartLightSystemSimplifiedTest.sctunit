@@ -1,0 +1,177 @@
+testclass SmartLightSystemSimplifiedTest for statechart SmartLightSystem {
+	@Test
+	operation test00 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test01 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test02 () {
+	}
+
+	@Test
+	operation test03 () {
+	}
+
+	@Test
+	operation test04 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test05 () {
+	}
+
+	@Test
+	operation test06 () {
+	}
+
+	@Test
+	operation test07 () {
+	}
+
+	@Test
+	operation test08 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test09 () {
+	}
+
+	@Test
+	operation test10 () {
+	    assert !active (SmartLightSystem._SmartLightSystem_.SmartLightSystem.trackingDeviceTemperature._Initialize_DeviceTemp_Component_)
+	}
+
+	@Test
+	operation test11 () {
+	    assert !active (SmartLightSystem._SmartLightSystem_.SmartLightSystem.PowerCalculatorComponent._Initialize_Power_Component_)
+	}
+
+	@Test
+	operation test12 () {
+	    assert !active (SmartLightSystem._SmartLightSystem_.SmartLightSystem.NetworkComponent._Initialize_WiFi_Component_)
+	}
+
+	@Test
+	operation test13 () {
+	    assert !active (SmartLightSystem._SmartLightSystem_.SmartLightSystem.PhysicalEntity._Initialize_Sensor_Component_)
+	}
+
+	@Test
+	operation test14 () {
+	    assert !active (SmartLightSystem._SmartLightSystem_.SmartLightSystem)
+	}
+
+	@Test
+	operation test15 () {
+	    assert !active (SmartLightSystem._SmartLightSystem_.SmartLightSystem.trackingDeviceTemperature.off)
+	}
+
+	@Test
+	operation test16 () {
+	    assert !active (SmartLightSystem._SmartLightSystem_.SmartLightSystem.trackingDeviceTemperature._Initialize_DeviceTemp_Component_.updating._Temperature_Updates_)
+	}
+
+	@Test
+	operation test17 () {
+	    assert !active (SmartLightSystem._SmartLightSystem_.SmartLightSystem.PowerCalculatorComponent.off)
+	}
+
+	@Test
+	operation test18 () {
+	    assert !active (SmartLightSystem._SmartLightSystem_.SmartLightSystem.PowerCalculatorComponent._Initialize_Power_Component_.updating._Power_Updates_)
+	}
+
+	@Test
+	operation test19 () {
+	    assert !active (SmartLightSystem._SmartLightSystem_.SmartLightSystem.NetworkComponent.off)
+	}
+
+	@Test
+	operation test20 () {
+	    assert !active (SmartLightSystem._SmartLightSystem_.SmartLightSystem.NetworkComponent._Initialize_WiFi_Component_.updating._WiFi_Updates_)
+	}
+
+	@Test
+	operation test21 () {
+	    assert !active (SmartLightSystem._SmartLightSystem_.SmartLightSystem.PhysicalEntity.off)
+	}
+
+	@Test
+	operation test22 () {
+	    assert !active (SmartLightSystem._SmartLightSystem_.SmartLightSystem.PhysicalEntity._Initialize_Sensor_Component_.updating._Sensor_Updates_)
+	}
+
+	@Test
+	operation test23 () {
+	    assert !active (SmartLightSystem._SmartLightSystem_.SmartLightSystem.ControllerComponent.off)
+	}
+
+	@Test
+	operation test24 () {
+	    assert !active (SmartLightSystem._SmartLightSystem_.SmartLightSystem.ControllerComponent._Initialize_Controller_Component_.updating._Controller_Updates_)
+	}
+
+	@Test
+	operation test25 () {
+	    assert !active (SmartLightSystem._SmartLightSystem_.SmartLightSystem.ActuatorComponent.off)
+	}
+
+	@Test
+	operation test26 () {
+	    assert !active (SmartLightSystem._SmartLightSystem_.SmartLightSystem.ActuatorComponent._Actuator_Updates_)
+	}
+
+	@Test
+	operation test27 () {
+	    assert !active (SmartLightSystem._SmartLightSystem_.SmartLightSystem.SystemStatus.on)
+	}
+
+	@Test
+	operation test28 () {
+	    assert !active (SmartLightSystem._SmartLightSystem_.SmartLightSystem.ControllerComponent._Initialize_Controller_Component_)
+	}
+
+	@Test
+	operation test29 () {
+	    assert !active (SmartLightSystem._SmartLightSystem_.SmartLightSystem.SystemStatus.off)
+	}
+
+	@Test
+	operation test30 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test37 () {
+	}
+
+	@Test
+	operation test39 () {
+	    exit
+	    assert !is_final
+	}
+
+	@Test
+	operation test40 () {
+	    assert !is_active
+	    assert !is_final
+	}
+
+	@Test
+	operation test41 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test42 () {
+	    assert !is_active
+	}
+
+}

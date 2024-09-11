@@ -1,0 +1,171 @@
+testclass LEDLight_UnitSimplifiedTest for statechart LEDLight_Unit {
+	@Test
+	operation test00 () {
+	    raise Brightness.up
+	}
+
+	@Test
+	operation test01 () {
+	    raise Brightness.down
+	}
+
+	@Test
+	operation test02 () {
+	    triggerWithoutEvent
+	    assert !is_final
+	}
+
+	@Test
+	operation test05 () {
+	}
+
+	@Test
+	operation test06 () {
+	}
+
+	@Test
+	operation test07 () {
+	}
+
+	@Test
+	operation test08 () {
+	    enter
+	    raise device.on
+	    raise device.on
+	}
+
+	@Test
+	operation test09 () {
+	    enter
+	    raise device.off
+	    assert is_active
+	}
+
+	@Test
+	operation test10 () {
+	    enter
+	    raise device.on
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test11 () {
+	    enter
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test12 () {
+	    enter
+	    assert is_active
+	    assert !active (LEDLight_Unit._LED_Light_Unit_._On_._Bulb_Status_.Bulb_on)
+	}
+
+	@Test
+	operation test13 () {
+	    enter
+	    raise device.on
+	    assert is_active
+	    assert active (LEDLight_Unit._LED_Light_Unit_._On_._Bulb_Status_.Bulb_on_standby)
+	}
+
+	@Test
+	operation test14 () {
+	    enter
+	    assert is_active
+	    assert !active (LEDLight_Unit._LED_Light_Unit_._On_)
+	}
+
+	@Test
+	operation test15 () {
+	    enter
+	    assert is_active
+	    assert active (LEDLight_Unit._LED_Light_Unit_._Off_)
+	}
+
+	@Test
+	operation test16 () {
+	}
+
+	@Test
+	operation test17 () {
+	    assert !active (LEDLight_Unit._LED_Light_Unit_._On_._Bulb_Status_.Bulb_on)
+	}
+
+	@Test
+	operation test18 () {
+	    assert !active (LEDLight_Unit._LED_Light_Unit_._On_._Bulb_Status_.Bulb_on._Luminosity_.Change_Luminosity_Level)
+	}
+
+	@Test
+	operation test19 () {
+	    assert !active (LEDLight_Unit._LED_Light_Unit_._On_._Bulb_Status_.Bulb_on_standby)
+	}
+
+	@Test
+	operation test20 () {
+	    assert !active (LEDLight_Unit._LED_Light_Unit_._On_)
+	}
+
+	@Test
+	operation test21 () {
+	    assert !active (LEDLight_Unit._LED_Light_Unit_._Off_)
+	}
+
+	@Test
+	operation test22 () {
+	    proceed 500ms
+	    assert !is_active
+	}
+
+	@Test
+	operation test23 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test24 () {
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test28 () {
+	    assert !is_active
+	    enter
+	    raise device.on
+	    raise device.off
+	    assert is_active
+	}
+
+	@Test
+	operation test29 () {
+	    assert !is_active
+	    enter
+	    raise device.on
+	    assert active (LEDLight_Unit._LED_Light_Unit_._On_)
+	}
+
+	@Test
+	operation test30 () {
+	    assert !is_active
+	    assert !is_final
+	}
+
+	@Test
+	operation test31 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test33 () {
+	    assert !is_active
+	    enter
+	    assert is_active
+	}
+
+}

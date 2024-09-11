@@ -1,0 +1,143 @@
+testclass LampadaSimplifiedTest for statechart Lampada {
+	@Test
+	operation test01 () {
+	    enter
+	    raise poweron
+	    raise pushbutton
+	    triggerWithoutEvent
+	    assert is_active
+	}
+
+	@Test
+	operation test02 () {
+	    enter
+	    raise poweron
+	    raise pushbutton
+	    raise poweroff
+	    assert is_active
+	}
+
+	@Test
+	operation test03 () {
+	    enter
+	    raise poweron
+	    triggerWithoutEvent
+	    assert is_active
+	}
+
+	@Test
+	operation test04 () {
+	    enter
+	    raise pushbutton
+	    assert is_active
+	}
+
+	@Test
+	operation test05 () {
+	    exit
+	    assert !is_final
+	}
+
+	@Test
+	operation test06 () {
+	    enter
+	    raise poweron
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test07 () {
+	    enter
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test08 () {
+	    enter
+	    raise poweron
+	    raise pushbutton
+	    assert is_active
+	    assert active (Lampada.main_region.ON)
+	}
+
+	@Test
+	operation test09 () {
+	    enter
+	    raise poweron
+	    assert is_active
+	    assert active (Lampada.main_region.STANDBY)
+	}
+
+	@Test
+	operation test10 () {
+	    enter
+	    assert is_active
+	    assert active (Lampada.main_region.OFF)
+	}
+
+	@Test
+	operation test11 () {
+	}
+
+	@Test
+	operation test12 () {
+	    assert !active (Lampada.main_region.STANDBY)
+	}
+
+	@Test
+	operation test13 () {
+	    assert !active (Lampada.main_region.ON)
+	}
+
+	@Test
+	operation test14 () {
+	    assert !active (Lampada.main_region.OFF)
+	}
+
+	@Test
+	operation test15 () {
+	    enter
+	    raise poweron
+	    raise pushbutton
+	    raise pushbutton
+	    raise poweroff
+	    assert is_active
+	}
+
+	@Test
+	operation test16 () {
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test17 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test18 () {
+	    assert !is_final
+	}
+
+	@Test
+	operation test19 () {
+	    raise poweroff
+	    assert !is_active
+	}
+
+	@Test
+	operation test20 () {
+	    enter
+	    raise poweron
+	    raise pushbutton
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+}

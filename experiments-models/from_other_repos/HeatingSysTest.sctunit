@@ -1,0 +1,65 @@
+testclass heatingSysTest for statechart heatingSys {
+	@Test
+	operation test00 () {
+	}
+
+	@Test
+	operation test01 () {
+	}
+
+	@Test
+	operation test03 () {
+	    assert !active (heatingSys.main_region.ONtimer)
+	}
+
+	@Test
+	operation test04 () {
+	    assert !active (heatingSys.main_region.on)
+	}
+
+	@Test
+	operation test05 () {
+	}
+
+	@Test
+	operation test06 () {
+	    assert !active (heatingSys.main_region.off)
+	}
+
+	@Test
+	operation test07 () {
+	}
+
+	@Test
+	operation test08 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test10 () {
+	    assert !is_final
+	}
+
+	@Test
+	operation test12 () {
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test15 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test16 () {
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test18 () {
+	    assert !is_active
+	}
+
+}

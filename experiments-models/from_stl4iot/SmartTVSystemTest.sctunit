@@ -1,0 +1,293 @@
+testclass SmartTVSystemTest for statechart SmartTVSystem {
+	@Test
+	operation test00 () {
+	}
+
+	@Test
+	operation test01 () {
+	}
+
+	@Test
+	operation test02 () {
+	}
+
+	@Test
+	operation test03 () {
+	}
+
+	@Test
+	operation test04 () {
+	}
+
+	@Test
+	operation test05 () {
+	}
+
+	@Test
+	operation test07 () {
+	}
+
+	@Test
+	operation test08 () {
+	}
+
+	@Test
+	operation test09 () {
+	}
+
+	@Test
+	operation test10 () {
+	}
+
+	@Test
+	operation test11 () {
+	}
+
+	@Test
+	operation test12 () {
+	}
+
+	@Test
+	operation test13 () {
+	}
+
+	@Test
+	operation test14 () {
+	}
+
+	@Test
+	operation test15 () {
+	}
+
+	@Test
+	operation test16 () {
+	}
+
+	@Test
+	operation test17 () {
+	}
+
+	@Test
+	operation test18 () {
+	}
+
+	@Test
+	operation test19 () {
+	}
+
+	@Test
+	operation test20 () {
+	}
+
+	@Test
+	operation test21 () {
+	}
+
+	@Test
+	operation test22 () {
+	}
+
+	@Test
+	operation test23 () {
+	}
+
+	@Test
+	operation test24 () {
+	}
+
+	@Test
+	operation test25 () {
+	    assert !active (SmartTVSystem._SmartTVSystem_.SmartTVSystem)
+	}
+
+	@Test
+	operation test26 () {
+	}
+
+	@Test
+	operation test27 () {
+	}
+
+	@Test
+	operation test28 () {
+	}
+
+	@Test
+	operation test29 () {
+	}
+
+	@Test
+	operation test30 () {
+	}
+
+	@Test
+	operation test31 () {
+	}
+
+	@Test
+	operation test32 () {
+	}
+
+	@Test
+	operation test33 () {
+	}
+
+	@Test
+	operation test34 () {
+	}
+
+	@Test
+	operation test35 () {
+	    assert !active (SmartTVSystem._SmartTVSystem_.SmartTVSystem.ActuatorComponent.off)
+	}
+
+	@Test
+	operation test36 () {
+	    assert !active (SmartTVSystem._SmartTVSystem_.SmartTVSystem.ActuatorComponent._Device_Functioning_)
+	}
+
+	@Test
+	operation test37 () {
+	    assert !active (SmartTVSystem._SmartTVSystem_.SmartTVSystem.ActuatorComponent._Actuator_Updates_)
+	}
+
+	@Test
+	operation test38 () {
+	    assert !active (SmartTVSystem._SmartTVSystem_.SmartTVSystem.SystemStatus.on)
+	}
+
+	@Test
+	operation test39 () {
+	}
+
+	@Test
+	operation test40 () {
+	    assert !active (SmartTVSystem._SmartTVSystem_.SmartTVSystem.SystemStatus.off)
+	}
+
+	@Test
+	operation test41 () {
+	}
+
+	@Test
+	operation test42 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test48 () {
+	}
+
+	@Test
+	operation test49 () {
+	}
+
+	@Test
+	operation test50 () {
+	}
+
+	@Test
+	operation test51 () {
+	}
+
+	@Test
+	operation test52 () {
+	}
+
+	@Test
+	operation test53 () {
+	}
+
+	@Test
+	operation test54 () {
+	}
+
+	@Test
+	operation test55 () {
+	}
+
+	@Test
+	operation test56 () {
+	}
+
+	@Test
+	operation test57 () {
+	}
+
+	@Test
+	operation test58 () {
+	}
+
+	@Test
+	operation test60 () {
+	}
+
+	@Test
+	operation test62 () {
+	    assert !is_final
+	}
+
+	@Test
+	operation test63 () {
+	}
+
+	@Test
+	operation test64 () {
+	}
+
+	@Test
+	operation test65 () {
+	}
+
+	@Test
+	operation test66 () {
+	}
+
+	@Test
+	operation test67 () {
+	}
+
+	@Test
+	operation test68 () {
+	}
+
+	@Test
+	operation test69 () {
+	}
+
+	@Test
+	operation test70 () {
+	    exit
+	}
+
+	@Test
+	operation test71 () {
+	}
+
+	@Test
+	operation test72 () {
+	    assert !is_active
+	    exit
+	}
+
+	@Test
+	operation test73 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test74 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test75 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test76 () {
+	    assert !is_active
+	}
+
+}

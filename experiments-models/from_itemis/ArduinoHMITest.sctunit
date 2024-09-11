@@ -1,0 +1,206 @@
+testclass ArduinoHMITest for statechart ArduinoHMI {
+	@Test
+	operation test00 () {
+	}
+
+	@Test
+	operation test01 () {
+	}
+
+	@Test
+	operation test02 () {
+	}
+
+	@Test
+	operation test03 () {
+	}
+
+	@Test
+	operation test04 () {
+	}
+
+	@Test
+	operation test05 () {
+	}
+
+	@Test
+	operation test08 () {
+	}
+
+	@Test
+	operation test09 () {
+	    assert !active (ArduinoHMI.hmi.Counter.r1.Counter_Active)
+	}
+
+	@Test
+	operation test10 () {
+	    assert !active (ArduinoHMI.hmi.Counter)
+	}
+
+	@Test
+	operation test11 () {
+	    assert !active (ArduinoHMI.hmi.Stopwatch.r1.Stopwatch_Active)
+	}
+
+	@Test
+	operation test12 () {
+	    assert !active (ArduinoHMI.hmi.Stopwatch)
+	}
+
+	@Test
+	operation test13 () {
+	    assert !active (ArduinoHMI.hmi.Handle_States.r1.Handle_States_Active)
+	}
+
+	@Test
+	operation test14 () {
+	    assert !active (ArduinoHMI.hmi.Handle_States)
+	}
+
+	@Test
+	operation test15 () {
+	    assert !active (ArduinoHMI.hmi.Counter.r1.Counter_Active.counter.Count)
+	}
+
+	@Test
+	operation test16 () {
+	    assert !active (ArduinoHMI.hmi.Counter.r1.Counter_Active.counter.Reset_Counter)
+	}
+
+	@Test
+	operation test17 () {
+	    assert !active (ArduinoHMI.hmi.Counter.r1.Selecting)
+	}
+
+	@Test
+	operation test18 () {
+	    assert !active (ArduinoHMI.hmi.Stopwatch.r1.Stopwatch_Active.stopwatch.Stop_Timer)
+	}
+
+	@Test
+	operation test19 () {
+	    assert !active (ArduinoHMI.hmi.Stopwatch.r1.Stopwatch_Active.stopwatch.Start_Timer)
+	}
+
+	@Test
+	operation test20 () {
+	    assert !active (ArduinoHMI.hmi.Stopwatch.r1.Stopwatch_Active.stopwatch.Reset_Timer)
+	}
+
+	@Test
+	operation test21 () {
+	    assert !active (ArduinoHMI.hmi.Stopwatch.r1.Selecting)
+	}
+
+	@Test
+	operation test22 () {
+	    assert !active (ArduinoHMI.hmi.Handle_States.r1.Handle_States_Active.handle_states.Bottom)
+	}
+
+	@Test
+	operation test23 () {
+	    assert !active (ArduinoHMI.hmi.Handle_States.r1.Handle_States_Active.handle_states.Left)
+	}
+
+	@Test
+	operation test24 () {
+	    assert !active (ArduinoHMI.hmi.Handle_States.r1.Handle_States_Active.handle_states.Middle)
+	}
+
+	@Test
+	operation test25 () {
+	    assert !active (ArduinoHMI.hmi.Handle_States.r1.Handle_States_Active.handle_states.Top)
+	}
+
+	@Test
+	operation test26 () {
+	    assert !active (ArduinoHMI.hmi.Handle_States.r1.Handle_States_Active.handle_states.Right)
+	}
+
+	@Test
+	operation test27 () {
+	    assert !active (ArduinoHMI.hmi.Handle_States.r1.Selecting)
+	}
+
+	@Test
+	operation test28 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test29 () {
+	    exit
+	    assert !is_final
+	}
+
+	@Test
+	operation test32 () {
+	}
+
+	@Test
+	operation test33 () {
+	    raise select
+	    assert !is_active
+	}
+
+	@Test
+	operation test34 () {
+	    raise down
+	    assert !is_final
+	}
+
+	@Test
+	operation test35 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test36 () {
+	    raise up
+	    assert !is_final
+	}
+
+	@Test
+	operation test37 () {
+	    assert !is_final
+	}
+
+	@Test
+	operation test38 () {
+	}
+
+	@Test
+	operation test39 () {
+	    raise right
+	    assert !is_final
+	}
+
+	@Test
+	operation test40 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test41 () {
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test42 () {
+	    raise left
+	    assert !is_active
+	}
+
+	@Test
+	operation test43 () {
+	    proceed 100ms
+	    assert !is_active
+	}
+
+	@Test
+	operation test44 () {
+	    assert !is_active
+	}
+
+}

@@ -1,0 +1,245 @@
+testclass TrafficLight_UnitTest for statechart TrafficLight_Unit {
+	@Test
+	operation test00 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test01 () {
+	}
+
+	@Test
+	operation test02 () {
+	}
+
+	@Test
+	operation test03 () {
+	}
+
+	@Test
+	operation test04 () {
+	}
+
+	@Test
+	operation test05 () {
+	}
+
+	@Test
+	operation test06 () {
+	}
+
+	@Test
+	operation test07 () {
+	}
+
+	@Test
+	operation test08 () {
+	}
+
+	@Test
+	operation test09 () {
+	}
+
+	@Test
+	operation test10 () {
+	}
+
+	@Test
+	operation test11 () {
+	}
+
+	@Test
+	operation test12 () {
+	}
+
+	@Test
+	operation test13 () {
+	}
+
+	@Test
+	operation test14 () {
+	}
+
+	@Test
+	operation test15 () {
+	    assert !active (TrafficLight_Unit._TrafficLight_Unit_.On.Timer._timer_running_)
+	}
+
+	@Test
+	operation test16 () {
+	    assert !active (TrafficLight_Unit._TrafficLight_Unit_.On)
+	}
+
+	@Test
+	operation test17 () {
+	    assert !active (TrafficLight_Unit._TrafficLight_Unit_.On.Timer._timer_running_._Timer_Countdown_._final_)
+	}
+
+	@Test
+	operation test18 () {
+	    assert !active (TrafficLight_Unit._TrafficLight_Unit_.On.Timer._timer_running_._Timer_Countdown_._yellow_period_)
+	}
+
+	@Test
+	operation test19 () {
+	    assert !active (TrafficLight_Unit._TrafficLight_Unit_.On.Timer._timer_running_._Timer_Countdown_._green_period_)
+	}
+
+	@Test
+	operation test20 () {
+	    assert !active (TrafficLight_Unit._TrafficLight_Unit_.On.PedestrianLight_Color.WalkingMan)
+	}
+
+	@Test
+	operation test21 () {
+	    assert !active (TrafficLight_Unit._TrafficLight_Unit_.On.PedestrianLight_Color.BlinkingWalkingMan)
+	}
+
+	@Test
+	operation test22 () {
+	    assert !active (TrafficLight_Unit._TrafficLight_Unit_.On.PedestrianLight_Color.StopHand)
+	}
+
+	@Test
+	operation test23 () {
+	    assert !active (TrafficLight_Unit._TrafficLight_Unit_.On.TrafficLight_Color.Yellow)
+	}
+
+	@Test
+	operation test24 () {
+	    assert !active (TrafficLight_Unit._TrafficLight_Unit_.On.TrafficLight_Color.Red)
+	}
+
+	@Test
+	operation test25 () {
+	    assert !active (TrafficLight_Unit._TrafficLight_Unit_.On.TrafficLight_Color.Green)
+	}
+
+	@Test
+	operation test26 () {
+	    assert !active (TrafficLight_Unit._TrafficLight_Unit_.On.Timer._timer_running_._Timer_Countdown_._red_period_)
+	}
+
+	@Test
+	operation test27 () {
+	    assert !active (TrafficLight_Unit._TrafficLight_Unit_.Off)
+	}
+
+	@Test
+	operation test28 () {
+	}
+
+	@Test
+	operation test29 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test30 () {
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test32 () {
+	}
+
+	@Test
+	operation test33 () {
+	    raise Light.green
+	}
+
+	@Test
+	operation test34 () {
+	}
+
+	@Test
+	operation test35 () {
+	}
+
+	@Test
+	operation test36 () {
+	    raise Light.yellow
+	}
+
+	@Test
+	operation test37 () {
+	    raise Light.red
+	}
+
+	@Test
+	operation test38 () {
+	}
+
+	@Test
+	operation test39 () {
+	}
+
+	@Test
+	operation test40 () {
+	}
+
+	@Test
+	operation test41 () {
+	}
+
+	@Test
+	operation test42 () {
+	}
+
+	@Test
+	operation test43 () {
+	}
+
+	@Test
+	operation test44 () {
+	}
+
+	@Test
+	operation test47 () {
+	}
+
+	@Test
+	operation test48 () {
+	}
+
+	@Test
+	operation test49 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test50 () {
+	    raise Timer.reset
+	}
+
+	@Test
+	operation test51 () {
+	}
+
+	@Test
+	operation test52 () {
+	    assert !is_final
+	}
+
+	@Test
+	operation test54 () {
+	}
+
+	@Test
+	operation test55 () {
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test56 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test57 () {
+	    assert !is_active
+	}
+
+}

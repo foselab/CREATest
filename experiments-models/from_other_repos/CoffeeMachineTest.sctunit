@@ -1,0 +1,94 @@
+testclass coffeeMachineTest for statechart coffeeMachine {
+	@Test
+	operation test00 () {
+	}
+
+	@Test
+	operation test01 () {
+	}
+
+	@Test
+	operation test02 () {
+	}
+
+	@Test
+	operation test03 () {
+	}
+
+	@Test
+	operation test05 () {
+	}
+
+	@Test
+	operation test06 () {
+	    assert !active (coffeeMachine.main_region.cupDispenser)
+	}
+
+	@Test
+	operation test07 () {
+	    assert !active (coffeeMachine.main_region.Return_Cancel)
+	}
+
+	@Test
+	operation test08 () {
+	    assert !active (coffeeMachine.main_region.Cappucino)
+	}
+
+	@Test
+	operation test09 () {
+	    assert !active (coffeeMachine.main_region.Latte)
+	}
+
+	@Test
+	operation test10 () {
+	    assert !active (coffeeMachine.main_region.Americano)
+	}
+
+	@Test
+	operation test11 () {
+	    assert !active (coffeeMachine.main_region.heat_and_water)
+	}
+
+	@Test
+	operation test12 () {
+	    assert !active (coffeeMachine.main_region.enterMoney)
+	}
+
+	@Test
+	operation test13 () {
+	}
+
+	@Test
+	operation test14 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test16 () {
+	}
+
+	@Test
+	operation test18 () {
+	    assert !is_final
+	}
+
+	@Test
+	operation test21 () {
+	}
+
+	@Test
+	operation test22 () {
+	}
+
+	@Test
+	operation test23 () {
+	    exit
+	}
+
+	@Test
+	operation test27 () {
+	    assert !is_active
+	    exit
+	}
+
+}

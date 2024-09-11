@@ -1,0 +1,73 @@
+testclass LightCtrlTest for statechart LightCtrl {
+	@Test
+	operation test00 () {
+	    proceed 5s
+	    assert !is_active
+	}
+
+	@Test
+	operation test01 () {
+	}
+
+	@Test
+	operation test02 () {
+	}
+
+	@Test
+	operation test04 () {
+	}
+
+	@Test
+	operation test05 () {
+	    assert !active (LightCtrl.main_region.Light_On)
+	}
+
+	@Test
+	operation test06 () {
+	    assert !active (LightCtrl.main_region.Light_Off)
+	}
+
+	@Test
+	operation test07 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test10 () {
+	}
+
+	@Test
+	operation test12 () {
+	    exit
+	    assert !is_final
+	}
+
+	@Test
+	operation test13 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test14 () {
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test15 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test16 () {
+	    assert !is_active
+	    assert !is_final
+	}
+
+	@Test
+	operation test17 () {
+	    raise button
+	    assert !is_active
+	}
+
+}

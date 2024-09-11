@@ -1,0 +1,232 @@
+testclass _04_LightAndMotionSensingLightSwitchSimplifiedTest for statechart _04_LightAndMotionSensingLightSwitch {
+	@Test
+	operation test00 () {
+	    raise motion.detected
+	}
+
+	@Test
+	operation test01 () {
+	    raise luminosity.dark
+	}
+
+	@Test
+	operation test02 () {
+	    triggerWithoutEvent
+	    assert !is_final
+	}
+
+	@Test
+	operation test03 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test06 () {
+	    enter
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test07 () {
+	}
+
+	@Test
+	operation test08 () {
+	    enter
+	    raise hmi.switch
+	    raise hmi.toggleMode
+	    raise hmi.switch
+	    assert is_active
+	}
+
+	@Test
+	operation test09 () {
+	    enter
+	    raise hmi.switch
+	    raise hmi.switch
+	    assert is_active
+	}
+
+	@Test
+	operation test10 () {
+	    enter
+	    raise hmi.toggleMode
+	    assert is_active
+	}
+
+	@Test
+	operation test11 () {
+	    enter
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test12 () {
+	    enter
+	    raise hmi.toggleMode
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test13 () {
+	    enter
+	    raise hmi.toggleMode
+	    assert is_active
+	    assert !active (_04_LightAndMotionSensingLightSwitch.modes.Manual)
+	}
+
+	@Test
+	operation test14 () {
+	    enter
+	    raise hmi.toggleMode
+	    raise hmi.toggleMode
+	    assert is_active
+	    assert active (_04_LightAndMotionSensingLightSwitch.modes.Automatic.modes.Light_Sensing)
+	}
+
+	@Test
+	operation test15 () {
+	    enter
+	    raise hmi.toggleMode
+	    assert is_active
+	    assert active (_04_LightAndMotionSensingLightSwitch.modes.Automatic.modes.Motion_Sensing)
+	}
+
+	@Test
+	operation test16 () {
+	}
+
+	@Test
+	operation test17 () {
+	    assert !active (_04_LightAndMotionSensingLightSwitch.modes.Manual)
+	}
+
+	@Test
+	operation test18 () {
+	    assert !active (_04_LightAndMotionSensingLightSwitch.modes.Automatic.modes.Light_Sensing)
+	}
+
+	@Test
+	operation test19 () {
+	    assert !active (_04_LightAndMotionSensingLightSwitch.modes.Automatic)
+	}
+
+	@Test
+	operation test20 () {
+	    assert !active (_04_LightAndMotionSensingLightSwitch.modes.Manual.r1.On)
+	}
+
+	@Test
+	operation test21 () {
+	    assert !active (_04_LightAndMotionSensingLightSwitch.modes.Manual.r1.Off)
+	}
+
+	@Test
+	operation test22 () {
+	    assert !active (_04_LightAndMotionSensingLightSwitch.modes.Automatic.modes.Light_Sensing.r1.Getting_Bright)
+	}
+
+	@Test
+	operation test23 () {
+	    assert !active (_04_LightAndMotionSensingLightSwitch.modes.Automatic.modes.Light_Sensing.r1.Getting_Dark)
+	}
+
+	@Test
+	operation test24 () {
+	    assert !active (_04_LightAndMotionSensingLightSwitch.modes.Automatic.modes.Light_Sensing.r1.Dark)
+	}
+
+	@Test
+	operation test25 () {
+	    assert !active (_04_LightAndMotionSensingLightSwitch.modes.Automatic.modes.Light_Sensing.r1.Bright)
+	}
+
+	@Test
+	operation test26 () {
+	    assert !active (_04_LightAndMotionSensingLightSwitch.modes.Automatic.modes.Motion_Sensing.r1.Motion)
+	}
+
+	@Test
+	operation test27 () {
+	    assert !active (_04_LightAndMotionSensingLightSwitch.modes.Automatic.modes.Motion_Sensing)
+	}
+
+	@Test
+	operation test28 () {
+	    assert !active (_04_LightAndMotionSensingLightSwitch.modes.Automatic.modes.Motion_Sensing.r1.Still)
+	}
+
+	@Test
+	operation test29 () {
+	    raise luminosity.bright
+	}
+
+	@Test
+	operation test30 () {
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test31 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test32 () {
+	    exit
+	    assert !is_final
+	}
+
+	@Test
+	operation test36 () {
+	    enter
+	    raise hmi.toggleMode
+	    raise hmi.toggleMode
+	    raise hmi.toggleMode
+	    raise hmi.switch
+	    raise hmi.toggleMode
+	    assert is_active
+	}
+
+	@Test
+	operation test37 () {
+	    enter
+	    raise hmi.switch
+	    raise hmi.toggleMode
+	    raise hmi.switch
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test39 () {
+	    enter
+	    raise hmi.toggleMode
+	    raise hmi.toggleMode
+	    raise hmi.switch
+	    raise hmi.toggleMode
+	    exit
+	    assert !is_final
+	}
+
+	@Test
+	operation test40 () {
+	    assert !is_active
+	    enter
+	    raise hmi.switch
+	    assert is_active
+	}
+
+	@Test
+	operation test41 () {
+	    assert !is_active
+	    assert !is_final
+	}
+
+}

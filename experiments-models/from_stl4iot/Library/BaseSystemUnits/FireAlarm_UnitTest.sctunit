@@ -1,0 +1,386 @@
+testclass FireAlarm_UnitTest for statechart FireAlarm_Unit {
+	@Test
+	operation test00 () {
+	}
+
+	@Test
+	operation test01 () {
+	}
+
+	@Test
+	operation test02 () {
+	}
+
+	@Test
+	operation test03 () {
+	}
+
+	@Test
+	operation test04 () {
+	}
+
+	@Test
+	operation test05 () {
+	}
+
+	@Test
+	operation test06 () {
+	}
+
+	@Test
+	operation test07 () {
+	}
+
+	@Test
+	operation test08 () {
+	}
+
+	@Test
+	operation test09 () {
+	}
+
+	@Test
+	operation test10 () {
+	}
+
+	@Test
+	operation test11 () {
+	}
+
+	@Test
+	operation test12 () {
+	}
+
+	@Test
+	operation test13 () {
+	}
+
+	@Test
+	operation test14 () {
+	}
+
+	@Test
+	operation test15 () {
+	}
+
+	@Test
+	operation test16 () {
+	}
+
+	@Test
+	operation test17 () {
+	}
+
+	@Test
+	operation test18 () {
+	}
+
+	@Test
+	operation test19 () {
+	}
+
+	@Test
+	operation test20 () {
+	}
+
+	@Test
+	operation test21 () {
+	}
+
+	@Test
+	operation test22 () {
+	}
+
+	@Test
+	operation test23 () {
+	}
+
+	@Test
+	operation test24 () {
+	}
+
+	@Test
+	operation test25 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test26 () {
+	}
+
+	@Test
+	operation test27 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test28 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test29 () {
+	    assert !active (FireAlarm_Unit._FireAlarm_Unit_._Fire_Alarm_Running_.Status.Warning)
+	    assert !is_active
+	}
+
+	@Test
+	operation test30 () {
+	    assert !is_active
+	    assert !active (FireAlarm_Unit._FireAlarm_Unit_._Fire_Alarm_Running_)
+	}
+
+	@Test
+	operation test31 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test32 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test33 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test34 () {
+	}
+
+	@Test
+	operation test35 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test36 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test37 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test38 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test39 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test40 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test41 () {
+	}
+
+	@Test
+	operation test42 () {
+	    assert !is_active
+	    assert !active (FireAlarm_Unit._FireAlarm_Unit_._Fire_Alarm_Running_.Status.Warning.Level.initial_warning)
+	}
+
+	@Test
+	operation test43 () {
+	    assert !is_active
+	    assert !active (FireAlarm_Unit._FireAlarm_Unit_._Fire_Alarm_Running_.Status.Safe)
+	}
+
+	@Test
+	operation test44 () {
+	    assert !active (FireAlarm_Unit._FireAlarm_Unit_._Fire_Alarm_Running_.Alarm_Switch.Alarm_On)
+	    assert !is_active
+	}
+
+	@Test
+	operation test45 () {
+	}
+
+	@Test
+	operation test46 () {
+	    assert !active (FireAlarm_Unit._FireAlarm_Unit_._Fire_Alarm_Running_.Alarm_Switch.Alarm_Off)
+	}
+
+	@Test
+	operation test47 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test48 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test50 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test51 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test53 () {
+	}
+
+	@Test
+	operation test54 () {
+	}
+
+	@Test
+	operation test55 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test56 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test57 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test60 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test61 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test62 () {
+	}
+
+	@Test
+	operation test63 () {
+	    assert !is_active
+	    exit
+	}
+
+	@Test
+	operation test64 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test65 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test66 () {
+	    assert !is_final
+	    assert !is_active
+	}
+
+	@Test
+	operation test69 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test72 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test76 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test77 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test78 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test79 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test80 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test81 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test82 () {
+	}
+
+	@Test
+	operation test83 () {
+	}
+
+	@Test
+	operation test84 () {
+	}
+
+	@Test
+	operation test85 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test86 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test87 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test88 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test89 () {
+	}
+
+	@Test
+	operation test90 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test91 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test92 () {
+	}
+
+	@Test
+	operation test93 () {
+	}
+
+}

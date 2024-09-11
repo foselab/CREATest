@@ -1,0 +1,180 @@
+testclass Statechart12SimplifiedTest for statechart Statechart12 {
+	@Test
+	operation test03 () {
+	    enter
+	    raise buttonPressed
+	    raise buttonPressed
+	    assert is_active
+	}
+
+	@Test
+	operation test04 () {
+	    enter
+	    proceed 2s
+	    raise carDetected
+	    assert is_active
+	}
+
+	@Test
+	operation test05 () {
+	    enter
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test06 () {
+	    exit
+	    assert !is_final
+	}
+
+	@Test
+	operation test07 () {
+	    enter
+	    assert is_active
+	    assert active (Statechart12.main_region.TrafficLight.toggleButtonHandling.ToggleModeUnpressed)
+	}
+
+	@Test
+	operation test08 () {
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test09 () {
+	    enter
+	    assert is_active
+	    assert active (Statechart12.main_region.TrafficLight.trafficLightsHandling.NormalBehavior)
+	}
+
+	@Test
+	operation test10 () {
+	    enter
+	    assert is_active
+	    assert active (Statechart12.main_region.TrafficLight)
+	}
+
+	@Test
+	operation test11 () {
+	}
+
+	@Test
+	operation test12 () {
+	    assert !active (Statechart12.main_region.TrafficLight.trafficLightsHandling.NormalBehavior.r1.green)
+	}
+
+	@Test
+	operation test13 () {
+	    assert !active (Statechart12.main_region.TrafficLight.trafficLightsHandling.NormalBehavior)
+	}
+
+	@Test
+	operation test14 () {
+	    assert !active (Statechart12.main_region.TrafficLight.trafficLightsHandling.PoliceInterruptBehavior)
+	}
+
+	@Test
+	operation test15 () {
+	    assert !active (Statechart12.main_region.TrafficLight)
+	}
+
+	@Test
+	operation test16 () {
+	    assert !active (Statechart12.main_region.TrafficLight.toggleButtonHandling.PressedLong)
+	}
+
+	@Test
+	operation test17 () {
+	    assert !active (Statechart12.main_region.TrafficLight.toggleButtonHandling.ToggleModeUnpressed)
+	}
+
+	@Test
+	operation test18 () {
+	    assert !active (Statechart12.main_region.TrafficLight.trafficLightsHandling.NormalBehavior.r1.yellow)
+	}
+
+	@Test
+	operation test19 () {
+	    assert !active (Statechart12.main_region.TrafficLight.trafficLightsHandling.NormalBehavior.r1.green.exitLogic.exitTimerResetter)
+	}
+
+	@Test
+	operation test20 () {
+	    assert !active (Statechart12.main_region.TrafficLight.trafficLightsHandling.NormalBehavior.r1.red)
+	}
+
+	@Test
+	operation test21 () {
+	    assert !active (Statechart12.main_region.TrafficLight.trafficLightsHandling.PoliceInterruptBehavior.r1.YellowOff)
+	}
+
+	@Test
+	operation test22 () {
+	    assert !active (Statechart12.main_region.TrafficLight.toggleButtonHandling.PressedShort)
+	}
+
+	@Test
+	operation test23 () {
+	    assert !active (Statechart12.main_region.TrafficLight.trafficLightsHandling.PoliceInterruptBehavior.r1.YellowOn)
+	}
+
+	@Test
+	operation test24 () {
+	    raise buttonReleased
+	    assert !is_final
+	}
+
+	@Test
+	operation test25 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test26 () {
+	    assert !is_active
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test28 () {
+	    assert !is_active
+	    enter
+	    raise buttonPressed
+	    raise buttonReleased
+	    assert is_active
+	}
+
+	@Test
+	operation test29 () {
+	    assert !is_active
+	    assert !is_final
+	}
+
+	@Test
+	operation test33 () {
+	    enter
+	    raise buttonPressed
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test34 () {
+	    enter
+	    proceed 2s
+	    triggerWithoutEvent
+	    assert !is_final
+	}
+
+	@Test
+	operation test35 () {
+	    assert !is_active
+	    enter
+	    raise buttonPressed
+	    assert active (Statechart12.main_region.TrafficLight.toggleButtonHandling.PressedShort)
+	}
+
+}

@@ -1,0 +1,121 @@
+testclass SuperStepsDisabledSimplifiedTest for statechart SuperStepsDisabled {
+	@Test
+	operation test01 () {
+	    enter
+	    raise e
+	    raise e
+	    raise e
+	    assert is_active
+	}
+
+	@Test
+	operation test02 () {
+	    enter
+	    triggerWithoutEvent
+	    assert is_active
+	}
+
+	@Test
+	operation test03 () {
+	    exit
+	    assert !is_final
+	}
+
+	@Test
+	operation test04 () {
+	    enter
+	    raise e
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test05 () {
+	    enter
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test06 () {
+	    enter
+	    raise e
+	    raise e
+	    assert is_active
+	    assert active (SuperStepsDisabled.main_region.C)
+	}
+
+	@Test
+	operation test07 () {
+	    enter
+	    raise e
+	    assert is_active
+	    assert active (SuperStepsDisabled.main_region.B)
+	}
+
+	@Test
+	operation test08 () {
+	    enter
+	    assert is_active
+	    assert active (SuperStepsDisabled.main_region.A)
+	}
+
+	@Test
+	operation test09 () {
+	    assert !active (SuperStepsDisabled.main_region.L)
+	}
+
+	@Test
+	operation test10 () {
+	    assert !active (SuperStepsDisabled.main_region.C)
+	}
+
+	@Test
+	operation test11 () {
+	    assert !active (SuperStepsDisabled.main_region.B)
+	}
+
+	@Test
+	operation test12 () {
+	}
+
+	@Test
+	operation test13 () {
+	    assert !active (SuperStepsDisabled.main_region.A)
+	}
+
+	@Test
+	operation test14 () {
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test15 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test16 () {
+	    assert !is_final
+	}
+
+	@Test
+	operation test17 () {
+	    triggerWithoutEvent
+	    assert !is_active
+	}
+
+	@Test
+	operation test18 () {
+	    enter
+	    raise e
+	    raise e
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+}

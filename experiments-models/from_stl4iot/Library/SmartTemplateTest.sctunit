@@ -1,0 +1,318 @@
+testclass SmartTemplateTest for statechart SmartTemplate {
+	@Test
+	operation test00 () {
+	}
+
+	@Test
+	operation test01 () {
+	}
+
+	@Test
+	operation test02 () {
+	}
+
+	@Test
+	operation test03 () {
+	}
+
+	@Test
+	operation test04 () {
+	}
+
+	@Test
+	operation test05 () {
+	}
+
+	@Test
+	operation test07 () {
+	}
+
+	@Test
+	operation test08 () {
+	}
+
+	@Test
+	operation test09 () {
+	}
+
+	@Test
+	operation test10 () {
+	}
+
+	@Test
+	operation test11 () {
+	}
+
+	@Test
+	operation test12 () {
+	}
+
+	@Test
+	operation test13 () {
+	}
+
+	@Test
+	operation test14 () {
+	}
+
+	@Test
+	operation test15 () {
+	}
+
+	@Test
+	operation test16 () {
+	}
+
+	@Test
+	operation test17 () {
+	}
+
+	@Test
+	operation test18 () {
+	}
+
+	@Test
+	operation test19 () {
+	}
+
+	@Test
+	operation test20 () {
+	}
+
+	@Test
+	operation test21 () {
+	}
+
+	@Test
+	operation test22 () {
+	}
+
+	@Test
+	operation test23 () {
+	}
+
+	@Test
+	operation test24 () {
+	}
+
+	@Test
+	operation test25 () {
+	}
+
+	@Test
+	operation test26 () {
+	}
+
+	@Test
+	operation test27 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test28 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test29 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test30 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test31 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test32 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test33 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test34 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test35 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test36 () {
+	    assert !is_active
+	    assert !active (SmartTemplate._IoT_Template_.IoT_Template.ActuatorComponent.off)
+	}
+
+	@Test
+	operation test37 () {
+	    assert !active (SmartTemplate._IoT_Template_.IoT_Template.ActuatorComponent._Device_Actuated_)
+	    assert !is_active
+	}
+
+	@Test
+	operation test38 () {
+	    assert !is_active
+	    assert !active (SmartTemplate._IoT_Template_.IoT_Template.DeviceSwitchStatus.on)
+	}
+
+	@Test
+	operation test39 () {
+	    assert !is_active
+	    assert !active (SmartTemplate._IoT_Template_.IoT_Template.ActuatorComponent._Actuator_onStandby_)
+	}
+
+	@Test
+	operation test40 () {
+	    assert !active (SmartTemplate._IoT_Template_.IoT_Template.DeviceSwitchStatus.off)
+	    assert !is_active
+	}
+
+	@Test
+	operation test41 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test42 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test44 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test45 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test46 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test49 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test50 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test51 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test52 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test53 () {
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test54 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test55 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test56 () {
+	}
+
+	@Test
+	operation test57 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test58 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test59 () {
+	    assert !is_active
+	    exit
+	}
+
+	@Test
+	operation test61 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test63 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test64 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test65 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test66 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test67 () {
+	    assert !is_final
+	    assert !is_active
+	}
+
+	@Test
+	operation test68 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test69 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test70 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test71 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test72 () {
+	    assert !is_active
+	}
+
+}

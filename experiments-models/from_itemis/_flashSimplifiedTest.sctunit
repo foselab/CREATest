@@ -1,0 +1,88 @@
+testclass _flashSimplifiedTest for statechart _flash {
+	@Test
+	operation test03 () {
+	    enter
+	    triggerWithoutEvent
+	    assert is_active
+	}
+
+	@Test
+	operation test04 () {
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test05 () {
+	    enter
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test06 () {
+	    enter
+	    assert is_active
+	    assert active (_flash.flash.Dark)
+	}
+
+	@Test
+	operation test07 () {
+	    enter
+	    assert is_active
+	    assert active (_flash.flash.Light)
+	}
+
+	@Test
+	operation test08 () {
+	}
+
+	@Test
+	operation test09 () {
+	    assert !active (_flash.flash.Dark)
+	}
+
+	@Test
+	operation test10 () {
+	    assert !active (_flash.flash.Light)
+	}
+
+	@Test
+	operation test12 () {
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test13 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test14 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test17 () {
+	    assert !is_final
+	    assert !is_active
+	}
+
+	@Test
+	operation test18 () {
+	    enter
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test19 () {
+	    assert !is_active
+	    enter
+	    assert is_active
+	}
+
+}

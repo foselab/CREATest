@@ -1,0 +1,104 @@
+testclass test_remove_unnecessary_nesting_transfer_transitionsTest for statechart test_remove_unnecessary_nesting_transfer_transitions {
+	@Test
+	operation test00 () {
+	    raise hello
+	}
+
+	@Test
+	operation test01 () {
+	}
+
+	@Test
+	operation test02 () {
+	}
+
+	@Test
+	operation test03 () {
+	}
+
+	@Test
+	operation test04 () {
+	    exit
+	    assert !is_final
+	}
+
+	@Test
+	operation test05 () {
+	    enter
+	    assert is_active
+	    assert active (test_remove_unnecessary_nesting_transfer_transitions.main_region.A)
+	}
+
+	@Test
+	operation test06 () {
+	}
+
+	@Test
+	operation test07 () {
+	    assert !active (test_remove_unnecessary_nesting_transfer_transitions.main_region.C)
+	}
+
+	@Test
+	operation test08 () {
+	    assert !active (test_remove_unnecessary_nesting_transfer_transitions.main_region.A)
+	}
+
+	@Test
+	operation test09 () {
+	    assert !active (test_remove_unnecessary_nesting_transfer_transitions.main_region.C.D.B)
+	}
+
+	@Test
+	operation test10 () {
+	    raise hello
+	    raise operate
+	    assert !is_active
+	}
+
+	@Test
+	operation test11 () {
+	    assert !is_active
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test12 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test13 () {
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test14 () {
+	    enter
+	    assert !is_active
+	}
+
+	@Test
+	operation test15 () {
+	    assert !is_active
+	    enter
+	    triggerWithoutEvent
+	    assert is_active
+	}
+
+	@Test
+	operation test16 () {
+	    assert !is_active
+	    assert !is_final
+	}
+
+	@Test
+	operation test17 () {
+	    enter
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+}

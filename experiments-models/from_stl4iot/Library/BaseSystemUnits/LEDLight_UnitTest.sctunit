@@ -1,0 +1,120 @@
+testclass LEDLight_UnitTest for statechart LEDLight_Unit {
+	@Test
+	operation test00 () {
+	}
+
+	@Test
+	operation test01 () {
+	}
+
+	@Test
+	operation test02 () {
+	}
+
+	@Test
+	operation test03 () {
+	}
+
+	@Test
+	operation test05 () {
+	}
+
+	@Test
+	operation test06 () {
+	}
+
+	@Test
+	operation test07 () {
+	}
+
+	@Test
+	operation test08 () {
+	}
+
+	@Test
+	operation test09 () {
+	}
+
+	@Test
+	operation test10 () {
+	}
+
+	@Test
+	operation test11 () {
+	}
+
+	@Test
+	operation test12 () {
+	    assert !active (LEDLight_Unit._LED_Light_Unit_._On_._Bulb_Status_.Bulb_on)
+	}
+
+	@Test
+	operation test13 () {
+	    assert !active (LEDLight_Unit._LED_Light_Unit_._On_)
+	}
+
+	@Test
+	operation test14 () {
+	    assert !active (LEDLight_Unit._LED_Light_Unit_._On_._Bulb_Status_.Bulb_on_standby)
+	}
+
+	@Test
+	operation test15 () {
+	    assert !active (LEDLight_Unit._LED_Light_Unit_._On_._Bulb_Status_.Bulb_on._Luminosity_.Change_Luminosity_Level)
+	}
+
+	@Test
+	operation test16 () {
+	    assert !active (LEDLight_Unit._LED_Light_Unit_._Off_)
+	}
+
+	@Test
+	operation test17 () {
+	}
+
+	@Test
+	operation test18 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test21 () {
+	}
+
+	@Test
+	operation test22 () {
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test24 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test25 () {
+	    assert !is_final
+	}
+
+	@Test
+	operation test26 () {
+	}
+
+	@Test
+	operation test28 () {
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test30 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test31 () {
+	    assert !is_active
+	}
+
+}

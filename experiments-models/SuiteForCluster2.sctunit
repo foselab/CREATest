@@ -1,0 +1,23 @@
+testsuite SuiteForCluster2 {
+	Actuator_ComponentSimplifiedTest,
+	DeviceTemp_ComponentSimplifiedTest,
+	AirConditioner_UnitSimplifiedTest,
+	LEDLight_UnitSimplifiedTest,
+	Microwave_UnitSimplifiedTest,
+	TrafficLight_UnitSimplifiedTest,
+	TV_UnitSimplifiedTest,
+	PhysicalEntity_TemplateSimplifiedTest,
+	Ultrasonic_MotionDetectorSimplifiedTest,
+	sampleSimplifiedTest,
+	_01_No_HistorySimplifiedTest,
+	_02_shallow_historySimplifiedTest,
+	_03_deep_historySimplifiedTest,
+	_03_nested_composite_statesSimplifiedTest,
+	_04_LightAndMotionSensingLightSwitchSimplifiedTest,
+	_04_subdiagramsSimplifiedTest,
+	_05_PresenceSimulationLightSwitchSimplifiedTest,
+	TrafficLightCtrlSimplifiedTest,
+	TrafficLightCtrl1SimplifiedTest,
+	TrafficLightStateMachineSimplifiedTest,
+	motionDetectionSimplifiedTest		
+}

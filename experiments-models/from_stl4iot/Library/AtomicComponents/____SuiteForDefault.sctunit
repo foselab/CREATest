@@ -1,0 +1,9 @@
+testsuite ____SuiteForDefault {
+	Actuator_ComponentTest,
+	Controller_ComponentTest,
+	DeviceTemp_ComponentTest,
+	Network_ComponentTest,
+	Power_ComponentTest,
+	Sensor_ComponentTest,
+	Ultrasonic_SensorTest
+}

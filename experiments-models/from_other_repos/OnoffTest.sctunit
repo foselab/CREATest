@@ -1,0 +1,397 @@
+testclass onoffTest for statechart onoff {
+	@Test
+	operation test00 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test01 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test02 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test03 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test04 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test05 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test06 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test07 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test08 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test09 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test10 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test11 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test12 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test13 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test14 () {
+	}
+
+	@Test
+	operation test15 () {
+	    assert !is_active
+	    assert !active (onoff.main_region.On)
+	}
+
+	@Test
+	operation test16 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test17 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test18 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test19 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test20 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test21 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test22 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test23 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test24 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test25 () {
+	    assert !active (onoff.main_region.On.Voice.Bark)
+	    assert !is_active
+	}
+
+	@Test
+	operation test26 () {
+	    assert !is_active
+	    assert !active (onoff.main_region.On.Voice.Silent)
+	}
+
+	@Test
+	operation test27 () {
+	    assert !active (onoff.main_region.On.Legs.Run)
+	    assert !is_active
+	}
+
+	@Test
+	operation test28 () {
+	    assert !is_active
+	    assert !active (onoff.main_region.On.Legs.Stand)
+	}
+
+	@Test
+	operation test29 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test30 () {
+	    assert !is_active
+	    assert !active (onoff.main_region.Off)
+	}
+
+	@Test
+	operation test31 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test32 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test33 () {
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test35 () {
+	}
+
+	@Test
+	operation test36 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test37 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test38 () {
+	}
+
+	@Test
+	operation test39 () {
+	}
+
+	@Test
+	operation test40 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test41 () {
+	}
+
+	@Test
+	operation test42 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test43 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test44 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test45 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test46 () {
+	}
+
+	@Test
+	operation test47 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test48 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test49 () {
+	}
+
+	@Test
+	operation test50 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test51 () {
+	}
+
+	@Test
+	operation test52 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test53 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test54 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test55 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test59 () {
+	    assert !is_final
+	    assert !is_active
+	}
+
+	@Test
+	operation test60 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test61 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test63 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test64 () {
+	    raise attentionNeeded
+	    assert !is_active
+	}
+
+	@Test
+	operation test66 () {
+	    assert !is_active
+	    exit
+	}
+
+	@Test
+	operation test67 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test68 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test69 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test70 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test74 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test75 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test76 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test77 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test78 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test81 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test82 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test83 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test84 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test85 () {
+	}
+
+	@Test
+	operation test86 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test87 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test88 () {
+	}
+
+	@Test
+	operation test89 () {
+	    assert !is_active
+	}
+
+}

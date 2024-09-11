@@ -1,0 +1,151 @@
+testclass ElevatorSimplifiedTest for statechart Elevator {
+	@Test
+	operation test00 () {
+	    enter
+	    raise floor: 0
+	    proceed 1 cycle
+	    assert is_active
+	}
+
+	@Test
+	operation test01 () {
+	    proceed 5s
+	    assert !is_final
+	}
+
+	@Test
+	operation test04 () {
+	    raise floor: 574
+	    enter
+	    proceed 1 cycle
+	    proceed 1 cycle
+	    assert is_active
+	}
+
+	@Test
+	operation test05 () {
+	    raise floor: -210
+	    enter
+	    proceed 1 cycle
+	    assert is_active
+	}
+
+	@Test
+	operation test06 () {
+	    enter
+	    proceed 1 cycle
+	    assert is_active
+	}
+
+	@Test
+	operation test07 () {
+	    raise floor: 574
+	    enter
+	    proceed 1 cycle
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test08 () {
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test09 () {
+	    raise floor: 1154
+	    enter
+	    proceed 1 cycle
+	    assert is_active
+	    assert active (Elevator.main.Moving.r1.MovingUp)
+	}
+
+	@Test
+	operation test10 () {
+	    raise floor: 574
+	    enter
+	    proceed 1 cycle
+	    assert is_active
+	    assert active (Elevator.main.Moving)
+	}
+
+	@Test
+	operation test11 () {
+	    enter
+	    assert is_active
+	    assert !active (Elevator.main.Moving)
+	}
+
+	@Test
+	operation test12 () {
+	    enter
+	    assert is_active
+	    assert active (Elevator.main.Idle)
+	}
+
+	@Test
+	operation test13 () {
+	}
+
+	@Test
+	operation test14 () {
+	    assert !active (Elevator.main.Moving)
+	}
+
+	@Test
+	operation test15 () {
+	    assert !active (Elevator.main.Moving.r1.MovingUp)
+	}
+
+	@Test
+	operation test16 () {
+	    assert !active (Elevator.main.Moving.r1.MovingDown)
+	}
+
+	@Test
+	operation test17 () {
+	    assert !active (Elevator.main.Idle)
+	}
+
+	@Test
+	operation test18 () {
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test19 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test22 () {
+	    assert !is_final
+	}
+
+	@Test
+	operation test24 () {
+	    raise floor: 1
+	    enter
+	    proceed 1 cycle
+	    proceed 1 cycle
+	    assert is_active
+	}
+
+	@Test
+	operation test25 () {
+	    enter
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test26 () {
+	    proceed 1 cycle
+	    assert !is_active
+	}
+
+}

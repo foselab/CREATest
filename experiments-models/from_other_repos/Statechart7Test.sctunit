@@ -1,0 +1,165 @@
+testclass Statechart7Test for statechart Statechart7 {
+	@Test
+	operation test00 () {
+	}
+
+	@Test
+	operation test01 () {
+	}
+
+	@Test
+	operation test02 () {
+	}
+
+	@Test
+	operation test03 () {
+	}
+
+	@Test
+	operation test05 () {
+	}
+
+	@Test
+	operation test06 () {
+	}
+
+	@Test
+	operation test07 () {
+	}
+
+	@Test
+	operation test08 () {
+	}
+
+	@Test
+	operation test09 () {
+	}
+
+	@Test
+	operation test10 () {
+	    assert !active (Statechart7.main_region.StateValveOn2)
+	}
+
+	@Test
+	operation test11 () {
+	    assert !active (Statechart7.main_region.StateValveOn1)
+	}
+
+	@Test
+	operation test12 () {
+	    assert !active (Statechart7.main_region.DecisionTimeOpen)
+	}
+
+	@Test
+	operation test13 () {
+	    assert !active (Statechart7.main_region.DecisionMotor)
+	}
+
+	@Test
+	operation test14 () {
+	    assert !active (Statechart7.main_region.DecisionValve)
+	}
+
+	@Test
+	operation test15 () {
+	    assert !active (Statechart7.main_region.StateMotorOn)
+	}
+
+	@Test
+	operation test16 () {
+	    assert !active (Statechart7.main_region.StateValveOn3)
+	}
+
+	@Test
+	operation test17 () {
+	    assert !active (Statechart7.main_region.DecisionActivate)
+	}
+
+	@Test
+	operation test18 () {
+	}
+
+	@Test
+	operation test19 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test20 () {
+	    exit
+	}
+
+	@Test
+	operation test23 () {
+	}
+
+	@Test
+	operation test24 () {
+	}
+
+	@Test
+	operation test25 () {
+	}
+
+	@Test
+	operation test26 () {
+	}
+
+	@Test
+	operation test30 () {
+	}
+
+	@Test
+	operation test31 () {
+	}
+
+	@Test
+	operation test32 () {
+	}
+
+	@Test
+	operation test33 () {
+	}
+
+	@Test
+	operation test35 () {
+	}
+
+	@Test
+	operation test36 () {
+	    assert !is_active
+	    exit
+	}
+
+	@Test
+	operation test37 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test39 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test40 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test41 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test42 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test44 () {
+	    assert !is_final
+	    assert !is_active
+	}
+
+}

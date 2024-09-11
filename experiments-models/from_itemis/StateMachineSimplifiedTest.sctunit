@@ -1,0 +1,139 @@
+testclass StateMachineSimplifiedTest for statechart StateMachine {
+	@Test
+	operation test04 () {
+	    enter
+	    raise inEvent2
+	    raise inEvent2
+	    assert is_active
+	}
+
+	@Test
+	operation test05 () {
+	    enter
+	    raise inEvent1
+	    proceed 2s
+	    assert is_active
+	}
+
+	@Test
+	operation test06 () {
+	    enter
+	    proceed 2s
+	    assert is_active
+	}
+
+	@Test
+	operation test07 () {
+	    exit
+	    assert !is_final
+	}
+
+	@Test
+	operation test08 () {
+	    enter
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test09 () {
+	    enter
+	    raise inEvent2
+	    assert is_active
+	    assert active (StateMachine.main_region._final_)
+	}
+
+	@Test
+	operation test10 () {
+	    enter
+	    raise inEvent1
+	    assert is_active
+	    assert active (StateMachine.main_region.StateB)
+	}
+
+	@Test
+	operation test11 () {
+	    enter
+	    assert is_active
+	    assert active (StateMachine.main_region.StateA)
+	}
+
+	@Test
+	operation test12 () {
+	}
+
+	@Test
+	operation test13 () {
+	    assert !active (StateMachine.main_region._final_)
+	}
+
+	@Test
+	operation test14 () {
+	    assert !active (StateMachine.main_region.StateB)
+	}
+
+	@Test
+	operation test15 () {
+	    assert !active (StateMachine.main_region.StateA)
+	}
+
+	@Test
+	operation test16 () {
+	    triggerWithoutEvent
+	    assert !is_active
+	}
+
+	@Test
+	operation test17 () {
+	    enter
+	    raise inEvent2
+	    assert is_final
+	}
+
+	@Test
+	operation test18 () {
+	    assert !is_active
+	    assert !is_final
+	}
+
+	@Test
+	operation test19 () {
+	    assert !is_active
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test20 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test24 () {
+	    enter
+	    raise inEvent1
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test25 () {
+	    assert !is_active
+	    enter
+	    raise inEvent1
+	    raise inEvent1
+	    assert is_active
+	}
+
+	@Test
+	operation test26 () {
+	    enter
+	    raise inEvent2
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+}

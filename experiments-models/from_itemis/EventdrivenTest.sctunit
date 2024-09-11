@@ -1,0 +1,74 @@
+testclass eventdrivenTest for statechart eventdriven {
+	@Test
+	operation test00 () {
+	}
+
+	@Test
+	operation test01 () {
+	}
+
+	@Test
+	operation test03 () {
+	}
+
+	@Test
+	operation test04 () {
+	    assert !active (eventdriven.main_region.StateE)
+	}
+
+	@Test
+	operation test05 () {
+	    assert !active (eventdriven.main_region.StateC)
+	}
+
+	@Test
+	operation test06 () {
+	    assert !active (eventdriven.main_region.StateB)
+	}
+
+	@Test
+	operation test07 () {
+	    assert !active (eventdriven.main_region.StateD)
+	}
+
+	@Test
+	operation test08 () {
+	    assert !active (eventdriven.main_region.StateA)
+	}
+
+	@Test
+	operation test09 () {
+	}
+
+	@Test
+	operation test10 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test12 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test14 () {
+	}
+
+	@Test
+	operation test16 () {
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test18 () {
+	    assert !is_final
+	}
+
+	@Test
+	operation test19 () {
+	    exit
+	    assert !is_final
+	}
+
+}

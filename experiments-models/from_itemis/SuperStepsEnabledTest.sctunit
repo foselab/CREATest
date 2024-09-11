@@ -1,0 +1,175 @@
+testclass SuperStepsEnabledTest for statechart SuperStepsEnabled {
+	@Test
+	operation test00 () {
+	    enter
+	    raise e
+	    raise local1
+	    triggerWithoutEvent
+	}
+
+	@Test
+	operation test01 () {
+	}
+
+	@Test
+	operation test02 () {
+	}
+
+	@Test
+	operation test03 () {
+	    enter
+	    raise e
+	}
+
+	@Test
+	operation test04 () {
+	}
+
+	@Test
+	operation test05 () {
+	}
+
+	@Test
+	operation test06 () {
+	}
+
+	@Test
+	operation test07 () {
+	}
+
+	@Test
+	operation test08 () {
+	}
+
+	@Test
+	operation test09 () {
+	    enter
+	    raise e
+	    raise local2
+	    raise local1
+	    triggerWithoutEvent
+	}
+
+	@Test
+	operation test11 () {
+	    raise e
+	    enter
+	    raise e
+	}
+
+	@Test
+	operation test12 () {
+	    enter
+	    raise e
+	    raise local1
+	    raise e
+	    exit
+	}
+
+	@Test
+	operation test13 () {
+	    enter
+	    raise e
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test14 () {
+	    enter
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test15 () {
+	    enter
+	    raise e
+	    raise local1
+	    triggerWithoutEvent
+	    assert is_active
+	    assert active (SuperStepsEnabled.main_region.L)
+	}
+
+	@Test
+	operation test16 () {
+	    enter
+	    assert is_active
+	    assert active (SuperStepsEnabled.main_region.A)
+	}
+
+	@Test
+	operation test17 () {
+	}
+
+	@Test
+	operation test18 () {
+	    assert !active (SuperStepsEnabled.main_region.L)
+	}
+
+	@Test
+	operation test19 () {
+	    assert !active (SuperStepsEnabled.main_region.C)
+	}
+
+	@Test
+	operation test20 () {
+	}
+
+	@Test
+	operation test21 () {
+	    assert !active (SuperStepsEnabled.main_region.A)
+	}
+
+	@Test
+	operation test22 () {
+	    raise e
+	    assert !is_final
+	}
+
+	@Test
+	operation test23 () {
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test24 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test25 () {
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test26 () {
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test27 () {
+	    enter
+	    assert !is_active
+	}
+
+	@Test
+	operation test28 () {
+	    assert !is_active
+	    enter
+	    raise e
+	    assert is_active
+	    assert active (SuperStepsEnabled.main_region.C)
+	}
+
+	@Test
+	operation test29 () {
+	    assert !is_final
+	    assert !is_active
+	}
+
+}

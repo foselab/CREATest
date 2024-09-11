@@ -1,0 +1,214 @@
+testclass SmartFireSystemSimplifiedTest for statechart SmartFireSystem {
+	@Test
+	operation test00 () {
+	}
+
+	@Test
+	operation test01 () {
+	    assert !is_final
+	}
+
+	@Test
+	operation test02 () {
+	}
+
+	@Test
+	operation test03 () {
+	}
+
+	@Test
+	operation test04 () {
+	}
+
+	@Test
+	operation test05 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test06 () {
+	    assert !is_final
+	}
+
+	@Test
+	operation test07 () {
+	}
+
+	@Test
+	operation test08 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test09 () {
+	}
+
+	@Test
+	operation test10 () {
+	}
+
+	@Test
+	operation test11 () {
+	    assert !is_final
+	}
+
+	@Test
+	operation test12 () {
+	}
+
+	@Test
+	operation test13 () {
+	}
+
+	@Test
+	operation test14 () {
+	    assert !active (SmartFireSystem._SmartFiresystem_.SmartFireSystem.DeviceTemperatureComponent._Initialize_DeviceTemp_Component_)
+	}
+
+	@Test
+	operation test15 () {
+	    assert !active (SmartFireSystem._SmartFiresystem_.SmartFireSystem.PowerCalculatorComponent._Initialize_Power_Component_)
+	}
+
+	@Test
+	operation test16 () {
+	    assert !active (SmartFireSystem._SmartFiresystem_.SmartFireSystem.NetworkComponent._Initialize_Network_Component_)
+	}
+
+	@Test
+	operation test17 () {
+	    assert !active (SmartFireSystem._SmartFiresystem_.SmartFireSystem.SensorComponent._Sensor_Component_isON_._Sensor_Monitoring_._Sensor_Component_)
+	}
+
+	@Test
+	operation test18 () {
+	    assert !active (SmartFireSystem._SmartFiresystem_.SmartFireSystem.SensorComponent._Sensor_Component_isON_)
+	}
+
+	@Test
+	operation test19 () {
+	    assert !active (SmartFireSystem._SmartFiresystem_.SmartFireSystem.ControllerComponent._Controller_Component_isON_)
+	}
+
+	@Test
+	operation test20 () {
+	    assert !active (SmartFireSystem._SmartFiresystem_.SmartFireSystem)
+	}
+
+	@Test
+	operation test21 () {
+	    assert !active (SmartFireSystem._SmartFiresystem_.SmartFireSystem.DeviceTemperatureComponent.off)
+	}
+
+	@Test
+	operation test22 () {
+	    assert !active (SmartFireSystem._SmartFiresystem_.SmartFireSystem.PowerCalculatorComponent.off)
+	}
+
+	@Test
+	operation test23 () {
+	    assert !active (SmartFireSystem._SmartFiresystem_.SmartFireSystem.PowerCalculatorComponent._Initialize_Power_Component_._Receiving_Updates_From_Power_Component_._Power_Consumption_Updates_)
+	}
+
+	@Test
+	operation test24 () {
+	    assert !active (SmartFireSystem._SmartFiresystem_.SmartFireSystem.NetworkComponent.off)
+	}
+
+	@Test
+	operation test25 () {
+	    assert !active (SmartFireSystem._SmartFiresystem_.SmartFireSystem.NetworkComponent._Initialize_Network_Component_._Receiving_Network_Connection_Updates_._Network_Connection_Updates_)
+	}
+
+	@Test
+	operation test26 () {
+	    assert !active (SmartFireSystem._SmartFiresystem_.SmartFireSystem.SensorComponent.off)
+	}
+
+	@Test
+	operation test27 () {
+	    assert !active (SmartFireSystem._SmartFiresystem_.SmartFireSystem.SensorComponent._Sensor_Component_isON_._Sensor_Monitoring_._Sensor_Component_._Sensor_Detected_Activity_._final_)
+	}
+
+	@Test
+	operation test28 () {
+	    assert !active (SmartFireSystem._SmartFiresystem_.SmartFireSystem.SensorComponent._Sensor_Component_isON_._Sensor_Monitoring_._Sensor_Component_._Sensor_Detected_Activity_.HeatDetected)
+	}
+
+	@Test
+	operation test29 () {
+	    assert !active (SmartFireSystem._SmartFiresystem_.SmartFireSystem.SensorComponent._Sensor_Component_isON_._Sensor_Monitoring_._Sensor_Component_._Sensor_Detected_Activity_.SmokeDetected)
+	}
+
+	@Test
+	operation test30 () {
+	    assert !active (SmartFireSystem._SmartFiresystem_.SmartFireSystem.SensorComponent._Sensor_Component_isON_._Sensor_Monitoring_._Sensor_Component_._Sensor_Detected_Activity_.CarbonDetected)
+	}
+
+	@Test
+	operation test31 () {
+	    assert !active (SmartFireSystem._SmartFiresystem_.SmartFireSystem.ControllerComponent.off)
+	}
+
+	@Test
+	operation test32 () {
+	    assert !active (SmartFireSystem._SmartFiresystem_.SmartFireSystem.ActuatorComponent._Actuator_off_)
+	}
+
+	@Test
+	operation test33 () {
+	    assert !active (SmartFireSystem._SmartFiresystem_.SmartFireSystem.ActuatorComponent._Device_Actuated_)
+	}
+
+	@Test
+	operation test34 () {
+	    assert !active (SmartFireSystem._SmartFiresystem_.SmartFireSystem.ActuatorComponent._Actuator_OnStandby_)
+	}
+
+	@Test
+	operation test35 () {
+	    assert !active (SmartFireSystem._SmartFiresystem_.SmartFireSystem.ControllerComponent._Controller_Component_isON_._Controller_Receiving_and_Sending_Updates_._Controller_Component_)
+	}
+
+	@Test
+	operation test36 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test38 () {
+	}
+
+	@Test
+	operation test41 () {
+	}
+
+	@Test
+	operation test42 () {
+	}
+
+	@Test
+	operation test43 () {
+	}
+
+	@Test
+	operation test44 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test45 () {
+	    assert !is_final
+	}
+
+	@Test
+	operation test46 () {
+	}
+
+	@Test
+	operation test47 () {
+	    exit
+	    assert !is_final
+	}
+
+}

@@ -1,0 +1,422 @@
+testclass MqttClientStatechartTest for statechart MqttClientStatechart {
+	@Test
+	operation test00 () {
+	}
+
+	@Test
+	operation test01 () {
+	}
+
+	@Test
+	operation test02 () {
+	}
+
+	@Test
+	operation test03 () {
+	}
+
+	@Test
+	operation test04 () {
+	}
+
+	@Test
+	operation test05 () {
+	}
+
+	@Test
+	operation test06 () {
+	}
+
+	@Test
+	operation test07 () {
+	}
+
+	@Test
+	operation test08 () {
+	}
+
+	@Test
+	operation test09 () {
+	}
+
+	@Test
+	operation test10 () {
+	}
+
+	@Test
+	operation test11 () {
+	}
+
+	@Test
+	operation test12 () {
+	}
+
+	@Test
+	operation test15 () {
+	}
+
+	@Test
+	operation test16 () {
+	}
+
+	@Test
+	operation test17 () {
+	}
+
+	@Test
+	operation test18 () {
+	}
+
+	@Test
+	operation test19 () {
+	}
+
+	@Test
+	operation test20 () {
+	}
+
+	@Test
+	operation test21 () {
+	}
+
+	@Test
+	operation test22 () {
+	}
+
+	@Test
+	operation test23 () {
+	    assert !is_active
+	    assert !active (MqttClientStatechart.main_region.Undefined)
+	}
+
+	@Test
+	operation test24 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test25 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test26 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test27 () {
+	}
+
+	@Test
+	operation test28 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test29 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test30 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test31 () {
+	}
+
+	@Test
+	operation test32 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test33 () {
+	}
+
+	@Test
+	operation test34 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test35 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test36 () {
+	    assert !active (MqttClientStatechart.main_region.Undefined.r1.Start)
+	    assert !is_active
+	}
+
+	@Test
+	operation test37 () {
+	    assert !is_active
+	    assert !active (MqttClientStatechart.main_region.Undefined.r1.RestartModule)
+	}
+
+	@Test
+	operation test38 () {
+	    assert !is_active
+	    assert !active (MqttClientStatechart.main_region.Undefined.r1.TestModule)
+	}
+
+	@Test
+	operation test39 () {
+	    assert !active (MqttClientStatechart.main_region.Undefined.r1.ResetModule)
+	    assert !is_active
+	}
+
+	@Test
+	operation test40 () {
+	    assert !active (MqttClientStatechart.main_region.Undefined.r1.ResetSystem)
+	    assert !is_active
+	}
+
+	@Test
+	operation test41 () {
+	    assert !is_active
+	    assert !active (MqttClientStatechart.main_region.Undefined.r1.Entry)
+	}
+
+	@Test
+	operation test42 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test43 () {
+	    exit
+	}
+
+	@Test
+	operation test46 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test47 () {
+	}
+
+	@Test
+	operation test48 () {
+	}
+
+	@Test
+	operation test49 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test50 () {
+	}
+
+	@Test
+	operation test51 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test52 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test53 () {
+	}
+
+	@Test
+	operation test54 () {
+	}
+
+	@Test
+	operation test55 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test56 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test57 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test58 () {
+	}
+
+	@Test
+	operation test59 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test60 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test61 () {
+	    raise WizFi360.fail
+	}
+
+	@Test
+	operation test62 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test63 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test64 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test65 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test66 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test67 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test68 () {
+	}
+
+	@Test
+	operation test69 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test70 () {
+	    raise WizFi360.ready
+	    assert !is_active
+	}
+
+	@Test
+	operation test71 () {
+	}
+
+	@Test
+	operation test72 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test73 () {
+	    raise WizFi360.ok
+	    assert !is_active
+	}
+
+	@Test
+	operation test74 () {
+	}
+
+	@Test
+	operation test75 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test76 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test77 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test78 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test79 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test80 () {
+	}
+
+	@Test
+	operation test81 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test82 () {
+	}
+
+	@Test
+	operation test83 () {
+	    proceed 1s
+	    assert !is_active
+	}
+
+	@Test
+	operation test84 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test85 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test86 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test87 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test88 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test89 () {
+	    assert !is_active
+	    exit
+	}
+
+	@Test
+	operation test90 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test91 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test92 () {
+	}
+
+}

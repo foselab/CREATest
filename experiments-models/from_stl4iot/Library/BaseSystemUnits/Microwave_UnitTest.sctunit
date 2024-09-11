@@ -1,0 +1,183 @@
+testclass Microwave_UnitTest for statechart Microwave_Unit {
+	@Test
+	operation test00 () {
+	}
+
+	@Test
+	operation test01 () {
+	}
+
+	@Test
+	operation test02 () {
+	}
+
+	@Test
+	operation test03 () {
+	}
+
+	@Test
+	operation test04 () {
+	}
+
+	@Test
+	operation test05 () {
+	}
+
+	@Test
+	operation test06 () {
+	}
+
+	@Test
+	operation test07 () {
+	}
+
+	@Test
+	operation test08 () {
+	}
+
+	@Test
+	operation test09 () {
+	}
+
+	@Test
+	operation test10 () {
+	}
+
+	@Test
+	operation test11 () {
+	}
+
+	@Test
+	operation test12 () {
+	}
+
+	@Test
+	operation test13 () {
+	    assert !active (Microwave_Unit._Microwave_Unit_._on_._Microwave_isWorking_.startTimer)
+	}
+
+	@Test
+	operation test14 () {
+	    assert !active (Microwave_Unit._Microwave_Unit_._on_)
+	}
+
+	@Test
+	operation test15 () {
+	}
+
+	@Test
+	operation test16 () {
+	}
+
+	@Test
+	operation test17 () {
+	    assert !active (Microwave_Unit._Microwave_Unit_._on_._Microwave_isWorking_.startTimer._Starting_Timer_.start)
+	}
+
+	@Test
+	operation test18 () {
+	    assert !active (Microwave_Unit._Microwave_Unit_._on_._Microwave_isWorking_.startTimer._Starting_Timer_.pause)
+	}
+
+	@Test
+	operation test19 () {
+	    assert !active (Microwave_Unit._Microwave_Unit_._on_._Microwave_isWorking_.idle_standby)
+	}
+
+	@Test
+	operation test20 () {
+	}
+
+	@Test
+	operation test21 () {
+	    assert !active (Microwave_Unit._Microwave_Unit_._off_)
+	}
+
+	@Test
+	operation test22 () {
+	}
+
+	@Test
+	operation test23 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test24 () {
+	    exit
+	}
+
+	@Test
+	operation test29 () {
+	}
+
+	@Test
+	operation test31 () {
+	}
+
+	@Test
+	operation test34 () {
+	}
+
+	@Test
+	operation test36 () {
+	}
+
+	@Test
+	operation test37 () {
+	    assert !is_active
+	    exit
+	}
+
+	@Test
+	operation test39 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test40 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test43 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test44 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test45 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test46 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test47 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test48 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test49 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test50 () {
+	    assert !is_final
+	    assert !is_active
+	}
+
+}

@@ -1,0 +1,141 @@
+testclass PhysicalEntity_TemplateSimplifiedTest for statechart PhysicalEntity_Template {
+	@Test
+	operation test01 () {
+	}
+
+	@Test
+	operation test02 () {
+	}
+
+	@Test
+	operation test03 () {
+	    assert !is_final
+	}
+
+	@Test
+	operation test04 () {
+	}
+
+	@Test
+	operation test05 () {
+	}
+
+	@Test
+	operation test06 () {
+	}
+
+	@Test
+	operation test07 () {
+	}
+
+	@Test
+	operation test08 () {
+	}
+
+	@Test
+	operation test09 () {
+	}
+
+	@Test
+	operation test10 () {
+	    assert !active (PhysicalEntity_Template.PhysicalEntity_Template._Detecting_.Power.PowerSupplyStatus)
+	}
+
+	@Test
+	operation test11 () {
+	    assert !active (PhysicalEntity_Template.PhysicalEntity_Template._Detecting_.Controller.Reading_Sensor_Data)
+	}
+
+	@Test
+	operation test12 () {
+	    assert !active (PhysicalEntity_Template.PhysicalEntity_Template._Detecting_)
+	}
+
+	@Test
+	operation test13 () {
+	    assert !active (PhysicalEntity_Template.PhysicalEntity_Template._Detecting_.Power.PowerSupplyStatus.Status.CircuitTrigger)
+	}
+
+	@Test
+	operation test14 () {
+	    assert !active (PhysicalEntity_Template.PhysicalEntity_Template._Detecting_.Power.PowerSupplyStatus.Status.ConsumingMinimum)
+	}
+
+	@Test
+	operation test15 () {
+	    assert !active (PhysicalEntity_Template.PhysicalEntity_Template._Detecting_.Actuator.Actuate_Trigger)
+	}
+
+	@Test
+	operation test16 () {
+	    assert !active (PhysicalEntity_Template.PhysicalEntity_Template._Detecting_.Actuator.OnStandby)
+	}
+
+	@Test
+	operation test17 () {
+	    assert !active (PhysicalEntity_Template.PhysicalEntity_Template._Detecting_.Controller.Reading_Sensor_Data.Processing.Comparing)
+	}
+
+	@Test
+	operation test18 () {
+	    assert !active (PhysicalEntity_Template.PhysicalEntity_Template._Detecting_.Controller.Reading_Sensor_Data.Processing.Trigger_Changed)
+	}
+
+	@Test
+	operation test19 () {
+	    assert !active (PhysicalEntity_Template.PhysicalEntity_Template._Detecting_.Sensor.Receiving)
+	}
+
+	@Test
+	operation test20 () {
+	    assert !active (PhysicalEntity_Template.PhysicalEntity_Template._off_)
+	}
+
+	@Test
+	operation test21 () {
+	    assert !active (PhysicalEntity_Template.PhysicalEntity_Template._Detecting_.Sensor.Transmitting)
+	}
+
+	@Test
+	operation test22 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test26 () {
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test27 () {
+	    assert !is_active
+	    assert !is_final
+	}
+
+	@Test
+	operation test28 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test29 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test35 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test36 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test38 () {
+	    assert !is_active
+	}
+
+}

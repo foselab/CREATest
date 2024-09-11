@@ -1,0 +1,196 @@
+testclass eventdrivenSimplifiedTest for statechart eventdriven {
+	@Test
+	operation test05 () {
+	    enter
+	    raise input
+	    proceed 200ms
+	    raise input
+	    assert is_active
+	}
+
+	@Test
+	operation test06 () {
+	    enter
+	    raise input
+	    proceed 200ms
+	    triggerWithoutEvent
+	    assert is_active
+	}
+
+	@Test
+	operation test07 () {
+	    enter
+	    raise input
+	    raise input
+	    assert is_active
+	}
+
+	@Test
+	operation test08 () {
+	    enter
+	    triggerWithoutEvent
+	    assert is_active
+	}
+
+	@Test
+	operation test09 () {
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test10 () {
+	    enter
+	    raise input
+	    proceed 200ms
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test11 () {
+	    enter
+	    raise input
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test12 () {
+	    enter
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test13 () {
+	    enter
+	    raise input
+	    proceed 200ms
+	    proceed 500ms
+	    assert is_active
+	    assert active (eventdriven.main_region.StateE)
+	}
+
+	@Test
+	operation test14 () {
+	    enter
+	    raise input
+	    proceed 200ms
+	    assert is_active
+	    assert active (eventdriven.main_region.StateC)
+	}
+
+	@Test
+	operation test15 () {
+	    enter
+	    raise input
+	    assert is_active
+	    assert active (eventdriven.main_region.StateB)
+	}
+
+	@Test
+	operation test16 () {
+	    enter
+	    assert is_active
+	    assert active (eventdriven.main_region.StateA)
+	}
+
+	@Test
+	operation test17 () {
+	}
+
+	@Test
+	operation test18 () {
+	    assert !active (eventdriven.main_region.StateD)
+	}
+
+	@Test
+	operation test19 () {
+	    assert !active (eventdriven.main_region.StateC)
+	}
+
+	@Test
+	operation test20 () {
+	    assert !active (eventdriven.main_region.StateB)
+	}
+
+	@Test
+	operation test21 () {
+	    assert !active (eventdriven.main_region.StateE)
+	}
+
+	@Test
+	operation test22 () {
+	    assert !active (eventdriven.main_region.StateA)
+	}
+
+	@Test
+	operation test23 () {
+	    raise input
+	    assert !is_active
+	}
+
+	@Test
+	operation test24 () {
+	    assert !is_active
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test25 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test27 () {
+	    assert !is_active
+	    enter
+	    raise input
+	    proceed 200ms
+	    proceed 200ms
+	    raise input
+	    assert is_active
+	}
+
+	@Test
+	operation test29 () {
+	    assert !is_active
+	    assert !is_final
+	}
+
+	@Test
+	operation test30 () {
+	    enter
+	    raise input
+	    proceed 200ms
+	    proceed 500ms
+	    exit
+	    assert !is_final
+	}
+
+	@Test
+	operation test31 () {
+	    enter
+	    raise input
+	    proceed 200ms
+	    proceed 200ms
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test32 () {
+	    enter
+	    raise input
+	    proceed 200ms
+	    proceed 500ms
+	    raise input
+	    assert is_active
+	}
+
+}

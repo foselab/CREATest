@@ -1,0 +1,282 @@
+testclass AirConditioner_UnitSimplifiedTest for statechart AirConditioner_Unit {
+	@Test
+	operation test00 () {
+	}
+
+	@Test
+	operation test01 () {
+	}
+
+	@Test
+	operation test02 () {
+	}
+
+	@Test
+	operation test08 () {
+	    enter
+	    raise toggle
+	    triggerWithoutEvent
+	    assert !is_final
+	}
+
+	@Test
+	operation test09 () {
+	    enter
+	    raise toggle
+	    raise temp_down
+	    assert is_active
+	}
+
+	@Test
+	operation test10 () {
+	}
+
+	@Test
+	operation test11 () {
+	}
+
+	@Test
+	operation test12 () {
+	    enter
+	    raise toggle
+	    enter
+	    raise temp_down
+	    raise toggle
+	    raise temp_up
+	    raise temp_up
+	    assert !is_final
+	}
+
+	@Test
+	operation test13 () {
+	    enter
+	    raise toggle
+	    proceed 500ms
+	    assert is_active
+	}
+
+	@Test
+	operation test14 () {
+	    enter
+	    raise toggle
+	    raise temp_down
+	    raise temp_down
+	    raise temp_down
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test15 () {
+	    enter
+	    raise toggle
+	    raise temp_up
+	    raise toggle
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test16 () {
+	    enter
+	    raise toggle
+	    raise temp_up
+	    raise temp_up
+	    raise toggle
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test17 () {
+	    enter
+	    raise toggle
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test18 () {
+	    enter
+	    raise toggle
+	    assert active (AirConditioner_Unit._AirConditioner_.MonitorRoomTemp.ChangingTemp.Monitoring)
+	}
+
+	@Test
+	operation test19 () {
+	    enter
+	    assert is_active
+	    assert !active (AirConditioner_Unit._AirConditioner_.MonitorRoomTemp.MonitoringTemp.RoomTempChanging)
+	}
+
+	@Test
+	operation test20 () {
+	    enter
+	    assert is_active
+	    assert !active (AirConditioner_Unit._AirConditioner_.MonitorRoomTemp)
+	}
+
+	@Test
+	operation test21 () {
+	    enter
+	    assert is_active
+	    assert active (AirConditioner_Unit._AirConditioner_.Off)
+	}
+
+	@Test
+	operation test22 () {
+	}
+
+	@Test
+	operation test23 () {
+	    assert !active (AirConditioner_Unit._AirConditioner_.MonitorRoomTemp.MonitoringTemp.RoomTempChanging)
+	}
+
+	@Test
+	operation test24 () {
+	    assert !active (AirConditioner_Unit._AirConditioner_.MonitorRoomTemp)
+	}
+
+	@Test
+	operation test25 () {
+	    assert !active (AirConditioner_Unit._AirConditioner_.MonitorRoomTemp.ChangingTemp.DecreaseTemp)
+	}
+
+	@Test
+	operation test26 () {
+	    assert !active (AirConditioner_Unit._AirConditioner_.MonitorRoomTemp.ChangingTemp.IncreaseTemp)
+	}
+
+	@Test
+	operation test27 () {
+	    assert !active (AirConditioner_Unit._AirConditioner_.MonitorRoomTemp.ChangingTemp.Monitoring)
+	}
+
+	@Test
+	operation test28 () {
+	    assert !active (AirConditioner_Unit._AirConditioner_.MonitorRoomTemp.MonitoringTemp.RoomTempChanging.TemperatureChange.CoolDown)
+	}
+
+	@Test
+	operation test29 () {
+	    assert !active (AirConditioner_Unit._AirConditioner_.MonitorRoomTemp.MonitoringTemp.RoomTempChanging.TemperatureChange.DetermineTempChange)
+	}
+
+	@Test
+	operation test30 () {
+	    assert !active (AirConditioner_Unit._AirConditioner_.MonitorRoomTemp.MonitoringTemp.RoomTempChanging.TemperatureChange.HeatingUp)
+	}
+
+	@Test
+	operation test31 () {
+	    assert !active (AirConditioner_Unit._AirConditioner_.MonitorRoomTemp.MonitoringTemp.Maintaining)
+	}
+
+	@Test
+	operation test32 () {
+	    assert !active (AirConditioner_Unit._AirConditioner_.MonitorRoomTemp.ConvertingTemp.InitializeConverter)
+	}
+
+	@Test
+	operation test33 () {
+	    assert !active (AirConditioner_Unit._AirConditioner_.Off)
+	}
+
+	@Test
+	operation test34 () {
+	}
+
+	@Test
+	operation test35 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test36 () {
+	    exit
+	    assert !is_final
+	}
+
+	@Test
+	operation test39 () {
+	    enter
+	    raise toggle
+	    raise temp_up
+	    raise temp_up
+	    raise temp_up
+	    raise toggle
+	    assert is_active
+	}
+
+	@Test
+	operation test40 () {
+	    enter
+	    raise toggle
+	    raise temp_up
+	    raise Metric.convertToFahrenheit
+	    raise Metric.convertToCelsius
+	    raise Metric.convertToCelsius
+	    assert is_active
+	}
+
+	@Test
+	operation test42 () {
+	    enter
+	    raise toggle
+	    raise temp_down
+	    raise temp_down
+	    raise toggle
+	    raise toggle
+	    assert !is_final
+	}
+
+	@Test
+	operation test43 () {
+	    enter
+	    raise toggle
+	    raise temp_up
+	    assert is_active
+	}
+
+	@Test
+	operation test44 () {
+	    enter
+	    raise toggle
+	    raise toggle
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test45 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test46 () {
+	    enter
+	    raise toggle
+	    raise temp_down
+	    raise temp_down
+	    raise temp_down
+	    assert is_active
+	    assert active (AirConditioner_Unit._AirConditioner_.MonitorRoomTemp.MonitoringTemp.RoomTempChanging.TemperatureChange.CoolDown)
+	}
+
+	@Test
+	operation test47 () {
+	    assert !is_active
+	    assert !is_final
+	}
+
+	@Test
+	operation test48 () {
+	    assert !is_active
+	    enter
+	    assert is_active
+	}
+
+}

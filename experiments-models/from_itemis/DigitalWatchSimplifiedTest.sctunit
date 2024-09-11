@@ -1,0 +1,214 @@
+testclass DigitalWatchSimplifiedTest for statechart DigitalWatch {
+	@Test
+	operation test00 () {
+	    proceed 30s
+	    assert !is_final
+	}
+
+	@Test
+	operation test02 () {
+	}
+
+	@Test
+	operation test04 () {
+	}
+
+	@Test
+	operation test05 () {
+	    assert !active (DigitalWatch.modes.SetTime)
+	}
+
+	@Test
+	operation test06 () {
+	    assert !active (DigitalWatch.modes.Alarm)
+	}
+
+	@Test
+	operation test07 () {
+	    assert !active (DigitalWatch.modes.Regular.clock_regular.Stop_Watch.stopwatch.Operation)
+	}
+
+	@Test
+	operation test08 () {
+	    assert !active (DigitalWatch.modes.Regular.clock_regular.Stop_Watch)
+	}
+
+	@Test
+	operation test09 () {
+	    assert !active (DigitalWatch.modes.Regular.clock_regular.Clock)
+	}
+
+	@Test
+	operation test10 () {
+	    assert !active (DigitalWatch.modes.Regular)
+	}
+
+	@Test
+	operation test11 () {
+	    assert !active (DigitalWatch.light.on)
+	}
+
+	@Test
+	operation test12 () {
+	    assert !active (DigitalWatch.light.off)
+	}
+
+	@Test
+	operation test13 () {
+	    assert !active (DigitalWatch.chime.beep)
+	}
+
+	@Test
+	operation test14 () {
+	    assert !active (DigitalWatch.chime.quiet)
+	}
+
+	@Test
+	operation test15 () {
+	    assert !active (DigitalWatch.modes.Regular.clock_regular.Stop_Watch.stopwatch.Operation.run.pause)
+	}
+
+	@Test
+	operation test16 () {
+	    assert !active (DigitalWatch.modes.Regular.clock_regular.Stop_Watch.stopwatch.Operation.run.count)
+	}
+
+	@Test
+	operation test17 () {
+	    assert !active (DigitalWatch.modes.SetTime.set_time.hr)
+	}
+
+	@Test
+	operation test18 () {
+	    assert !active (DigitalWatch.modes.SetTime.set_time.sec)
+	}
+
+	@Test
+	operation test19 () {
+	    assert !active (DigitalWatch.modes.Alarm.r1.alarm_2_beeps)
+	}
+
+	@Test
+	operation test20 () {
+	    assert !active (DigitalWatch.modes.Alarm.r1.alarm_1_beeps)
+	}
+
+	@Test
+	operation test21 () {
+	    assert !active (DigitalWatch.modes.Regular.clock_regular.Stop_Watch.stopwatch.Operation.display.lap)
+	}
+
+	@Test
+	operation test22 () {
+	    assert !active (DigitalWatch.modes.Regular.clock_regular.Stop_Watch.stopwatch.Operation.display.regular)
+	}
+
+	@Test
+	operation test23 () {
+	    assert !active (DigitalWatch.modes.Regular.clock_regular.Stop_Watch.stopwatch.Zero)
+	}
+
+	@Test
+	operation test24 () {
+	    assert !active (DigitalWatch.modes.Regular.clock_regular.Set_Chime)
+	}
+
+	@Test
+	operation test25 () {
+	    assert !active (DigitalWatch.modes.Regular.clock_regular.Alarm_2)
+	}
+
+	@Test
+	operation test26 () {
+	    assert !active (DigitalWatch.modes.Regular.clock_regular.Alarm_1)
+	}
+
+	@Test
+	operation test27 () {
+	    assert !active (DigitalWatch.modes.Regular.clock_regular.Date)
+	}
+
+	@Test
+	operation test28 () {
+	    assert !active (DigitalWatch.modes.Regular.clock_regular.Clock.double_click.normal)
+	}
+
+	@Test
+	operation test29 () {
+	    assert !active (DigitalWatch.modes.SetTime.set_time.min)
+	}
+
+	@Test
+	operation test30 () {
+	    assert !active (DigitalWatch.modes.Regular.clock_regular.Clock.double_click.wait)
+	}
+
+	@Test
+	operation test31 () {
+	    proceed 1 cycle
+	    assert !is_final
+	}
+
+	@Test
+	operation test32 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test37 () {
+	    raise button.light_r
+	}
+
+	@Test
+	operation test38 () {
+	    raise button.mode
+	}
+
+	@Test
+	operation test39 () {
+	    raise button.light
+	}
+
+	@Test
+	operation test40 () {
+	    raise button.set
+	}
+
+	@Test
+	operation test41 () {
+	    raise button.onoff
+	}
+
+	@Test
+	operation test43 () {
+	    assert !is_active
+	    assert !is_final
+	}
+
+	@Test
+	operation test44 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test45 () {
+	    enter
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test46 () {
+	    enter
+	    proceed 1 cycle
+	    assert !is_final
+	}
+
+	@Test
+	operation test47 () {
+	    assert !is_active
+	    enter
+	    assert is_active
+	}
+
+}

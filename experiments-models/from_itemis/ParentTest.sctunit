@@ -1,0 +1,151 @@
+testclass ParentTest for statechart Parent {
+	@Test
+	operation test00 () {
+	    assert !is_final
+	}
+
+	@Test
+	operation test01 () {
+	    raise myEvent
+	}
+
+	@Test
+	operation test02 () {
+	}
+
+	@Test
+	operation test03 () {
+	}
+
+	@Test
+	operation test04 () {
+	}
+
+	@Test
+	operation test05 () {
+	    enter
+	}
+
+	@Test
+	operation test06 () {
+	}
+
+	@Test
+	operation test09 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test10 () {
+	}
+
+	@Test
+	operation test11 () {
+	    enter
+	    raise myEvent
+	    triggerWithoutEvent
+	    assert is_active
+	}
+
+	@Test
+	operation test12 () {
+	    enter
+	    triggerWithoutEvent
+	    assert is_active
+	}
+
+	@Test
+	operation test13 () {
+	    enter
+	    raise myEvent
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test14 () {
+	    enter
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test15 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test16 () {
+	    enter
+	    raise myEvent
+	    assert is_active
+	    assert active (Parent.main_region.StateB)
+	}
+
+	@Test
+	operation test17 () {
+	    enter
+	    assert is_active
+	    assert active (Parent.main_region.StateA)
+	}
+
+	@Test
+	operation test18 () {
+	}
+
+	@Test
+	operation test19 () {
+	    assert !active (Parent.main_region.StateB)
+	}
+
+	@Test
+	operation test20 () {
+	    assert !active (Parent.main_region.StateA)
+	}
+
+	@Test
+	operation test21 () {
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test22 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test23 () {
+	    exit
+	    assert !is_final
+	}
+
+	@Test
+	operation test24 () {
+	    exit
+	    assert !is_final
+	}
+
+	@Test
+	operation test25 () {
+	    enter
+	    assert !is_active
+	}
+
+	@Test
+	operation test26 () {
+	    assert !is_active
+	    assert !is_final
+	}
+
+	@Test
+	operation test27 () {
+	    assert !is_active
+	    enter
+	    raise myEvent
+	    assert is_active
+	}
+
+}

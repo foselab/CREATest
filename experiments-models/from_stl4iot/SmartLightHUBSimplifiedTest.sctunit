@@ -1,0 +1,162 @@
+testclass SmartLightHUBSimplifiedTest for statechart SmartLightHUB {
+	@Test
+	operation test00 () {
+	}
+
+	@Test
+	operation test01 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test02 () {
+	    assert !is_final
+	}
+
+	@Test
+	operation test03 () {
+	}
+
+	@Test
+	operation test04 () {
+	}
+
+	@Test
+	operation test05 () {
+	}
+
+	@Test
+	operation test06 () {
+	}
+
+	@Test
+	operation test07 () {
+	    assert !active (SmartLightHUB.SmartLightHubSystem_1_0.SmartLightsHUB.Light2Region.LED2)
+	}
+
+	@Test
+	operation test08 () {
+	    assert !active (SmartLightHUB.SmartLightHubSystem_1_0.SmartLightsHUB.PowerConsumptionRegion.IOT_EnergySaverManager)
+	}
+
+	@Test
+	operation test09 () {
+	    assert !active (SmartLightHUB.SmartLightHubSystem_1_0.SmartLightsHUB.SmartHubStatusRegion.SmartLightHubSystemStatus.HubStatusRegion.System_Manager)
+	}
+
+	@Test
+	operation test10 () {
+	    assert !active (SmartLightHUB.SmartLightHubSystem_1_0.SmartLightsHUB)
+	}
+
+	@Test
+	operation test11 () {
+	    assert !active (SmartLightHUB.SmartLightHubSystem_1_0.SmartLightsHUB.Light2Region.LED2.status.error)
+	}
+
+	@Test
+	operation test12 () {
+	    assert !active (SmartLightHUB.SmartLightHubSystem_1_0.SmartLightsHUB.Light1Region.LED1.status.error)
+	}
+
+	@Test
+	operation test13 () {
+	    assert !active (SmartLightHUB.SmartLightHubSystem_1_0.SmartLightsHUB.Light1Region.LED1.status.working)
+	}
+
+	@Test
+	operation test14 () {
+	    assert !active (SmartLightHUB.SmartLightHubSystem_1_0.SmartLightsHUB.NetworkRegion.Connected)
+	}
+
+	@Test
+	operation test15 () {
+	    assert !active (SmartLightHUB.SmartLightHubSystem_1_0.SmartLightsHUB.NetworkRegion.No_Connection)
+	}
+
+	@Test
+	operation test16 () {
+	    assert !active (SmartLightHUB.SmartLightHubSystem_1_0.SmartLightsHUB.PowerConsumptionRegion.IOT_EnergySaverManager.turningoff_device_overthreshold._final_)
+	}
+
+	@Test
+	operation test17 () {
+	    assert !active (SmartLightHUB.SmartLightHubSystem_1_0.SmartLightsHUB.PowerConsumptionRegion.IOT_EnergySaverManager.turningoff_device_overthreshold.LED_Light2)
+	}
+
+	@Test
+	operation test18 () {
+	    assert !active (SmartLightHUB.SmartLightHubSystem_1_0.SmartLightsHUB.PowerConsumptionRegion.IOT_EnergySaverManager.turningoff_device_overthreshold.LED_Light1)
+	}
+
+	@Test
+	operation test19 () {
+	    assert !active (SmartLightHUB.SmartLightHubSystem_1_0.SmartLightsHUB.PowerConsumptionRegion.PowerConsumptionCalculator)
+	}
+
+	@Test
+	operation test20 () {
+	    assert !active (SmartLightHUB.SmartLightHubSystem_1_0.SmartLightsHUB.SmartHubStatusRegion.SmartLightHubSystemStatus.HubStatusRegion.System_Manager.System2.LED_Light2_OFF)
+	}
+
+	@Test
+	operation test21 () {
+	    assert !active (SmartLightHUB.SmartLightHubSystem_1_0.SmartLightsHUB.SmartHubStatusRegion.SmartLightHubSystemStatus.HubStatusRegion.System_Manager.System2.LED_Light2_ON)
+	}
+
+	@Test
+	operation test22 () {
+	    assert !active (SmartLightHUB.SmartLightHubSystem_1_0.SmartLightsHUB.SmartHubStatusRegion.SmartLightHubSystemStatus.HubStatusRegion.System_Manager.System1.LED_Light1_OFF)
+	}
+
+	@Test
+	operation test23 () {
+	    assert !active (SmartLightHUB.SmartLightHubSystem_1_0.SmartLightsHUB.SmartHubStatusRegion.SmartLightHubSystemStatus.HubStatusRegion.System_Manager.System1.LED_Light1_ON)
+	}
+
+	@Test
+	operation test24 () {
+	    assert !active (SmartLightHUB.SmartLightHubSystem_1_0.SmartLightsHUB.SmartHubStatusRegion.SmartLightHubSystemStatus.HubStatusRegion.AllSystemsOFF)
+	}
+
+	@Test
+	operation test25 () {
+	    assert !active (SmartLightHUB.SmartLightHubSystem_1_0.SmartLightsHUB.Light1Region.LED1)
+	}
+
+	@Test
+	operation test26 () {
+	    assert !active (SmartLightHUB.SmartLightHubSystem_1_0.HubOff)
+	}
+
+	@Test
+	operation test27 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test32 () {
+	    assert !is_final
+	}
+
+	@Test
+	operation test34 () {
+	}
+
+	@Test
+	operation test35 () {
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test36 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test37 () {
+	    assert !is_active
+	}
+
+}

@@ -1,0 +1,222 @@
+testclass _TrolleySimplifiedTest for statechart _Trolley {
+	@Test
+	operation test00 () {
+	    enter
+	    raise requestStop: 0
+	    assert is_active
+	}
+
+	@Test
+	operation test01 () {
+	    triggerWithoutEvent
+	    assert !is_final
+	}
+
+	@Test
+	operation test02 () {
+	    raise unboard
+	    assert !is_final
+	}
+
+	@Test
+	operation test03 () {
+	    raise stopEmergency
+	    assert !is_active
+	}
+
+	@Test
+	operation test04 () {
+	    raise approachingStation: 1200
+	    assert !is_active
+	}
+
+	@Test
+	operation test10 () {
+	    exit
+	    assert !is_final
+	}
+
+	@Test
+	operation test11 () {
+	    enter
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test12 () {
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test13 () {
+	    enter
+	    raise board
+	    assert is_active
+	    assert active (_Trolley.main_region.Trolley.BoardingManager.DoorsOpen.r1.DoorsObstructed)
+	}
+
+	@Test
+	operation test14 () {
+	}
+
+	@Test
+	operation test15 () {
+	    assert !active (_Trolley.main_region.Trolley.Departure_Arrival.Departure_to_a_station.r1.ClosingDoors)
+	}
+
+	@Test
+	operation test16 () {
+	    assert !active (_Trolley.main_region.Trolley.Departure_Arrival.Arrival_at_a_station)
+	}
+
+	@Test
+	operation test17 () {
+	    assert !active (_Trolley.main_region.Trolley.BoardingManager.DoorsOpen)
+	}
+
+	@Test
+	operation test18 () {
+	    assert !active (_Trolley.main_region.Trolley)
+	}
+
+	@Test
+	operation test19 () {
+	    assert !active (_Trolley.main_region.Trolley.requestHandler.AcceptingRequests)
+	}
+
+	@Test
+	operation test20 () {
+	    assert !active (_Trolley.main_region.Trolley.Departure_Arrival.EmergencyStop.r1.DoorsOpen)
+	}
+
+	@Test
+	operation test21 () {
+	    assert !active (_Trolley.main_region.Trolley.Departure_Arrival.EmergencyStop.r1.BreakUntilStandstill)
+	}
+
+	@Test
+	operation test22 () {
+	    assert !active (_Trolley.main_region.Trolley.Departure_Arrival.Departure_to_a_station.r1.StartDeparture)
+	}
+
+	@Test
+	operation test23 () {
+	    assert !active (_Trolley.main_region.Trolley.Departure_Arrival.Departure_to_a_station.r1.BreakUntilStandstill)
+	}
+
+	@Test
+	operation test24 () {
+	    assert !active (_Trolley.main_region.Trolley.Departure_Arrival.Departure_to_a_station.r1.RespondToApproachingStation)
+	}
+
+	@Test
+	operation test25 () {
+	    assert !active (_Trolley.main_region.Trolley.Departure_Arrival.Departure_to_a_station.r1.DoorsClosed)
+	}
+
+	@Test
+	operation test26 () {
+	    assert !active (_Trolley.main_region.Trolley.Departure_Arrival.Departure_to_a_station.r1.ClosingDoors.r1.DoorsObstructed)
+	}
+
+	@Test
+	operation test27 () {
+	    assert !active (_Trolley.main_region.Trolley.Departure_Arrival.Departure_to_a_station.r1.ClosingDoors.r1.DoorsFree)
+	}
+
+	@Test
+	operation test28 () {
+	    assert !active (_Trolley.main_region.Trolley.Departure_Arrival.Arrival_at_a_station.r1.DoorsOpenAwaitingRequest)
+	}
+
+	@Test
+	operation test29 () {
+	    assert !active (_Trolley.main_region.Trolley.Departure_Arrival.Arrival_at_a_station.r1.DoorsOpen)
+	}
+
+	@Test
+	operation test30 () {
+	    assert !active (_Trolley.main_region.Trolley.Departure_Arrival.Arrival_at_a_station.r1.Just_Arrived)
+	}
+
+	@Test
+	operation test31 () {
+	    assert !active (_Trolley.main_region.Trolley.BoardingManager.DoorsOpen.r1.DoorsObstructed)
+	}
+
+	@Test
+	operation test32 () {
+	    assert !active (_Trolley.main_region.Trolley.BoardingManager.DoorsOpen.r1.BoardingPossible)
+	}
+
+	@Test
+	operation test33 () {
+	    assert !active (_Trolley.main_region.Trolley.Departure_Arrival.EmergencyStop)
+	}
+
+	@Test
+	operation test34 () {
+	    assert !active (_Trolley.main_region.Trolley.BoardingManager.DoorsClosed)
+	    assert !is_active
+	}
+
+	@Test
+	operation test35 () {
+	    proceed 1s
+	    assert !is_final
+	}
+
+	@Test
+	operation test36 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test37 () {
+	    assert !is_active
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test39 () {
+	    enter
+	    raise startEmergency
+	    raise atTargetSpeed
+	    assert !is_final
+	}
+
+	@Test
+	operation test41 () {
+	    assert !is_active
+	    assert !is_final
+	}
+
+	@Test
+	operation test45 () {
+	    enter
+	    raise requestStop: 795
+	    assert !is_final
+	}
+
+	@Test
+	operation test46 () {
+	    enter
+	    raise startEmergency
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test47 () {
+	    enter
+	    raise board
+	    exit
+	    assert !is_active
+	}
+
+}

@@ -1,0 +1,128 @@
+testclass sampleTest for statechart sample {
+	@Test
+	operation test00 () {
+	}
+
+	@Test
+	operation test01 () {
+	}
+
+	@Test
+	operation test02 () {
+	}
+
+	@Test
+	operation test03 () {
+	}
+
+	@Test
+	operation test04 () {
+	}
+
+	@Test
+	operation test05 () {
+	}
+
+	@Test
+	operation test07 () {
+	    assert !active (sample.Sample_Light.Lights_On.Timer.timer_working)
+	}
+
+	@Test
+	operation test08 () {
+	    assert !active (sample.Sample_Light.Lights_On)
+	}
+
+	@Test
+	operation test09 () {
+	}
+
+	@Test
+	operation test10 () {
+	}
+
+	@Test
+	operation test11 () {
+	    assert !active (sample.Sample_Light.Lights_On.Brightness_Level.high)
+	}
+
+	@Test
+	operation test12 () {
+	    assert !active (sample.Sample_Light.Lights_On.Brightness_Level.med)
+	}
+
+	@Test
+	operation test13 () {
+	    assert !active (sample.Sample_Light.Lights_On.Brightness_Level.low)
+	}
+
+	@Test
+	operation test14 () {
+	}
+
+	@Test
+	operation test15 () {
+	    assert !active (sample.Sample_Light.Lights__Off)
+	}
+
+	@Test
+	operation test16 () {
+	}
+
+	@Test
+	operation test17 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test19 () {
+	    assert !is_final
+	}
+
+	@Test
+	operation test20 () {
+	}
+
+	@Test
+	operation test21 () {
+	}
+
+	@Test
+	operation test22 () {
+	}
+
+	@Test
+	operation test23 () {
+	}
+
+	@Test
+	operation test24 () {
+	}
+
+	@Test
+	operation test25 () {
+	}
+
+	@Test
+	operation test26 () {
+	    assert !is_active
+	    exit
+	}
+
+	@Test
+	operation test30 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test31 () {
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test32 () {
+	    assert !is_active
+	}
+
+}

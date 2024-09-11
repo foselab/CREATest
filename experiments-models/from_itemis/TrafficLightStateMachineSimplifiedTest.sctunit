@@ -1,0 +1,183 @@
+testclass TrafficLightStateMachineSimplifiedTest for statechart TrafficLightStateMachine {
+	@Test
+	operation test06 () {
+	    enter
+	    raise standby
+	    raise standby
+	    assert is_active
+	}
+
+	@Test
+	operation test07 () {
+	    enter
+	    proceed 3s
+	    raise standby
+	    assert is_active
+	}
+
+	@Test
+	operation test08 () {
+	    enter
+	    raise standby
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test09 () {
+	    enter
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test10 () {
+	    exit
+	    assert !is_final
+	}
+
+	@Test
+	operation test11 () {
+	    enter
+	    raise standby
+	    assert is_active
+	    assert active (TrafficLightStateMachine.trafficlight.standby.blink.on)
+	}
+
+	@Test
+	operation test12 () {
+	    enter
+	    raise standby
+	    assert active (TrafficLightStateMachine.trafficlight.standby)
+	}
+
+	@Test
+	operation test13 () {
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test14 () {
+	    enter
+	    assert is_active
+	    assert active (TrafficLightStateMachine.trafficlight.operating.r.stop)
+	}
+
+	@Test
+	operation test15 () {
+	    enter
+	    proceed 3s
+	    assert is_active
+	    assert active (TrafficLightStateMachine.trafficlight.operating.r.prepare.switch.to_go)
+	}
+
+	@Test
+	operation test16 () {
+	    enter
+	    assert is_active
+	    assert active (TrafficLightStateMachine.trafficlight.operating)
+	}
+
+	@Test
+	operation test17 () {
+	}
+
+	@Test
+	operation test18 () {
+	    assert !active (TrafficLightStateMachine.trafficlight.operating.r.prepare)
+	}
+
+	@Test
+	operation test19 () {
+	    assert !active (TrafficLightStateMachine.trafficlight.operating)
+	}
+
+	@Test
+	operation test20 () {
+	    assert !active (TrafficLightStateMachine.trafficlight.standby.blink.off)
+	}
+
+	@Test
+	operation test21 () {
+	    assert !active (TrafficLightStateMachine.trafficlight.standby.blink.on)
+	}
+
+	@Test
+	operation test22 () {
+	    assert !active (TrafficLightStateMachine.trafficlight.operating.r.go)
+	}
+
+	@Test
+	operation test23 () {
+	    assert !active (TrafficLightStateMachine.trafficlight.operating.r.stop)
+	}
+
+	@Test
+	operation test24 () {
+	    assert !active (TrafficLightStateMachine.trafficlight.operating.r.prepare.switch.to_stop)
+	}
+
+	@Test
+	operation test25 () {
+	    assert !active (TrafficLightStateMachine.trafficlight.standby)
+	}
+
+	@Test
+	operation test26 () {
+	    assert !active (TrafficLightStateMachine.trafficlight.operating.r.prepare.switch.to_go)
+	}
+
+	@Test
+	operation test27 () {
+	    raise operate
+	    assert !is_active
+	}
+
+	@Test
+	operation test28 () {
+	    assert !is_active
+	    enter
+	    proceed 3s
+	    triggerWithoutEvent
+	    assert is_active
+	}
+
+	@Test
+	operation test29 () {
+	    assert !is_active
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test30 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test33 () {
+	    enter
+	    proceed 3s
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test34 () {
+	    assert !is_final
+	    assert !is_active
+	}
+
+	@Test
+	operation test35 () {
+	    enter
+	    raise standby
+	    raise operate
+	    assert !is_final
+	}
+
+}

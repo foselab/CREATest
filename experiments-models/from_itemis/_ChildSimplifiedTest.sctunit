@@ -1,0 +1,96 @@
+testclass _ChildSimplifiedTest for statechart _Child {
+	@Test
+	operation test01 () {
+	    enter
+	    triggerWithoutEvent
+	    assert is_active
+	}
+
+	@Test
+	operation test02 () {
+	    exit
+	    assert !is_final
+	}
+
+	@Test
+	operation test03 () {
+	    enter
+	    raise myEvent
+	    raise myEvent
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test04 () {
+	    enter
+	    raise myEvent
+	    assert is_active
+	    assert active (_Child.main_region.StateB)
+	}
+
+	@Test
+	operation test05 () {
+	    enter
+	    raise myEvent
+	    raise myEvent
+	    assert is_active
+	    assert active (_Child.main_region.StateA)
+	}
+
+	@Test
+	operation test06 () {
+	}
+
+	@Test
+	operation test07 () {
+	    assert !active (_Child.main_region.StateB)
+	}
+
+	@Test
+	operation test08 () {
+	    assert !active (_Child.main_region.StateA)
+	}
+
+	@Test
+	operation test09 () {
+	    enter
+	    raise myEvent
+	    triggerWithoutEvent
+	    assert is_active
+	}
+
+	@Test
+	operation test10 () {
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test11 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test12 () {
+	    triggerWithoutEvent
+	    assert !is_active
+	}
+
+	@Test
+	operation test13 () {
+	    assert !is_active
+	    assert !is_final
+	}
+
+	@Test
+	operation test14 () {
+	    enter
+	    raise myEvent
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+}

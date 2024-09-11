@@ -1,0 +1,10 @@
+testsuite SuiteForSimplified {
+	sampleSimplifiedTest,
+	SmartFireSystemSimplifiedTest,
+	SmartHubSystemSimplifiedTest,
+	SmartLightHUBSimplifiedTest,
+	SmartLightSystemSimplifiedTest,
+	SmartMicrowaveSystemSimplifiedTest,
+	SmartTrafficLightSystemSimplifiedTest,
+	SmartTVSystemSimplifiedTest
+}

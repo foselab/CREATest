@@ -1,0 +1,268 @@
+testclass Microwave_UnitSimplifiedTest for statechart Microwave_Unit {
+	@Test
+	operation test03 () {
+	    raise device.start
+	}
+
+	@Test
+	operation test04 () {
+	}
+
+	@Test
+	operation test05 () {
+	}
+
+	@Test
+	operation test06 () {
+	    enter
+	    raise device.on
+	    raise device.resetTimer
+	    assert is_active
+	}
+
+	@Test
+	operation test07 () {
+	    enter
+	    raise device.on
+	    raise Door.open
+	    raise device.start
+	}
+
+	@Test
+	operation test08 () {
+	    enter
+	    raise device.on
+	    raise Door.open
+	    raise device.off
+	    assert is_active
+	}
+
+	@Test
+	operation test09 () {
+	    enter
+	    raise device.on
+	    raise device.start
+	    raise device.pause
+	    assert is_active
+	}
+
+	@Test
+	operation test10 () {
+	    enter
+	    raise device.on
+	    enter
+	    raise device.off
+	    assert is_active
+	}
+
+	@Test
+	operation test11 () {
+	    enter
+	    raise device.on
+	    raise device.addTimer
+	    raise device.start
+	    raise device.pause
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test12 () {
+	    enter
+	    raise device.on
+	    raise device.start
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test13 () {
+	    enter
+	    raise device.on
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test14 () {
+	    enter
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test15 () {
+	    enter
+	    raise device.on
+	    raise Door.open
+	    assert active (Microwave_Unit._Microwave_Unit_._on_.doorStatus.DoorOpened)
+	}
+
+	@Test
+	operation test16 () {
+	    enter
+	    raise device.on
+	    assert is_active
+	    assert active (Microwave_Unit._Microwave_Unit_._on_.doorStatus.DoorClosed)
+	}
+
+	@Test
+	operation test17 () {
+	    enter
+	    raise device.on
+	    raise device.start
+	    assert active (Microwave_Unit._Microwave_Unit_._on_._Microwave_isWorking_.startTimer._Starting_Timer_.pause)
+	}
+
+	@Test
+	operation test18 () {
+	    enter
+	    assert is_active
+	    assert !active (Microwave_Unit._Microwave_Unit_._on_._Microwave_isWorking_.startTimer)
+	}
+
+	@Test
+	operation test19 () {
+	    enter
+	    raise device.on
+	    assert is_active
+	    assert active (Microwave_Unit._Microwave_Unit_._on_)
+	}
+
+	@Test
+	operation test20 () {
+	    enter
+	    assert is_active
+	    assert !active (Microwave_Unit._Microwave_Unit_._on_)
+	}
+
+	@Test
+	operation test21 () {
+	    enter
+	    assert is_active
+	    assert active (Microwave_Unit._Microwave_Unit_._off_)
+	}
+
+	@Test
+	operation test22 () {
+	}
+
+	@Test
+	operation test23 () {
+	    assert !active (Microwave_Unit._Microwave_Unit_._on_._Microwave_isWorking_.startTimer)
+	}
+
+	@Test
+	operation test24 () {
+	    assert !active (Microwave_Unit._Microwave_Unit_._on_)
+	}
+
+	@Test
+	operation test25 () {
+	    assert !active (Microwave_Unit._Microwave_Unit_._on_.doorStatus.DoorOpened)
+	}
+
+	@Test
+	operation test26 () {
+	    assert !active (Microwave_Unit._Microwave_Unit_._on_._Microwave_isWorking_.addTimer)
+	}
+
+	@Test
+	operation test27 () {
+	    assert !active (Microwave_Unit._Microwave_Unit_._on_._Microwave_isWorking_.startTimer._Starting_Timer_.start)
+	}
+
+	@Test
+	operation test28 () {
+	    assert !active (Microwave_Unit._Microwave_Unit_._on_._Microwave_isWorking_.startTimer._Starting_Timer_.pause)
+	}
+
+	@Test
+	operation test29 () {
+	    assert !active (Microwave_Unit._Microwave_Unit_._on_._Microwave_isWorking_.idle_standby)
+	}
+
+	@Test
+	operation test30 () {
+	    assert !active (Microwave_Unit._Microwave_Unit_._on_.doorStatus.DoorClosed)
+	}
+
+	@Test
+	operation test31 () {
+	    assert !active (Microwave_Unit._Microwave_Unit_._off_)
+	}
+
+	@Test
+	operation test32 () {
+	    triggerWithoutEvent
+	    assert !is_final
+	}
+
+	@Test
+	operation test33 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test34 () {
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test35 () {
+	    exit
+	    assert !is_final
+	}
+
+	@Test
+	operation test37 () {
+	    assert !is_active
+	    assert !is_final
+	}
+
+	@Test
+	operation test39 () {
+	    assert !is_active
+	    enter
+	    raise device.on
+	    raise device.addTimer
+	    raise device.start
+	    raise device.pause
+	    raise device.pause
+	    assert is_active
+	}
+
+	@Test
+	operation test40 () {
+	    assert !is_active
+	    enter
+	    raise device.on
+	    raise Door.open
+	    raise Door.close
+	    assert is_active
+	}
+
+	@Test
+	operation test41 () {
+	    assert !is_active
+	    enter
+	    raise device.on
+	    raise device.addTimer
+	    raise device.start
+	    raise device.pause
+	    proceed 1s
+	    assert is_active
+	}
+
+	@Test
+	operation test42 () {
+	    enter
+	    raise device.on
+	    raise device.addTimer
+	}
+
+}

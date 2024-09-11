@@ -1,0 +1,237 @@
+testclass rgbSimplifiedTest for statechart rgb {
+	@Test
+	operation test00 () {
+	    enter
+	    proceed 1 cycle
+	    assert is_active
+	}
+
+	@Test
+	operation test02 () {
+	    enter
+	    proceed 1 cycle
+	    raise blue
+	    proceed 1 cycle
+	    proceed 1 cycle
+	    assert is_active
+	}
+
+	@Test
+	operation test03 () {
+	    enter
+	    proceed 1 cycle
+	    raise green
+	    proceed 1 cycle
+	    raise green
+	    proceed 1 cycle
+	    assert is_active
+	}
+
+	@Test
+	operation test04 () {
+	    enter
+	    proceed 1 cycle
+	    proceed 1 cycle
+	    assert is_active
+	}
+
+	@Test
+	operation test05 () {
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test06 () {
+	    enter
+	    proceed 1 cycle
+	    raise blue
+	    proceed 1 cycle
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test07 () {
+	    enter
+	    proceed 1 cycle
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test08 () {
+	    enter
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test09 () {
+	    enter
+	    proceed 1 cycle
+	    assert is_active
+	    assert active (rgb.main_region._final_)
+	}
+
+	@Test
+	operation test10 () {
+	    enter
+	    proceed 1 cycle
+	    raise blue
+	    proceed 1 cycle
+	    raise blue
+	    proceed 1 cycle
+	    raise green
+	    proceed 1 cycle
+	    assert is_active
+	    assert active (rgb.main_region.green)
+	}
+
+	@Test
+	operation test11 () {
+	    enter
+	    proceed 1 cycle
+	    assert is_active
+	    assert active (rgb.main_region.idle)
+	}
+
+	@Test
+	operation test12 () {
+	    enter
+	    assert is_active
+	    assert active (rgb.main_region.init)
+	}
+
+	@Test
+	operation test13 () {
+	}
+
+	@Test
+	operation test14 () {
+	    assert !active (rgb.main_region._final_)
+	}
+
+	@Test
+	operation test15 () {
+	    assert !active (rgb.main_region.red)
+	}
+
+	@Test
+	operation test16 () {
+	    assert !active (rgb.main_region.blue)
+	}
+
+	@Test
+	operation test17 () {
+	    assert !active (rgb.main_region.idle)
+	}
+
+	@Test
+	operation test18 () {
+	    assert !active (rgb.main_region.green)
+	}
+
+	@Test
+	operation test19 () {
+	    assert !active (rgb.main_region.init)
+	}
+
+	@Test
+	operation test20 () {
+	    proceed 1 cycle
+	    assert !is_active
+	}
+
+	@Test
+	operation test21 () {
+	    assert !is_active
+	    enter
+	    proceed 1 cycle
+	    raise blue
+	    proceed 1 cycle
+	    raise blue
+	    proceed 1 cycle
+	    raise green
+	    proceed 1 cycle
+	    proceed 1 cycle
+	    assert is_active
+	}
+
+	@Test
+	operation test22 () {
+	    enter
+	    proceed 1 cycle
+	    assert is_final
+	}
+
+	@Test
+	operation test23 () {
+	    assert !is_active
+	    assert !is_final
+	}
+
+	@Test
+	operation test24 () {
+	    assert !is_active
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test25 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test28 () {
+	    enter
+	    proceed 1 cycle
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test29 () {
+	    raise red
+	    assert !is_active
+	}
+
+	@Test
+	operation test30 () {
+	    enter
+	    proceed 1 cycle
+	    raise end
+	    proceed 1 cycle
+	    proceed 1 cycle
+	    assert is_final
+	}
+
+	@Test
+	operation test31 () {
+	    enter
+	    proceed 1 cycle
+	    raise blue
+	    proceed 1 cycle
+	    raise blue
+	    proceed 1 cycle
+	    raise green
+	    proceed 1 cycle
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test32 () {
+	    assert !is_active
+	    enter
+	    proceed 1 cycle
+	    assert is_active
+	}
+
+}

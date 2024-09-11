@@ -1,0 +1,84 @@
+testclass bareMetalPollingTest for statechart bareMetalPolling {
+	@Test
+	operation test00 () {
+	}
+
+	@Test
+	operation test01 () {
+	}
+
+	@Test
+	operation test03 () {
+	}
+
+	@Test
+	operation test04 () {
+	    assert !active (bareMetalPolling.main_region._final_)
+	}
+
+	@Test
+	operation test05 () {
+	    assert !active (bareMetalPolling.main_region.StateB)
+	}
+
+	@Test
+	operation test06 () {
+	    assert !active (bareMetalPolling.main_region.StateA)
+	}
+
+	@Test
+	operation test07 () {
+	}
+
+	@Test
+	operation test08 () {
+	    assert !is_final
+	}
+
+	@Test
+	operation test09 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test11 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test12 () {
+	}
+
+	@Test
+	operation test13 () {
+	    exit
+	    assert !is_final
+	}
+
+	@Test
+	operation test15 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test18 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test19 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test21 () {
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test22 () {
+	    assert !is_active
+	}
+
+}

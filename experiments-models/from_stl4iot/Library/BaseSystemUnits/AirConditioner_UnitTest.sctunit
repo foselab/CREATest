@@ -1,0 +1,180 @@
+testclass AirConditioner_UnitTest for statechart AirConditioner_Unit {
+	@Test
+	operation test00 () {
+	}
+
+	@Test
+	operation test01 () {
+	}
+
+	@Test
+	operation test02 () {
+	}
+
+	@Test
+	operation test03 () {
+	}
+
+	@Test
+	operation test04 () {
+	}
+
+	@Test
+	operation test06 () {
+	}
+
+	@Test
+	operation test07 () {
+	}
+
+	@Test
+	operation test08 () {
+	}
+
+	@Test
+	operation test09 () {
+	}
+
+	@Test
+	operation test10 () {
+	}
+
+	@Test
+	operation test11 () {
+	}
+
+	@Test
+	operation test12 () {
+	}
+
+	@Test
+	operation test13 () {
+	    assert !active (AirConditioner_Unit._AirConditioner_.MonitorRoomTemp.MonitoringTemp.RoomTempChanging)
+	}
+
+	@Test
+	operation test14 () {
+	    assert !active (AirConditioner_Unit._AirConditioner_.MonitorRoomTemp)
+	}
+
+	@Test
+	operation test15 () {
+	}
+
+	@Test
+	operation test16 () {
+	}
+
+	@Test
+	operation test17 () {
+	}
+
+	@Test
+	operation test18 () {
+	}
+
+	@Test
+	operation test19 () {
+	    assert !active (AirConditioner_Unit._AirConditioner_.MonitorRoomTemp.MonitoringTemp.RoomTempChanging.TemperatureChange.DetermineTempChange)
+	}
+
+	@Test
+	operation test20 () {
+	    assert !active (AirConditioner_Unit._AirConditioner_.MonitorRoomTemp.MonitoringTemp.RoomTempChanging.TemperatureChange.HeatingUp)
+	}
+
+	@Test
+	operation test21 () {
+	    assert !active (AirConditioner_Unit._AirConditioner_.MonitorRoomTemp.MonitoringTemp.Maintaining)
+	}
+
+	@Test
+	operation test22 () {
+	}
+
+	@Test
+	operation test23 () {
+	    assert !active (AirConditioner_Unit._AirConditioner_.Off)
+	}
+
+	@Test
+	operation test24 () {
+	}
+
+	@Test
+	operation test25 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test26 () {
+	    exit
+	}
+
+	@Test
+	operation test28 () {
+	}
+
+	@Test
+	operation test31 () {
+	}
+
+	@Test
+	operation test33 () {
+	}
+
+	@Test
+	operation test35 () {
+	}
+
+	@Test
+	operation test36 () {
+	}
+
+	@Test
+	operation test38 () {
+	}
+
+	@Test
+	operation test40 () {
+	    assert !is_active
+	    exit
+	}
+
+	@Test
+	operation test42 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test43 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test44 () {
+	    assert !is_final
+	    assert !is_active
+	}
+
+	@Test
+	operation test45 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test48 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test49 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test51 () {
+	    assert !is_active
+	}
+
+}

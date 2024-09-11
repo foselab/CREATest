@@ -1,0 +1,9 @@
+testsuite ____SuiteForDefault {
+	AirConditioner_UnitTest,
+	Elevator_UnitTest,
+	FireAlarm_UnitTest,
+	LEDLight_UnitTest,
+	Microwave_UnitTest,
+	TrafficLight_UnitTest,
+	TV_UnitTest
+}

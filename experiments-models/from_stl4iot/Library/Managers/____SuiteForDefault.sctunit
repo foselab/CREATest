@@ -1,0 +1,4 @@
+testsuite ____SuiteForDefault {
+	Active_Systems_CounterTest,
+	Hub_PowerManagerTest
+}

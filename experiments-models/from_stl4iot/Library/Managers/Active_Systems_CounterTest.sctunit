@@ -1,0 +1,148 @@
+testclass Active_Systems_CounterTest for statechart Active_Systems_Counter {
+	@Test
+	operation test00 () {
+	}
+
+	@Test
+	operation test01 () {
+	}
+
+	@Test
+	operation test02 () {
+	}
+
+	@Test
+	operation test03 () {
+	}
+
+	@Test
+	operation test04 () {
+	}
+
+	@Test
+	operation test05 () {
+	}
+
+	@Test
+	operation test06 () {
+	}
+
+	@Test
+	operation test07 () {
+	}
+
+	@Test
+	operation test08 () {
+	}
+
+	@Test
+	operation test13 () {
+	}
+
+	@Test
+	operation test14 () {
+	    enter
+	    raise decrement
+	    assert is_active
+	}
+
+	@Test
+	operation test15 () {
+	    enter
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test16 () {
+	    enter
+	    assert is_active
+	    assert active (Active_Systems_Counter.main_region.StaticUpdate)
+	}
+
+	@Test
+	operation test17 () {
+	}
+
+	@Test
+	operation test18 () {
+	    assert !active (Active_Systems_Counter.main_region.StaticUpdate)
+	}
+
+	@Test
+	operation test19 () {
+	    raise decrement
+	    raise increment
+	    assert !is_active
+	}
+
+	@Test
+	operation test20 () {
+	    raise increment
+	}
+
+	@Test
+	operation test21 () {
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test22 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test23 () {
+	    exit
+	    assert !is_final
+	}
+
+	@Test
+	operation test24 () {
+	    exit
+	    assert !is_final
+	}
+
+	@Test
+	operation test25 () {
+	}
+
+	@Test
+	operation test26 () {
+	}
+
+	@Test
+	operation test27 () {
+	}
+
+	@Test
+	operation test28 () {
+	    assert !is_active
+	    enter
+	    raise increment
+	    assert is_active
+	}
+
+	@Test
+	operation test29 () {
+	    enter
+	    assert !is_active
+	}
+
+	@Test
+	operation test30 () {
+	    assert !is_final
+	    assert !is_active
+	}
+
+	@Test
+	operation test31 () {
+	    assert !is_active
+	    enter
+	    triggerWithoutEvent
+	    assert is_active
+	}
+
+}

@@ -1,0 +1,155 @@
+testclass test_converter_entry_exit_actions_expectedSimplifiedTest for statechart test_converter_entry_exit_actions_expected {
+	@Test
+	operation test03 () {
+	}
+
+	@Test
+	operation test04 () {
+	}
+
+	@Test
+	operation test05 () {
+	    enter
+	    raise user.on_button
+	    raise user.on_button
+	    assert is_active
+	}
+
+	@Test
+	operation test06 () {
+	    enter
+	    raise user.on_button
+	    raise user.off_button
+	    assert is_active
+	}
+
+	@Test
+	operation test07 () {
+	    enter
+	    raise user.on_button
+	    proceed 30000000000ns
+	    assert is_active
+	}
+
+	@Test
+	operation test08 () {
+	    enter
+	    raise sensor.motion
+	    assert is_active
+	}
+
+	@Test
+	operation test09 () {
+	    enter
+	    triggerWithoutEvent
+	    assert is_active
+	}
+
+	@Test
+	operation test10 () {
+	    enter
+	    raise user.on_button
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test11 () {
+	    enter
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test12 () {
+	    enter
+	    assert is_active
+	    assert active (test_converter_entry_exit_actions_expected.main_region.MotionSensing.r1.Off)
+	}
+
+	@Test
+	operation test13 () {
+	    enter
+	    assert is_active
+	    assert active (test_converter_entry_exit_actions_expected.main_region.MotionSensing)
+	}
+
+	@Test
+	operation test14 () {
+	}
+
+	@Test
+	operation test15 () {
+	    assert !active (test_converter_entry_exit_actions_expected.main_region.MotionSensing)
+	}
+
+	@Test
+	operation test16 () {
+	    assert !active (test_converter_entry_exit_actions_expected.main_region.Hello)
+	}
+
+	@Test
+	operation test17 () {
+	    assert !active (test_converter_entry_exit_actions_expected.main_region.MotionSensing.r1.On)
+	}
+
+	@Test
+	operation test18 () {
+	    assert !active (test_converter_entry_exit_actions_expected.main_region.Manual)
+	}
+
+	@Test
+	operation test19 () {
+	    assert !active (test_converter_entry_exit_actions_expected.main_region.MotionSensing.r1.Off)
+	}
+
+	@Test
+	operation test20 () {
+	    triggerWithoutEvent
+	    assert !is_final
+	}
+
+	@Test
+	operation test21 () {
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test22 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test23 () {
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test28 () {
+	    assert !is_active
+	    assert !is_final
+	}
+
+	@Test
+	operation test29 () {
+	    assert !is_active
+	    enter
+	    raise user.on_button
+	    raise sensor.motion
+	    assert is_active
+	}
+
+	@Test
+	operation test30 () {
+	    assert !is_active
+	    enter
+	    raise user.on_button
+	    assert is_active
+	    assert active (test_converter_entry_exit_actions_expected.main_region.MotionSensing.r1.On)
+	}
+
+}

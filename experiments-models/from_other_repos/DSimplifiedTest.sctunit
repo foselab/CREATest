@@ -1,0 +1,165 @@
+testclass DSimplifiedTest for statechart D {
+	@Test
+	operation test04 () {
+	    enter
+	    proceed 1s
+	    enter
+	    proceed 1s
+	    triggerWithoutEvent
+	    assert is_active
+	}
+
+	@Test
+	operation test05 () {
+	    exit
+	    assert !is_final
+	}
+
+	@Test
+	operation test06 () {
+	    enter
+	    proceed 1s
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test07 () {
+	    enter
+	    assert is_active
+	    assert active (D.main_region.Orthogonal.r2.S)
+	}
+
+	@Test
+	operation test08 () {
+	    enter
+	    assert is_active
+	    assert active (D.main_region.Orthogonal.r1.Initial)
+	}
+
+	@Test
+	operation test09 () {
+	    enter
+	    proceed 1s
+	    proceed 1s
+	    assert is_active
+	    assert active (D.main_region.Orthogonal.r1.One)
+	}
+
+	@Test
+	operation test10 () {
+	    enter
+	    proceed 1s
+	    assert is_active
+	    assert active (D.main_region.Orthogonal.r1.Temp)
+	}
+
+	@Test
+	operation test11 () {
+	    enter
+	    assert is_active
+	    assert active (D.main_region.Orthogonal)
+	}
+
+	@Test
+	operation test12 () {
+	}
+
+	@Test
+	operation test13 () {
+	    assert !active (D.main_region.Orthogonal.r2.T)
+	}
+
+	@Test
+	operation test14 () {
+	    assert !active (D.main_region.Orthogonal.r2.S)
+	}
+
+	@Test
+	operation test15 () {
+	    assert !active (D.main_region.Orthogonal.r1.Zero)
+	}
+
+	@Test
+	operation test16 () {
+	    assert !active (D.main_region.Orthogonal.r1.Initial)
+	}
+
+	@Test
+	operation test17 () {
+	    assert !active (D.main_region.Orthogonal.r1.One)
+	}
+
+	@Test
+	operation test18 () {
+	    assert !active (D.main_region.Orthogonal)
+	}
+
+	@Test
+	operation test19 () {
+	    assert !active (D.main_region.Orthogonal.r1.Temp)
+	}
+
+	@Test
+	operation test20 () {
+	    triggerWithoutEvent
+	    assert !is_active
+	}
+
+	@Test
+	operation test21 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test23 () {
+	    assert !is_active
+	    enter
+	    proceed 5s
+	    proceed 5s
+	    assert is_active
+	}
+
+	@Test
+	operation test24 () {
+	    enter
+	    proceed 1s
+	    proceed 1s
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test25 () {
+	    assert !is_final
+	    assert !is_active
+	}
+
+	@Test
+	operation test27 () {
+	    enter
+	    proceed 1s
+	    proceed 1s
+	    proceed 1s
+	    assert !is_final
+	}
+
+	@Test
+	operation test28 () {
+	    enter
+	    proceed 5s
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test29 () {
+	    assert !is_active
+	    enter
+	    assert is_active
+	}
+
+}

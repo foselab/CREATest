@@ -1,0 +1,147 @@
+testclass test_remove_unreachable_states_expectedSimplifiedTest for statechart test_remove_unreachable_states_expected {
+	@Test
+	operation test00 () {
+	    enter
+	    raise operate
+	    raise operate
+	    assert is_active
+	    assert active (test_remove_unreachable_states_expected.main_region.B)
+	}
+
+	@Test
+	operation test02 () {
+	    enter
+	    raise operate
+	    triggerWithoutEvent
+	    assert is_active
+	}
+
+	@Test
+	operation test03 () {
+	    enter
+	    triggerWithoutEvent
+	    assert is_active
+	}
+
+	@Test
+	operation test04 () {
+	    enter
+	    raise operate
+	    raise operate
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test05 () {
+	    enter
+	    raise operate
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test06 () {
+	    enter
+	    raise operate
+	    raise operate
+	    assert is_active
+	    assert active (test_remove_unreachable_states_expected.main_region.B.Hello.K)
+	}
+
+	@Test
+	operation test07 () {
+	    enter
+	    raise operate
+	    assert is_active
+	    assert active (test_remove_unreachable_states_expected.main_region.B.Hello.J)
+	}
+
+	@Test
+	operation test08 () {
+	    enter
+	    raise operate
+	    assert is_active
+	    assert active (test_remove_unreachable_states_expected.main_region.B)
+	}
+
+	@Test
+	operation test09 () {
+	    enter
+	    assert is_active
+	    assert !active (test_remove_unreachable_states_expected.main_region.B)
+	}
+
+	@Test
+	operation test10 () {
+	    enter
+	    assert is_active
+	    assert active (test_remove_unreachable_states_expected.main_region.A)
+	}
+
+	@Test
+	operation test11 () {
+	}
+
+	@Test
+	operation test12 () {
+	    assert !active (test_remove_unreachable_states_expected.main_region.B)
+	}
+
+	@Test
+	operation test13 () {
+	    assert !active (test_remove_unreachable_states_expected.main_region.B.Hello.J)
+	}
+
+	@Test
+	operation test14 () {
+	    assert !active (test_remove_unreachable_states_expected.main_region.B.Hello.K)
+	}
+
+	@Test
+	operation test15 () {
+	    assert !active (test_remove_unreachable_states_expected.main_region.A)
+	}
+
+	@Test
+	operation test16 () {
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test17 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test18 () {
+	    exit
+	    assert !is_final
+	}
+
+	@Test
+	operation test19 () {
+	    assert !is_final
+	}
+
+	@Test
+	operation test20 () {
+	    triggerWithoutEvent
+	    assert !is_active
+	}
+
+	@Test
+	operation test21 () {
+	    enter
+	    raise operate
+	    raise operate
+	    raise operate
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+}

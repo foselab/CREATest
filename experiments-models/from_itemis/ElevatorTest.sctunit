@@ -1,0 +1,113 @@
+testclass ElevatorTest for statechart Elevator {
+	@Test
+	operation test00 () {
+	    proceed 5s
+	}
+
+	@Test
+	operation test01 () {
+	}
+
+	@Test
+	operation test02 () {
+	}
+
+	@Test
+	operation test03 () {
+	    raise floor: 0
+	}
+
+	@Test
+	operation test04 () {
+	    raise floor: -372
+	}
+
+	@Test
+	operation test05 () {
+	}
+
+	@Test
+	operation test06 () {
+	}
+
+	@Test
+	operation test07 () {
+	}
+
+	@Test
+	operation test08 () {
+	}
+
+	@Test
+	operation test11 () {
+	    raise floor: 1239
+	}
+
+	@Test
+	operation test12 () {
+	    assert !active (Elevator.main.Moving)
+	}
+
+	@Test
+	operation test13 () {
+	    assert !active (Elevator.main.Moving.r1.MovingDown)
+	}
+
+	@Test
+	operation test14 () {
+	    assert !active (Elevator.main.Moving.r1.MovingUp)
+	}
+
+	@Test
+	operation test15 () {
+	}
+
+	@Test
+	operation test16 () {
+	    assert !active (Elevator.main.Idle)
+	}
+
+	@Test
+	operation test17 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test20 () {
+	    assert !is_active
+	    exit
+	}
+
+	@Test
+	operation test21 () {
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test22 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test23 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test24 () {
+	    assert !is_final
+	    assert !is_active
+	}
+
+	@Test
+	operation test26 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test27 () {
+	    assert !is_active
+	}
+
+}

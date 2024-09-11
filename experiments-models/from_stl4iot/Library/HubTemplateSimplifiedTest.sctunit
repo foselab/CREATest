@@ -1,0 +1,140 @@
+testclass HubTemplateSimplifiedTest for statechart HubTemplate {
+	@Test
+	operation test01 () {
+	}
+
+	@Test
+	operation test02 () {
+	}
+
+	@Test
+	operation test03 () {
+	}
+
+	@Test
+	operation test04 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test05 () {
+	}
+
+	@Test
+	operation test06 () {
+	    assert !active (HubTemplate._HUB_Template_.HUBTemplate.PowerConsumptionRegion.IOT_EnergySaverManager)
+	}
+
+	@Test
+	operation test07 () {
+	    assert !active (HubTemplate._HUB_Template_.HUBTemplate.SmartHubRegion.SmartHubSystemStatus.HubStatusRegion.System_Manager)
+	}
+
+	@Test
+	operation test08 () {
+	    assert !active (HubTemplate._HUB_Template_.HUBTemplate.SmartHubRegion.SmartHubSystemStatus)
+	}
+
+	@Test
+	operation test09 () {
+	    assert !active (HubTemplate._HUB_Template_.HUBTemplate)
+	}
+
+	@Test
+	operation test10 () {
+	    assert !active (HubTemplate._HUB_Template_.HUBTemplate.System2Region.System2_status)
+	}
+
+	@Test
+	operation test11 () {
+	    assert !active (HubTemplate._HUB_Template_.HUBTemplate.System1Region.System1_status)
+	}
+
+	@Test
+	operation test12 () {
+	    assert !active (HubTemplate._HUB_Template_.HUBTemplate.NetworkRegion.Connected)
+	}
+
+	@Test
+	operation test13 () {
+	    assert !active (HubTemplate._HUB_Template_.HUBTemplate.NetworkRegion.No_Connection)
+	}
+
+	@Test
+	operation test14 () {
+	    assert !active (HubTemplate._HUB_Template_.HUBTemplate.PowerConsumptionRegion.IOT_EnergySaverManager.turningoff_device_overthreshold._final_)
+	}
+
+	@Test
+	operation test15 () {
+	    assert !active (HubTemplate._HUB_Template_.HUBTemplate.PowerConsumptionRegion.IOT_EnergySaverManager.turningoff_device_overthreshold.System2)
+	}
+
+	@Test
+	operation test16 () {
+	    assert !active (HubTemplate._HUB_Template_.HUBTemplate.PowerConsumptionRegion.IOT_EnergySaverManager.turningoff_device_overthreshold.System1)
+	}
+
+	@Test
+	operation test17 () {
+	    assert !active (HubTemplate._HUB_Template_.HUBTemplate.PowerConsumptionRegion.PowerConsumptionCalculator)
+	}
+
+	@Test
+	operation test18 () {
+	    assert !active (HubTemplate._HUB_Template_.HUBTemplate.SmartHubRegion.SmartHubSystemStatus.HubStatusRegion.System_Manager.System2.System2OFF)
+	}
+
+	@Test
+	operation test19 () {
+	    assert !active (HubTemplate._HUB_Template_.HUBTemplate.SmartHubRegion.SmartHubSystemStatus.HubStatusRegion.System_Manager.System1.System1OFF)
+	}
+
+	@Test
+	operation test20 () {
+	    assert !active (HubTemplate._HUB_Template_.HUBTemplate.SmartHubRegion.SmartHubSystemStatus.HubStatusRegion.System_Manager.System1.System1ON)
+	}
+
+	@Test
+	operation test21 () {
+	    assert !active (HubTemplate._HUB_Template_.HUBTemplate.SmartHubRegion.SmartHubSystemStatus.HubStatusRegion.AllSystemsOFF)
+	}
+
+	@Test
+	operation test22 () {
+	    assert !active (HubTemplate._HUB_Template_.HUBTemplate.SmartHubRegion.SmartHubSystemStatus.HubStatusRegion.System_Manager.System2.System2ON)
+	}
+
+	@Test
+	operation test23 () {
+	    assert !active (HubTemplate._HUB_Template_.HubOff)
+	}
+
+	@Test
+	operation test24 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test29 () {
+	    exit
+	    assert !is_final
+	}
+
+	@Test
+	operation test31 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test32 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test34 () {
+	    assert !is_active
+	    assert !is_final
+	}
+
+}

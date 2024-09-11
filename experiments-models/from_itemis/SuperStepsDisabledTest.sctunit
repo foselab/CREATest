@@ -1,0 +1,222 @@
+testclass SuperStepsDisabledTest for statechart SuperStepsDisabled {
+	@Test
+	operation test00 () {
+	    enter
+	    raise e
+	    raise e
+	    raise local1
+	    raise local1
+	    raise e
+	    assert is_active
+	}
+
+	@Test
+	operation test01 () {
+	    raise local2
+	}
+
+	@Test
+	operation test02 () {
+	}
+
+	@Test
+	operation test03 () {
+	}
+
+	@Test
+	operation test04 () {
+	}
+
+	@Test
+	operation test05 () {
+	}
+
+	@Test
+	operation test06 () {
+	}
+
+	@Test
+	operation test07 () {
+	}
+
+	@Test
+	operation test09 () {
+	    enter
+	    raise e
+	    raise e
+	    raise local1
+	    raise local1
+	    raise e
+	    assert is_active
+	}
+
+	@Test
+	operation test10 () {
+	    enter
+	    raise e
+	    raise e
+	    raise local1
+	    raise local2
+	    raise e
+	    assert is_active
+	}
+
+	@Test
+	operation test11 () {
+	    enter
+	    triggerWithoutEvent
+	    assert is_active
+	}
+
+	@Test
+	operation test12 () {
+	    enter
+	    raise e
+	    raise e
+	    raise local1
+	    raise e
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test13 () {
+	    enter
+	    raise e
+	    raise e
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test14 () {
+	    enter
+	    raise e
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test15 () {
+	    enter
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test16 () {
+	    enter
+	    raise e
+	    raise e
+	    raise local1
+	    raise e
+	    assert is_active
+	    assert active (SuperStepsDisabled.main_region.L)
+	}
+
+	@Test
+	operation test17 () {
+	    enter
+	    raise e
+	    assert is_active
+	    assert active (SuperStepsDisabled.main_region.B)
+	}
+
+	@Test
+	operation test18 () {
+	    enter
+	    assert is_active
+	    assert active (SuperStepsDisabled.main_region.A)
+	}
+
+	@Test
+	operation test19 () {
+	}
+
+	@Test
+	operation test20 () {
+	    assert !active (SuperStepsDisabled.main_region.L)
+	}
+
+	@Test
+	operation test21 () {
+	    assert !active (SuperStepsDisabled.main_region.C)
+	}
+
+	@Test
+	operation test22 () {
+	    assert !active (SuperStepsDisabled.main_region.B)
+	}
+
+	@Test
+	operation test23 () {
+	    assert !active (SuperStepsDisabled.main_region.A)
+	}
+
+	@Test
+	operation test24 () {
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test25 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test26 () {
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test27 () {
+	    exit
+	    assert !is_final
+	}
+
+	@Test
+	operation test28 () {
+	    enter
+	    assert !is_active
+	}
+
+	@Test
+	operation test29 () {
+	    assert !is_final
+	}
+
+	@Test
+	operation test30 () {
+	    triggerWithoutEvent
+	    assert !is_active
+	}
+
+	@Test
+	operation test31 () {
+	    raise e
+	    assert !is_active
+	    enter
+	    raise e
+	    assert is_active
+	    assert active (SuperStepsDisabled.main_region.C)
+	}
+
+	@Test
+	operation test32 () {
+	    assert !is_active
+	    enter
+	    raise e
+	    raise e
+	    raise local1
+	    raise local1
+	    raise e
+	    assert is_active
+	}
+
+}

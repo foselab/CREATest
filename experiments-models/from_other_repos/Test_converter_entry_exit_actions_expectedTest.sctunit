@@ -1,0 +1,88 @@
+testclass test_converter_entry_exit_actions_expectedTest for statechart test_converter_entry_exit_actions_expected {
+	@Test
+	operation test00 () {
+	}
+
+	@Test
+	operation test01 () {
+	}
+
+	@Test
+	operation test02 () {
+	}
+
+	@Test
+	operation test04 () {
+	}
+
+	@Test
+	operation test05 () {
+	}
+
+	@Test
+	operation test06 () {
+	    assert !active (test_converter_entry_exit_actions_expected.main_region.MotionSensing)
+	}
+
+	@Test
+	operation test07 () {
+	    assert !active (test_converter_entry_exit_actions_expected.main_region.Hello)
+	}
+
+	@Test
+	operation test08 () {
+	    assert !active (test_converter_entry_exit_actions_expected.main_region.MotionSensing.r1.On)
+	}
+
+	@Test
+	operation test09 () {
+	    assert !active (test_converter_entry_exit_actions_expected.main_region.Manual)
+	}
+
+	@Test
+	operation test10 () {
+	    assert !active (test_converter_entry_exit_actions_expected.main_region.MotionSensing.r1.Off)
+	}
+
+	@Test
+	operation test11 () {
+	}
+
+	@Test
+	operation test12 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test13 () {
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test15 () {
+	    assert !is_final
+	}
+
+	@Test
+	operation test16 () {
+	    exit
+	    assert !is_final
+	}
+
+	@Test
+	operation test19 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test20 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test22 () {
+	    assert !is_active
+	}
+
+}

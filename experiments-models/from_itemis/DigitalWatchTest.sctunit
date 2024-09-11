@@ -1,0 +1,401 @@
+testclass DigitalWatchTest for statechart DigitalWatch {
+	@Test
+	operation test00 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test01 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test02 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test03 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test04 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test05 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test06 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test07 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test08 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test09 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test10 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test11 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test12 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test13 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test14 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test15 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test16 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test17 () {
+	}
+
+	@Test
+	operation test18 () {
+	}
+
+	@Test
+	operation test19 () {
+	}
+
+	@Test
+	operation test20 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test22 () {
+	}
+
+	@Test
+	operation test23 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test24 () {
+	}
+
+	@Test
+	operation test25 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test26 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test27 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test28 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test29 () {
+	    assert !is_active
+	    assert !active (DigitalWatch.modes.Regular.clock_regular.Clock)
+	}
+
+	@Test
+	operation test30 () {
+	    assert !active (DigitalWatch.modes.Regular)
+	    assert !is_active
+	}
+
+	@Test
+	operation test31 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test32 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test33 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test34 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test35 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test36 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test37 () {
+	    assert !active (DigitalWatch.modes.SetTime.set_time.min)
+	}
+
+	@Test
+	operation test38 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test39 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test40 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test41 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test42 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test43 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test44 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test45 () {
+	    assert !active (DigitalWatch.modes.Regular.clock_regular.Alarm_1)
+	    assert !is_active
+	}
+
+	@Test
+	operation test46 () {
+	    assert !active (DigitalWatch.modes.Regular.clock_regular.Date)
+	    assert !is_active
+	}
+
+	@Test
+	operation test47 () {
+	    assert !active (DigitalWatch.modes.Regular.clock_regular.Clock.double_click.normal)
+	    assert !is_active
+	}
+
+	@Test
+	operation test48 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test49 () {
+	    assert !is_active
+	    assert !active (DigitalWatch.modes.Regular.clock_regular.Clock.double_click.wait)
+	}
+
+	@Test
+	operation test50 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test51 () {
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test54 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test55 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test56 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test57 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test58 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test59 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test60 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test61 () {
+	    assert !is_final
+	    assert !is_active
+	}
+
+	@Test
+	operation test62 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test63 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test64 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test66 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test67 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test68 () {
+	    proceed 2s
+	    assert !is_active
+	}
+
+	@Test
+	operation test69 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test70 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test71 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test72 () {
+	    raise button.onoff
+	    assert !is_active
+	}
+
+	@Test
+	operation test73 () {
+	    raise button.light_r
+	    assert !is_active
+	}
+
+	@Test
+	operation test74 () {
+	    raise button.mode
+	    assert !is_active
+	}
+
+	@Test
+	operation test75 () {
+	    raise button.light
+	    assert !is_active
+	}
+
+	@Test
+	operation test76 () {
+	    raise button.set
+	    assert !is_active
+	}
+
+	@Test
+	operation test77 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test78 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test79 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test80 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test81 () {
+	    assert !is_active
+	}
+
+}

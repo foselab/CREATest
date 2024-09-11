@@ -1,0 +1,170 @@
+testclass Statechart12Test for statechart Statechart12 {
+	@Test
+	operation test00 () {
+	}
+
+	@Test
+	operation test01 () {
+	}
+
+	@Test
+	operation test02 () {
+	}
+
+	@Test
+	operation test03 () {
+	}
+
+	@Test
+	operation test04 () {
+	}
+
+	@Test
+	operation test06 () {
+	}
+
+	@Test
+	operation test07 () {
+	    assert !active (Statechart12.main_region.TrafficLight.trafficLightsHandling.NormalBehavior.r1.green)
+	}
+
+	@Test
+	operation test08 () {
+	    assert !active (Statechart12.main_region.TrafficLight.trafficLightsHandling.NormalBehavior)
+	}
+
+	@Test
+	operation test09 () {
+	    assert !active (Statechart12.main_region.TrafficLight.trafficLightsHandling.PoliceInterruptBehavior)
+	}
+
+	@Test
+	operation test10 () {
+	    assert !active (Statechart12.main_region.TrafficLight)
+	}
+
+	@Test
+	operation test11 () {
+	    assert !active (Statechart12.main_region.TrafficLight.toggleButtonHandling.PressedShort)
+	}
+
+	@Test
+	operation test12 () {
+	    assert !active (Statechart12.main_region.TrafficLight.toggleButtonHandling.ToggleModeUnpressed)
+	}
+
+	@Test
+	operation test13 () {
+	    assert !active (Statechart12.main_region.TrafficLight.trafficLightsHandling.NormalBehavior.r1.yellow)
+	}
+
+	@Test
+	operation test14 () {
+	    assert !active (Statechart12.main_region.TrafficLight.trafficLightsHandling.NormalBehavior.r1.green.exitLogic.exitTimerResetter)
+	}
+
+	@Test
+	operation test15 () {
+	    assert !active (Statechart12.main_region.TrafficLight.trafficLightsHandling.NormalBehavior.r1.red)
+	}
+
+	@Test
+	operation test16 () {
+	    assert !active (Statechart12.main_region.TrafficLight.trafficLightsHandling.PoliceInterruptBehavior.r1.YellowOff)
+	}
+
+	@Test
+	operation test17 () {
+	    assert !active (Statechart12.main_region.TrafficLight.toggleButtonHandling.PressedLong)
+	}
+
+	@Test
+	operation test18 () {
+	    assert !active (Statechart12.main_region.TrafficLight.trafficLightsHandling.PoliceInterruptBehavior.r1.YellowOn)
+	}
+
+	@Test
+	operation test19 () {
+	}
+
+	@Test
+	operation test20 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test22 () {
+	    assert !is_final
+	}
+
+	@Test
+	operation test23 () {
+	}
+
+	@Test
+	operation test24 () {
+	}
+
+	@Test
+	operation test25 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test26 () {
+	}
+
+	@Test
+	operation test27 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test28 () {
+	}
+
+	@Test
+	operation test30 () {
+	}
+
+	@Test
+	operation test31 () {
+	}
+
+	@Test
+	operation test32 () {
+	    assert !is_final
+	}
+
+	@Test
+	operation test33 () {
+	    raise interrupt
+	}
+
+	@Test
+	operation test34 () {
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test36 () {
+	}
+
+	@Test
+	operation test38 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test39 () {
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test40 () {
+	    assert !is_active
+	}
+
+}

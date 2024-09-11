@@ -1,0 +1,156 @@
+testclass TrafficLightStateMachineTest for statechart TrafficLightStateMachine {
+	@Test
+	operation test00 () {
+	}
+
+	@Test
+	operation test01 () {
+	}
+
+	@Test
+	operation test03 () {
+	}
+
+	@Test
+	operation test04 () {
+	    assert !active (TrafficLightStateMachine.trafficlight.standby)
+	}
+
+	@Test
+	operation test05 () {
+	    assert !active (TrafficLightStateMachine.trafficlight.operating.r.prepare)
+	}
+
+	@Test
+	operation test06 () {
+	    assert !active (TrafficLightStateMachine.trafficlight.standby.blink.off)
+	}
+
+	@Test
+	operation test07 () {
+	    assert !active (TrafficLightStateMachine.trafficlight.standby.blink.on)
+	}
+
+	@Test
+	operation test08 () {
+	    assert !active (TrafficLightStateMachine.trafficlight.operating.r.go)
+	}
+
+	@Test
+	operation test09 () {
+	    assert !active (TrafficLightStateMachine.trafficlight.operating.r.stop)
+	}
+
+	@Test
+	operation test10 () {
+	    assert !active (TrafficLightStateMachine.trafficlight.operating.r.prepare.switch.to_stop)
+	}
+
+	@Test
+	operation test11 () {
+	    assert !active (TrafficLightStateMachine.trafficlight.operating)
+	}
+
+	@Test
+	operation test12 () {
+	    assert !active (TrafficLightStateMachine.trafficlight.operating.r.prepare.switch.to_go)
+	}
+
+	@Test
+	operation test13 () {
+	}
+
+	@Test
+	operation test14 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test18 () {
+	    exit
+	    assert !is_final
+	}
+
+	@Test
+	operation test19 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test20 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test21 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test23 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test24 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test25 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test26 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test27 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test28 () {
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test29 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test30 () {
+	    assert !is_final
+	    assert !is_active
+	}
+
+	@Test
+	operation test31 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test32 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test34 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test35 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test36 () {
+	    assert !is_active
+	}
+
+}

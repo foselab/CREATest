@@ -1,0 +1,107 @@
+testclass light_switchTest for statechart light_switch {
+	@Test
+	operation test00 () {
+	}
+
+	@Test
+	operation test01 () {
+	}
+
+	@Test
+	operation test02 () {
+	}
+
+	@Test
+	operation test03 () {
+	}
+
+	@Test
+	operation test04 () {
+	}
+
+	@Test
+	operation test06 () {
+	}
+
+	@Test
+	operation test07 () {
+	}
+
+	@Test
+	operation test08 () {
+	}
+
+	@Test
+	operation test09 () {
+	    assert !active (light_switch.main_region.On)
+	}
+
+	@Test
+	operation test10 () {
+	    assert !active (light_switch.main_region.Off)
+	}
+
+	@Test
+	operation test11 () {
+	}
+
+	@Test
+	operation test12 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test14 () {
+	}
+
+	@Test
+	operation test15 () {
+	}
+
+	@Test
+	operation test16 () {
+	}
+
+	@Test
+	operation test17 () {
+	}
+
+	@Test
+	operation test18 () {
+	}
+
+	@Test
+	operation test21 () {
+	}
+
+	@Test
+	operation test22 () {
+	    assert !is_final
+	}
+
+	@Test
+	operation test23 () {
+	}
+
+	@Test
+	operation test25 () {
+	}
+
+	@Test
+	operation test26 () {
+	    assert !is_final
+	}
+
+	@Test
+	operation test27 () {
+	    exit
+	    assert !is_final
+	}
+
+	@Test
+	operation test28 () {
+	    exit
+	    assert !is_active
+	}
+
+}

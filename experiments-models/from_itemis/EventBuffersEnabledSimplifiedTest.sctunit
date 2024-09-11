@@ -1,0 +1,152 @@
+testclass EventBuffersEnabledSimplifiedTest for statechart EventBuffersEnabled {
+	@Test
+	operation test01 () {
+	    enter
+	    raise e
+	    proceed 1 cycle
+	    proceed 1 cycle
+	    assert is_active
+	}
+
+	@Test
+	operation test02 () {
+	    raise e
+	    enter
+	    proceed 1 cycle
+	    raise f
+	    proceed 1 cycle
+	    raise e
+	    proceed 1 cycle
+	    assert is_active
+	}
+
+	@Test
+	operation test03 () {
+	    enter
+	    raise e
+	    proceed 1 cycle
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test04 () {
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test05 () {
+	    enter
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test06 () {
+	    raise e
+	    enter
+	    proceed 1 cycle
+	    assert is_active
+	    assert active (EventBuffersEnabled.r2.D)
+	}
+
+	@Test
+	operation test07 () {
+	    enter
+	    assert is_active
+	    assert active (EventBuffersEnabled.r2.C)
+	}
+
+	@Test
+	operation test08 () {
+	    enter
+	    raise e
+	    proceed 1 cycle
+	    raise f
+	    proceed 1 cycle
+	    assert is_active
+	    assert active (EventBuffersEnabled.r1.B)
+	}
+
+	@Test
+	operation test09 () {
+	    enter
+	    assert is_active
+	    assert active (EventBuffersEnabled.r1.A)
+	}
+
+	@Test
+	operation test10 () {
+	}
+
+	@Test
+	operation test11 () {
+	    assert !active (EventBuffersEnabled.r2.C)
+	}
+
+	@Test
+	operation test12 () {
+	    assert !active (EventBuffersEnabled.r1.B)
+	}
+
+	@Test
+	operation test13 () {
+	    assert !active (EventBuffersEnabled.r2.D)
+	}
+
+	@Test
+	operation test14 () {
+	    assert !active (EventBuffersEnabled.r1.A)
+	}
+
+	@Test
+	operation test15 () {
+	    raise e
+	    enter
+	    proceed 1 cycle
+	    raise f
+	    proceed 1 cycle
+	    proceed 1 cycle
+	    assert is_active
+	}
+
+	@Test
+	operation test16 () {
+	    proceed 1 cycle
+	    assert !is_active
+	}
+
+	@Test
+	operation test17 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test18 () {
+	    assert !is_active
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test19 () {
+	    assert !is_active
+	    assert !is_final
+	}
+
+	@Test
+	operation test20 () {
+	    enter
+	    raise e
+	    proceed 1 cycle
+	    raise f
+	    proceed 1 cycle
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+}

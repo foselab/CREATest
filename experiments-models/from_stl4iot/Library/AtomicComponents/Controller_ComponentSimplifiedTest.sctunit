@@ -1,0 +1,149 @@
+testclass Controller_ComponentSimplifiedTest for statechart Controller_Component {
+	@Test
+	operation test00 () {
+	    raise Actuator.trigger
+	}
+
+	@Test
+	operation test04 () {
+	}
+
+	@Test
+	operation test05 () {
+	    enter
+	    raise off
+	    raise on
+	    assert is_active
+	}
+
+	@Test
+	operation test06 () {
+	    enter
+	    triggerWithoutEvent
+	    assert is_active
+	}
+
+	@Test
+	operation test07 () {
+	    enter
+	    proceed 100ms
+	    assert is_active
+	}
+
+	@Test
+	operation test08 () {
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test09 () {
+	    enter
+	    raise off
+	    assert is_active
+	    assert active (Controller_Component._Controller_Component_._off_)
+	}
+
+	@Test
+	operation test10 () {
+	    enter
+	    assert is_active
+	    assert active (Controller_Component._Controller_Component_._Controller_isON_._Controller_Receiving_and_Sending_Signals_._Reading_Sensor_Data_)
+	}
+
+	@Test
+	operation test11 () {
+	    enter
+	    assert is_active
+	    assert active (Controller_Component._Controller_Component_._Controller_isON_)
+	}
+
+	@Test
+	operation test12 () {
+	}
+
+	@Test
+	operation test13 () {
+	    assert !is_active
+	    assert !active (Controller_Component._Controller_Component_._Controller_isON_)
+	}
+
+	@Test
+	operation test14 () {
+	    assert !is_active
+	    assert !active (Controller_Component._Controller_Component_._Controller_isON_._Controller_Receiving_and_Sending_Signals_._Trigger_Actuator_)
+	}
+
+	@Test
+	operation test15 () {
+	    assert !is_active
+	    assert !active (Controller_Component._Controller_Component_._Controller_isON_._Controller_Receiving_and_Sending_Signals_._Controller_Processing_)
+	}
+
+	@Test
+	operation test16 () {
+	    assert !active (Controller_Component._Controller_Component_._off_)
+	    assert !is_active
+	}
+
+	@Test
+	operation test17 () {
+	    assert !is_active
+	    assert !active (Controller_Component._Controller_Component_._Controller_isON_._Controller_Receiving_and_Sending_Signals_._Reading_Sensor_Data_)
+	}
+
+	@Test
+	operation test18 () {
+	    assert !is_active
+	    enter
+	    raise off
+	    triggerWithoutEvent
+	    assert is_active
+	}
+
+	@Test
+	operation test19 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test22 () {
+	    enter
+	    raise off
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test23 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test25 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test26 () {
+	    assert !is_final
+	    assert !is_active
+	}
+
+	@Test
+	operation test27 () {
+	    enter
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test30 () {
+	    assert !is_active
+	    enter
+	    assert is_active
+	}
+
+}

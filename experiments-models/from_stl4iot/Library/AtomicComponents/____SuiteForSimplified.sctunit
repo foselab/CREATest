@@ -1,0 +1,9 @@
+testsuite SuiteForSimplified {
+	Actuator_ComponentSimplifiedTest,
+	Controller_ComponentSimplifiedTest,
+	DeviceTemp_ComponentSimplifiedTest,
+	Network_ComponentSimplifiedTest,
+	Power_ComponentSimplifiedTest,
+	Sensor_ComponentSimplifiedTest,
+	Ultrasonic_SensorSimplifiedTest
+}

@@ -1,0 +1,236 @@
+testclass _03_MotionLightSwitchSimplifiedTest for statechart _03_MotionLightSwitch {
+	@Test
+	operation test00 () {
+	    enter
+	    raise motionDetected
+	    assert is_active
+	    assert active (_03_MotionLightSwitch.main.MotionSensing)
+	}
+
+	@Test
+	operation test05 () {
+	    enter
+	    raise toggleMode
+	    triggerWithoutEvent
+	    assert is_active
+	}
+
+	@Test
+	operation test06 () {
+	    enter
+	    raise motionDetected
+	    raise motionDetected
+	    assert is_active
+	}
+
+	@Test
+	operation test07 () {
+	    enter
+	    raise motionDetected
+	    proceed 30s
+	    assert is_active
+	}
+
+	@Test
+	operation test08 () {
+	    enter
+	    raise toggleMode
+	    raise toggleMode
+	    assert is_active
+	}
+
+	@Test
+	operation test09 () {
+	    enter
+	    raise toggleMode
+	    raise toggleMode
+	    raise toggleMode
+	    raise switch
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test10 () {
+	    enter
+	    raise toggleMode
+	    raise toggleMode
+	    raise toggleMode
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test11 () {
+	    enter
+	    raise toggleMode
+	    raise toggleMode
+	    raise motionDetected
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test12 () {
+	    enter
+	    raise toggleMode
+	    raise toggleMode
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test13 () {
+	    enter
+	    raise toggleMode
+	    raise toggleMode
+	    raise toggleMode
+	    raise switch
+	    assert is_active
+	    assert active (_03_MotionLightSwitch.main.Manual.r1.On)
+	}
+
+	@Test
+	operation test14 () {
+	    enter
+	    raise toggleMode
+	    assert is_active
+	    assert active (_03_MotionLightSwitch.main.Manual.r1.Off)
+	}
+
+	@Test
+	operation test15 () {
+	    enter
+	    raise toggleMode
+	    assert is_active
+	    assert active (_03_MotionLightSwitch.main.Manual)
+	}
+
+	@Test
+	operation test16 () {
+	    enter
+	    assert is_active
+	    assert !active (_03_MotionLightSwitch.main.Manual)
+	}
+
+	@Test
+	operation test17 () {
+	    enter
+	    raise motionDetected
+	    assert is_active
+	    assert active (_03_MotionLightSwitch.main.MotionSensing.r1.On)
+	}
+
+	@Test
+	operation test18 () {
+	    enter
+	    assert is_active
+	    assert active (_03_MotionLightSwitch.main.MotionSensing.r1.Off)
+	}
+
+	@Test
+	operation test19 () {
+	    enter
+	    assert is_active
+	    assert active (_03_MotionLightSwitch.main.MotionSensing)
+	}
+
+	@Test
+	operation test20 () {
+	}
+
+	@Test
+	operation test21 () {
+	    assert !active (_03_MotionLightSwitch.main.Manual)
+	}
+
+	@Test
+	operation test22 () {
+	    assert !active (_03_MotionLightSwitch.main.MotionSensing)
+	}
+
+	@Test
+	operation test23 () {
+	    assert !active (_03_MotionLightSwitch.main.Manual.r1.Off)
+	}
+
+	@Test
+	operation test24 () {
+	    assert !active (_03_MotionLightSwitch.main.MotionSensing.r1.On)
+	}
+
+	@Test
+	operation test25 () {
+	    assert !active (_03_MotionLightSwitch.main.Manual.r1.On)
+	}
+
+	@Test
+	operation test26 () {
+	    assert !active (_03_MotionLightSwitch.main.MotionSensing.r1.Off)
+	}
+
+	@Test
+	operation test27 () {
+	    assert !is_final
+	}
+
+	@Test
+	operation test28 () {
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test29 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test30 () {
+	    exit
+	    assert !is_final
+	}
+
+	@Test
+	operation test32 () {
+	    assert !is_active
+	    enter
+	    raise toggleMode
+	    raise toggleMode
+	    raise toggleMode
+	    raise switch
+	    raise toggleMode
+	    assert is_active
+	}
+
+	@Test
+	operation test35 () {
+	    enter
+	    raise toggleMode
+	    raise toggleMode
+	    raise motionDetected
+	    raise toggleMode
+	    assert is_active
+	}
+
+	@Test
+	operation test36 () {
+	    assert !is_active
+	    assert !is_final
+	}
+
+	@Test
+	operation test39 () {
+	    assert !is_active
+	    enter
+	    raise toggleMode
+	    raise switch
+	    raise switch
+	    assert is_active
+	}
+
+}

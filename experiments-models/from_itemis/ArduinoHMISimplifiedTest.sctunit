@@ -1,0 +1,282 @@
+testclass ArduinoHMISimplifiedTest for statechart ArduinoHMI {
+	@Test
+	operation test00 () {
+	    proceed 100ms
+	    assert !is_final
+	}
+
+	@Test
+	operation test02 () {
+	    raise right
+	    enter
+	    proceed 1 cycle
+	    proceed 1 cycle
+	    assert is_active
+	}
+
+	@Test
+	operation test03 () {
+	    raise right
+	    enter
+	    proceed 1 cycle
+	    raise left
+	    proceed 1 cycle
+	    assert is_active
+	}
+
+	@Test
+	operation test04 () {
+	    enter
+	    raise select
+	    proceed 1 cycle
+	    proceed 1 cycle
+	    assert is_active
+	}
+
+	@Test
+	operation test05 () {
+	    enter
+	    proceed 1 cycle
+	    assert is_active
+	}
+
+	@Test
+	operation test06 () {
+	    exit
+	    assert !is_final
+	}
+
+	@Test
+	operation test07 () {
+	    raise right
+	    enter
+	    proceed 1 cycle
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test08 () {
+	    raise select
+	    enter
+	    proceed 1 cycle
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test09 () {
+	    enter
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test10 () {
+	    raise right
+	    enter
+	    proceed 1 cycle
+	    raise select
+	    proceed 1 cycle
+	    assert is_active
+	    assert active (ArduinoHMI.hmi.Stopwatch.r1.Stopwatch_Active.stopwatch.Reset_Timer)
+	}
+
+	@Test
+	operation test11 () {
+	    raise right
+	    enter
+	    proceed 1 cycle
+	    assert is_active
+	    assert active (ArduinoHMI.hmi.Stopwatch.r1.Selecting)
+	}
+
+	@Test
+	operation test12 () {
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test13 () {
+	    enter
+	    assert is_active
+	    assert !active (ArduinoHMI.hmi.Handle_States.r1.Handle_States_Active)
+	}
+
+	@Test
+	operation test14 () {
+	    enter
+	    assert is_active
+	    assert active (ArduinoHMI.hmi.Handle_States)
+	}
+
+	@Test
+	operation test15 () {
+	}
+
+	@Test
+	operation test16 () {
+	    assert !active (ArduinoHMI.hmi.Counter.r1.Counter_Active)
+	}
+
+	@Test
+	operation test17 () {
+	    assert !active (ArduinoHMI.hmi.Counter)
+	}
+
+	@Test
+	operation test18 () {
+	    assert !active (ArduinoHMI.hmi.Stopwatch)
+	}
+
+	@Test
+	operation test19 () {
+	    assert !active (ArduinoHMI.hmi.Handle_States.r1.Handle_States_Active)
+	}
+
+	@Test
+	operation test20 () {
+	    assert !active (ArduinoHMI.hmi.Handle_States)
+	}
+
+	@Test
+	operation test21 () {
+	    assert !active (ArduinoHMI.hmi.Counter.r1.Counter_Active.counter.Count)
+	}
+
+	@Test
+	operation test22 () {
+	    assert !active (ArduinoHMI.hmi.Counter.r1.Counter_Active.counter.Reset_Counter)
+	}
+
+	@Test
+	operation test23 () {
+	    assert !active (ArduinoHMI.hmi.Counter.r1.Selecting)
+	}
+
+	@Test
+	operation test24 () {
+	    assert !active (ArduinoHMI.hmi.Stopwatch.r1.Stopwatch_Active.stopwatch.Stop_Timer)
+	}
+
+	@Test
+	operation test25 () {
+	    assert !active (ArduinoHMI.hmi.Stopwatch.r1.Stopwatch_Active.stopwatch.Start_Timer)
+	}
+
+	@Test
+	operation test26 () {
+	    assert !active (ArduinoHMI.hmi.Stopwatch.r1.Stopwatch_Active.stopwatch.Reset_Timer)
+	}
+
+	@Test
+	operation test27 () {
+	    assert !active (ArduinoHMI.hmi.Stopwatch.r1.Selecting)
+	}
+
+	@Test
+	operation test28 () {
+	    assert !active (ArduinoHMI.hmi.Handle_States.r1.Handle_States_Active.handle_states.Right)
+	}
+
+	@Test
+	operation test29 () {
+	    assert !active (ArduinoHMI.hmi.Handle_States.r1.Handle_States_Active.handle_states.Bottom)
+	}
+
+	@Test
+	operation test30 () {
+	    assert !active (ArduinoHMI.hmi.Handle_States.r1.Handle_States_Active.handle_states.Left)
+	}
+
+	@Test
+	operation test31 () {
+	    assert !active (ArduinoHMI.hmi.Handle_States.r1.Handle_States_Active.handle_states.Middle)
+	}
+
+	@Test
+	operation test32 () {
+	    assert !active (ArduinoHMI.hmi.Handle_States.r1.Handle_States_Active.handle_states.Top)
+	}
+
+	@Test
+	operation test33 () {
+	    assert !active (ArduinoHMI.hmi.Stopwatch.r1.Stopwatch_Active)
+	}
+
+	@Test
+	operation test34 () {
+	    assert !active (ArduinoHMI.hmi.Handle_States.r1.Selecting)
+	}
+
+	@Test
+	operation test35 () {
+	    proceed 1 cycle
+	    assert !is_active
+	}
+
+	@Test
+	operation test36 () {
+	    assert !is_active
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test37 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test42 () {
+	    assert !is_active
+	    assert !is_final
+	}
+
+	@Test
+	operation test43 () {
+	    raise up
+	    assert !is_active
+	}
+
+	@Test
+	operation test45 () {
+	    raise right
+	    enter
+	    proceed 1 cycle
+	    raise select
+	    proceed 1 cycle
+	    raise left
+	    proceed 1 cycle
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test46 () {
+	    raise right
+	    enter
+	    proceed 1 cycle
+	    raise right
+	    proceed 1 cycle
+	    raise left
+	    proceed 1 cycle
+	    assert !is_final
+	}
+
+	@Test
+	operation test47 () {
+	    assert !is_active
+	    enter
+	    raise select
+	    proceed 1 cycle
+	    raise down
+	    proceed 1 cycle
+	    assert is_active
+	}
+
+}

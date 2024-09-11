@@ -1,0 +1,301 @@
+testclass SmartLightHUBTest for statechart SmartLightHUB {
+	@Test
+	operation test01 () {
+	}
+
+	@Test
+	operation test02 () {
+	}
+
+	@Test
+	operation test03 () {
+	}
+
+	@Test
+	operation test04 () {
+	}
+
+	@Test
+	operation test05 () {
+	}
+
+	@Test
+	operation test06 () {
+	}
+
+	@Test
+	operation test08 () {
+	}
+
+	@Test
+	operation test09 () {
+	}
+
+	@Test
+	operation test10 () {
+	}
+
+	@Test
+	operation test11 () {
+	}
+
+	@Test
+	operation test12 () {
+	}
+
+	@Test
+	operation test13 () {
+	}
+
+	@Test
+	operation test14 () {
+	}
+
+	@Test
+	operation test15 () {
+	}
+
+	@Test
+	operation test16 () {
+	}
+
+	@Test
+	operation test17 () {
+	}
+
+	@Test
+	operation test18 () {
+	}
+
+	@Test
+	operation test19 () {
+	}
+
+	@Test
+	operation test20 () {
+	    assert !active (SmartLightHUB.SmartLightHubSystem_1_0.SmartLightsHUB.SmartHubStatusRegion.SmartLightHubSystemStatus.HubStatusRegion.System_Manager)
+	}
+
+	@Test
+	operation test21 () {
+	    assert !active (SmartLightHUB.SmartLightHubSystem_1_0.SmartLightsHUB.SmartHubStatusRegion.SmartLightHubSystemStatus)
+	}
+
+	@Test
+	operation test22 () {
+	    assert !active (SmartLightHUB.SmartLightHubSystem_1_0.SmartLightsHUB)
+	}
+
+	@Test
+	operation test23 () {
+	}
+
+	@Test
+	operation test24 () {
+	}
+
+	@Test
+	operation test25 () {
+	}
+
+	@Test
+	operation test26 () {
+	}
+
+	@Test
+	operation test27 () {
+	}
+
+	@Test
+	operation test28 () {
+	}
+
+	@Test
+	operation test29 () {
+	}
+
+	@Test
+	operation test30 () {
+	}
+
+	@Test
+	operation test31 () {
+	}
+
+	@Test
+	operation test32 () {
+	    assert !active (SmartLightHUB.SmartLightHubSystem_1_0.SmartLightsHUB.SmartHubStatusRegion.SmartLightHubSystemStatus.HubStatusRegion.AllSystemsOFF)
+	}
+
+	@Test
+	operation test33 () {
+	}
+
+	@Test
+	operation test34 () {
+	    assert !active (SmartLightHUB.SmartLightHubSystem_1_0.HubOff)
+	}
+
+	@Test
+	operation test35 () {
+	}
+
+	@Test
+	operation test36 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test39 () {
+	}
+
+	@Test
+	operation test40 () {
+	}
+
+	@Test
+	operation test41 () {
+	    assert !is_final
+	}
+
+	@Test
+	operation test42 () {
+	}
+
+	@Test
+	operation test43 () {
+	}
+
+	@Test
+	operation test44 () {
+	}
+
+	@Test
+	operation test45 () {
+	}
+
+	@Test
+	operation test46 () {
+	}
+
+	@Test
+	operation test47 () {
+	}
+
+	@Test
+	operation test48 () {
+	}
+
+	@Test
+	operation test50 () {
+	}
+
+	@Test
+	operation test51 () {
+	}
+
+	@Test
+	operation test52 () {
+	    exit
+	}
+
+	@Test
+	operation test53 () {
+	    assert !is_active
+	    exit
+	}
+
+	@Test
+	operation test54 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test55 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test57 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test58 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test59 () {
+	}
+
+	@Test
+	operation test60 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test63 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test66 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test67 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test68 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test69 () {
+	}
+
+	@Test
+	operation test70 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test71 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test72 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test74 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test75 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test76 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test78 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test81 () {
+	    assert !is_active
+	}
+
+}

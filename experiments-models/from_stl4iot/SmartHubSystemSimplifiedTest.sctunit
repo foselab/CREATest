@@ -1,0 +1,170 @@
+testclass SmartHubSystemSimplifiedTest for statechart SmartHubSystem {
+	@Test
+	operation test00 () {
+	}
+
+	@Test
+	operation test01 () {
+	}
+
+	@Test
+	operation test02 () {
+	}
+
+	@Test
+	operation test03 () {
+	    assert !is_final
+	}
+
+	@Test
+	operation test04 () {
+	    assert !is_final
+	}
+
+	@Test
+	operation test05 () {
+	}
+
+	@Test
+	operation test06 () {
+	}
+
+	@Test
+	operation test07 () {
+	}
+
+	@Test
+	operation test08 () {
+	}
+
+	@Test
+	operation test09 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test10 () {
+	}
+
+	@Test
+	operation test11 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test12 () {
+	}
+
+	@Test
+	operation test13 () {
+	    assert !active (SmartHubSystem._SmartHubSystem_.HubOn.System4Region.SmartMicrowave_Status)
+	}
+
+	@Test
+	operation test14 () {
+	    assert !active (SmartHubSystem._SmartHubSystem_.HubOn.System2Region.SmartTV_Status)
+	}
+
+	@Test
+	operation test15 () {
+	    assert !active (SmartHubSystem._SmartHubSystem_.HubOn.System3Region.SmartLight_Status)
+	}
+
+	@Test
+	operation test16 () {
+	    assert !active (SmartHubSystem._SmartHubSystem_.HubOn.System1Region.SmartFire_Status)
+	}
+
+	@Test
+	operation test17 () {
+	    assert !active (SmartHubSystem._SmartHubSystem_.HubOn.PowerManagerRegion.IOT_EnergySaverManager)
+	}
+
+	@Test
+	operation test18 () {
+	    assert !active (SmartHubSystem._SmartHubSystem_.HubOn.System4Region.SmartMicrowave_Status.SmartMicrowaveStatus.On.SensorStatus.Idle)
+	}
+
+	@Test
+	operation test19 () {
+	    assert !active (SmartHubSystem._SmartHubSystem_.HubOn.System4Region.SmartMicrowave_Status.SmartMicrowaveStatus.Off)
+	}
+
+	@Test
+	operation test20 () {
+	    assert !active (SmartHubSystem._SmartHubSystem_.HubOn.System2Region.SmartTV_Status.SmartTVStatus.On.SensorStatus.Active)
+	}
+
+	@Test
+	operation test21 () {
+	    assert !active (SmartHubSystem._SmartHubSystem_.HubOn.System3Region.SmartLight_Status.SmartLightStatus.On.SensorStatus.AllLightsOFF)
+	}
+
+	@Test
+	operation test22 () {
+	    assert !active (SmartHubSystem._SmartHubSystem_.HubOn.System1Region.SmartFire_Status.SmartFireStatus.On.AlarmStatus.Monitoring)
+	}
+
+	@Test
+	operation test23 () {
+	    assert !active (SmartHubSystem._SmartHubSystem_.HubOn.PowerManagerRegion.IOT_EnergySaverManager.turningoff_device_overthreshold._final_)
+	}
+
+	@Test
+	operation test24 () {
+	    assert !active (SmartHubSystem._SmartHubSystem_.HubOn.PowerManagerRegion.PowerConsumptionCalculator)
+	}
+
+	@Test
+	operation test25 () {
+	    assert !active (SmartHubSystem._SmartHubSystem_.HubOn.SmartHubRegion.SmartHubSystemStatus.HubStatusRegion.System_Manager.System2.SL_ON)
+	}
+
+	@Test
+	operation test26 () {
+	    assert !active (SmartHubSystem._SmartHubSystem_.HubOn.SmartHubRegion.SmartHubSystemStatus.HubStatusRegion.Emergency_State)
+	}
+
+	@Test
+	operation test27 () {
+	    assert !active (SmartHubSystem._SmartHubSystem_.HubOn.SmartHubRegion.SmartHubSystemStatus.HubStatusRegion.System_Manager.System1.STV_OFF)
+	}
+
+	@Test
+	operation test28 () {
+	    assert !active (SmartHubSystem._SmartHubSystem_.HubOn.SmartHubRegion.SmartHubSystemStatus.HubStatusRegion.System_Manager.System3.SMW_ON)
+	}
+
+	@Test
+	operation test29 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test36 () {
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test38 () {
+	    assert !is_active
+	    assert !is_final
+	}
+
+	@Test
+	operation test39 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test44 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test47 () {
+	    assert !is_active
+	}
+
+}

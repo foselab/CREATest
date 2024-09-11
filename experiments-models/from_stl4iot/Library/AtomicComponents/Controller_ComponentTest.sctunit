@@ -1,0 +1,108 @@
+testclass Controller_ComponentTest for statechart Controller_Component {
+	@Test
+	operation test00 () {
+	}
+
+	@Test
+	operation test01 () {
+	}
+
+	@Test
+	operation test02 () {
+	}
+
+	@Test
+	operation test03 () {
+	}
+
+	@Test
+	operation test04 () {
+	}
+
+	@Test
+	operation test06 () {
+	}
+
+	@Test
+	operation test07 () {
+	}
+
+	@Test
+	operation test08 () {
+	    assert !active (Controller_Component._Controller_Component_._Controller_isON_)
+	}
+
+	@Test
+	operation test09 () {
+	    assert !active (Controller_Component._Controller_Component_._off_)
+	}
+
+	@Test
+	operation test10 () {
+	    assert !active (Controller_Component._Controller_Component_._Controller_isON_._Controller_Receiving_and_Sending_Signals_._Controller_Processing_)
+	}
+
+	@Test
+	operation test11 () {
+	    assert !active (Controller_Component._Controller_Component_._Controller_isON_._Controller_Receiving_and_Sending_Signals_._Trigger_Actuator_)
+	}
+
+	@Test
+	operation test12 () {
+	    assert !active (Controller_Component._Controller_Component_._Controller_isON_._Controller_Receiving_and_Sending_Signals_._Reading_Sensor_Data_)
+	}
+
+	@Test
+	operation test13 () {
+	}
+
+	@Test
+	operation test14 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test16 () {
+	}
+
+	@Test
+	operation test17 () {
+	}
+
+	@Test
+	operation test18 () {
+	}
+
+	@Test
+	operation test22 () {
+	    assert !is_final
+	}
+
+	@Test
+	operation test23 () {
+	    assert !is_active
+	    exit
+	}
+
+	@Test
+	operation test25 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test26 () {
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test27 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test29 () {
+	    assert !is_active
+	}
+
+}

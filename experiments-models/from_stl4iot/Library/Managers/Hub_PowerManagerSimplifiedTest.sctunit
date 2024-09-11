@@ -1,0 +1,152 @@
+testclass Hub_PowerManagerSimplifiedTest for statechart Hub_PowerManager {
+	@Test
+	operation test05 () {
+	    enter
+	    raise threshold_reached
+	    proceed 500ms
+	    raise threshold_reached
+	    assert !is_final
+	}
+
+	@Test
+	operation test06 () {
+	    enter
+	    raise threshold_reached
+	    raise threshold_reached
+	    assert is_active
+	}
+
+	@Test
+	operation test07 () {
+	    enter
+	    triggerWithoutEvent
+	    assert is_active
+	}
+
+	@Test
+	operation test08 () {
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test09 () {
+	    enter
+	    raise threshold_reached
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test10 () {
+	    enter
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test11 () {
+	    enter
+	    raise threshold_reached
+	    proceed 500ms
+	    assert is_active
+	    assert active (Hub_PowerManager._HUB_PowerManager_.double_check)
+	}
+
+	@Test
+	operation test12 () {
+	    enter
+	    raise threshold_reached
+	    assert is_active
+	    assert active (Hub_PowerManager._HUB_PowerManager_.threshold_reached._Return_DeviceIndex_To_Be_TurnedOFF_.initialize_last_value)
+	}
+
+	@Test
+	operation test13 () {
+	    enter
+	    raise threshold_reached
+	    assert active (Hub_PowerManager._HUB_PowerManager_.threshold_reached)
+	}
+
+	@Test
+	operation test14 () {
+	    enter
+	    assert is_active
+	    assert !active (Hub_PowerManager._HUB_PowerManager_.threshold_reached)
+	}
+
+	@Test
+	operation test15 () {
+	    enter
+	    assert is_active
+	    assert active (Hub_PowerManager._HUB_PowerManager_.monitoring_power_consumption)
+	}
+
+	@Test
+	operation test16 () {
+	}
+
+	@Test
+	operation test17 () {
+	    assert !active (Hub_PowerManager._HUB_PowerManager_.double_check)
+	}
+
+	@Test
+	operation test18 () {
+	}
+
+	@Test
+	operation test19 () {
+	    assert !active (Hub_PowerManager._HUB_PowerManager_.threshold_reached)
+	}
+
+	@Test
+	operation test20 () {
+	    assert !active (Hub_PowerManager._HUB_PowerManager_.monitoring_power_consumption)
+	}
+
+	@Test
+	operation test21 () {
+	    triggerWithoutEvent
+	    assert !is_active
+	}
+
+	@Test
+	operation test22 () {
+	    assert !is_active
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test23 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test25 () {
+	    assert !is_final
+	    assert !is_active
+	}
+
+	@Test
+	operation test27 () {
+	    assert !is_active
+	    enter
+	    proceed 500ms
+	    assert is_active
+	}
+
+	@Test
+	operation test28 () {
+	    enter
+	    raise threshold_reached
+	    proceed 500ms
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+}

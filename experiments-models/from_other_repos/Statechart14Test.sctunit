@@ -1,0 +1,165 @@
+testclass Statechart14Test for statechart Statechart14 {
+	@Test
+	operation test00 () {
+	    assert !is_final
+	}
+
+	@Test
+	operation test01 () {
+	}
+
+	@Test
+	operation test02 () {
+	}
+
+	@Test
+	operation test03 () {
+	}
+
+	@Test
+	operation test06 () {
+	}
+
+	@Test
+	operation test07 () {
+	    assert !active (Statechart14.main_region.orthogonal.TRAFFIC_LIGHT_MODES.interrupted)
+	}
+
+	@Test
+	operation test08 () {
+	    assert !active (Statechart14.main_region.orthogonal.TRAFFIC_LIGHT_MODES.normal)
+	}
+
+	@Test
+	operation test09 () {
+	    assert !active (Statechart14.main_region.orthogonal)
+	}
+
+	@Test
+	operation test10 () {
+	    assert !active (Statechart14.main_region.orthogonal.TRAFFIC_LIGHT_MODES.interrupted.r1.allblack)
+	}
+
+	@Test
+	operation test11 () {
+	    assert !active (Statechart14.main_region.orthogonal.TRAFFIC_LIGHT_MODES.interrupted.r1.yellow)
+	}
+
+	@Test
+	operation test12 () {
+	    assert !active (Statechart14.main_region.orthogonal.TRAFFIC_LIGHT_MODES.normal.r1.smart_green.r1.green)
+	}
+
+	@Test
+	operation test13 () {
+	    assert !active (Statechart14.main_region.orthogonal.TRAFFIC_LIGHT_MODES.normal.r1.yellow)
+	}
+
+	@Test
+	operation test14 () {
+	    assert !active (Statechart14.main_region.orthogonal.TRAFFIC_LIGHT_MODES.normal.r1.red)
+	}
+
+	@Test
+	operation test15 () {
+	    assert !active (Statechart14.main_region.orthogonal.TOGGLE_MODE_BUTTON.pressed)
+	}
+
+	@Test
+	operation test16 () {
+	    assert !active (Statechart14.main_region.orthogonal.TRAFFIC_LIGHT_MODES.normal.r1.smart_green)
+	}
+
+	@Test
+	operation test17 () {
+	    assert !active (Statechart14.main_region.orthogonal.TOGGLE_MODE_BUTTON.not_pressed)
+	}
+
+	@Test
+	operation test18 () {
+	}
+
+	@Test
+	operation test19 () {
+	}
+
+	@Test
+	operation test20 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test21 () {
+	    exit
+	    assert !is_final
+	}
+
+	@Test
+	operation test23 () {
+	    raise policeInterrupt
+	    assert !is_active
+	}
+
+	@Test
+	operation test25 () {
+	}
+
+	@Test
+	operation test26 () {
+	}
+
+	@Test
+	operation test29 () {
+	    assert !is_final
+	}
+
+	@Test
+	operation test30 () {
+	}
+
+	@Test
+	operation test31 () {
+	    assert !is_final
+	}
+
+	@Test
+	operation test32 () {
+	    assert !is_final
+	}
+
+	@Test
+	operation test33 () {
+	}
+
+	@Test
+	operation test34 () {
+	}
+
+	@Test
+	operation test35 () {
+	    exit
+	    assert !is_final
+	}
+
+	@Test
+	operation test36 () {
+	    assert !is_active
+	    assert !is_final
+	}
+
+	@Test
+	operation test37 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test40 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test41 () {
+	    assert !is_active
+	}
+
+}

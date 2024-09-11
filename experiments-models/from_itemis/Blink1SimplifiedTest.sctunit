@@ -1,0 +1,155 @@
+testclass blink1SimplifiedTest for statechart blink1 {
+	@Test
+	operation test00 () {
+	    enter
+	    raise toggle
+	    assert is_active
+	    assert active (blink1.esp.Blink)
+	}
+
+	@Test
+	operation test04 () {
+	    enter
+	    triggerWithoutEvent
+	    assert is_active
+	}
+
+	@Test
+	operation test05 () {
+	    enter
+	    raise toggle
+	    assert is_active
+	}
+
+	@Test
+	operation test06 () {
+	    enter
+	    raise toggle
+	    triggerWithoutEvent
+	    assert is_active
+	}
+
+	@Test
+	operation test07 () {
+	    enter
+	    raise toggle
+	    raise toggle
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test08 () {
+	    enter
+	    raise toggle
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test09 () {
+	    enter
+	    raise toggle
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test10 () {
+	    enter
+	    assert is_active
+	    assert active (blink1.esp.Idle)
+	}
+
+	@Test
+	operation test11 () {
+	    enter
+	    raise toggle
+	    assert is_active
+	    assert active (blink1.esp.Blink.blinky.On)
+	}
+
+	@Test
+	operation test12 () {
+	    enter
+	    raise toggle
+	    assert is_active
+	    assert active (blink1.esp.Blink)
+	}
+
+	@Test
+	operation test13 () {
+	}
+
+	@Test
+	operation test14 () {
+	    assert !active (blink1.esp.Blink)
+	}
+
+	@Test
+	operation test15 () {
+	    assert !active (blink1.esp.Blink.blinky.Off)
+	}
+
+	@Test
+	operation test16 () {
+	    assert !active (blink1.esp.Idle)
+	}
+
+	@Test
+	operation test17 () {
+	    assert !active (blink1.esp.Blink.blinky.On)
+	}
+
+	@Test
+	operation test19 () {
+	    raise toggle
+	    assert !is_final
+	}
+
+	@Test
+	operation test20 () {
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test21 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test22 () {
+	    exit
+	    assert !is_final
+	}
+
+	@Test
+	operation test25 () {
+	    enter
+	    raise toggle
+	    raise toggle
+	    assert !is_final
+	}
+
+	@Test
+	operation test26 () {
+	    assert !is_active
+	    assert !is_final
+	}
+
+	@Test
+	operation test28 () {
+	    assert !is_active
+	    enter
+	    raise toggle
+	    raise toggle
+	    raise toggle
+	    assert is_active
+	    assert active (blink1.esp.Blink.blinky.Off)
+	}
+
+}

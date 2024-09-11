@@ -1,0 +1,253 @@
+testclass SectionTest for statechart Section {
+	@Test
+	operation test00 () {
+	}
+
+	@Test
+	operation test01 () {
+	}
+
+	@Test
+	operation test02 () {
+	}
+
+	@Test
+	operation test03 () {
+	}
+
+	@Test
+	operation test04 () {
+	}
+
+	@Test
+	operation test07 () {
+	}
+
+	@Test
+	operation test08 () {
+	}
+
+	@Test
+	operation test09 () {
+	}
+
+	@Test
+	operation test10 () {
+	}
+
+	@Test
+	operation test11 () {
+	}
+
+	@Test
+	operation test12 () {
+	    assert !active (Section.main_region.Init.Init_Process.Requesting)
+	}
+
+	@Test
+	operation test13 () {
+	    assert !active (Section.main_region.Init)
+	}
+
+	@Test
+	operation test14 () {
+	}
+
+	@Test
+	operation test15 () {
+	}
+
+	@Test
+	operation test16 () {
+	}
+
+	@Test
+	operation test17 () {
+	}
+
+	@Test
+	operation test18 () {
+	    assert !active (Section.main_region.Init.Init_Process.Requesting.state.Wait)
+	}
+
+	@Test
+	operation test19 () {
+	    assert !active (Section.main_region.Init.Init_Process.Requesting.state.Occupation)
+	}
+
+	@Test
+	operation test20 () {
+	}
+
+	@Test
+	operation test21 () {
+	}
+
+	@Test
+	operation test22 () {
+	}
+
+	@Test
+	operation test23 () {
+	}
+
+	@Test
+	operation test24 () {
+	}
+
+	@Test
+	operation test25 () {
+	}
+
+	@Test
+	operation test26 () {
+	    assert !active (Section.main_region.Init.Init_Process.Requesting.relais.Wait)
+	}
+
+	@Test
+	operation test27 () {
+	}
+
+	@Test
+	operation test28 () {
+	    assert !active (Section.main_region.Init.Init_Process.Requesting.relais.Relay)
+	}
+
+	@Test
+	operation test29 () {
+	}
+
+	@Test
+	operation test30 () {
+	}
+
+	@Test
+	operation test31 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test32 () {
+	    exit
+	}
+
+	@Test
+	operation test34 () {
+	}
+
+	@Test
+	operation test35 () {
+	}
+
+	@Test
+	operation test36 () {
+	}
+
+	@Test
+	operation test37 () {
+	}
+
+	@Test
+	operation test38 () {
+	}
+
+	@Test
+	operation test39 () {
+	}
+
+	@Test
+	operation test41 () {
+	}
+
+	@Test
+	operation test42 () {
+	}
+
+	@Test
+	operation test43 () {
+	}
+
+	@Test
+	operation test44 () {
+	}
+
+	@Test
+	operation test45 () {
+	}
+
+	@Test
+	operation test46 () {
+	}
+
+	@Test
+	operation test48 () {
+	}
+
+	@Test
+	operation test51 () {
+	}
+
+	@Test
+	operation test53 () {
+	}
+
+	@Test
+	operation test55 () {
+	}
+
+	@Test
+	operation test56 () {
+	}
+
+	@Test
+	operation test57 () {
+	}
+
+	@Test
+	operation test58 () {
+	}
+
+	@Test
+	operation test59 () {
+	    assert !is_active
+	    exit
+	}
+
+	@Test
+	operation test61 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test62 () {
+	    assert !is_active
+	    assert !is_final
+	}
+
+	@Test
+	operation test63 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test66 () {
+	    raise leaving
+	    assert !is_active
+	}
+
+	@Test
+	operation test68 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test69 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test70 () {
+	    assert !is_active
+	}
+
+}

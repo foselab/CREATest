@@ -1,0 +1,19 @@
+generator(project_name, package_name, statechart_name, directory) ::= 
+<<GeneratorModel for create::java {
+
+	const PROJECT : string = "<project_name>"
+
+	const FOLDER : string = "<directory>"
+
+	statechart <statechart_name> {	
+		feature Naming {
+		    basePackage = "<package_name>"
+		}
+	
+		feature Outlet {
+			targetProject = PROJECT
+			targetFolder = FOLDER
+			libraryTargetFolder = FOLDER
+		}
+	}
+}>>

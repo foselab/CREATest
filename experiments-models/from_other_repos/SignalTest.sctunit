@@ -1,0 +1,117 @@
+testclass SignalTest for statechart Signal {
+	@Test
+	operation test00 () {
+	}
+
+	@Test
+	operation test01 () {
+	}
+
+	@Test
+	operation test02 () {
+	}
+
+	@Test
+	operation test05 () {
+	}
+
+	@Test
+	operation test06 () {
+	    assert !active (Signal.main_region.Turning)
+	}
+
+	@Test
+	operation test07 () {
+	    assert !active (Signal.main_region.Turning.Turn_processing.Send)
+	}
+
+	@Test
+	operation test08 () {
+	    assert !active (Signal.main_region.Turning.Turn_processing.Pending)
+	}
+
+	@Test
+	operation test09 () {
+	    assert !active (Signal.main_region.Fail)
+	}
+
+	@Test
+	operation test10 () {
+	    assert !active (Signal.main_region.Idle)
+	}
+
+	@Test
+	operation test11 () {
+	}
+
+	@Test
+	operation test12 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test14 () {
+	}
+
+	@Test
+	operation test15 () {
+	}
+
+	@Test
+	operation test16 () {
+	}
+
+	@Test
+	operation test19 () {
+	}
+
+	@Test
+	operation test20 () {
+	}
+
+	@Test
+	operation test21 () {
+	}
+
+	@Test
+	operation test23 () {
+	}
+
+	@Test
+	operation test24 () {
+	}
+
+	@Test
+	operation test25 () {
+	}
+
+	@Test
+	operation test26 () {
+	    exit
+	}
+
+	@Test
+	operation test28 () {
+	}
+
+	@Test
+	operation test30 () {
+	}
+
+	@Test
+	operation test32 () {
+	}
+
+	@Test
+	operation test33 () {
+	    assert !is_active
+	    exit
+	}
+
+	@Test
+	operation test35 () {
+	    assert !is_final
+	    assert !is_active
+	}
+
+}

@@ -1,0 +1,181 @@
+testclass alarm2SimplifiedTest for statechart alarm2 {
+	@Test
+	operation test03 () {
+	    enter
+	    raise operate
+	    proceed 20s
+	    raise operate
+	    raise operate
+	    assert is_active
+	}
+
+	@Test
+	operation test04 () {
+	    enter
+	    raise operate
+	    proceed 20s
+	    assert is_active
+	}
+
+	@Test
+	operation test05 () {
+	    enter
+	    raise operate
+	    proceed 20s
+	    raise button1
+	    assert is_active
+	}
+
+	@Test
+	operation test06 () {
+	    enter
+	    raise operate
+	    proceed 20s
+	    raise button2
+	    assert is_active
+	}
+
+	@Test
+	operation test07 () {
+	    enter
+	    raise operate
+	    raise button2
+	    assert is_active
+	}
+
+	@Test
+	operation test08 () {
+	    enter
+	    triggerWithoutEvent
+	    assert is_active
+	}
+
+	@Test
+	operation test09 () {
+	    exit
+	    assert !is_final
+	}
+
+	@Test
+	operation test10 () {
+	    enter
+	    raise operate
+	    proceed 20s
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test11 () {
+	    enter
+	    raise operate
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test12 () {
+	    enter
+	    raise operate
+	    raise operate
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test13 () {
+	    enter
+	    raise operate
+	    proceed 20s
+	    raise operate
+	    assert is_active
+	    assert active (alarm2.main_region.partiallyArmed)
+	}
+
+	@Test
+	operation test14 () {
+	    enter
+	    raise operate
+	    proceed 20s
+	    assert is_active
+	    assert active (alarm2.main_region.lightON)
+	}
+
+	@Test
+	operation test15 () {
+	    enter
+	    raise operate
+	    assert is_active
+	    assert active (alarm2.main_region.armed)
+	}
+
+	@Test
+	operation test16 () {
+	    enter
+	    assert is_active
+	    assert active (alarm2.main_region.disarmed)
+	}
+
+	@Test
+	operation test17 () {
+	    assert !active (alarm2.main_region.partiallyArmed)
+	}
+
+	@Test
+	operation test18 () {
+	    assert !active (alarm2.main_region.lightON)
+	}
+
+	@Test
+	operation test19 () {
+	    assert !active (alarm2.main_region.armed)
+	}
+
+	@Test
+	operation test20 () {
+	}
+
+	@Test
+	operation test21 () {
+	    assert !active (alarm2.main_region.disarmed)
+	}
+
+	@Test
+	operation test22 () {
+	    raise operate
+	    assert !is_final
+	}
+
+	@Test
+	operation test23 () {
+	    assert !is_active
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test24 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test29 () {
+	    enter
+	    raise operate
+	    proceed 20s
+	    raise operate
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test32 () {
+	    assert !is_final
+	    assert !is_active
+	}
+
+}

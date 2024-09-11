@@ -1,0 +1,136 @@
+testclass _ledTest for statechart _led {
+	@Test
+	operation test00 () {
+	    raise on
+	}
+
+	@Test
+	operation test01 () {
+	}
+
+	@Test
+	operation test02 () {
+	}
+
+	@Test
+	operation test03 () {
+	}
+
+	@Test
+	operation test05 () {
+	    raise off
+	    assert !is_final
+	}
+
+	@Test
+	operation test06 () {
+	    enter
+	    raise on
+	    triggerWithoutEvent
+	    assert is_active
+	}
+
+	@Test
+	operation test07 () {
+	    enter
+	    raise on
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test08 () {
+	    enter
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test09 () {
+	    enter
+	    raise on
+	    assert is_active
+	    assert active (_led.main_region.On)
+	}
+
+	@Test
+	operation test10 () {
+	    enter
+	    assert is_active
+	    assert active (_led.main_region.Off)
+	}
+
+	@Test
+	operation test11 () {
+	}
+
+	@Test
+	operation test12 () {
+	    assert !active (_led.main_region.On)
+	}
+
+	@Test
+	operation test13 () {
+	    assert !active (_led.main_region.Off)
+	}
+
+	@Test
+	operation test14 () {
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test15 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test16 () {
+	    exit
+	    assert !is_final
+	}
+
+	@Test
+	operation test17 () {
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test18 () {
+	    enter
+	    assert !is_active
+	}
+
+	@Test
+	operation test19 () {
+	    assert !is_final
+	}
+
+	@Test
+	operation test20 () {
+	    triggerWithoutEvent
+	    assert !is_final
+	}
+
+	@Test
+	operation test21 () {
+	    assert !is_active
+	    enter
+	    raise off
+	    assert is_active
+	}
+
+	@Test
+	operation test22 () {
+	    raise on
+	    assert !is_active
+	    enter
+	    raise off
+	    assert is_active
+	}
+
+}

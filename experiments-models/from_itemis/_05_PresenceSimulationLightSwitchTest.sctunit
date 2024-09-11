@@ -1,0 +1,187 @@
+testclass _05_PresenceSimulationLightSwitchTest for statechart _05_PresenceSimulationLightSwitch {
+	@Test
+	operation test00 () {
+	}
+
+	@Test
+	operation test01 () {
+	}
+
+	@Test
+	operation test02 () {
+	}
+
+	@Test
+	operation test03 () {
+	}
+
+	@Test
+	operation test04 () {
+	}
+
+	@Test
+	operation test05 () {
+	}
+
+	@Test
+	operation test06 () {
+	}
+
+	@Test
+	operation test07 () {
+	}
+
+	@Test
+	operation test08 () {
+	}
+
+	@Test
+	operation test09 () {
+	}
+
+	@Test
+	operation test10 () {
+	}
+
+	@Test
+	operation test11 () {
+	}
+
+	@Test
+	operation test12 () {
+	}
+
+	@Test
+	operation test13 () {
+	}
+
+	@Test
+	operation test14 () {
+	    assert !active (_05_PresenceSimulationLightSwitch.main.Presence_Simulation.mode.Active)
+	}
+
+	@Test
+	operation test15 () {
+	    assert !active (_05_PresenceSimulationLightSwitch.main.Presence_Simulation)
+	}
+
+	@Test
+	operation test16 () {
+	    assert !active (_05_PresenceSimulationLightSwitch.main.Presence_Simulation.mode.Active.presence.Absent)
+	}
+
+	@Test
+	operation test17 () {
+	    assert !active (_05_PresenceSimulationLightSwitch.main.Presence_Simulation.mode.Active.presence.Present)
+	}
+
+	@Test
+	operation test18 () {
+	}
+
+	@Test
+	operation test19 () {
+	    assert !active (_05_PresenceSimulationLightSwitch.main.Presence_Simulation.mode.Active.schedule.Waiting)
+	}
+
+	@Test
+	operation test20 () {
+	}
+
+	@Test
+	operation test21 () {
+	    assert !active (_05_PresenceSimulationLightSwitch.main.Presence_Simulation.mode.Idle)
+	}
+
+	@Test
+	operation test22 () {
+	}
+
+	@Test
+	operation test23 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test25 () {
+	}
+
+	@Test
+	operation test26 () {
+	}
+
+	@Test
+	operation test27 () {
+	}
+
+	@Test
+	operation test28 () {
+	}
+
+	@Test
+	operation test29 () {
+	}
+
+	@Test
+	operation test31 () {
+	}
+
+	@Test
+	operation test32 () {
+	    raise stopSimulation
+	}
+
+	@Test
+	operation test33 () {
+	    assert !is_final
+	}
+
+	@Test
+	operation test35 () {
+	}
+
+	@Test
+	operation test36 () {
+	    assert !is_active
+	    exit
+	}
+
+	@Test
+	operation test37 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test38 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test39 () {
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test40 () {
+	    raise startSimulation
+	    assert !is_active
+	}
+
+	@Test
+	operation test41 () {
+	    raise changePresence
+	    assert !is_active
+	}
+
+	@Test
+	operation test42 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test43 () {
+	    assert !is_active
+	}
+
+}

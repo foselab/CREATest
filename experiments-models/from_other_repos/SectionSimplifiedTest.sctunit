@@ -1,0 +1,224 @@
+testclass SectionSimplifiedTest for statechart Section {
+	@Test
+	operation test00 () {
+	    triggerWithoutEvent
+	    assert !is_active
+	}
+
+	@Test
+	operation test01 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test02 () {
+	    raise next
+	    assert !is_active
+	}
+
+	@Test
+	operation test03 () {
+	    raise failed
+	    assert !is_final
+	}
+
+	@Test
+	operation test04 () {
+	    raise enable: false
+	    assert !is_active
+	}
+
+	@Test
+	operation test05 () {
+	    raise disable
+	    assert !is_final
+	}
+
+	@Test
+	operation test06 () {
+	    raise clear
+	    assert !is_final
+	}
+
+	@Test
+	operation test09 () {
+	    assert !active (Section.main_region.Init.Init_Process.Requesting.relais.Wait)
+	}
+
+	@Test
+	operation test10 () {
+	    enter
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test11 () {
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test12 () {
+	    enter
+	    raise start
+	    assert is_active
+	}
+
+	@Test
+	operation test13 () {
+	}
+
+	@Test
+	operation test14 () {
+	    assert !active (Section.main_region.Operating.Processing.Pending)
+	}
+
+	@Test
+	operation test15 () {
+	    assert !active (Section.main_region.Operating.Processing.Locked.Route_active.Waiting)
+	}
+
+	@Test
+	operation test16 () {
+	    assert !active (Section.main_region.Operating.Processing.Locked)
+	}
+
+	@Test
+	operation test17 () {
+	    assert !active (Section.main_region.Operating)
+	}
+
+	@Test
+	operation test18 () {
+	    assert !active (Section.main_region.Init.Init_Process.Requesting)
+	}
+
+	@Test
+	operation test19 () {
+	    assert !active (Section.main_region.Init)
+	}
+
+	@Test
+	operation test20 () {
+	    assert !active (Section.main_region.Operating.Processing.Locked.Occupation.Next_Reached)
+	}
+
+	@Test
+	operation test21 () {
+	    assert !active (Section.main_region.Operating.Processing.Locked.Occupation._final_)
+	}
+
+	@Test
+	operation test22 () {
+	    assert !active (Section.main_region.Operating.Processing.Locked.Occupation.Occupied)
+	}
+
+	@Test
+	operation test23 () {
+	    assert !active (Section.main_region.Init.Init_Process.Requesting.state.Wait)
+	}
+
+	@Test
+	operation test24 () {
+	    assert !active (Section.main_region.Init.Init_Process.Requesting.state.Occupation)
+	}
+
+	@Test
+	operation test25 () {
+	    assert !active (Section.main_region.Failed)
+	}
+
+	@Test
+	operation test26 () {
+	    assert !active (Section.main_region.Operating.Processing.Pending.Relais_processing.Disabling)
+	}
+
+	@Test
+	operation test27 () {
+	    assert !active (Section.main_region.Operating.Processing.Pending.Relais_processing.Enabling)
+	}
+
+	@Test
+	operation test28 () {
+	    assert !active (Section.main_region.Operating.Processing.Locked.Route_active.Disabled)
+	}
+
+	@Test
+	operation test29 () {
+	    assert !active (Section.main_region.Operating.Processing.Locked.Route_active.Waiting.Relais_processing.Enabling)
+	}
+
+	@Test
+	operation test30 () {
+	    assert !active (Section.main_region.Operating.Processing.Locked.Route_active.Waiting.Relais_processing.Disabling)
+	}
+
+	@Test
+	operation test31 () {
+	    assert !active (Section.main_region.Operating.Processing.Locked.Route_active.Waiting.Relais_processing.Left)
+	}
+
+	@Test
+	operation test32 () {
+	    assert !active (Section.main_region.Operating.Processing.Locked.Route_active.Passed)
+	}
+
+	@Test
+	operation test33 () {
+	    assert !active (Section.main_region.Operating.Processing.Locked.Route_active.Enabled)
+	}
+
+	@Test
+	operation test34 () {
+	    assert !active (Section.main_region.Operating.Processing.Unlocked)
+	}
+
+	@Test
+	operation test35 () {
+	    assert !active (Section.main_region.Init.Init_Process.Requesting.relais.Relay)
+	}
+
+	@Test
+	operation test37 () {
+	    raise relaisResponse
+	    assert !is_final
+	}
+
+	@Test
+	operation test38 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test39 () {
+	    assert !is_active
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test45 () {
+	    enter
+	    raise start
+	    raise stateResponse: false
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test48 () {
+	    assert !is_active
+	    assert !is_final
+	}
+
+	@Test
+	operation test50 () {
+	    enter
+	    raise start
+	    exit
+	    assert !is_active
+	}
+
+}

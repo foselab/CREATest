@@ -1,0 +1,169 @@
+testclass Statechart5SimplifiedTest for statechart Statechart5 {
+	@Test
+	operation test00 () {
+	    raise buttonCancel.ON
+	}
+
+	@Test
+	operation test01 () {
+	    raise buttonCancel.OFF
+	}
+
+	@Test
+	operation test05 () {
+	    enter
+	    raise buttonActuation.ON
+	    raise buttonActuation.ON
+	    assert is_active
+	}
+
+	@Test
+	operation test06 () {
+	    enter
+	    raise buttonActuation.ON
+	    proceed 5s
+	    raise buttonActuation.ON
+	    assert is_active
+	}
+
+	@Test
+	operation test07 () {
+	}
+
+	@Test
+	operation test08 () {
+	}
+
+	@Test
+	operation test09 () {
+	}
+
+	@Test
+	operation test10 () {
+	}
+
+	@Test
+	operation test11 () {
+	    enter
+	    triggerWithoutEvent
+	    assert is_active
+	}
+
+	@Test
+	operation test12 () {
+	    exit
+	    assert !is_final
+	}
+
+	@Test
+	operation test13 () {
+	    enter
+	    raise buttonActuation.ON
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test14 () {
+	    enter
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test15 () {
+	    assert !is_active
+	    enter
+	    assert active (Statechart5.main_region.DecisionActivate)
+	}
+
+	@Test
+	operation test16 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test17 () {
+	    assert !active (Statechart5.main_region.State2PrepareActuation)
+	    assert !is_active
+	}
+
+	@Test
+	operation test18 () {
+	    assert !active (Statechart5.main_region.StateCancelActuation)
+	    assert !is_active
+	}
+
+	@Test
+	operation test19 () {
+	    assert !active (Statechart5.main_region.State1PrepareActuation)
+	    assert !is_active
+	}
+
+	@Test
+	operation test20 () {
+	    assert !is_active
+	    assert !active (Statechart5.main_region.StateMotorOn)
+	}
+
+	@Test
+	operation test21 () {
+	    assert !is_active
+	    assert !active (Statechart5.main_region.DecisionActivate)
+	}
+
+	@Test
+	operation test22 () {
+	    assert !is_active
+	    enter
+	    raise buttonActuation.ON
+	    proceed 5s
+	    raise buttonActuation.OFF
+	    assert is_active
+	}
+
+	@Test
+	operation test23 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test27 () {
+	    assert !is_active
+	    assert !is_final
+	}
+
+	@Test
+	operation test28 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test29 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test30 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test31 () {
+	    enter
+	    raise buttonActuation.ON
+	    proceed 5s
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test32 () {
+	    assert !is_active
+	    enter
+	    assert is_active
+	}
+
+}

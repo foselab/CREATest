@@ -1,0 +1,86 @@
+testclass LineFollowerSimplifiedTest for statechart LineFollower {
+	@Test
+	operation test03 () {
+	    enter
+	    proceed 1 cycle
+	    assert is_active
+	}
+
+	@Test
+	operation test04 () {
+	    enter
+	    assert active (LineFollower.PID_Calculater.PID_Compute)
+	}
+
+	@Test
+	operation test05 () {
+	    enter
+	    assert is_active
+	    assert active (LineFollower.State_Transitions.Static_State)
+	}
+
+	@Test
+	operation test06 () {
+	}
+
+	@Test
+	operation test07 () {
+	    assert !active (LineFollower.PID_Calculater.PID_Compute)
+	}
+
+	@Test
+	operation test08 () {
+	    assert !active (LineFollower.State_Transitions.Forward)
+	}
+
+	@Test
+	operation test09 () {
+	    assert !active (LineFollower.State_Transitions.Static_State)
+	}
+
+	@Test
+	operation test10 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test11 () {
+	    assert !is_active
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test14 () {
+	    enter
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test15 () {
+	    assert !is_final
+	}
+
+	@Test
+	operation test16 () {
+	    enter
+	    proceed 100ms
+	    proceed 1 cycle
+	    assert is_active
+	}
+
+	@Test
+	operation test17 () {
+	    proceed 1 cycle
+	    assert !is_final
+	}
+
+	@Test
+	operation test18 () {
+	    exit
+	    assert !is_final
+	}
+
+}

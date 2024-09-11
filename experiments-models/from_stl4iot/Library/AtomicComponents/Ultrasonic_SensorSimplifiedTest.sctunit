@@ -1,0 +1,174 @@
+testclass Ultrasonic_SensorSimplifiedTest for statechart Ultrasonic_Sensor {
+	@Test
+	operation test00 () {
+	}
+
+	@Test
+	operation test01 () {
+	}
+
+	@Test
+	operation test06 () {
+	    enter
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test07 () {
+	    raise off
+	    assert !is_final
+	}
+
+	@Test
+	operation test08 () {
+	}
+
+	@Test
+	operation test09 () {
+	}
+
+	@Test
+	operation test10 () {
+	    enter
+	    raise off
+	    raise off
+	    assert !is_final
+	}
+
+	@Test
+	operation test11 () {
+	    enter
+	    proceed 1s
+	    assert is_active
+	}
+
+	@Test
+	operation test12 () {
+	    enter
+	    proceed 1s
+	    assert is_active
+	}
+
+	@Test
+	operation test13 () {
+	    enter
+	    proceed 1s
+	    assert is_active
+	}
+
+	@Test
+	operation test14 () {
+	    enter
+	    raise off
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test15 () {
+	    enter
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test16 () {
+	    enter
+	    raise off
+	    assert active (Ultrasonic_Sensor._Ultrasonic_Sensor_._off_)
+	}
+
+	@Test
+	operation test17 () {
+	    enter
+	    assert is_active
+	    assert active (Ultrasonic_Sensor._Ultrasonic_Sensor_._Sensor_Monitoring_.UltrasonicReceiver.Receiving)
+	}
+
+	@Test
+	operation test18 () {
+	    enter
+	    assert active (Ultrasonic_Sensor._Ultrasonic_Sensor_._Sensor_Monitoring_.UltrasonicTransducer.Transmitting)
+	}
+
+	@Test
+	operation test19 () {
+	    enter
+	    assert active (Ultrasonic_Sensor._Ultrasonic_Sensor_._Sensor_Monitoring_)
+	}
+
+	@Test
+	operation test20 () {
+	}
+
+	@Test
+	operation test21 () {
+	    assert !active (Ultrasonic_Sensor._Ultrasonic_Sensor_._Sensor_Monitoring_)
+	}
+
+	@Test
+	operation test22 () {
+	    assert !active (Ultrasonic_Sensor._Ultrasonic_Sensor_._Sensor_Monitoring_.UltrasonicReceiver.Receiving)
+	}
+
+	@Test
+	operation test23 () {
+	    assert !active (Ultrasonic_Sensor._Ultrasonic_Sensor_._off_)
+	}
+
+	@Test
+	operation test24 () {
+	    assert !active (Ultrasonic_Sensor._Ultrasonic_Sensor_._Sensor_Monitoring_.UltrasonicTransducer.Transmitting)
+	}
+
+	@Test
+	operation test25 () {
+	    triggerWithoutEvent
+	    assert !is_active
+	}
+
+	@Test
+	operation test26 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test27 () {
+	    exit
+	    assert !is_final
+	}
+
+	@Test
+	operation test29 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test32 () {
+	    assert !is_final
+	    assert !is_active
+	}
+
+	@Test
+	operation test33 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test35 () {
+	    enter
+	    raise off
+	    raise on
+	    assert !is_final
+	}
+
+	@Test
+	operation test36 () {
+	    assert !is_active
+	    enter
+	    assert is_active
+	}
+
+}

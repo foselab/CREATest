@@ -1,0 +1,171 @@
+testclass Statechart7SimplifiedTest for statechart Statechart7 {
+	@Test
+	operation test00 () {
+	    raise buttonValve.OFF
+	}
+
+	@Test
+	operation test01 () {
+	    raise buttonMotor.OFF
+	}
+
+	@Test
+	operation test04 () {
+	    enter
+	    proceed 200ms
+	    assert is_active
+	}
+
+	@Test
+	operation test05 () {
+	}
+
+	@Test
+	operation test06 () {
+	}
+
+	@Test
+	operation test07 () {
+	}
+
+	@Test
+	operation test08 () {
+	}
+
+	@Test
+	operation test09 () {
+	    exit
+	    assert !is_final
+	}
+
+	@Test
+	operation test10 () {
+	    enter
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test11 () {
+	    enter
+	    assert is_active
+	    assert active (Statechart7.main_region.DecisionActivate)
+	}
+
+	@Test
+	operation test12 () {
+	}
+
+	@Test
+	operation test13 () {
+	    assert !active (Statechart7.main_region.StateValveOn3)
+	}
+
+	@Test
+	operation test14 () {
+	    assert !active (Statechart7.main_region.StateValveOn1)
+	}
+
+	@Test
+	operation test15 () {
+	    assert !active (Statechart7.main_region.DecisionTimeOpen)
+	}
+
+	@Test
+	operation test16 () {
+	    assert !active (Statechart7.main_region.DecisionMotor)
+	}
+
+	@Test
+	operation test17 () {
+	    assert !active (Statechart7.main_region.DecisionValve)
+	}
+
+	@Test
+	operation test18 () {
+	    assert !active (Statechart7.main_region.StateMotorOn)
+	}
+
+	@Test
+	operation test19 () {
+	    assert !active (Statechart7.main_region.StateValveOn2)
+	}
+
+	@Test
+	operation test20 () {
+	    assert !active (Statechart7.main_region.DecisionActivate)
+	}
+
+	@Test
+	operation test21 () {
+	    enter
+	    raise buttonValve.ON
+	    raise buttonCancel.OFF
+	    assert is_active
+	}
+
+	@Test
+	operation test22 () {
+	    triggerWithoutEvent
+	    assert !is_active
+	}
+
+	@Test
+	operation test23 () {
+	    assert !is_active
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test24 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test28 () {
+	    enter
+	    raise buttonMotor.ON
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test30 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test31 () {
+	    assert !is_active
+	    assert !is_final
+	}
+
+	@Test
+	operation test32 () {
+	    enter
+	    raise buttonMotor.ON
+	    raise buttonMotor.ON
+	}
+
+	@Test
+	operation test33 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test34 () {
+	    assert !is_active
+	    enter
+	    raise buttonCancel.ON
+	    assert is_active
+	}
+
+	@Test
+	operation test35 () {
+	    assert !is_active
+	}
+
+}

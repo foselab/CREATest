@@ -1,0 +1,74 @@
+testclass BouncingBallSimplifiedTest for statechart BouncingBall {
+	@Test
+	operation test01 () {
+	    exit
+	    assert !is_final
+	}
+
+	@Test
+	operation test02 () {
+	    enter
+	    assert is_active
+	    assert active (BouncingBall.main_region.In_the_air)
+	}
+
+	@Test
+	operation test03 () {
+	}
+
+	@Test
+	operation test04 () {
+	    assert !active (BouncingBall.main_region.Rest)
+	}
+
+	@Test
+	operation test05 () {
+	    assert !active (BouncingBall.main_region.Bounce)
+	}
+
+	@Test
+	operation test06 () {
+	    assert !active (BouncingBall.main_region.In_the_air)
+	}
+
+	@Test
+	operation test07 () {
+	    proceed 1 cycle
+	    assert !is_active
+	}
+
+	@Test
+	operation test08 () {
+	    assert !is_active
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test09 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test10 () {
+	    assert !is_final
+	    assert !is_active
+	}
+
+	@Test
+	operation test11 () {
+	    assert !is_active
+	    enter
+	    proceed 1 cycle
+	    assert is_active
+	}
+
+	@Test
+	operation test12 () {
+	    enter
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+}

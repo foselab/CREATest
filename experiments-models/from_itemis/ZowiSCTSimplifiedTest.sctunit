@@ -1,0 +1,135 @@
+testclass ZowiSCTSimplifiedTest for statechart ZowiSCT {
+	@Test
+	operation test00 () {
+	    proceed 2s
+	    assert !is_final
+	}
+
+	@Test
+	operation test02 () {
+	}
+
+	@Test
+	operation test03 () {
+	    enter
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test04 () {
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test05 () {
+	    enter
+	    assert is_active
+	    assert !active (ZowiSCT.main_region.IsSomeOneHere)
+	}
+
+	@Test
+	operation test06 () {
+	}
+
+	@Test
+	operation test07 () {
+	    assert !active (ZowiSCT.main_region.IsSomeOneHere)
+	}
+
+	@Test
+	operation test08 () {
+	    assert !active (ZowiSCT.main_region.Awake)
+	}
+
+	@Test
+	operation test09 () {
+	    assert !active (ZowiSCT.main_region.ObstacleDetected.RemoveTheObstacle.WalkForward)
+	}
+
+	@Test
+	operation test10 () {
+	    assert !active (ZowiSCT.main_region.ObstacleDetected.RemoveTheObstacle.WalkBack)
+	}
+
+	@Test
+	operation test11 () {
+	    assert !active (ZowiSCT.main_region.IsSomeOneHere.Changing_mood.Sad)
+	}
+
+	@Test
+	operation test12 () {
+	    assert !active (ZowiSCT.main_region.IsSomeOneHere.Changing_mood.Suprised)
+	}
+
+	@Test
+	operation test13 () {
+	    assert !active (ZowiSCT.main_region.Awake.walkAndAvoidObstacles.WaitForWalking)
+	}
+
+	@Test
+	operation test14 () {
+	    assert !active (ZowiSCT.main_region.Awake.walkAndAvoidObstacles.TurnLeft)
+	}
+
+	@Test
+	operation test15 () {
+	    assert !active (ZowiSCT.main_region.Awake.walkAndAvoidObstacles.WaitForTurn)
+	}
+
+	@Test
+	operation test16 () {
+	    assert !active (ZowiSCT.main_region.Awake.walkAndAvoidObstacles.WalkStraight)
+	}
+
+	@Test
+	operation test17 () {
+	    assert !active (ZowiSCT.main_region.ObstacleDetected)
+	}
+
+	@Test
+	operation test18 () {
+	    assert !active (ZowiSCT.main_region.WelcomeZowi)
+	}
+
+	@Test
+	operation test19 () {
+	    proceed 1 cycle
+	    assert !is_final
+	}
+
+	@Test
+	operation test20 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test21 () {
+	    exit
+	    assert !is_final
+	}
+
+	@Test
+	operation test26 () {
+	    assert !is_final
+	    assert !is_active
+	}
+
+	@Test
+	operation test28 () {
+	    enter
+	    proceed 1 cycle
+	    proceed 1 cycle
+	    assert is_active
+	}
+
+	@Test
+	operation test29 () {
+	    assert !is_active
+	    enter
+	    assert is_active
+	}
+
+}

@@ -1,0 +1,249 @@
+testclass RouteSimplifiedTest for statechart Route {
+	@Test
+	operation test05 () {
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test06 () {
+	    enter
+	    raise turn
+	    raise failed
+	    raise completed
+	    triggerWithoutEvent
+	    assert is_active
+	}
+
+	@Test
+	operation test07 () {
+	    exit
+	    assert !is_final
+	}
+
+	@Test
+	operation test08 () {
+	    enter
+	    raise turn
+	    raise disable
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test09 () {
+	    enter
+	    raise turn
+	    raise completed
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test10 () {
+	    enter
+	    raise turn
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test11 () {
+	    enter
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test12 () {
+	    enter
+	    raise turn
+	    raise disable
+	    raise completed
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test13 () {
+	    enter
+	    assert is_active
+	    assert !active (Route.main_region.Active)
+	}
+
+	@Test
+	operation test14 () {
+	}
+
+	@Test
+	operation test15 () {
+	    assert !active (Route.main_region.Active)
+	}
+
+	@Test
+	operation test16 () {
+	    assert !active (Route.main_region.Unlock)
+	}
+
+	@Test
+	operation test17 () {
+	    assert !active (Route.main_region.Emergency_Shutdown)
+	}
+
+	@Test
+	operation test18 () {
+	    assert !active (Route.main_region.Wait)
+	}
+
+	@Test
+	operation test19 () {
+	    assert !active (Route.main_region.Active.processing.Completed)
+	}
+
+	@Test
+	operation test20 () {
+	    assert !active (Route.main_region.Active.processing.Flank_Turning)
+	}
+
+	@Test
+	operation test21 () {
+	    assert !active (Route.main_region.Active.processing.Signal_Updating)
+	}
+
+	@Test
+	operation test22 () {
+	    assert !active (Route.main_region.Active.processing.Section_Activation)
+	}
+
+	@Test
+	operation test23 () {
+	    assert !active (Route.main_region.Active.processing.Signal_Turning)
+	}
+
+	@Test
+	operation test24 () {
+	    assert !active (Route.main_region._final_)
+	}
+
+	@Test
+	operation test25 () {
+	    assert !active (Route.main_region.Start)
+	}
+
+	@Test
+	operation test26 () {
+	    assert !active (Route.main_region.Active.processing.Switch_Turning)
+	}
+
+	@Test
+	operation test27 () {
+	    assert !active (Route.main_region.Disable)
+	}
+
+	@Test
+	operation test29 () {
+	    raise completed
+	    assert !is_active
+	}
+
+	@Test
+	operation test30 () {
+	    enter
+	    raise turn
+	    raise disable
+	    raise completed
+	    triggerWithoutEvent
+	    assert is_active
+	}
+
+	@Test
+	operation test31 () {
+	    assert !is_active
+	    enter
+	    raise turn
+	    raise disable
+	    assert is_active
+	}
+
+	@Test
+	operation test32 () {
+	    assert !is_final
+	    assert !is_active
+	}
+
+	@Test
+	operation test33 () {
+	    assert !is_active
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test34 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test38 () {
+	    assert !is_active
+	    enter
+	    raise turn
+	    raise completed
+	    raise failed
+	    assert is_active
+	}
+
+	@Test
+	operation test39 () {
+	    assert !is_active
+	    enter
+	    raise turn
+	    raise completed
+	    triggerWithoutEvent
+	    assert is_active
+	}
+
+	@Test
+	operation test40 () {
+	    assert !is_active
+	    enter
+	    raise turn
+	    raise completed
+	    raise disable
+	    assert is_active
+	}
+
+	@Test
+	operation test41 () {
+	    assert !is_active
+	    enter
+	    raise turn
+	    raise failed
+	    raise completed
+	    assert active (Route.main_region.Disable)
+	}
+
+	@Test
+	operation test42 () {
+	    enter
+	    raise turn
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test44 () {
+	    assert !is_active
+	    enter
+	    raise turn
+	    raise failed
+	    raise disable
+	    assert is_active
+	}
+
+}

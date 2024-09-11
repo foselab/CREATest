@@ -1,0 +1,197 @@
+testclass TrafficLight_UnitSimplifiedTest for statechart TrafficLight_Unit {
+	@Test
+	operation test00 () {
+	    triggerWithoutEvent
+	    assert !is_active
+	}
+
+	@Test
+	operation test06 () {
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test07 () {
+	}
+
+	@Test
+	operation test08 () {
+	}
+
+	@Test
+	operation test09 () {
+	}
+
+	@Test
+	operation test10 () {
+	    enter
+	    raise on
+	    raise on
+	    assert is_active
+	}
+
+	@Test
+	operation test11 () {
+	    enter
+	    raise on
+	    enter
+	    raise off
+	    assert is_active
+	}
+
+	@Test
+	operation test12 () {
+	    enter
+	    raise on
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test13 () {
+	    enter
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test14 () {
+	    enter
+	    raise on
+	    assert active (TrafficLight_Unit._TrafficLight_Unit_.On.PedestrianLight_Color.StopHand)
+	}
+
+	@Test
+	operation test15 () {
+	    assert !active (TrafficLight_Unit._TrafficLight_Unit_.On.TrafficLight_Color.Green)
+	}
+
+	@Test
+	operation test16 () {
+	    enter
+	    assert is_active
+	    assert !active (TrafficLight_Unit._TrafficLight_Unit_.On)
+	}
+
+	@Test
+	operation test17 () {
+	    enter
+	    assert is_active
+	    assert active (TrafficLight_Unit._TrafficLight_Unit_.Off)
+	}
+
+	@Test
+	operation test18 () {
+	}
+
+	@Test
+	operation test19 () {
+	    assert !active (TrafficLight_Unit._TrafficLight_Unit_.On.Timer._timer_running_)
+	}
+
+	@Test
+	operation test20 () {
+	    assert !active (TrafficLight_Unit._TrafficLight_Unit_.On)
+	}
+
+	@Test
+	operation test21 () {
+	    assert !active (TrafficLight_Unit._TrafficLight_Unit_.On.Timer._timer_running_._Timer_Countdown_._final_)
+	}
+
+	@Test
+	operation test22 () {
+	    assert !active (TrafficLight_Unit._TrafficLight_Unit_.On.Timer._timer_running_._Timer_Countdown_._yellow_period_)
+	}
+
+	@Test
+	operation test23 () {
+	    assert !active (TrafficLight_Unit._TrafficLight_Unit_.On.Timer._timer_running_._Timer_Countdown_._red_period_)
+	}
+
+	@Test
+	operation test24 () {
+	    assert !active (TrafficLight_Unit._TrafficLight_Unit_.On.Timer._timer_running_._Timer_Countdown_._green_period_)
+	}
+
+	@Test
+	operation test25 () {
+	    assert !active (TrafficLight_Unit._TrafficLight_Unit_.On.PedestrianLight_Color.WalkingMan)
+	}
+
+	@Test
+	operation test26 () {
+	    assert !active (TrafficLight_Unit._TrafficLight_Unit_.On.PedestrianLight_Color.BlinkingWalkingMan)
+	}
+
+	@Test
+	operation test27 () {
+	    assert !active (TrafficLight_Unit._TrafficLight_Unit_.On.PedestrianLight_Color.StopHand)
+	}
+
+	@Test
+	operation test28 () {
+	    assert !active (TrafficLight_Unit._TrafficLight_Unit_.On.TrafficLight_Color.Yellow)
+	}
+
+	@Test
+	operation test29 () {
+	    assert !active (TrafficLight_Unit._TrafficLight_Unit_.On.TrafficLight_Color.Red)
+	}
+
+	@Test
+	operation test30 () {
+	    assert !active (TrafficLight_Unit._TrafficLight_Unit_.Off)
+	}
+
+	@Test
+	operation test31 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test32 () {
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test33 () {
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test35 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test36 () {
+	    assert !is_final
+	    assert !is_active
+	}
+
+	@Test
+	operation test38 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test39 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test41 () {
+	    assert !is_active
+	    enter
+	    raise on
+	    raise off
+	    assert is_active
+	}
+
+}

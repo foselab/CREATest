@@ -1,0 +1,176 @@
+testclass SmartTVSystemSimplifiedTest for statechart SmartTVSystem {
+	@Test
+	operation test01 () {
+	}
+
+	@Test
+	operation test02 () {
+	}
+
+	@Test
+	operation test03 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test04 () {
+	}
+
+	@Test
+	operation test05 () {
+	}
+
+	@Test
+	operation test06 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test07 () {
+	    assert !is_final
+	}
+
+	@Test
+	operation test08 () {
+	}
+
+	@Test
+	operation test09 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test10 () {
+	}
+
+	@Test
+	operation test11 () {
+	    assert !active (SmartTVSystem._SmartTVSystem_.SmartTVSystem.trackingDeviceTemperature._Initialize_DeviceTemp_Component_)
+	}
+
+	@Test
+	operation test12 () {
+	    assert !active (SmartTVSystem._SmartTVSystem_.SmartTVSystem.PowerCalculatorComponent._Initialize_Power_Component_)
+	}
+
+	@Test
+	operation test13 () {
+	    assert !active (SmartTVSystem._SmartTVSystem_.SmartTVSystem.NetworkComponent._Initialize_WiFi_Component_)
+	}
+
+	@Test
+	operation test14 () {
+	    assert !active (SmartTVSystem._SmartTVSystem_.SmartTVSystem.ControllerComponent._Initialize_Controller_Component_)
+	}
+
+	@Test
+	operation test15 () {
+	    assert !active (SmartTVSystem._SmartTVSystem_.SmartTVSystem)
+	}
+
+	@Test
+	operation test16 () {
+	    assert !active (SmartTVSystem._SmartTVSystem_.SmartTVSystem.trackingDeviceTemperature.off)
+	}
+
+	@Test
+	operation test17 () {
+	    assert !active (SmartTVSystem._SmartTVSystem_.SmartTVSystem.trackingDeviceTemperature._Initialize_DeviceTemp_Component_.updating._Temperature_Updates_)
+	}
+
+	@Test
+	operation test18 () {
+	    assert !active (SmartTVSystem._SmartTVSystem_.SmartTVSystem.PowerCalculatorComponent.off)
+	}
+
+	@Test
+	operation test19 () {
+	    assert !active (SmartTVSystem._SmartTVSystem_.SmartTVSystem.PowerCalculatorComponent._Initialize_Power_Component_.updating._Power_Updates_)
+	}
+
+	@Test
+	operation test20 () {
+	    assert !active (SmartTVSystem._SmartTVSystem_.SmartTVSystem.NetworkComponent.off)
+	}
+
+	@Test
+	operation test21 () {
+	    assert !active (SmartTVSystem._SmartTVSystem_.SmartTVSystem.NetworkComponent._Initialize_WiFi_Component_.updating._WiFi_Updates_)
+	}
+
+	@Test
+	operation test22 () {
+	    assert !active (SmartTVSystem._SmartTVSystem_.SmartTVSystem.SensorComponent.off)
+	}
+
+	@Test
+	operation test23 () {
+	    assert !active (SmartTVSystem._SmartTVSystem_.SmartTVSystem.SensorComponent._Initialize_Sensor_Component_.updating._Sensor_Updates_)
+	}
+
+	@Test
+	operation test24 () {
+	    assert !active (SmartTVSystem._SmartTVSystem_.SmartTVSystem.ControllerComponent.off)
+	}
+
+	@Test
+	operation test25 () {
+	    assert !active (SmartTVSystem._SmartTVSystem_.SmartTVSystem.ControllerComponent._Initialize_Controller_Component_.updating._Controller_Updates_)
+	}
+
+	@Test
+	operation test26 () {
+	    assert !active (SmartTVSystem._SmartTVSystem_.SmartTVSystem.ActuatorComponent.off)
+	}
+
+	@Test
+	operation test27 () {
+	    assert !active (SmartTVSystem._SmartTVSystem_.SmartTVSystem.ActuatorComponent._Device_Functioning_)
+	}
+
+	@Test
+	operation test28 () {
+	    assert !active (SmartTVSystem._SmartTVSystem_.SmartTVSystem.ActuatorComponent._Actuator_Updates_)
+	}
+
+	@Test
+	operation test29 () {
+	    assert !active (SmartTVSystem._SmartTVSystem_.SmartTVSystem.SensorComponent._Initialize_Sensor_Component_)
+	}
+
+	@Test
+	operation test30 () {
+	    assert !active (SmartTVSystem._SmartTVSystem_.SmartTVSystem.SystemStatus.off)
+	}
+
+	@Test
+	operation test31 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test38 () {
+	}
+
+	@Test
+	operation test39 () {
+	}
+
+	@Test
+	operation test41 () {
+	    exit
+	    assert !is_final
+	}
+
+	@Test
+	operation test42 () {
+	    assert !is_active
+	    assert !is_final
+	}
+
+	@Test
+	operation test43 () {
+	    assert !is_active
+	}
+
+}

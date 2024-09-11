@@ -1,0 +1,99 @@
+testclass TrackerTest for statechart Tracker {
+	@Test
+	operation test00 () {
+	}
+
+	@Test
+	operation test01 () {
+	}
+
+	@Test
+	operation test03 () {
+	}
+
+	@Test
+	operation test04 () {
+	    assert !active (Tracker.main_region.Driving)
+	}
+
+	@Test
+	operation test05 () {
+	    assert !active (Tracker.main_region.Idle)
+	}
+
+	@Test
+	operation test06 () {
+	    assert !active (Tracker.main_region.Driving.Tracking.Occupy)
+	}
+
+	@Test
+	operation test07 () {
+	    assert !active (Tracker.main_region.Driving.Tracking.First)
+	}
+
+	@Test
+	operation test08 () {
+	    assert !active (Tracker.main_region.Driving.Tracking.Free)
+	}
+
+	@Test
+	operation test09 () {
+	    assert !active (Tracker.main_region.Preparing)
+	}
+
+	@Test
+	operation test10 () {
+	}
+
+	@Test
+	operation test11 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test13 () {
+	}
+
+	@Test
+	operation test14 () {
+	    raise completed
+	}
+
+	@Test
+	operation test16 () {
+	}
+
+	@Test
+	operation test17 () {
+	    exit
+	    assert !is_final
+	}
+
+	@Test
+	operation test18 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test19 () {
+	    assert !is_active
+	    assert !is_final
+	}
+
+	@Test
+	operation test20 () {
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test22 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test23 () {
+	    assert !is_active
+	}
+
+}

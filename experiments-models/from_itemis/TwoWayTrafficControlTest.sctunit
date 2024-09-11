@@ -1,0 +1,193 @@
+testclass TwoWayTrafficControlTest for statechart TwoWayTrafficControl {
+	@Test
+	operation test00 () {
+	}
+
+	@Test
+	operation test01 () {
+	}
+
+	@Test
+	operation test02 () {
+	}
+
+	@Test
+	operation test03 () {
+	}
+
+	@Test
+	operation test04 () {
+	}
+
+	@Test
+	operation test05 () {
+	}
+
+	@Test
+	operation test06 () {
+	}
+
+	@Test
+	operation test07 () {
+	}
+
+	@Test
+	operation test08 () {
+	}
+
+	@Test
+	operation test10 () {
+	}
+
+	@Test
+	operation test11 () {
+	}
+
+	@Test
+	operation test12 () {
+	}
+
+	@Test
+	operation test13 () {
+	}
+
+	@Test
+	operation test14 () {
+	}
+
+	@Test
+	operation test15 () {
+	}
+
+	@Test
+	operation test16 () {
+	    assert !active (TwoWayTrafficControl.main.Operate)
+	}
+
+	@Test
+	operation test17 () {
+	}
+
+	@Test
+	operation test18 () {
+	    assert !active (TwoWayTrafficControl.main.Operate.r.all_blocked_before_A)
+	}
+
+	@Test
+	operation test19 () {
+	    assert !active (TwoWayTrafficControl.main.Operate.r.B_Released)
+	}
+
+	@Test
+	operation test20 () {
+	    assert !active (TwoWayTrafficControl.main.Operate.r.Release_B)
+	}
+
+	@Test
+	operation test21 () {
+	    assert !active (TwoWayTrafficControl.main.Operate.r.all_blocked_before_B)
+	}
+
+	@Test
+	operation test22 () {
+	    assert !active (TwoWayTrafficControl.main.Standby)
+	}
+
+	@Test
+	operation test23 () {
+	}
+
+	@Test
+	operation test24 () {
+	    assert !active (TwoWayTrafficControl.main.Off)
+	}
+
+	@Test
+	operation test25 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test28 () {
+	    raise on
+	}
+
+	@Test
+	operation test29 () {
+	    exit
+	}
+
+	@Test
+	operation test30 () {
+	    assert !is_final
+	}
+
+	@Test
+	operation test31 () {
+	}
+
+	@Test
+	operation test32 () {
+	    raise standby
+	}
+
+	@Test
+	operation test33 () {
+	    assert !is_active
+	    exit
+	}
+
+	@Test
+	operation test34 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test35 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test36 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test37 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test38 () {
+	    raise operate
+	    assert !is_active
+	}
+
+	@Test
+	operation test39 () {
+	    raise off
+	    assert !is_active
+	}
+
+	@Test
+	operation test41 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test42 () {
+	    raise released
+	}
+
+	@Test
+	operation test43 () {
+	    raise blocked
+	    assert !is_final
+	}
+
+	@Test
+	operation test44 () {
+	    raise released
+	}
+
+}

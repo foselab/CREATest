@@ -1,0 +1,176 @@
+testclass parentfirstTest for statechart parentfirst {
+	@Test
+	operation test00 () {
+	    raise e
+	    enter
+	    proceed 1 cycle
+	}
+
+	@Test
+	operation test01 () {
+	}
+
+	@Test
+	operation test02 () {
+	}
+
+	@Test
+	operation test03 () {
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test04 () {
+	}
+
+	@Test
+	operation test05 () {
+	}
+
+	@Test
+	operation test07 () {
+	}
+
+	@Test
+	operation test08 () {
+	}
+
+	@Test
+	operation test09 () {
+	    enter
+	    proceed 1 cycle
+	    assert is_active
+	}
+
+	@Test
+	operation test10 () {
+	    exit
+	}
+
+	@Test
+	operation test11 () {
+	    raise e
+	    enter
+	    proceed 1 cycle
+	    assert is_active
+	    assert active (parentfirst.main_region.D)
+	}
+
+	@Test
+	operation test12 () {
+	    enter
+	    assert is_active
+	    assert active (parentfirst.main_region.A.r1.B)
+	}
+
+	@Test
+	operation test13 () {
+	    enter
+	    assert is_active
+	    assert active (parentfirst.main_region.A)
+	}
+
+	@Test
+	operation test14 () {
+	}
+
+	@Test
+	operation test15 () {
+	    assert !active (parentfirst.main_region.A)
+	}
+
+	@Test
+	operation test16 () {
+	    assert !active (parentfirst.main_region.D)
+	}
+
+	@Test
+	operation test17 () {
+	    assert !active (parentfirst.main_region.A.r1.C)
+	}
+
+	@Test
+	operation test18 () {
+	    assert !active (parentfirst.main_region.A.r1.B)
+	}
+
+	@Test
+	operation test19 () {
+	    assert !is_active
+	    proceed 1 cycle
+	}
+
+	@Test
+	operation test20 () {
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test21 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test22 () {
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test23 () {
+	    enter
+	    assert !is_active
+	}
+
+	@Test
+	operation test24 () {
+	    raise e
+	    enter
+	    proceed 1 cycle
+	    exit
+	}
+
+	@Test
+	operation test25 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test26 () {
+	    assert !is_active
+	    assert !is_final
+	}
+
+	@Test
+	operation test27 () {
+	    proceed 1 cycle
+	    assert !is_active
+	}
+
+	@Test
+	operation test28 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test29 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test30 () {
+	    raise e
+	    enter
+	    proceed 1 cycle
+	    proceed 1 cycle
+	}
+
+	@Test
+	operation test31 () {
+	    enter
+	    exit
+	}
+
+}

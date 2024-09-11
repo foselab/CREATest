@@ -1,0 +1,117 @@
+testclass LightCtrlSimplifiedTest for statechart LightCtrl {
+	@Test
+	operation test03 () {
+	    raise button
+	    enter
+	    proceed 1 cycle
+	    proceed 1 cycle
+	    assert is_active
+	}
+
+	@Test
+	operation test04 () {
+	    raise button
+	    enter
+	    proceed 1 cycle
+	    proceed 5s
+	    proceed 1 cycle
+	    assert is_active
+	}
+
+	@Test
+	operation test05 () {
+	    enter
+	    proceed 1 cycle
+	    assert is_active
+	}
+
+	@Test
+	operation test06 () {
+	    raise button
+	    enter
+	    proceed 1 cycle
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test07 () {
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test08 () {
+	    raise button
+	    enter
+	    proceed 1 cycle
+	    assert is_active
+	    assert active (LightCtrl.main_region.Light_On)
+	}
+
+	@Test
+	operation test09 () {
+	    enter
+	    assert is_active
+	    assert active (LightCtrl.main_region.Light_Off)
+	}
+
+	@Test
+	operation test10 () {
+	}
+
+	@Test
+	operation test11 () {
+	    assert !active (LightCtrl.main_region.Light_On)
+	}
+
+	@Test
+	operation test12 () {
+	    assert !active (LightCtrl.main_region.Light_Off)
+	}
+
+	@Test
+	operation test13 () {
+	    proceed 1 cycle
+	    assert !is_active
+	}
+
+	@Test
+	operation test14 () {
+	    assert !is_active
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test15 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test20 () {
+	    assert !is_final
+	    assert !is_active
+	}
+
+	@Test
+	operation test21 () {
+	    raise button
+	    assert !is_active
+	    enter
+	    proceed 1 cycle
+	    raise button
+	    proceed 1 cycle
+	    assert is_active
+	}
+
+	@Test
+	operation test22 () {
+	    enter
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+}

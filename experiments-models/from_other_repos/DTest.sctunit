@@ -1,0 +1,106 @@
+testclass DTest for statechart D {
+	@Test
+	operation test00 () {
+	}
+
+	@Test
+	operation test01 () {
+	}
+
+	@Test
+	operation test02 () {
+	}
+
+	@Test
+	operation test03 () {
+	}
+
+	@Test
+	operation test04 () {
+	}
+
+	@Test
+	operation test05 () {
+	}
+
+	@Test
+	operation test07 () {
+	}
+
+	@Test
+	operation test08 () {
+	    assert !active (D.main_region.Orthogonal)
+	}
+
+	@Test
+	operation test09 () {
+	    assert !active (D.main_region.Orthogonal.r2.T)
+	}
+
+	@Test
+	operation test10 () {
+	    assert !active (D.main_region.Orthogonal.r2.S)
+	}
+
+	@Test
+	operation test11 () {
+	    assert !active (D.main_region.Orthogonal.r1.Initial)
+	}
+
+	@Test
+	operation test12 () {
+	    assert !active (D.main_region.Orthogonal.r1.One)
+	}
+
+	@Test
+	operation test13 () {
+	    assert !active (D.main_region.Orthogonal.r1.Zero)
+	}
+
+	@Test
+	operation test14 () {
+	    assert !active (D.main_region.Orthogonal.r1.Temp)
+	}
+
+	@Test
+	operation test15 () {
+	}
+
+	@Test
+	operation test16 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test19 () {
+	}
+
+	@Test
+	operation test20 () {
+	}
+
+	@Test
+	operation test21 () {
+	}
+
+	@Test
+	operation test22 () {
+	    assert !is_final
+	}
+
+	@Test
+	operation test23 () {
+	    exit
+	}
+
+	@Test
+	operation test24 () {
+	}
+
+	@Test
+	operation test25 () {
+	    assert !is_active
+	    exit
+	}
+
+}

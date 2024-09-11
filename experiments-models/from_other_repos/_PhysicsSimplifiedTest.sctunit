@@ -1,0 +1,112 @@
+testclass _PhysicsSimplifiedTest for statechart _Physics {
+	@Test
+	operation test00 () {
+	    enter
+	    raise setAcceleration: 112.83
+	    proceed 10ms
+	    assert is_active
+	}
+
+	@Test
+	operation test06 () {
+	    enter
+	    raise setAcceleration: -1011.57
+	    proceed 10ms
+	    assert is_active
+	}
+
+	@Test
+	operation test07 () {
+	    enter
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test08 () {
+	    enter
+	    assert is_active
+	    assert active (_Physics.Physics.Physics.r2.Default)
+	}
+
+	@Test
+	operation test09 () {
+	    enter
+	    assert is_active
+	    assert active (_Physics.Physics.Physics.r1.Default)
+	}
+
+	@Test
+	operation test10 () {
+	    enter
+	    assert is_active
+	    assert active (_Physics.Physics.Physics)
+	}
+
+	@Test
+	operation test11 () {
+	    assert !active (_Physics.Physics.Physics)
+	}
+
+	@Test
+	operation test12 () {
+	    assert !active (_Physics.Physics.Physics.r2.Default)
+	}
+
+	@Test
+	operation test13 () {
+	}
+
+	@Test
+	operation test14 () {
+	    assert !active (_Physics.Physics.Physics.r1.Default)
+	}
+
+	@Test
+	operation test15 () {
+	    triggerWithoutEvent
+	    assert !is_final
+	}
+
+	@Test
+	operation test16 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test17 () {
+	    assert !is_active
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test18 () {
+	    exit
+	    assert !is_final
+	}
+
+	@Test
+	operation test21 () {
+	    assert !is_active
+	    enter
+	    proceed 10ms
+	    assert is_active
+	}
+
+	@Test
+	operation test22 () {
+	    assert !is_active
+	    assert !is_final
+	}
+
+	@Test
+	operation test23 () {
+	    assert !is_active
+	    enter
+	    raise setAcceleration: -1011.57
+	    assert is_active
+	}
+
+}

@@ -1,0 +1,150 @@
+testclass Ultrasonic_MotionDetectorSimplifiedTest for statechart Ultrasonic_MotionDetector {
+	@Test
+	operation test01 () {
+	}
+
+	@Test
+	operation test02 () {
+	}
+
+	@Test
+	operation test03 () {
+	    assert !is_final
+	}
+
+	@Test
+	operation test04 () {
+	}
+
+	@Test
+	operation test05 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test06 () {
+	    assert !is_final
+	}
+
+	@Test
+	operation test07 () {
+	}
+
+	@Test
+	operation test08 () {
+	}
+
+	@Test
+	operation test09 () {
+	}
+
+	@Test
+	operation test10 () {
+	}
+
+	@Test
+	operation test11 () {
+	    assert !active (Ultrasonic_MotionDetector.Ultrasonic_MotionDetector._Detecting_.Power.PowerSupplyStatus)
+	}
+
+	@Test
+	operation test12 () {
+	    assert !active (Ultrasonic_MotionDetector.Ultrasonic_MotionDetector._Detecting_.Comparator.Reading_Sensor_Data)
+	}
+
+	@Test
+	operation test13 () {
+	    assert !active (Ultrasonic_MotionDetector.Ultrasonic_MotionDetector._Detecting_)
+	}
+
+	@Test
+	operation test14 () {
+	    assert !active (Ultrasonic_MotionDetector.Ultrasonic_MotionDetector._Detecting_.Power.PowerSupplyStatus.Status.ConsumingMinimum)
+	}
+
+	@Test
+	operation test15 () {
+	    assert !active (Ultrasonic_MotionDetector.Ultrasonic_MotionDetector._Detecting_.Actuator.Actuate_Trigger)
+	}
+
+	@Test
+	operation test16 () {
+	    assert !active (Ultrasonic_MotionDetector.Ultrasonic_MotionDetector._Detecting_.Actuator.OnStandby)
+	}
+
+	@Test
+	operation test17 () {
+	    assert !active (Ultrasonic_MotionDetector.Ultrasonic_MotionDetector._Detecting_.Comparator.Reading_Sensor_Data.Processing.Comparing)
+	}
+
+	@Test
+	operation test18 () {
+	    assert !active (Ultrasonic_MotionDetector.Ultrasonic_MotionDetector._Detecting_.Comparator.Reading_Sensor_Data.Processing.Circuit_Changed)
+	}
+
+	@Test
+	operation test19 () {
+	    assert !active (Ultrasonic_MotionDetector.Ultrasonic_MotionDetector._off_)
+	}
+
+	@Test
+	operation test20 () {
+	    assert !active (Ultrasonic_MotionDetector.Ultrasonic_MotionDetector._Detecting_.Sensor.Receiving)
+	}
+
+	@Test
+	operation test21 () {
+	    assert !active (Ultrasonic_MotionDetector.Ultrasonic_MotionDetector._Detecting_.Power.PowerSupplyStatus.Status.CircuitTrigger)
+	}
+
+	@Test
+	operation test22 () {
+	    assert !active (Ultrasonic_MotionDetector.Ultrasonic_MotionDetector._Detecting_.Sensor.Transmitting)
+	}
+
+	@Test
+	operation test23 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test27 () {
+	}
+
+	@Test
+	operation test28 () {
+	}
+
+	@Test
+	operation test30 () {
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test31 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test33 () {
+	    assert !is_final
+	    assert !is_active
+	}
+
+	@Test
+	operation test34 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test35 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test37 () {
+	    assert !is_active
+	}
+
+}

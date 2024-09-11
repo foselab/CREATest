@@ -1,0 +1,170 @@
+testclass SmartTrafficLightSystemSimplifiedTest for statechart SmartTrafficLightSystem {
+	@Test
+	operation test00 () {
+	    raise system.on
+	}
+
+	@Test
+	operation test01 () {
+	    triggerWithoutEvent
+	    assert !is_final
+	}
+
+	@Test
+	operation test02 () {
+	    proceed 500ms
+	    assert !is_active
+	}
+
+	@Test
+	operation test05 () {
+	}
+
+	@Test
+	operation test06 () {
+	}
+
+	@Test
+	operation test07 () {
+	}
+
+	@Test
+	operation test08 () {
+	    assert !active (SmartTrafficLightSystem.main_region.SmartTrafficLightSystem.trackingDeviceTemperature._Initialize_DeviceTemp_Component_)
+	}
+
+	@Test
+	operation test09 () {
+	    assert !active (SmartTrafficLightSystem.main_region.SmartTrafficLightSystem.PowerCalculatorComponent._Initialize_Power_Component_)
+	}
+
+	@Test
+	operation test10 () {
+	    assert !active (SmartTrafficLightSystem.main_region.SmartTrafficLightSystem.WiFiGateway._Initialize_WiFi_Component_)
+	}
+
+	@Test
+	operation test11 () {
+	    assert !active (SmartTrafficLightSystem.main_region.SmartTrafficLightSystem.SensorComponent._Initialize_Sensor_Component_)
+	}
+
+	@Test
+	operation test12 () {
+	    assert !active (SmartTrafficLightSystem.main_region.SmartTrafficLightSystem.ControllerComponent._Initialize_Controller_Component_)
+	}
+
+	@Test
+	operation test13 () {
+	    assert !active (SmartTrafficLightSystem.main_region.SmartTrafficLightSystem)
+	}
+
+	@Test
+	operation test14 () {
+	    assert !active (SmartTrafficLightSystem.main_region.SmartTrafficLightSystem.trackingDeviceTemperature.off)
+	}
+
+	@Test
+	operation test15 () {
+	    assert !active (SmartTrafficLightSystem.main_region.SmartTrafficLightSystem.trackingDeviceTemperature._Initialize_DeviceTemp_Component_.updating._Temperature_Updates_)
+	}
+
+	@Test
+	operation test16 () {
+	    assert !active (SmartTrafficLightSystem.main_region.SmartTrafficLightSystem.PowerCalculatorComponent.off)
+	}
+
+	@Test
+	operation test17 () {
+	    assert !active (SmartTrafficLightSystem.main_region.SmartTrafficLightSystem.PowerCalculatorComponent._Initialize_Power_Component_.updating._Power_Updates_)
+	}
+
+	@Test
+	operation test18 () {
+	    assert !active (SmartTrafficLightSystem.main_region.SmartTrafficLightSystem.WiFiGateway.off)
+	}
+
+	@Test
+	operation test19 () {
+	    assert !active (SmartTrafficLightSystem.main_region.SmartTrafficLightSystem.WiFiGateway._Initialize_WiFi_Component_.updating._WiFi_Updates_)
+	}
+
+	@Test
+	operation test20 () {
+	    assert !active (SmartTrafficLightSystem.main_region.SmartTrafficLightSystem.SensorComponent.off)
+	}
+
+	@Test
+	operation test21 () {
+	    assert !active (SmartTrafficLightSystem.main_region.SmartTrafficLightSystem.SensorComponent._Initialize_Sensor_Component_.updating._Sensor_Updates_)
+	}
+
+	@Test
+	operation test22 () {
+	    assert !active (SmartTrafficLightSystem.main_region.SmartTrafficLightSystem.ControllerComponent.off)
+	}
+
+	@Test
+	operation test23 () {
+	    assert !active (SmartTrafficLightSystem.main_region.SmartTrafficLightSystem.ControllerComponent._Initialize_Controller_Component_.updating._Controller_Updates_)
+	}
+
+	@Test
+	operation test24 () {
+	    assert !active (SmartTrafficLightSystem.main_region.SmartTrafficLightSystem.ActuatorComponent.off)
+	}
+
+	@Test
+	operation test25 () {
+	    assert !active (SmartTrafficLightSystem.main_region.SmartTrafficLightSystem.ActuatorComponent._Actuator_Updates_)
+	}
+
+	@Test
+	operation test26 () {
+	    assert !active (SmartTrafficLightSystem.main_region.SmartTrafficLightSystem.SystemStatus.on)
+	}
+
+	@Test
+	operation test27 () {
+	    assert !active (SmartTrafficLightSystem.main_region.SmartTrafficLightSystem.ActuatorComponent._Device_Functioning_)
+	}
+
+	@Test
+	operation test28 () {
+	    assert !active (SmartTrafficLightSystem.main_region.SmartTrafficLightSystem.SystemStatus.off)
+	}
+
+	@Test
+	operation test29 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test30 () {
+	    exit
+	    assert !is_final
+	}
+
+	@Test
+	operation test34 () {
+	}
+
+	@Test
+	operation test35 () {
+	}
+
+	@Test
+	operation test36 () {
+	    assert !is_final
+	}
+
+	@Test
+	operation test38 () {
+	    raise system.off
+	}
+
+	@Test
+	operation test39 () {
+	    assert !is_active
+	}
+
+}

@@ -1,0 +1,180 @@
+testclass Elevator_UnitTest for statechart Elevator_Unit {
+	@Test
+	operation test01 () {
+	}
+
+	@Test
+	operation test02 () {
+	}
+
+	@Test
+	operation test03 () {
+	}
+
+	@Test
+	operation test04 () {
+	}
+
+	@Test
+	operation test05 () {
+	}
+
+	@Test
+	operation test06 () {
+	}
+
+	@Test
+	operation test07 () {
+	}
+
+	@Test
+	operation test08 () {
+	}
+
+	@Test
+	operation test09 () {
+	}
+
+	@Test
+	operation test11 () {
+	}
+
+	@Test
+	operation test12 () {
+	}
+
+	@Test
+	operation test13 () {
+	    assert !active (Elevator_Unit.main_region._Elevator_Available_)
+	}
+
+	@Test
+	operation test14 () {
+	    assert !active (Elevator_Unit.main_region._Elevator_Available_.input._submitInput_)
+	}
+
+	@Test
+	operation test15 () {
+	    assert !active (Elevator_Unit.main_region._Elevator_Available_.input._gettingInput_)
+	}
+
+	@Test
+	operation test16 () {
+	    assert !active (Elevator_Unit.main_region._Elevator_Available_.level._ElevatorLevel_.r1._readingDataFromElevator_)
+	}
+
+	@Test
+	operation test17 () {
+	    assert !active (Elevator_Unit.main_region._Elevator_Available_.movement._standby_)
+	}
+
+	@Test
+	operation test18 () {
+	    assert !active (Elevator_Unit.main_region._Elevator_Available_.movement._downwards_)
+	}
+
+	@Test
+	operation test19 () {
+	    assert !active (Elevator_Unit.main_region._Elevator_Available_.movement._upwards_)
+	}
+
+	@Test
+	operation test20 () {
+	    assert !active (Elevator_Unit.main_region._Elevator_Available_.activity._active_)
+	}
+
+	@Test
+	operation test21 () {
+	    assert !active (Elevator_Unit.main_region._Elevator_Available_.activity._idle_)
+	}
+
+	@Test
+	operation test22 () {
+	    assert !active (Elevator_Unit.main_region._Elevator_Available_.level._ElevatorLevel_)
+	}
+
+	@Test
+	operation test23 () {
+	    assert !active (Elevator_Unit.main_region._Elevator_Unavailable_)
+	}
+
+	@Test
+	operation test24 () {
+	}
+
+	@Test
+	operation test25 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test26 () {
+	    exit
+	    assert !is_final
+	}
+
+	@Test
+	operation test28 () {
+	}
+
+	@Test
+	operation test29 () {
+	}
+
+	@Test
+	operation test30 () {
+	}
+
+	@Test
+	operation test36 () {
+	    exit
+	    assert !is_final
+	}
+
+	@Test
+	operation test37 () {
+	    assert !is_active
+	    assert !is_final
+	}
+
+	@Test
+	operation test38 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test39 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test42 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test43 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test46 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test47 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test48 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test49 () {
+	    assert !is_active
+	}
+
+}

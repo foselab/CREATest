@@ -1,0 +1,433 @@
+testclass musicPlayerSimplifiedTest for statechart musicPlayer {
+	@Test
+	operation test00 () {
+	    raise Radio.raiseFreq
+	}
+
+	@Test
+	operation test01 () {
+	    raise Radio.lowerFreq
+	}
+
+	@Test
+	operation test02 () {
+	    raise network.connectionMade
+	}
+
+	@Test
+	operation test03 () {
+	    raise modes.changeMode
+	}
+
+	@Test
+	operation test04 () {
+	    raise ModePlay.volumeDown
+	}
+
+	@Test
+	operation test05 () {
+	    raise ModePlay.stop
+	}
+
+	@Test
+	operation test06 () {
+	    raise ModePlay.play
+	}
+
+	@Test
+	operation test07 () {
+	    raise ModePlay.pause
+	}
+
+	@Test
+	operation test08 () {
+	    raise ModePlay.next
+	}
+
+	@Test
+	operation test09 () {
+	    raise ModePlay.back
+	}
+
+	@Test
+	operation test10 () {
+	    raise Clock.stopAlarmClock
+	}
+
+	@Test
+	operation test11 () {
+	    triggerWithoutEvent
+	    assert !is_active
+	}
+
+	@Test
+	operation test12 () {
+	    proceed 1s
+	    assert !is_active
+	}
+
+	@Test
+	operation test13 () {
+	    assert !is_final
+	}
+
+	@Test
+	operation test15 () {
+	    enter
+	    raise Clock.clockDSP
+	    assert is_active
+	}
+
+	@Test
+	operation test16 () {
+	}
+
+	@Test
+	operation test17 () {
+	}
+
+	@Test
+	operation test18 () {
+	}
+
+	@Test
+	operation test19 () {
+	}
+
+	@Test
+	operation test20 () {
+	    enter
+	    raise power.powerOff
+	    raise power.powerOff
+	    assert is_active
+	}
+
+	@Test
+	operation test21 () {
+	    enter
+	    raise internet.connectWifi
+	    raise internet.logout
+	}
+
+	@Test
+	operation test22 () {
+	    enter
+	    raise internet.connectWifi
+	    raise internet.disconnectWifi
+	}
+
+	@Test
+	operation test23 () {
+	    enter
+	    raise ModePlay.skipForward
+	}
+
+	@Test
+	operation test24 () {
+	    enter
+	    raise Clock.chooseTM
+	    raise power.powerOff
+	    assert is_active
+	}
+
+	@Test
+	operation test25 () {
+	    enter
+	    raise power.powerOff
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test26 () {
+	    enter
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test27 () {
+	    enter
+	    assert is_active
+	    assert active (musicPlayer.main_region.Speaker.functions.functions.r2.network_modePlay.r2.internetStates.loginLogout.LogOut)
+	}
+
+	@Test
+	operation test28 () {
+	    enter
+	    assert is_active
+	    assert active (musicPlayer.main_region.Speaker.functions.functions.r2.network_modePlay.r2.internetStates)
+	}
+
+	@Test
+	operation test29 () {
+	    enter
+	    assert active (musicPlayer.main_region.Speaker)
+	}
+
+	@Test
+	operation test30 () {
+	}
+
+	@Test
+	operation test31 () {
+	    assert !active (musicPlayer.main_region.Speaker.functions.functions.r2.network_modePlay.r2.internetStates)
+	}
+
+	@Test
+	operation test32 () {
+	    assert !active (musicPlayer.main_region.Speaker.functions.functions)
+	}
+
+	@Test
+	operation test33 () {
+	    assert !active (musicPlayer.main_region.Speaker.modes.Radio)
+	}
+
+	@Test
+	operation test34 () {
+	    assert !active (musicPlayer.main_region.Speaker.modes.Network.r1.play)
+	}
+
+	@Test
+	operation test35 () {
+	    assert !active (musicPlayer.main_region.Speaker.modes.Network)
+	}
+
+	@Test
+	operation test36 () {
+	    assert !active (musicPlayer.main_region.Speaker.modes.Clock_Display.r1.SetAlarmClock)
+	}
+
+	@Test
+	operation test37 () {
+	    assert !active (musicPlayer.main_region.Speaker.modes.Clock_Display.r1.stopwatch)
+	}
+
+	@Test
+	operation test38 () {
+	    assert !active (musicPlayer.main_region.Speaker.modes.Clock_Display)
+	}
+
+	@Test
+	operation test39 () {
+	    assert !active (musicPlayer.main_region.Speaker.modes.Aux)
+	}
+
+	@Test
+	operation test40 () {
+	    assert !active (musicPlayer.main_region.Speaker.modes.USB.r1.Play)
+	}
+
+	@Test
+	operation test41 () {
+	    assert !active (musicPlayer.main_region.Speaker.modes.USB)
+	}
+
+	@Test
+	operation test42 () {
+	    assert !active (musicPlayer.main_region.Speaker.functions.functions.r2.network_modePlay.r2.internetStates.loginLogout.login)
+	}
+
+	@Test
+	operation test43 () {
+	    assert !active (musicPlayer.main_region.Speaker.functions.functions.r2.network_modePlay.r2.internetStates.loginLogout.LogOut)
+	}
+
+	@Test
+	operation test44 () {
+	    assert !active (musicPlayer.main_region.Speaker.functions.functions.r2.network_modePlay.r2.internetStates.Wifi.connect)
+	}
+
+	@Test
+	operation test45 () {
+	    assert !active (musicPlayer.main_region.Speaker.functions.functions.r2.network_modePlay.r2.internetStates.Wifi.disconnect)
+	}
+
+	@Test
+	operation test46 () {
+	    assert !active (musicPlayer.main_region.Speaker.functions.functions.timer.Timer_Clcok.r2.Ring)
+	}
+
+	@Test
+	operation test47 () {
+	    assert !active (musicPlayer.main_region.Speaker.functions.functions.timer.Timer_Clcok.r2.CheckClockTime)
+	}
+
+	@Test
+	operation test48 () {
+	    assert !active (musicPlayer.main_region.powerOffState)
+	}
+
+	@Test
+	operation test49 () {
+	    assert !active (musicPlayer.main_region.Speaker.modes.changeState)
+	}
+
+	@Test
+	operation test50 () {
+	    assert !active (musicPlayer.main_region.Speaker.modes.Radio.r1.radio)
+	}
+
+	@Test
+	operation test51 () {
+	    assert !active (musicPlayer.main_region.Speaker.modes.Network.r1.pause)
+	}
+
+	@Test
+	operation test52 () {
+	    assert !active (musicPlayer.main_region.Speaker.modes.Network.r1.stop)
+	}
+
+	@Test
+	operation test53 () {
+	    assert !active (musicPlayer.main_region.Speaker.modes.Network.r1.play.r1.playDefault)
+	}
+
+	@Test
+	operation test54 () {
+	    assert !active (musicPlayer.main_region.Speaker.modes.Network.r1.initial)
+	}
+
+	@Test
+	operation test55 () {
+	    assert !active (musicPlayer.main_region.Speaker.modes.Clock_Display.r1.SetAlarmClock.r1.checkState)
+	}
+
+	@Test
+	operation test56 () {
+	    assert !active (musicPlayer.main_region.Speaker.modes.Clock_Display.r1.stopwatch.r1.StopwatchDisplay)
+	}
+
+	@Test
+	operation test57 () {
+	    assert !active (musicPlayer.main_region.Speaker.modes.Clock_Display.r1.Timer.r1.Ring)
+	}
+
+	@Test
+	operation test58 () {
+	    assert !active (musicPlayer.main_region.Speaker.modes.Clock_Display.r1.Timer.r1.timermain)
+	}
+
+	@Test
+	operation test59 () {
+	    assert !active (musicPlayer.main_region.Speaker.modes.Aux.r1.aux)
+	}
+
+	@Test
+	operation test60 () {
+	    assert !active (musicPlayer.main_region.Speaker.modes.USB.r1.Stop)
+	}
+
+	@Test
+	operation test61 () {
+	    assert !active (musicPlayer.main_region.Speaker.modes.USB.r1.Pause)
+	}
+
+	@Test
+	operation test62 () {
+	    assert !active (musicPlayer.main_region.Speaker)
+	}
+
+	@Test
+	operation test63 () {
+	    assert !active (musicPlayer.main_region.Speaker.modes.USB.r1.Play.r1.playDefault)
+	}
+
+	@Test
+	operation test64 () {
+	    raise power.powerOn
+	}
+
+	@Test
+	operation test65 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test66 () {
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test67 () {
+	    exit
+	    assert !is_final
+	}
+
+	@Test
+	operation test71 () {
+	    assert !is_active
+	    enter
+	    raise ModePlay.volumeUp
+	    assert is_active
+	}
+
+	@Test
+	operation test74 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test75 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test76 () {
+	    assert !is_active
+	    assert !is_final
+	}
+
+	@Test
+	operation test78 () {
+	    enter
+	    raise internet.connectWifi
+	    raise power.powerOff
+	}
+
+	@Test
+	operation test79 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test80 () {
+	    assert !is_active
+	    enter
+	    raise power.powerOff
+	    raise power.powerOn
+	    assert is_active
+	}
+
+	@Test
+	operation test81 () {
+	    enter
+	    raise Clock.chooseSW
+	    raise Clock.clockSet
+	}
+
+	@Test
+	operation test82 () {
+	    enter
+	    raise Clock.chooseTM
+	    raise Clock.resetTimer
+	}
+
+	@Test
+	operation test84 () {
+	    enter
+	    raise internet.login
+	}
+
+	@Test
+	operation test85 () {
+	    assert !is_active
+	    enter
+	    raise ModePlay.skipBackwards
+	    assert is_active
+	}
+
+}
