@@ -11,9 +11,6 @@ import javax.xml.parsers.ParserConfigurationException;
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
-import createst.ysc.reading.IYscReader;
-import createst.ysc.reading.YscReader;
-
 public class YscReaderTest {
 	private static final String RESOURCES_DIR = "src\\test\\resources";
 	private static final String FILE_NAME = "Yscreading_Statechart.ysc";

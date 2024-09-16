@@ -22,9 +22,6 @@ import com.github.javaparser.ast.body.FieldDeclaration;
 import com.github.javaparser.ast.body.MethodDeclaration;
 import com.github.javaparser.ast.body.VariableDeclarator;
 
-import createst.java.writing.IJavaWriter;
-import createst.java.writing.JavaWriter;
-
 public class JavaWriterTest {
 	private static final String RESOURCES_DIR = "src\\test\\resources";
 	private static final String JAVA_NAME = "Javawriting_statechart";

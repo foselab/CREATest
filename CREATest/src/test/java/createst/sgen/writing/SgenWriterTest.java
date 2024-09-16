@@ -14,9 +14,6 @@ import org.junit.ClassRule;
 import org.junit.Test;
 import org.junit.rules.TemporaryFolder;
 
-import createst.sgen.writing.ISgenWriter;
-import createst.sgen.writing.SgenWriter;
-
 public class SgenWriterTest {
 	private static final String STATECHART_NAME = "Statechart";
 	private static final String PROJECT_NAME = "Project";

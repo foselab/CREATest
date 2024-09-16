@@ -8,7 +8,7 @@
 	<packaging>jar</packaging>
 
 	<properties>
-		<java.version>1.8</java.version>
+		<java.version>9</java.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 
@@ -19,6 +19,8 @@
 				<includes>
 					<include>sgen_template.stg</include>
 					<include>sctunit_template.stg</include>
+					<include>classpath.txt</include>
+					<include>project.txt</include>
 				</includes>
 			</resource>
 		</resources>
@@ -54,7 +56,7 @@
 							<addClasspath>true</addClasspath>
 							<classpathPrefix>libs/</classpathPrefix>
 							<mainClass>
-								createst.Createst	
+								createst.Createst
 							</mainClass>
 						</manifest>
 					</archive>
@@ -78,10 +80,10 @@
 		<dependency>
 			<groupId>evosuite</groupId>
 			<artifactId>evosuite</artifactId>
-			<version>1.0.6</version>
-		</dependency>
+			<version>1.2.0</version>
+		</dependency> 
 
-		<!-- https://mvnrepository.com/artifact/org.antlr/stringtemplate -->
+		<!--  https://mvnrepository.com/artifact/org.antlr/stringtemplate  -->
 		<dependency>
 			<groupId>org.antlr</groupId>
 			<artifactId>stringtemplate</artifactId>
@@ -102,12 +104,22 @@
 			<artifactId>commons-cli</artifactId>
 			<version>1.6.0</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.assertj</groupId>
 			<artifactId>assertj-core</artifactId>
 			<version>3.21.0</version>
 			<scope>test</scope>
 		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.zeroturnaround/zt-zip -->
+		<dependency>
+			<groupId>org.zeroturnaround</groupId>
+			<artifactId>zt-zip</artifactId>
+			<version>1.17</version>
+		</dependency>
+		
+		
+
 	</dependencies>
 </project>

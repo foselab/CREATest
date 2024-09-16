@@ -13,9 +13,6 @@ import org.junit.ClassRule;
 import org.junit.Test;
 import org.junit.rules.TemporaryFolder;
 
-import createst.junit.writing.IJunitWriter;
-import createst.junit.writing.JunitWriter;
-
 public class JunitWriterTest {
 	private static final String RESOURCES_DIR = "src\\test\\resources";
 	private static final String TEST_DIR = "test";

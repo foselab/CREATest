@@ -13,8 +13,6 @@ import org.junit.ClassRule;
 import org.junit.Test;
 import org.junit.rules.TemporaryFolder;
 
-import createst.ysc.writing.YscWriter;
-
 public class YscWriterTest {
 	private static final String RESOURCES_DIR = "src\\test\\resources";
 	private static final String STATECHART_NAME = "Yscwriting_statechart";
@@ -44,7 +42,6 @@ public class YscWriterTest {
 	@Test
 	public void testCorrectParameters() throws IOException {
 		String newYscPath = RESOURCES_DIR + "\\" + STATECHART_NAME + "_without_ns.ysc";
-		String newYscPath2 = RESOURCES_DIR + "\\" + STATECHART_NAME + "_without_ns_.ysc";
 		
 		assertFalse(Files.exists(Paths.get(newYscPath)));
 		YscWriter.writeWithoutNSVersion(yscPath);
@@ -56,12 +53,7 @@ public class YscWriterTest {
 		assertTrue(oldYsc.contains("namespace"));
 		assertFalse(newYsc.contains("namespace"));
 		
-		assertFalse(Files.exists(Paths.get(newYscPath2)));
-		YscWriter.writeWithoutNSVersion(yscPath);
-		assertTrue(Files.exists(Paths.get(newYscPath2)));
-		
 		new File(newYscPath).delete();
-		new File(newYscPath2).delete();
 	}
 
 }

@@ -17,8 +17,6 @@ import org.junit.Test;
 import org.junit.rules.TemporaryFolder;
 
 import createst.junit.reading.TestCase;
-import createst.sctunit.writing.ISctunitWriter;
-import createst.sctunit.writing.SctunitWriter;
 
 public class SctunitWriterTest {
 	private static final String STATECHART_NAME = "Statechart";
@@ -91,7 +89,7 @@ public class SctunitWriterTest {
 		
 		TestCase t = new TestCase(testName);
 		t.addEnter();
-		t.addProceedCycle();
+		t.addProceedCycles("1");
 		t.addProceedTime(time, timeUnit);
 		t.addTriggerWithoutEvent();
 		t.addEvent(event);

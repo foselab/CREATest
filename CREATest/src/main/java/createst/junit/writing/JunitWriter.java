@@ -49,7 +49,7 @@ public class JunitWriter implements IJunitWriter {
 			String jarRunningDir = new File(
 					JunitWriter.class.getProtectionDomain().getCodeSource().getLocation().toURI()).getParentFile()
 					.getPath();
-			String evosuiteCP = "-evosuiteCP " + jarRunningDir + "\\libs\\evosuite-1.0.6.jar";
+			String evosuiteCP = "-evosuiteCP " + jarRunningDir + "\\libs\\evosuite-1.2.0.jar";
 			evoArgs.addAll(Arrays.asList(evosuiteCP.split(" ")));
 		} catch (URISyntaxException e) {
 			System.out.println("An unexpected error occurred: some warnings may be generated,"

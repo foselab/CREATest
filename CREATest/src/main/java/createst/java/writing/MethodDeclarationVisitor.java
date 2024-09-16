@@ -26,7 +26,7 @@ public class MethodDeclarationVisitor extends VoidVisitorAdapter<Void> {
 				|| ((ClassOrInterfaceDeclaration) node.getParentNode().get()).isInterface())
 			return;
 		// Changes method visibility from protected to private
-		if (node.isProtected() /*&& !node.getNameAsString().startsWith("get")*/) {
+		if (node.isProtected()) {
 			node.setProtected(false);
 			node.setPrivate(true);
 		}

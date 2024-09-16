@@ -51,6 +51,7 @@ public class Junitreading_statechart_test {
       statechart.raiseBoolE(true);
       statechart.raiseDoubleE(95.48);
       statechart.runCycle();
+      statechart.proceedCycles(10);
       assertTrue(statechart.isStateActive(statechart.State.MAIN_REGION_STATEB));
   }
   

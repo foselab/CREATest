@@ -25,14 +25,14 @@ public class TestCase {
 	 * Add an "enter" action.
 	 */
 	public void addEnter() {
-		actions.add(new Action(true, false, null, null, null, false, false, false, false, null, null, false));
+		actions.add(new Action(true, false, null, null, null, false, false, false, null, null, null, false));
 	}
 	
 	/**
 	 * Add an "exit" action.
 	 */
 	public void addExit() {
-		actions.add(new Action(false, true, null, null, null, false, false, false, false, null, null, false));
+		actions.add(new Action(false, true, null, null, null, false, false, false, null, null, null, false));
 	}
 
 	/**
@@ -41,7 +41,7 @@ public class TestCase {
 	 * @param event the event to be raised
 	 */
 	public void addEvent(String event) {
-		actions.add(new Action(false, false, event, null, null, false, false, false, false, null, null, false));
+		actions.add(new Action(false, false, event, null, null, false, false, false, null, null, null, false));
 	}
 
 	/**
@@ -51,7 +51,7 @@ public class TestCase {
 	 * @param value the value of the raised typed event
 	 */
 	public void addTypedEvent(String event, String value) {
-		actions.add(new Action(false, false, event, value, null, false, false, false, false, null, null, false));
+		actions.add(new Action(false, false, event, value, null, false, false, false, null, null, null, false));
 	}
 
 	/**
@@ -62,7 +62,7 @@ public class TestCase {
 	 *                   falseness is wanted to be asserted
 	 */
 	public void addAssertState(String state, boolean assertTrue) {
-		actions.add(new Action(false, false, null, null, state, false, false, assertTrue, false, null, null, false));
+		actions.add(new Action(false, false, null, null, state, false, false, assertTrue, null, null, null, false));
 	}
 
 	/**
@@ -72,7 +72,7 @@ public class TestCase {
 	 *                   falseness is wanted to be asserted
 	 */
 	public void addIsActive(boolean assertTrue) {
-		actions.add(new Action(false, false, null, null, null, true, false, assertTrue, false, null, null, false));
+		actions.add(new Action(false, false, null, null, null, true, false, assertTrue, null, null, null, false));
 	}
 
 	/**
@@ -82,14 +82,14 @@ public class TestCase {
 	 *                   falseness is wanted to be asserted
 	 */
 	public void addIsFinal(boolean assertTrue) {
-		actions.add(new Action(false, false, null, null, null, false, true, assertTrue, false, null, null, false));
+		actions.add(new Action(false, false, null, null, null, false, true, assertTrue, null, null, null, false));
 	}
 
 	/**
 	 * Adds a "proceed 1 cycle" action.
 	 */
-	public void addProceedCycle() {
-		actions.add(new Action(false, false, null, null, null, false, false, false, true, null, null, false));
+	public void addProceedCycles(String nCycles) {
+		actions.add(new Action(false, false, null, null, null, false, false, false, nCycles, null, null, false));
 	}
 
 	/**
@@ -99,14 +99,14 @@ public class TestCase {
 	 * @param timeUnit the time unit (s, ms, us or ns)
 	 */
 	public void addProceedTime(String value, String unit) {
-		actions.add(new Action(false, false, null, null, null, false, false, false, false, value, unit, false));
+		actions.add(new Action(false, false, null, null, null, false, false, false, null, value, unit, false));
 	}
 
 	/**
 	 * Add a "triggerWithoutEvent" action.
 	 */
 	public void addTriggerWithoutEvent() {
-		actions.add(new Action(false, false, null, null, null, false, false, false, false, null, null, true));
+		actions.add(new Action(false, false, null, null, null, false, false, false, null, null, null, true));
 	}
 
 	/**
@@ -126,5 +126,6 @@ public class TestCase {
 	public List<Action> getActions() {
 		return actions;
 	}
+
 
 }

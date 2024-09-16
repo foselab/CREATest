@@ -122,7 +122,11 @@ public class TestCaseCollector extends VoidVisitorAdapter<List<TestCase>> {
 				continue;
 			}
 			if (methodName.equals("runCycle")) {
-				testCase.addProceedCycle();
+				testCase.addProceedCycles("1");
+				continue;
+			}
+			if (methodName.equals("proceedCycles")) {
+				manageProceedCycles(methodCall, testCase);
 				continue;
 			}
 			if (methodName.equals("triggerWithoutEvent")) {
@@ -158,6 +162,22 @@ public class TestCaseCollector extends VoidVisitorAdapter<List<TestCase>> {
 	 */
 	public boolean hasTimeEvents() {
 		return timeEvents;
+	}
+	
+	/**
+	 * Adds an action representing the given proceedCycles method call to the test
+	 * case
+	 *
+	 * @param methodCall the proceedCycle method call
+	 * @param testCase   the test case where to add the new action
+	 */
+	private void manageProceedCycles(MethodCallExpr methodCall, TestCase testCase) {
+		// The method proceedCycles has only one argument and it's an int
+		String arg = methodCall.getArgument(0).toString();
+		// Only positive numbers are meaningfull
+		if (!arg.contains("-") && !arg.contains("(") && !arg.contains(")")) {
+			testCase.addProceedCycles(arg);
+		}
 	}
 
 	/**
@@ -320,7 +340,7 @@ public class TestCaseCollector extends VoidVisitorAdapter<List<TestCase>> {
 	}
 
 	/**
-	 * Check if the test case has errore, i.e. if a proceed statement is called
+	 * Check if the test case has errors, i.e. if a proceed statement is called
 	 * after an exit statement
 	 *
 	 * @param testCase the test case to check

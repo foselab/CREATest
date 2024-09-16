@@ -18,7 +18,7 @@ actions(action) ::=
 <elseif(action.state)>assert <if(action.not)>!<endif>active (<action.state>)
 <elseif(action.isActive)>assert <if(action.not)>!<endif>is_active
 <elseif(action.isFinal)>assert <if(action.not)>!<endif>is_final
-<elseif(action.proceed)>proceed 1 cycle
+<elseif(action.proceed)>proceed <action.proceed> cycle
 <elseif(action.timeValue)>proceed <action.timeValue><action.timeUnit>
 <elseif(action.triggerWithoutEvent)>triggerWithoutEvent
 <elseif(action.exit)>exit

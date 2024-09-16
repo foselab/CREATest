@@ -12,9 +12,6 @@ import org.junit.Test;
 
 import createst.java.reading.ProceedTime;
 import createst.java.reading.TimeUnit;
-import createst.junit.reading.IJunitReader;
-import createst.junit.reading.JunitReader;
-import createst.junit.reading.TestCase;
 
 public class JunitReaderTest {
 	private static final String RESOURCES_DIR = "src\\test\\resources";
@@ -99,7 +96,8 @@ public class JunitReaderTest {
 		t2.addTypedEvent(string_e, "\"str\"");
 		t2.addTypedEvent(bool_e, "true");
 		t2.addTypedEvent(double_e, "95.48");
-		t2.addProceedCycle();
+		t2.addProceedCycles("1");
+		t2.addProceedCycles("10");
 		t2.addAssertState(statechartName + "." + state_b, true);
 		
 		TestCase t3 = new TestCase("test03");

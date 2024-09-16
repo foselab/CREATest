@@ -8,11 +8,6 @@ import java.util.Map;
 
 import org.junit.Test;
 
-import createst.java.reading.IJavaReader;
-import createst.java.reading.JavaReader;
-import createst.java.reading.ProceedTime;
-import createst.java.reading.TimeUnit;
-
 
 public class JavaReaderTest {
 	private static final String RESOURCES_DIR = "src\\test\\resources";

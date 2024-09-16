@@ -33,16 +33,17 @@ public class Action {
 	 *                            otherwise
 	 * @param assertTrue          true if the truth is wanted to be asserted, false
 	 *                            if the falseness is wanted to be asserted
-	 * @param proceed             true if the action is "proceed 1 cycle", false
-	 *                            otherwise
+	 * @param proceed             the number of cycles to be proceeded associated
+	 *                            with the proceed cycle evet
 	 * @param timeValue           the value associated with the proceed time event
 	 * @param timeUnit            the time unit associated with the proceed time
 	 *                            event
 	 * @param triggerWithoutEvent true if the action is "triggerWithoutEvent", false
 	 *                            otherwise
 	 */
-	public Action(boolean enter, boolean exit, String event, String eventValue, String state, boolean isActive, boolean isFinal,
-			boolean assertTrue, boolean proceed, String timeValue, String timeUnit, boolean triggerWithoutEvent) {
+	public Action(boolean enter, boolean exit, String event, String eventValue, String state, boolean isActive,
+			boolean isFinal, boolean assertTrue, String proceed, String timeValue, String timeUnit,
+			boolean triggerWithoutEvent) {
 		this.enter = enter ? "" : null;
 		this.exit = exit ? "" : null;
 		this.event = event;
@@ -51,7 +52,7 @@ public class Action {
 		this.isActive = isActive ? "" : null;
 		this.isFinal = isFinal ? "" : null;
 		this.not = assertTrue ? null : "";
-		this.proceed = proceed ? "" : null;
+		this.proceed = proceed;
 		this.timeValue = timeValue;
 		this.timeUnit = timeUnit;
 		this.triggerWithoutEvent = triggerWithoutEvent ? "" : null;
@@ -65,7 +66,7 @@ public class Action {
 	public String getEnter() {
 		return enter;
 	}
-	
+
 	/**
 	 * Gets the exit string.
 	 *

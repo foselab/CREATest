@@ -9,24 +9,11 @@ import org.junit.ClassRule;
 import org.junit.Test;
 import org.junit.rules.TemporaryFolder;
 
-import createst.cli.CliManager;
-import createst.cli.ICliManager;
-import createst.cli.InputValues;
-
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class CliManagerTest {
 	private static final String SCC = "scc.bat";
-	private static final String WORKSPACE_PATH = "workspace";
-	private static final String PROJECT_NAME = "project";
-	private static final String PROJECT_PATH = WORKSPACE_PATH + "\\" + PROJECT_NAME;
-	private static final String SOURCE_DIR = "model";
-	private static final String SOURCE_FILE_NAME = "Statechart";
-	private static final String SOURCE_FILE = SOURCE_FILE_NAME + ".ysc";
-	private static final String TARGET_DIR = "src";
-	private static final String TARGET_PACKAGE = "package";
-	private static final String BINARY_DIR = "bin";
-	private static final String EVO_TEST_DIR = "test";
+	private static final String YSC = "Statechart.ysc";
 	private static final String EVO_SEARCH_BUDGET = "10";
 	
 	private static ICliManager cli;
@@ -40,10 +27,8 @@ public class CliManagerTest {
 		cli = new CliManager();
 		rootPath = tmpFolder.getRoot().getCanonicalFile().toString();
 		tmpFolder.newFile(SCC);
-		tmpFolder.newFolder(WORKSPACE_PATH, PROJECT_NAME, SOURCE_DIR, SOURCE_FILE).createNewFile();
-		tmpFolder.newFolder(WORKSPACE_PATH, PROJECT_NAME, TARGET_DIR, TARGET_PACKAGE);
-		tmpFolder.newFolder(WORKSPACE_PATH, PROJECT_NAME, BINARY_DIR);
-		tmpFolder.newFolder(WORKSPACE_PATH, PROJECT_NAME, EVO_TEST_DIR);
+		tmpFolder.newFile(YSC);
+		tmpFolder.newFile(YSC.replace(".ysc", ".txt"));
 	}
 	
 	@Test
@@ -68,7 +53,8 @@ public class CliManagerTest {
 		String[] args = new String[] 
 				{
 					"-h",
-					"-scc", rootPath + "\\" + SCC
+					"-s", rootPath + "\\" + SCC,
+					"-y", rootPath + "\\" + YSC,
 				};
 		InputValues expected = null;
 		InputValues actual = cli.parse(args);
@@ -86,10 +72,30 @@ public class CliManagerTest {
 	public void testMissingRequiredOption() throws IOException {
 		String[] args = new String[] 
 				{
-					"-projectPath", rootPath + "\\" + PROJECT_PATH,
-					"-sourceDir", SOURCE_DIR,
-					"-sourceFile", SOURCE_FILE_NAME,
-					"-targetDir", TARGET_DIR,
+					"--sccPath", rootPath + "\\" + SCC,
+					"-b", EVO_SEARCH_BUDGET,
+					"-g",
+				};
+		InputValues expected = null;
+		InputValues actual = cli.parse(args);
+		assertEquals(expected, actual);
+		
+		args = new String[] 
+				{
+					"--yscPath", rootPath + "\\" + YSC,
+					"-b", EVO_SEARCH_BUDGET,
+					"-g",
+				};
+		actual = cli.parse(args);
+		assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void testNonExistingOption() throws IOException {
+		String[] args = new String[] 
+				{
+					"--scc", rootPath + "\\" + SCC,
+					"-y", rootPath + "\\" + YSC,
 				};
 		InputValues expected = null;
 		InputValues actual = cli.parse(args);
@@ -101,11 +107,8 @@ public class CliManagerTest {
 		// SCC does not exist
 		String[] args = new String[] 
 				{
-					"-scc", "WrongSccPath",
-					"-projectPath", rootPath + "\\" + PROJECT_PATH,
-					"-sourceDir", SOURCE_DIR,
-					"-sourceFile", SOURCE_FILE_NAME,
-					"-targetPackage", TARGET_PACKAGE,
+					"-s", "WrongSccPath",
+					"-y", rootPath + "\\" + YSC,
 				};
 		InputValues expected = null;
 		InputValues actual = cli.parse(args);
@@ -114,73 +117,37 @@ public class CliManagerTest {
 		// SCC is not a file
 		args = new String[] 
 				{
-					"-scc", rootPath,
-					"-projectPath", rootPath + "\\" + PROJECT_PATH,
-					"-sourceDir", SOURCE_DIR,
-					"-sourceFile", SOURCE_FILE_NAME,
-					"-targetPackage", TARGET_PACKAGE,
+					"-s", rootPath,
+					"-y", rootPath + "\\" + YSC,
 				};
 		actual = cli.parse(args);
 		assertEquals(expected, actual);
 		
-		// ProjectPath does not exist
+		// YSC does not exist
 		args = new String[] 
 				{
-					"-scc", rootPath + "\\" + SCC,
-					"-projectPath", "WrongProjectPath",
-					"-sourceDir", SOURCE_DIR,
-					"-sourceFile", SOURCE_FILE_NAME,
-					"-targetPackage", TARGET_PACKAGE,
+					"-s", rootPath + "\\" + SCC,
+					"-y", "WrongYscPath",
 				};
 		actual = cli.parse(args);
 		assertEquals(expected, actual);
 		
-		// SourceDir does not exist
+		// YSC is not a .ysc file
 		args = new String[] 
 				{
-					"-scc", rootPath + "\\" + SCC,
-					"-projectPath", rootPath + "\\" + PROJECT_PATH,
-					"-sourceDir", "WrongSourceDir",
-					"-sourceFile", SOURCE_FILE_NAME,
-					"-targetPackage", TARGET_PACKAGE,
+					"-s", rootPath + "\\" + SCC,
+					"-y", rootPath + "\\" + YSC.replace(".ysc", ".txt"),
 				};
 		actual = cli.parse(args);
 		assertEquals(expected, actual);
 		
-		// SourceFile does not exist
-		args = new String[] 
-				{
-					"-scc", rootPath + "\\" + SCC,
-					"-projectPath", rootPath + "\\" + PROJECT_PATH,
-					"-sourceDir", SOURCE_DIR,
-					"-sourceFile", "WrongSourceFile",
-					"-targetPackage", TARGET_PACKAGE,
-				};
-		actual = cli.parse(args);
-		assertEquals(expected, actual);
-		
-		// BinaryDir does not exist
-		args = new String[] 
-				{
-					"-scc", rootPath + "\\" + SCC,
-					"-projectPath", rootPath + "\\" + PROJECT_PATH,
-					"-sourceDir", SOURCE_DIR,
-					"-sourceFile", SOURCE_FILE_NAME,
-					"-targetPackage", TARGET_PACKAGE,
-					"-binaryDir", "WrongBinaryDir",
-				};
-		actual = cli.parse(args);
-		assertEquals(expected, actual);
 		
 		// EvoSearchBudget is negative
 		args = new String[] 
 				{
-					"-scc", rootPath + "\\" + SCC,
-					"-projectPath", rootPath + "\\" + PROJECT_PATH,
-					"-sourceDir", SOURCE_DIR,
-					"-sourceFile", SOURCE_FILE_NAME,
-					"-targetPackage", TARGET_PACKAGE,
-					"-evoSearchBudget", "-10",
+					"-s", rootPath + "\\" + SCC,
+					"-y", rootPath + "\\" + YSC,
+					"-b", "-10"
 				};
 		actual = cli.parse(args);
 		assertEquals(expected, actual);
@@ -188,12 +155,9 @@ public class CliManagerTest {
 		// EvoSearchBudget is not a number
 		args = new String[] 
 				{
-					"-scc", rootPath + "\\" + SCC,
-					"-projectPath", rootPath + "\\" + PROJECT_PATH,
-					"-sourceDir", SOURCE_DIR,
-					"-sourceFile", SOURCE_FILE_NAME,
-					"-targetPackage", TARGET_PACKAGE,
-					"-evoSearchBudget", "ten",
+					"-s", rootPath + "\\" + SCC,
+					"-y", rootPath + "\\" + YSC,
+					"--evoSearchBudget", "-ten"
 				};
 		actual = cli.parse(args);
 		assertEquals(expected, actual);
@@ -203,27 +167,16 @@ public class CliManagerTest {
 	public void testAllCorrectOption() throws IOException {
 		String[] args = new String[] 
 				{
-					"-scc", rootPath + "\\" + SCC,
-					"-projectPath", rootPath + "\\" + PROJECT_PATH,
-					"-sourceDir", SOURCE_DIR,
-					"-sourceFile", SOURCE_FILE_NAME,
-					"-targetDir", TARGET_DIR,
-					"-targetPackage", TARGET_PACKAGE,
-					"-binaryDir", BINARY_DIR,
-					"-evoTestDir", EVO_TEST_DIR,
+					"-sccPath", rootPath + "\\" + SCC,
+					"-yscPath", rootPath + "\\" + YSC,
 					"-evoSearchBudget", EVO_SEARCH_BUDGET,
+					"--genArtifacts"
 				};
 		InputValues expected = new InputValues();
 		expected.setSccPath(rootPath + "\\" + SCC);
-		expected.setWorkspacePath(rootPath + "\\" + WORKSPACE_PATH);
-		expected.setProjectName(PROJECT_NAME);
-		expected.setSourceDir(SOURCE_DIR);
-		expected.setSourceFile(SOURCE_FILE);
-		expected.setTargetDir(TARGET_DIR);
-		expected.setTargetPackage(TARGET_PACKAGE);
-		expected.setBinaryDir(BINARY_DIR);
-		expected.setEvoTestDir(EVO_TEST_DIR);
+		expected.setYscPath(rootPath + "\\" + YSC);
 		expected.setEvoSearchBudget(Integer.parseInt(EVO_SEARCH_BUDGET));
+		expected.setGenArtifacts();
 		
 		InputValues actual = cli.parse(args);
 		assertThat(actual)
@@ -231,6 +184,24 @@ public class CliManagerTest {
 			.isEqualTo(expected);
 		
 		assertTrue(actual.hasSearchBudget());
+		assertTrue(actual.hasGenArtifacts());
+		
+		args = new String[] 
+				{
+					"-s", rootPath + "\\" + SCC,
+					"-y", rootPath + "\\" + YSC,
+				};
+		expected = new InputValues();
+		expected.setSccPath(rootPath + "\\" + SCC);
+		expected.setYscPath(rootPath + "\\" + YSC);
+		
+		actual = cli.parse(args);
+		assertThat(actual)
+			.usingRecursiveComparison()
+			.isEqualTo(expected);
+		
+		assertFalse(actual.hasSearchBudget());
+		assertFalse(actual.hasGenArtifacts());
 	}
 
 }

@@ -16,7 +16,7 @@ import com.github.javaparser.ast.visitor.VoidVisitor;
  * The Class JavaWriter.
  */
 public class JavaWriter implements IJavaWriter {
-	
+
 	/**
 	 * Generates a simplified version of the java class, changing names and
 	 * visibilities
@@ -37,14 +37,15 @@ public class JavaWriter implements IJavaWriter {
 		methodVisitor.visit(cu, null);
 		VoidVisitor<Void> fieldVisitor = new FieldDeclarationVisitor();
 		fieldVisitor.visit(cu, null);
+		
+		
 		BufferedWriter writer = new BufferedWriter(new FileWriter(simplifiedJavaPath));
 		writer.write(cu.toString());
 		writer.close();
 	}
 
 	/**
-	 * Calls Itemis Create code generators for each .sgen file in the specified
-	 * project.
+	 * Calls the itemis CREATE code generator.
 	 *
 	 * @param projectPath    the path of the project
 	 * @param itemisScc      the path of the scc.bat file
