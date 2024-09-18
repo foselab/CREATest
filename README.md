@@ -18,7 +18,7 @@ This repository contains the replication package for the paper "Abstract Test Ge
 
 The tool has the following requirements:
 
-* A machine with a Windows operating system installed and at least 32MB of
+* A machine with a Windows operating system installed and at least 21MB of
 free hard disk space.
 * Java Development Kit (JDK) version 9 installed on the machine. The
 JDK is available for the download at https://www.oracle.com/it/java/technologies/javase/javase9-archive-downloads.html.
@@ -53,4 +53,4 @@ If an input option provided by the user is incorrect (e.g. the specified source 
 
 Once all the requirements are met, the CREATest tool can be used. It is sufficient to run the CREATest JAR with the appropriate options. At the end of the run, a .sctunit file containing the SCTUnit test class will be created in the folder containing the JAR.
 
-If the `-g` option is used, a .zip file is also created. After decompressing the .zip file, the resulting directory can be opened as a workspace with itemis CREATE. The workspace contains a Java project with all the produced artefacts. In itemis CREATE, it is possible to open the CREATE statechart and run the SCTUnit test class.
+If the `-g` option is used, a .zip file is also created. After decompressing the .zip file, the resulting directory can be opened as a workspace with itemis CREATE. The workspace contains a project with all the produced artefacts. In itemis CREATE, the CREATE statechart can be opened and the SCTUnit test class can be executed. To fix the compilation errors in the project and to run the JUnit test class, it is necessary to add EvoSuite as a dependency of the project.
