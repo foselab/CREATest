@@ -41,11 +41,22 @@ public class ClassDeclarationVisitor extends VoidVisitorAdapter<Void> {
 		if (node.isInterface())
 			return;
 		// Changes class name only if the class is public and not static (i.e. not a
-		// nested class) and add a proceedCycles(int nCycles) method else, change the
-		// type of the field named "parent"
+		// nested class) and add a proceedCycles() method if necessary,
+		// else, change the type of the field named "parent"
 		if (node.isPublic() && !node.isStatic()) {
 			node.setName(node.getNameAsString() + "Simplified");
-			addProceedCyclesMethod(node);
+			// Checks if the statechart execution is cycle based, i.e. if the class do NOT
+			// contains a triggerWithoutEvent method, if so, add the proceedCycles() method
+			List<MethodDeclaration> methodDeclarations = node.findAll(MethodDeclaration.class);
+			boolean hasTrigger = false;
+			for (MethodDeclaration methodDeclaration : methodDeclarations) {
+				if (methodDeclaration.getName().toString().equals("triggerWithoutEvent")) {
+					hasTrigger = true;
+					break;
+				}
+			}
+			if (!hasTrigger)
+				addProceedCyclesMethod(node);
 		} else {
 			List<VariableDeclarator> fields = node.findAll(VariableDeclarator.class);
 			for (VariableDeclarator field : fields) {
@@ -59,15 +70,14 @@ public class ClassDeclarationVisitor extends VoidVisitorAdapter<Void> {
 
 	/**
 	 * Add the following method:
-	 * 	<pre>
-	 * 	public void proceedCycles(int nCycles) {
-     * 		for (int i = 0; i < nCycles; i++) {
-     *    		runCycle();
-     *		}
-     *	}
-     *	<pre>
 	 * 
-	 * @param the node representing the class to which the method will be added 
+	 * <pre>
+	 * public void proceedCycles(int nCycles) { for (int i = 0; i < nCycles; i++) {
+	 * runCycle(); } }
+	 * 
+	 * <pre>
+	 * 
+	 * @param the node representing the class to which the method will be added
 	 */
 	private void addProceedCyclesMethod(ClassOrInterfaceDeclaration node) {
 		// Adds a new method to the class

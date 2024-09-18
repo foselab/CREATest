@@ -1,6 +1,9 @@
 # Eclipse metadata folder
 .metadata
 
+# Structure101 file
+*.hsw
+
 # Compiled class file
 *.class
 

@@ -34,10 +34,9 @@ public abstract class YscWriter {
 		writer.write(newYscContent);
 		writer.close();
 		newYsc.createNewFile();
-		System.out.println("A namespace has been defined in the statechart. Namespaces are not supported.");
-		System.out.println("A new identical statechart without the namespace definition has been created:");
-		System.out.println("\'" + sourceFilePath + "\' ");
-		System.out.println("It will be used as the source file of the execution.");
+		System.out.println("The statechart defines a namespace. Namespaces are not supported.\n"
+				+ "A new identical statechart without the namespace will be produced.\n"
+				+ "The generated SCTUnit class should be executed over this new statehcart.");
 		return sourceFilePath;
 	}
 

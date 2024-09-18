@@ -41,6 +41,7 @@
 							<outputDirectory>
 								${project.build.directory}/libs
 							</outputDirectory>
+							<excludeArtifactIds>assertj-core, slf4j-api</excludeArtifactIds>
 						</configuration>
 					</execution>
 				</executions>
@@ -118,7 +119,6 @@
 			<artifactId>zt-zip</artifactId>
 			<version>1.17</version>
 		</dependency>
-		
 		
 
 	</dependencies>

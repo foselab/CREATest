@@ -207,7 +207,7 @@ public class Createst {
 		System.out.println("*******************************************");
 		System.out.println("Copying .sctunit file...");
 		System.out.println("*******************************************");
-		copyAndCompress(workspacePath, sctunitPath, statechartName, hasGenArtifacts);
+		copyAndCompress(workspacePath, sctunitPath, sourceFilePath, statechartName, hasGenArtifacts);
 
 		// End the execution
 		System.out.println("*******************************************");
@@ -248,9 +248,12 @@ public class Createst {
 	 * @return the absolute path of the temporary workspace containing the Eclipse
 	 *         project.
 	 * 
-	 * @throws IOException if any IO errors occur.
+	 * @throws IOException        if any IO errors occur.
+	 * @throws URISyntaxException if the location of the evosuite jar can not be
+	 *                            parsed as a uri
 	 */
-	private static String initProject(String yscPath) throws IOException {
+	private static String initProject(String yscPath) throws IOException, URISyntaxException {
+		// Create the structure of the temporary workspace
 		File workspace = Files.createTempDirectory(WORKSPACE_NAME).toFile();
 		File projectDir = new File(workspace.getAbsolutePath() + "\\" + PROJECT_NAME);
 		File binDir = new File(projectDir.getAbsolutePath() + "\\" + BINARY_DIR);
@@ -258,12 +261,15 @@ public class Createst {
 		File testDir = new File(projectDir.getAbsolutePath() + "\\" + TEST_DIR);
 		File modelsDir = new File(projectDir.getAbsolutePath() + "\\" + MODELS_DIR);
 
+		// Create the actual directories
 		projectDir.mkdir();
 		binDir.mkdir();
 		srcDir.mkdir();
 		testDir.mkdir();
 		modelsDir.mkdir();
 
+		// Popolate the temporary workspace with the files necessary to make it an Xtext
+		// project and with the input .ysc file
 		ClassLoader classLoader = Createst.class.getClassLoader();
 		InputStream sourceStream;
 
@@ -278,7 +284,6 @@ public class Createst {
 		sourceStream.close();
 
 		String sourceFile = yscPath.substring(yscPath.lastIndexOf('\\') + 1);
-
 		File source = new File(yscPath);
 		dest = new File(modelsDir.getAbsolutePath() + "\\" + sourceFile);
 		Files.copy(source.toPath(), dest.toPath());
@@ -292,6 +297,8 @@ public class Createst {
 	 * @param workspacePath         the absolute path of the temporary workspace
 	 * @param simplifiedSctunitPath the absolute path of the .sctunit file in the
 	 *                              temporary workspace
+	 * @param sourceFilePath        the absolute path of the .ysc file in the
+	 *                              temporary workspace
 	 * @param statechartName        the name of the input statechart
 	 * @param hasGenArtifacts       true if a .zip containing all the artifacts
 	 *                              generated in the temporary workspace should be
@@ -301,20 +308,40 @@ public class Createst {
 	 * @throws URISyntaxException if the execution location can not be parsed as a
 	 *                            uri
 	 */
-	private static void copyAndCompress(String workspacePath, String simplifiedSctunitPath, String statechartName,
-			boolean hasGenArtifacts) throws IOException, URISyntaxException {
+	private static void copyAndCompress(String workspacePath, String simplifiedSctunitPath, String sourceFilePath,
+			String statechartName, boolean hasGenArtifacts) throws IOException, URISyntaxException {
+		// Get the location in which the JAR is executed
 		String execLocationPath = new File(Createst.class.getProtectionDomain().getCodeSource().getLocation().toURI())
 				.getParentFile().getPath();
 
+		// Copy the .sctunit file from the temporary workspace to the execution
+		// directory
 		File source = new File(simplifiedSctunitPath);
 		File dest = new File(execLocationPath + "\\" + statechartName + "Test.sctunit");
-		int suffix = 0;
+		int sctunit_suffix = 0;
 		while (dest.exists()) {
-			suffix++;
-			dest = new File(execLocationPath + "\\" + statechartName + "Test_" + suffix + ".sctunit");
+			sctunit_suffix++;
+			dest = new File(execLocationPath + "\\" + statechartName + "Test_" + sctunit_suffix + ".sctunit");
 		}
 		Files.copy(source.toPath(), dest.toPath());
 
+		// If the .ysc without namespace has been generated, copy it from the temporary
+		// workspace to the execution directory
+		String ysc_suffix = "_without_ns";
+		source = new File(sourceFilePath.replace(".ysc", ysc_suffix + ".ysc"));
+		if (source.exists()) {
+			String sourceFileName = sourceFilePath.substring(sourceFilePath.lastIndexOf("\\"),
+					sourceFilePath.lastIndexOf("."));
+			dest = new File(execLocationPath + "\\" + sourceFileName + ysc_suffix + ".ysc");
+			while (dest.exists()) {
+				ysc_suffix = ysc_suffix.concat("_");
+				dest = new File(execLocationPath + "\\" + sourceFileName + ysc_suffix + ".ysc");
+			}
+			Files.copy(source.toPath(), dest.toPath());
+		}
+
+		// If the '-g' option is used, compress the temporary workspace into a .zip and
+		// put it in the execution directory
 		if (hasGenArtifacts) {
 			System.out.println("*******************************************");
 			System.out.println("Compressing the artifacts...");
