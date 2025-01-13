@@ -6,6 +6,14 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+import javax.tools.JavaCompiler;
+import javax.tools.JavaFileObject;
+import javax.tools.StandardJavaFileManager;
+import javax.tools.ToolProvider;
 
 import org.junit.After;
 import org.junit.BeforeClass;
@@ -19,6 +27,7 @@ public class JunitWriterTest {
 	private static final String REPORT_DIR = "report";
 	private static final String PROJECT_NAME = "Junitwriting_project";
 	private static final String BINARY_DIR = "bin";
+	private static final String SOURCE_DIR = "src";
 	private static final String PACKAGE_NAME = "junitwriting";
 	private static final String FILE_NAME = "Statechart";
 	
@@ -28,12 +37,16 @@ public class JunitWriterTest {
 	private static String junitPath;
 	private static String scaffoldingPath;
 	private static String csvPath;
+	private static String srcDir;
+	private static String binDir;
 
 	@ClassRule
 	public static TemporaryFolder tmpFolder = new TemporaryFolder();
 
 	@BeforeClass
 	public static void initTempFolder() throws IOException {
+		srcDir = RESOURCES_DIR + "\\" + PROJECT_NAME + "\\" + SOURCE_DIR;
+		binDir = RESOURCES_DIR + "\\" + PROJECT_NAME + "\\" + BINARY_DIR; 
 		writer = new JunitWriter();
 		rootPath = tmpFolder.getRoot().getCanonicalFile().toString();
 		junitPath = rootPath + "\\" + TEST_DIR + "\\" + PACKAGE_NAME + "\\" + FILE_NAME
@@ -43,6 +56,25 @@ public class JunitWriterTest {
 		csvPath = rootPath + "\\" + REPORT_DIR + "\\statistics.csv";
 		tmpFolder.newFolder(TEST_DIR);
 		tmpFolder.newFolder(REPORT_DIR);
+	}
+	
+	@BeforeClass
+	public static void compile() throws IOException {
+		JavaCompiler compiler = ToolProvider.getSystemJavaCompiler();
+		File outputDir = new File(binDir);
+        if (!outputDir.exists())
+        	outputDir.mkdirs();
+		List<String> compilationArgs = new ArrayList<String>();
+		compilationArgs.addAll(Arrays.asList("-d", binDir));
+		compilationArgs.addAll(Arrays.asList("-classpath", srcDir));
+		compilationArgs.add("-implicit:class");
+		StandardJavaFileManager stdFileManager = compiler.getStandardFileManager(null, null, null);
+		List<File> toBeCompiled = new ArrayList<>();
+		toBeCompiled.add(new File(srcDir + "\\com\\yakindu\\core\\IEventDriven.java"));
+		toBeCompiled.add(new File(srcDir + "\\com\\yakindu\\core\\IStatemachine.java"));
+		toBeCompiled.add(new File(srcDir + "\\junitwriting\\Statechart.java"));
+		Iterable<? extends JavaFileObject> compilationUnits = stdFileManager.getJavaFileObjectsFromFiles(toBeCompiled);
+		compiler.getTask(null, null, null, compilationArgs, null, compilationUnits).call();
 	}
 	
 	@After
