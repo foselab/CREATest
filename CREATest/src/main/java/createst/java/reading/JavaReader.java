@@ -15,14 +15,7 @@ import com.github.javaparser.ast.expr.MethodCallExpr;
 public class JavaReader implements IJavaReader {
 
 	/**
-	 * Create and return dictionary for the time events in the specified java file
-	 * with the corresponding id as key.
-	 *
-	 * @param javaPath the path of the .java file
-	 * @return the dictionary
-	 * @throws FileNotFoundException if the file does not exist,is a directory
-	 *                               rather than a regular file,or for some other
-	 *                               reason cannot be opened forreading.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public Map<Integer, ProceedTime> getProceedTimes(String javaPath) throws FileNotFoundException {

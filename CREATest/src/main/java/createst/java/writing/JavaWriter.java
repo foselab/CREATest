@@ -18,13 +18,7 @@ import com.github.javaparser.ast.visitor.VoidVisitor;
 public class JavaWriter implements IJavaWriter {
 
 	/**
-	 * Generates a simplified version of the java class, changing names and
-	 * visibilities
-	 *
-	 * @param javaPath           the path of the starting .java file
-	 * @param simplifiedJavaPath the path where the .java file containing the
-	 *                           simplified version is put
-	 * @throws IOException if any IO errors occur.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public void writeSimplifiedVersion(String javaPath, String simplifiedJavaPath) throws IOException {
@@ -45,14 +39,7 @@ public class JavaWriter implements IJavaWriter {
 	}
 
 	/**
-	 * Calls the itemis CREATE code generator.
-	 *
-	 * @param projectPath    the path of the project
-	 * @param itemisScc      the path of the scc.bat file
-	 * @param sourceDir      the path of the source directory
-	 * @param sourceFile     the name of the source file
-	 * @param statechartName the name of the statechart
-	 * @throws IOException if any IO errors occur.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public void callICGenerator(String projectPath, String itemisScc, String sourceDir, String sourceFile,

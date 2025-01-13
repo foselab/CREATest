@@ -64,18 +64,15 @@ public class YscReader implements IYscReader {
 	}
 	
 	/**
-	 * Checks if the statechart has a namespace.
-	 *
-	 * @return true, if the statechart has a namespace, false otherwise */
+	 * {@inheritDoc}
+	 */
 	@Override
 	public boolean hasNamespace() {
 		return this.hasNamespace;
 	}
 
 	/**
-	 * Gets the statechart name.
-	 *
-	 * @return the statechart name
+	 * {@inheritDoc}
 	 */
 	@Override
 	public String getStatechartName() {
@@ -83,10 +80,7 @@ public class YscReader implements IYscReader {
 	}
 
 	/**
-	 * Gets all states names.
-	 *
-	 * @return the dictionary containing all states names where the key is the
-	 *         corresponding enum
+	 * {@inheritDoc}
 	 */
 	@Override
 	public Map<String, String> getStatesNames() {
@@ -100,10 +94,7 @@ public class YscReader implements IYscReader {
 	}
 
 	/**
-	 * Gets all events names.
-	 *
-	 * @return the list containing all events names where the key is the
-	 *         corresponding method
+	 * {@inheritDoc}
 	 */
 	@Override
 	public Map<String, String> getEventsNames() {
@@ -117,10 +108,7 @@ public class YscReader implements IYscReader {
 	}
 
 	/**
-	 * Gets all interfaces names.
-	 *
-	 * @return the list containing all interfaces names where the key is the
-	 *         corresponding class name
+	 * {@inheritDoc}
 	 */
 	@Override
 	public Map<String, String> getInterfacesNames() {

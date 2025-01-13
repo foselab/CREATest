@@ -17,19 +17,7 @@ import createst.java.reading.ProceedTime;
 public class JunitReader implements IJunitReader {
 
 	/**
-	 * Reads a junit file that tests a java implementation of a statechart
-	 *
-	 * @param junitPath       the path of the .java file containing the junit test
-	 *                        cases
-	 * @param statechartName  the names of the statechart
-	 * @param statesNames     the dictionary of the states names with the
-	 *                        corresponding enum as key
-	 * @param eventsNames     the dictionary of the events names with the
-	 *                        corresponding method as key
-	 * @param interfacesNames the dictionary of the interfaces names with the
-	 *                        corresponding class name as key
-	 * @return the list of the test cases
-	 * @throws IOException if any IO errors occur.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public List<TestCase> getTestCases(String junitPath, String statechartName, Map<String, String> statesNames,

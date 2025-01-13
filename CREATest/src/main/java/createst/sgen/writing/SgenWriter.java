@@ -12,16 +12,7 @@ import org.stringtemplate.v4.STGroupFile;
 public class SgenWriter implements ISgenWriter {
 
 	/**
-	 * Generate the .sgen file needed by Itemis Create to generate java code from a
-	 * .ysc file (a statechart).
-	 *
-	 * @param projectName    the name of the project
-	 * @param statechartName the name of the statechart
-	 * @param sgenPath       the absolute path (with also the file) of the .sgen
-	 *                       file that will be generated
-	 * @param targetDir      the target directory
-	 * @param targetPackage  the target package
-	 * @throws IOException if any IO errors occur.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public void writeSgen(String projectName, String statechartName, String sgenPath, String targetDir,
