@@ -25,8 +25,8 @@ public class JunitWriter implements IJunitWriter {
 		// Default setting, use whole suite generation
 		evoArgs.add("-generateSuite");
 		// Allow minimization task to run without limitations for at most 10min
-		evoArgs.add("-Dassertion_minimization_fallback_time=1.0");
-		evoArgs.add("-Dminimization_timeout=600");
+		//evoArgs.add("-Dassertion_minimization_fallback_time=1.0");
+		//evoArgs.add("-Dminimization_timeout=600");
 		// Impose a search budget
 		if (hasSearchBudget)
 			evoArgs.add("-Dsearch_budget=" + searchBudget);

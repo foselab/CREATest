@@ -324,6 +324,7 @@ public class Createst {
 			dest = new File(execLocationPath + "\\" + statechartName + "Test_" + sctunit_suffix + ".sctunit");
 		}
 		Files.copy(source.toPath(), dest.toPath());
+		System.out.println(dest.getAbsolutePath() + " succesfully written");
 
 		// If the .ysc without namespace has been generated, copy it from the temporary
 		// workspace to the execution directory
@@ -338,6 +339,7 @@ public class Createst {
 				dest = new File(execLocationPath + "\\" + sourceFileName + ysc_suffix + ".ysc");
 			}
 			Files.copy(source.toPath(), dest.toPath());
+			System.out.println(dest.getAbsolutePath() + " succesfully written");
 		}
 
 		// If the '-g' option is used, compress the temporary workspace into a .zip and
@@ -347,7 +349,9 @@ public class Createst {
 			System.out.println("Compressing the artifacts...");
 			System.out.println("*******************************************");
 			String workspaceName = workspacePath.substring(workspacePath.lastIndexOf('\\'));
-			ZipUtil.pack(new File(workspacePath), new File(execLocationPath + workspaceName + ".zip"));
+			dest = new File(execLocationPath + workspaceName + ".zip");
+			ZipUtil.pack(new File(workspacePath), dest);
+			System.out.println(dest.getAbsolutePath() + " succesfully written");
 		}
 	}
 
