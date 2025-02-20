@@ -268,7 +268,7 @@ public class Createst {
 		testDir.mkdir();
 		modelsDir.mkdir();
 
-		// Popolate the temporary workspace with the files necessary to make it an Xtext
+		// Populate the temporary workspace with the files necessary to make it an Xtext
 		// project and with the input .ysc file
 		ClassLoader classLoader = Createst.class.getClassLoader();
 		InputStream sourceStream;

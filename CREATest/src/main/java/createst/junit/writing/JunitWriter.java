@@ -31,7 +31,7 @@ public class JunitWriter implements IJunitWriter {
 		if (hasSearchBudget)
 			evoArgs.add("-Dsearch_budget=" + searchBudget);
 		// This option is necessary for the jar to execute without warnings, it should
-		// never trow the URISyntaxException
+		// never throw the URISyntaxException
 		try {
 			String jarRunningDir = new File(
 					JunitWriter.class.getProtectionDomain().getCodeSource().getLocation().toURI()).getParentFile()
