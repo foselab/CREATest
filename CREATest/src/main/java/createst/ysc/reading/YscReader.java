@@ -29,6 +29,9 @@ public class YscReader implements IYscReader {
 	
 	/** True if the statechart has a namespace, false otherwise.*/
 	private boolean hasNamespace;
+	
+	/** A list with the relative path of the imported sub-machines*/
+	private List<String> importedSubMachines;
 
 	/** The statechart name. */
 	private String statechartName;
@@ -70,7 +73,16 @@ public class YscReader implements IYscReader {
 	public boolean hasNamespace() {
 		return this.hasNamespace;
 	}
-
+	
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public List<String> getImportedSubMachines() {
+		return this.importedSubMachines;
+	}
+	
+	
 	/**
 	 * {@inheritDoc}
 	 */
@@ -131,8 +143,17 @@ public class YscReader implements IYscReader {
 		this.hasNamespace = this.statechartNode.getAttributes().getNamedItem("namespace") != null;
 		
 		// Obtain the name of the statechart
-		Node attribute = this.statechartNode.getAttributes().getNamedItem("name");
-		this.statechartName = attribute.getNodeValue();
+		Node nameAttribute = this.statechartNode.getAttributes().getNamedItem("name");
+		this.statechartName = nameAttribute.getNodeValue();
+		
+		// Obtain the list of imported sub-machines
+		String specAttribute = this.statechartNode.getAttributes().getNamedItem("specification").getNodeValue();
+		this.importedSubMachines = new ArrayList<>();
+        Pattern pattern = Pattern.compile("import:\\s*\"(.*)\"");
+        Matcher matcher = pattern.matcher(specAttribute);
+        while (matcher.find()) {
+        	this.importedSubMachines.add(matcher.group(1));
+        }
 
 		// Initialize data structures
 		this.statesNames = new ArrayList<String>();

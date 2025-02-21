@@ -6,6 +6,7 @@ import java.io.InputStream;
 import java.net.URISyntaxException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -109,6 +110,15 @@ public class Createst {
 		Map<String, String> statesNames = yscReader.getStatesNames();
 		Map<String, String> eventsNames = yscReader.getEventsNames();
 		Map<String, String> interfacesNames = yscReader.getInterfacesNames();
+		List<String> importedSubMachines = yscReader.getImportedSubMachines();
+		
+		// Initialize the temporary Eclipse Project
+		if (!importedSubMachines.isEmpty()) {
+			System.out.println("*******************************************");
+			System.out.println("Adding imported sub-machines to the project...");
+			System.out.println("*******************************************");
+			addSubmachines(workspacePath, yscPath, importedSubMachines);
+		}
 
 		// If necessary, create a new .ysc file without the definition of the namespace
 		if (yscReader.hasNamespace())
@@ -289,6 +299,53 @@ public class Createst {
 		Files.copy(source.toPath(), dest.toPath());
 
 		return workspace.getAbsolutePath();
+	}
+	
+	/**
+	 * Add the sub-machines to the workspace/model directory recursively and change the
+	 * imports to math their new position
+	 * 
+	 * @param workspacePath the path of the workspace 
+	 * @param statechartFilePath the path of the starting statechart
+	 * @param importedSubmachines the list of the sub-machines
+	 * @throws IOException if any IO errors occur.
+	 * @throws ParserConfigurationException if a DocumentBuilder cannot be created
+	 *                                      which satisfies the configuration
+	 *                                      requested.
+	 * @throws SAXException if any parse errors occur.
+	 */
+	private static void addSubmachines(String workspacePath, String statechartFilePath, List<String> importedSubmachines)
+			throws IOException, ParserConfigurationException, SAXException {
+		File projectDir = new File(workspacePath + "\\" + PROJECT_NAME);
+		File modelsDir = new File(projectDir.getAbsolutePath() + "\\" + MODELS_DIR);
+		// Obtain the the statechart file name with extension and its parent directory
+		String statechartPath = new File(statechartFilePath).getAbsolutePath();
+		String statechartFile = statechartPath.substring(statechartPath.lastIndexOf("\\")+1);
+		String statechartParentPath = statechartPath.substring(0, statechartPath.lastIndexOf("\\"));
+		// Make the imports statements as the submachines are in the same directory
+		YscWriter.changeImports(modelsDir + "\\" + statechartFile);
+		// Copy the sub-machines in the temporary directory
+		ISgenWriter sgenWriter = new SgenWriter();
+		IYscReader yscReader;
+		for (String subMachine: importedSubmachines) {
+			// Copy the submachine in the same directory of the importing statechart
+			String subMachinePath = new File(subMachine).getAbsolutePath();
+			String subMachineFile = subMachinePath.substring(subMachinePath.lastIndexOf("\\")+1);
+			File source = new File(statechartParentPath + "\\" + subMachine);
+			File dest = new File(modelsDir + "\\" + subMachineFile);
+			Files.copy(source.toPath(), dest.toPath(), StandardCopyOption.REPLACE_EXISTING);
+			// Imported statechart may imports other sub-machines
+			yscReader = new YscReader(dest.toString());
+			addSubmachines(workspacePath, source.toString(), yscReader.getImportedSubMachines());
+			// Make the imports statements as the submachines are in the same directory,
+			// if it was already done nothing should change
+			YscWriter.changeImports(dest.toString());
+			// Create the .sgen file
+			String statechartName = yscReader.getStatechartName();
+			String firstUpperStatechartName = statechartName.substring(0, 1).toUpperCase() + statechartName.substring(1);
+			String sgenPath = projectDir + "\\" + MODELS_DIR + "\\" + firstUpperStatechartName + ".sgen";
+			sgenWriter.writeSgen(PROJECT_NAME, statechartName, sgenPath, SOURCE_DIR, PACKAGE);
+		}
 	}
 
 	/**

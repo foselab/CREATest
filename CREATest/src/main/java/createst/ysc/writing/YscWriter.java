@@ -7,6 +7,15 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+
+import org.w3c.dom.Document;
+import org.xml.sax.SAXException;
 
 /**
  * The Class YscWriter.
@@ -14,7 +23,7 @@ import java.nio.file.Paths;
 public abstract class YscWriter {
 
 	/**
-	 * Generates a version of the source file .ysc removing the namespace
+	 * Generates a version of the source.ysc file removing the namespace
 	 * definition
 	 *
 	 * @param sourceFilePath the path of the starting .ysc file
@@ -38,6 +47,42 @@ public abstract class YscWriter {
 				+ "A new identical statechart without the namespace will be produced.\n"
 				+ "The generated SCTUnit class should be executed over this new statehcart.");
 		return sourceFilePath;
+	}
+	
+	/**
+	 * Overwrite the content of a .ysc file changing the import statements
+	 * as if the imported sub-machines are located in the same directory
+	 *
+	 * @param sourceFilePath the path of the .ysc file
+	 * @throws IOException if any IO errors occur.
+	 * @throws ParserConfigurationException if a DocumentBuilder cannot be created
+	 *                                      which satisfies the configuration
+	 *                                      requested.
+	 * @throws SAXException if any parse errors occur.
+	 */
+	public static void changeImports(String sourceFilePath) 
+			throws IOException, ParserConfigurationException, SAXException {
+		String yscContent = new String(Files.readAllBytes(Paths.get(sourceFilePath)), StandardCharsets.UTF_8);
+		// Get a DOM representation to ease the replacement 
+		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+		DocumentBuilder builder = factory.newDocumentBuilder();
+		Document document = builder.parse(new File(sourceFilePath));
+		// Obtain the list of imported sub-machines
+		String specAttribute = document.getElementsByTagName("sgraph:Statechart").item(0)
+				.getAttributes().getNamedItem("specification").getNodeValue();
+		// Substitute the import statements
+		Pattern pattern = Pattern.compile("import:\\s*\"(.*)\"");
+        Matcher matcher = pattern.matcher(specAttribute);
+        // Match on the string from the DOM and replace on the initial string
+        while (matcher.find()) {
+        	String match = matcher.group(1);
+        	String path = new File(match).getCanonicalPath();
+        	yscContent = yscContent.replace(match, path.substring(path.lastIndexOf("\\")+1));
+        }
+        // Write the new content
+        BufferedWriter writer = new BufferedWriter(new FileWriter(sourceFilePath));
+		writer.write(yscContent);
+		writer.close();
 	}
 
 }

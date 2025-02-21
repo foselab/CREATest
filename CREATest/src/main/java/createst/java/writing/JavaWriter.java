@@ -44,7 +44,7 @@ public class JavaWriter implements IJavaWriter {
 	@Override
 	public void callICGenerator(String projectPath, String itemisScc, String sourceDir, String sourceFile,
 			String statechartName) throws IOException {
-		Process p = new ProcessBuilder(itemisScc, "-m", sourceFile + "," + statechartName + ".sgen")
+		Process p = new ProcessBuilder(itemisScc)
 				.redirectErrorStream(true)
 				.directory(new File(projectPath + "\\" + sourceDir))
 				.start();

@@ -1,5 +1,6 @@
 package createst.ysc.reading;
 
+import java.util.List;
 import java.util.Map;
 
 public interface IYscReader {
@@ -10,7 +11,14 @@ public interface IYscReader {
 	 * @return true, if the statechart has a namespace, false otherwise 
 	 * 
 	 */
-	boolean hasNamespace();
+	public boolean hasNamespace();
+	
+	/**
+	 * Gets the list of the imported sub-machines.
+	 *
+	 * @return the list of the imported sub-machines
+	 */
+	public List<String> getImportedSubMachines();
 
 	/**
 	 * Gets the statechart name.

@@ -3,6 +3,7 @@ package createst.java.reading;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -16,22 +17,22 @@ public class JavaReaderTest {
 	private static IJavaReader reader = new JavaReader();
 	
 	@Test(expected = NullPointerException.class)
-	public void testNullInput() throws FileNotFoundException{
+	public void testNullInput() throws FileNotFoundException, IOException{
 		reader.getProceedTimes(null);
 	}
 
 	@Test(expected = FileNotFoundException.class)
-	public void testEmptyInput() throws FileNotFoundException{
+	public void testEmptyInput() throws FileNotFoundException, IOException{
 		reader.getProceedTimes("");
 	}
 	
 	@Test(expected = FileNotFoundException.class)
-	public void testNotExistingInput() throws FileNotFoundException{
+	public void testNotExistingInput() throws FileNotFoundException, IOException{
 		reader.getProceedTimes(RESOURCES_DIR + "\\" + "NotExistingStatechart.java");
 	}
 
 	@Test
-	public void testCorrectInput() throws FileNotFoundException {
+	public void testCorrectInput() throws FileNotFoundException, IOException {
 		Map<Integer, ProceedTime> actual = reader.getProceedTimes(RESOURCES_DIR + "\\" + FILE_NAME);
 		Map<Integer, ProceedTime> expected = new HashMap<Integer, ProceedTime>();
 		expected.put(0, new ProceedTime(100, TimeUnit.MILLISECONDS));
