@@ -20,12 +20,9 @@ public interface IJavaWriter {
 	 *
 	 * @param projectPath    the path of the project
 	 * @param itemisScc      the path of the scc.bat file
-	 * @param sourceDir      the path of the source directory
-	 * @param sourceFile     the name of the source file
-	 * @param statechartName the name of the statechart
+	 * @param sourceDir      the relative path (with respect to the projectPatg) of the source directory
 	 * @throws IOException if any IO errors occur.
 	 */
-	public void callICGenerator(String projectPath, String itemisScc, String sourceDir, String sourceFile,
-			String statechartName) throws IOException;
+	public void callICGenerator(String projectPath, String itemisScc, String sourceDir) throws IOException;
 
 }

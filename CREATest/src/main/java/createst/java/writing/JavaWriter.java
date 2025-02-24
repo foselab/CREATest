@@ -42,8 +42,7 @@ public class JavaWriter implements IJavaWriter {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void callICGenerator(String projectPath, String itemisScc, String sourceDir, String sourceFile,
-			String statechartName) throws IOException {
+	public void callICGenerator(String projectPath, String itemisScc, String sourceDir) throws IOException {
 		Process p = new ProcessBuilder(itemisScc)
 				.redirectErrorStream(true)
 				.directory(new File(projectPath + File.separator + sourceDir))

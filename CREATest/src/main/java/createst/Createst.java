@@ -135,7 +135,7 @@ public class Createst {
 		System.out.println("Calling Itemis Create code generator...");
 		System.out.println("*******************************************");
 		IJavaWriter javaWriter = new JavaWriter();
-		javaWriter.callICGenerator(projectPath, itemisScc, TempWsUtils.MODELS_DIR, sourceFile, statechartName);
+		javaWriter.callICGenerator(projectPath, itemisScc, TempWsUtils.MODELS_DIR);
 
 		// Read the java file
 		System.out.println("*******************************************");
