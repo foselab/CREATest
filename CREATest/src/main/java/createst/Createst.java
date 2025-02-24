@@ -2,24 +2,15 @@ package createst;
 
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
 import java.net.URISyntaxException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.nio.file.StandardCopyOption;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
-import javax.tools.JavaCompiler;
-import javax.tools.JavaFileObject;
-import javax.tools.StandardJavaFileManager;
-import javax.tools.ToolProvider;
 import javax.xml.parsers.ParserConfigurationException;
 
 import org.xml.sax.SAXException;
-import org.zeroturnaround.zip.ZipUtil;
 
 import createst.cli.CliManager;
 import createst.cli.ICliManager;
@@ -40,24 +31,11 @@ import createst.sgen.writing.ISgenWriter;
 import createst.sgen.writing.SgenWriter;
 import createst.ysc.reading.IYscReader;
 import createst.ysc.reading.YscReader;
-import createst.ysc.writing.IYscWriter;
-import createst.ysc.writing.YscWriter;
 
 /**
  * The Class Ysc2Sctunit, contains the main method.
  */
 public class Createst {
-
-	// Note: if any of this strings is modified, edit
-	// src/main/resources/classpath.txt and src/main/resources/project.txt
-	// accordingly
-	private static final String WORKSPACE_NAME = "ws_";
-	private static final String PROJECT_NAME = "CREATestProject";
-	private static final String SOURCE_DIR = "src";
-	private static final String BASE_PACKAGE = "statechart";
-	private static final String BINARY_DIR = "bin";
-	private static final String TEST_DIR = "test";
-	private static final String MODELS_DIR = "models";
 
 	/**
 	 * The main method, generate a .sctunit file (test suite for a statechart)
@@ -95,12 +73,12 @@ public class Createst {
 		System.out.println("*******************************************");
 		System.out.println("Initializing temporary Eclipse project...");
 		System.out.println("*******************************************");
-		String workspacePath = initProject(yscPath);
+		String workspacePath = TempWsUtils.initProject(yscPath);
 
 		// Obtain the needed Strings
 		String sourceFile = yscPath.substring(yscPath.lastIndexOf('\\') + 1);
-		String projectPath = workspacePath + "\\" + PROJECT_NAME;
-		String sourceFilePath = projectPath + "\\" + MODELS_DIR + "\\" + sourceFile;
+		String projectPath = workspacePath + "\\" + TempWsUtils.PROJECT_NAME;
+		String sourceFilePath = projectPath + "\\" + TempWsUtils.MODELS_DIR + "\\" + sourceFile;
 
 		// Read the statechart
 		System.out.println("*******************************************");
@@ -119,45 +97,45 @@ public class Createst {
 			System.out.println("*******************************************");
 			System.out.println("Adding imported sub-machines to the project...");
 			System.out.println("*******************************************");
-			addSubmachines(workspacePath, yscPath, importedSubMachines);
+			TempWsUtils.addSubmachines(workspacePath, yscPath, importedSubMachines);
 		}
 
 		// Obtain the needed Strings
 		String firstUpperStatechartName = statechartName.substring(0, 1).toUpperCase() + statechartName.substring(1);
 
-		String sgenPath = projectPath + "\\" + MODELS_DIR + "\\" + firstUpperStatechartName + ".sgen";
+		String sgenPath = projectPath + "\\" + TempWsUtils.MODELS_DIR + "\\" + firstUpperStatechartName + ".sgen";
 
-		String actualPackage = BASE_PACKAGE + (yscReader.hasNamespace()? "\\" + namespace : "");
+		String actualPackage = TempWsUtils.BASE_PACKAGE + (yscReader.hasNamespace()? "\\" + namespace : "");
 		
-		String javaPath = projectPath + "\\" + SOURCE_DIR + "\\" + actualPackage + "\\" + firstUpperStatechartName + ".java";
-		String simplifiedJavaPath = projectPath + "\\" + SOURCE_DIR + "\\" + actualPackage + "\\" + firstUpperStatechartName
+		String javaPath = projectPath + "\\" + TempWsUtils.SOURCE_DIR + "\\" + actualPackage + "\\" + firstUpperStatechartName + ".java";
+		String simplifiedJavaPath = projectPath + "\\" + TempWsUtils.SOURCE_DIR + "\\" + actualPackage + "\\" + firstUpperStatechartName
 				+ "Simplified.java";
 
-		String compilerD = "-d " + projectPath + "\\" + BINARY_DIR;
-		String compilerClasspath = "-classpath " + projectPath + "\\" + SOURCE_DIR;
+		String compilerD = "-d " + projectPath + "\\" + TempWsUtils.BINARY_DIR;
+		String compilerClasspath = "-classpath " + projectPath + "\\" + TempWsUtils.SOURCE_DIR;
 
 		String evoSimplifiedClass = "-class " + actualPackage.replace("\\", ".") + "." + firstUpperStatechartName + "Simplified";
-		String evoProjectCP = "-projectCP " + projectPath + "\\" + BINARY_DIR;
-		String evoDTestDir = "-Dtest_dir=" + projectPath + "\\" + TEST_DIR;
+		String evoProjectCP = "-projectCP " + projectPath + "\\" + TempWsUtils.BINARY_DIR;
+		String evoDTestDir = "-Dtest_dir=" + projectPath + "\\" + TempWsUtils.TEST_DIR;
 		String evoDReportDir = "-Dreport_dir=" + projectPath + "\\evosuite-report";
 
-		String simplifiedJunitPath = projectPath + "\\" + TEST_DIR + "\\" + actualPackage + "\\" + firstUpperStatechartName
+		String simplifiedJunitPath = projectPath + "\\" + TempWsUtils.TEST_DIR + "\\" + actualPackage + "\\" + firstUpperStatechartName
 				+ "Simplified_ESTest.java";
-		String sctunitPath = projectPath + "\\" + MODELS_DIR + "\\" + firstUpperStatechartName + "Test.sctunit";
+		String sctunitPath = projectPath + "\\" + TempWsUtils.MODELS_DIR + "\\" + firstUpperStatechartName + "Test.sctunit";
 
 		// Generate the .sgen file needed by itemis CREATE to generate the java code
 		System.out.println("*******************************************");
 		System.out.println("Generating .sgen file...");
 		System.out.println("*******************************************");
 		ISgenWriter sgenWriter = new SgenWriter();
-		sgenWriter.writeSgen(PROJECT_NAME, namespace, statechartName, sgenPath, SOURCE_DIR, BASE_PACKAGE);
+		sgenWriter.writeSgen(TempWsUtils.PROJECT_NAME, namespace, statechartName, sgenPath, TempWsUtils.SOURCE_DIR, TempWsUtils.BASE_PACKAGE);
 
 		// Call the itemis CREATE generators
 		System.out.println("*******************************************");
 		System.out.println("Calling Itemis Create code generator...");
 		System.out.println("*******************************************");
 		IJavaWriter javaWriter = new JavaWriter();
-		javaWriter.callICGenerator(projectPath, itemisScc, MODELS_DIR, sourceFile, statechartName);
+		javaWriter.callICGenerator(projectPath, itemisScc, TempWsUtils.MODELS_DIR, sourceFile, statechartName);
 
 		// Read the java file
 		System.out.println("*******************************************");
@@ -170,7 +148,7 @@ public class Createst {
 		System.out.println("*******************************************");
 		System.out.println("Compiling...");
 		System.out.println("*******************************************");
-		compile(compilerD, compilerClasspath, javaPath);
+		TempWsUtils.compile(compilerD, compilerClasspath, javaPath);
 
 		// Modify the generated Java code to create a simplified version
 		System.out.println("*******************************************");
@@ -182,10 +160,10 @@ public class Createst {
 		System.out.println("*******************************************");
 		System.out.println("Compiling...");
 		System.out.println("*******************************************");
-		compile(compilerD, compilerClasspath, simplifiedJavaPath);
+		TempWsUtils.compile(compilerD, compilerClasspath, simplifiedJavaPath);
 
 		// Delete the VirtualTimer.class file to hide it to Evosuite
-		String virtualTimerPath = projectPath + "//" + BINARY_DIR + "//com//yakindu//core//VirtualTimer.class";
+		String virtualTimerPath = projectPath + "//" + TempWsUtils.BINARY_DIR + "//com//yakindu//core//VirtualTimer.class";
 		if (Files.exists(Paths.get(virtualTimerPath)))
 			new File(virtualTimerPath).delete();
 
@@ -217,7 +195,7 @@ public class Createst {
 		System.out.println("*******************************************");
 		System.out.println("Copying .sctunit file...");
 		System.out.println("*******************************************");
-		copyAndCompress(workspacePath, sctunitPath, sourceFilePath, statechartName, hasGenArtifacts);
+		TempWsUtils.copyAndCompress(workspacePath, sctunitPath, sourceFilePath, statechartName, hasGenArtifacts);
 
 		// End the execution
 		System.out.println("*******************************************");
@@ -225,178 +203,6 @@ public class Createst {
 		System.out.println("*******************************************");
 		System.out.println("--------------------------------------------------------------");
 		System.exit(0);
-	}
-
-	/**
-	 * Compile.
-	 *
-	 * @param compilerD         the string "-d ProjectPath", where ProjectPath is
-	 *                          the path of the directory where the .class files
-	 *                          will be put
-	 * @param compilerClasspath the string "-classpath ClassPath", where ClassPath
-	 *                          is the classpath of the compilation
-	 * @param javaPath          the path of the .java file to compile
-	 */
-	private static void compile(String compilerD, String compilerClasspath, String javaPath) {
-		JavaCompiler compiler = ToolProvider.getSystemJavaCompiler();
-		List<String> compilationArgs = new ArrayList<String>();
-		compilationArgs.addAll(Arrays.asList(compilerD.split(" ")));
-		compilationArgs.addAll(Arrays.asList(compilerClasspath.split(" ")));
-		compilationArgs.add("-implicit:class");
-		StandardJavaFileManager stdFileManager = compiler.getStandardFileManager(null, null, null);
-		File f = new File(javaPath);
-		Iterable<? extends JavaFileObject> compilationUnits = stdFileManager
-				.getJavaFileObjectsFromFiles(Arrays.asList(f));
-		compiler.getTask(null, null, null, compilationArgs, null, compilationUnits).call();
-	}
-
-	/**
-	 * Initialize a temporary Eclipse Project.
-	 * 
-	 * @param yscPath the absolute path of the input .ysc file
-	 * 
-	 * @return the absolute path of the temporary workspace containing the Eclipse
-	 *         project.
-	 * 
-	 * @throws IOException        if any IO errors occur.
-	 * @throws URISyntaxException if the location of the evosuite jar can not be
-	 *                            parsed as a uri
-	 */
-	private static String initProject(String yscPath) throws IOException, URISyntaxException {
-		// Create the structure of the temporary workspace
-		File workspace = Files.createTempDirectory(WORKSPACE_NAME).toFile();
-		File projectDir = new File(workspace.getAbsolutePath() + "\\" + PROJECT_NAME);
-		File binDir = new File(projectDir.getAbsolutePath() + "\\" + BINARY_DIR);
-		File srcDir = new File(projectDir.getAbsolutePath() + "\\" + SOURCE_DIR);
-		File testDir = new File(projectDir.getAbsolutePath() + "\\" + TEST_DIR);
-		File modelsDir = new File(projectDir.getAbsolutePath() + "\\" + MODELS_DIR);
-
-		// Create the actual directories
-		projectDir.mkdir();
-		binDir.mkdir();
-		srcDir.mkdir();
-		testDir.mkdir();
-		modelsDir.mkdir();
-
-		// Populate the temporary workspace with the files necessary to make it an Xtext
-		// project and with the input .ysc file
-		ClassLoader classLoader = Createst.class.getClassLoader();
-		InputStream sourceStream;
-
-		sourceStream = classLoader.getResourceAsStream("classpath.txt");
-		File dest = new File(projectDir.getAbsolutePath() + "\\.classpath");
-		Files.copy(sourceStream, dest.toPath());
-		sourceStream.close();
-
-		sourceStream = classLoader.getResourceAsStream("project.txt");
-		dest = new File(projectDir.getAbsolutePath() + "\\.project");
-		Files.copy(sourceStream, dest.toPath());
-		sourceStream.close();
-
-		String sourceFile = yscPath.substring(yscPath.lastIndexOf('\\') + 1);
-		File source = new File(yscPath);
-		dest = new File(modelsDir.getAbsolutePath() + "\\" + sourceFile);
-		Files.copy(source.toPath(), dest.toPath());
-
-		return workspace.getAbsolutePath();
-	}
-	
-	/**
-	 * Add the sub-machines to the workspace/model directory recursively and change the
-	 * imports to math their new position
-	 * 
-	 * @param workspacePath the path of the workspace 
-	 * @param statechartFilePath the path of the starting statechart
-	 * @param importedSubmachines the list of the sub-machines
-	 * @throws IOException if any IO errors occur.
-	 * @throws ParserConfigurationException if a DocumentBuilder cannot be created
-	 *                                      which satisfies the configuration
-	 *                                      requested.
-	 * @throws SAXException if any parse errors occur.
-	 */
-	private static void addSubmachines(String workspacePath, String statechartFilePath, List<String> importedSubmachines)
-			throws IOException, ParserConfigurationException, SAXException {
-		IYscWriter yscRwiter = new YscWriter();
-		ISgenWriter sgenWriter = new SgenWriter();
-		IYscReader yscReader;
-		// Initialize project and model files objects
-		File projectDir = new File(workspacePath + "\\" + PROJECT_NAME);
-		File modelsDir = new File(projectDir.getAbsolutePath() + "\\" + MODELS_DIR);
-		// Obtain the the statechart file name with extension and its parent directory
-		String statechartPath = new File(statechartFilePath).getAbsolutePath();
-		String statechartFile = statechartPath.substring(statechartPath.lastIndexOf("\\")+1);
-		String statechartParentPath = statechartPath.substring(0, statechartPath.lastIndexOf("\\"));
-		// Make the imports statements as the submachines are in the same directory
-		yscRwiter.changeImports(modelsDir + "\\" + statechartFile);
-		// Copy the sub-machines in the temporary directory
-		for (String subMachine: importedSubmachines) {
-			// Copy the submachine in the same directory of the importing statechart
-			String subMachinePath = new File(subMachine).getAbsolutePath();
-			String subMachineFile = subMachinePath.substring(subMachinePath.lastIndexOf("\\")+1);
-			File source = new File(statechartParentPath + "\\" + subMachine);
-			File dest = new File(modelsDir + "\\" + subMachineFile);
-			Files.copy(source.toPath(), dest.toPath(), StandardCopyOption.REPLACE_EXISTING);
-			// Imported statechart may imports other sub-machines
-			yscReader = new YscReader(dest.toString());
-			addSubmachines(workspacePath, source.toString(), yscReader.getImportedSubMachines());
-			// Make the imports statements as the submachines are in the same directory,
-			// if it was already done nothing should change
-			yscRwiter.changeImports(dest.toString());
-			// Create the .sgen file
-			String statechartName = yscReader.getStatechartName();
-			String namespace = yscReader.getNamespace();
-			String firstUpperStatechartName = statechartName.substring(0, 1).toUpperCase() + statechartName.substring(1);
-			String sgenPath = projectDir + "\\" + MODELS_DIR + "\\" + firstUpperStatechartName + ".sgen";
-			sgenWriter.writeSgen(PROJECT_NAME, namespace, statechartName, sgenPath, SOURCE_DIR, BASE_PACKAGE);
-		}
-	}
-
-	/**
-	 * Copies the .sctunit file and eventually generate the .zip of the workspace.
-	 * 
-	 * @param workspacePath         the absolute path of the temporary workspace
-	 * @param simplifiedSctunitPath the absolute path of the .sctunit file in the
-	 *                              temporary workspace
-	 * @param sourceFilePath        the absolute path of the .ysc file in the
-	 *                              temporary workspace
-	 * @param statechartName        the name of the input statechart
-	 * @param hasGenArtifacts       true if a .zip containing all the artifacts
-	 *                              generated in the temporary workspace should be
-	 *                              generated, false otherwise
-	 * 
-	 * @throws IOException        if any IO errors occur.
-	 * @throws URISyntaxException if the execution location can not be parsed as a
-	 *                            uri
-	 */
-	private static void copyAndCompress(String workspacePath, String simplifiedSctunitPath, String sourceFilePath,
-			String statechartName, boolean hasGenArtifacts) throws IOException, URISyntaxException {
-		// Get the location in which the JAR is executed
-		String execLocationPath = new File(Createst.class.getProtectionDomain().getCodeSource().getLocation().toURI())
-				.getParentFile().getPath();
-
-		// Copy the .sctunit file from the temporary workspace to the execution
-		// directory
-		File source = new File(simplifiedSctunitPath);
-		File dest = new File(execLocationPath + "\\" + statechartName + "Test.sctunit");
-		int sctunit_suffix = 0;
-		while (dest.exists()) {
-			sctunit_suffix++;
-			dest = new File(execLocationPath + "\\" + statechartName + "Test_" + sctunit_suffix + ".sctunit");
-		}
-		Files.copy(source.toPath(), dest.toPath());
-		System.out.println(dest.getAbsolutePath() + " succesfully written");
-
-		// If the '-g' option is used, compress the temporary workspace into a .zip and
-		// put it in the execution directory
-		if (hasGenArtifacts) {
-			System.out.println("*******************************************");
-			System.out.println("Compressing the artifacts...");
-			System.out.println("*******************************************");
-			String workspaceName = workspacePath.substring(workspacePath.lastIndexOf('\\'));
-			dest = new File(execLocationPath + workspaceName + ".zip");
-			ZipUtil.pack(new File(workspacePath), dest);
-			System.out.println(dest.getAbsolutePath() + " succesfully written");
-		}
 	}
 
 }
