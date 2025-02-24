@@ -82,11 +82,11 @@ public abstract class TempWsUtils {
 	public static String initProject(String yscPath) throws IOException, URISyntaxException {
 		// Create the structure of the temporary workspace
 		File workspace = Files.createTempDirectory(WORKSPACE_NAME).toFile();
-		File projectDir = new File(workspace.getAbsolutePath() + "\\" + PROJECT_NAME);
-		File binDir = new File(projectDir.getAbsolutePath() + "\\" + BINARY_DIR);
-		File srcDir = new File(projectDir.getAbsolutePath() + "\\" + SOURCE_DIR);
-		File testDir = new File(projectDir.getAbsolutePath() + "\\" + TEST_DIR);
-		File modelsDir = new File(projectDir.getAbsolutePath() + "\\" + MODELS_DIR);
+		File projectDir = new File(workspace.getAbsolutePath() + File.separator + PROJECT_NAME);
+		File binDir = new File(projectDir.getAbsolutePath() + File.separator + BINARY_DIR);
+		File srcDir = new File(projectDir.getAbsolutePath() + File.separator + SOURCE_DIR);
+		File testDir = new File(projectDir.getAbsolutePath() + File.separator + TEST_DIR);
+		File modelsDir = new File(projectDir.getAbsolutePath() + File.separator + MODELS_DIR);
 
 		// Create the actual directories
 		projectDir.mkdir();
@@ -101,18 +101,18 @@ public abstract class TempWsUtils {
 		InputStream sourceStream;
 
 		sourceStream = classLoader.getResourceAsStream("classpath.txt");
-		File dest = new File(projectDir.getAbsolutePath() + "\\.classpath");
+		File dest = new File(projectDir.getAbsolutePath() + File.separator + ".classpath");
 		Files.copy(sourceStream, dest.toPath());
 		sourceStream.close();
 
 		sourceStream = classLoader.getResourceAsStream("project.txt");
-		dest = new File(projectDir.getAbsolutePath() + "\\.project");
+		dest = new File(projectDir.getAbsolutePath() + File.separator + ".project");
 		Files.copy(sourceStream, dest.toPath());
 		sourceStream.close();
 
-		String sourceFile = yscPath.substring(yscPath.lastIndexOf('\\') + 1);
+		String sourceFile = yscPath.substring(yscPath.lastIndexOf(File.separator) + 1);
 		File source = new File(yscPath);
-		dest = new File(modelsDir.getAbsolutePath() + "\\" + sourceFile);
+		dest = new File(modelsDir.getAbsolutePath() + File.separator + sourceFile);
 		Files.copy(source.toPath(), dest.toPath());
 
 		return workspace.getAbsolutePath();
@@ -137,21 +137,21 @@ public abstract class TempWsUtils {
 		ISgenWriter sgenWriter = new SgenWriter();
 		IYscReader yscReader;
 		// Initialize project and model files objects
-		File projectDir = new File(workspacePath + "\\" + PROJECT_NAME);
-		File modelsDir = new File(projectDir.getAbsolutePath() + "\\" + MODELS_DIR);
+		File projectDir = new File(workspacePath + File.separator + PROJECT_NAME);
+		File modelsDir = new File(projectDir.getAbsolutePath() + File.separator + MODELS_DIR);
 		// Obtain the the statechart file name with extension and its parent directory
 		String statechartPath = new File(statechartFilePath).getAbsolutePath();
-		String statechartFile = statechartPath.substring(statechartPath.lastIndexOf("\\")+1);
-		String statechartParentPath = statechartPath.substring(0, statechartPath.lastIndexOf("\\"));
+		String statechartFile = statechartPath.substring(statechartPath.lastIndexOf(File.separator)+1);
+		String statechartParentPath = statechartPath.substring(0, statechartPath.lastIndexOf(File.separator));
 		// Make the imports statements as the submachines are in the same directory
-		yscRwiter.changeImports(modelsDir + "\\" + statechartFile);
+		yscRwiter.changeImports(modelsDir + File.separator + statechartFile);
 		// Copy the sub-machines in the temporary directory
 		for (String subMachine: importedSubmachines) {
 			// Copy the submachine in the same directory of the importing statechart
 			String subMachinePath = new File(subMachine).getAbsolutePath();
-			String subMachineFile = subMachinePath.substring(subMachinePath.lastIndexOf("\\")+1);
-			File source = new File(statechartParentPath + "\\" + subMachine);
-			File dest = new File(modelsDir + "\\" + subMachineFile);
+			String subMachineFile = subMachinePath.substring(subMachinePath.lastIndexOf(File.separator)+1);
+			File source = new File(statechartParentPath + File.separator + subMachine);
+			File dest = new File(modelsDir + File.separator + subMachineFile);
 			Files.copy(source.toPath(), dest.toPath(), StandardCopyOption.REPLACE_EXISTING);
 			// Imported statechart may imports other sub-machines
 			yscReader = new YscReader(dest.toString());
@@ -163,7 +163,7 @@ public abstract class TempWsUtils {
 			String statechartName = yscReader.getStatechartName();
 			String namespace = yscReader.getNamespace();
 			String firstUpperStatechartName = statechartName.substring(0, 1).toUpperCase() + statechartName.substring(1);
-			String sgenPath = projectDir + "\\" + MODELS_DIR + "\\" + firstUpperStatechartName + ".sgen";
+			String sgenPath = projectDir + File.separator + MODELS_DIR + File.separator + firstUpperStatechartName + ".sgen";
 			sgenWriter.writeSgen(PROJECT_NAME, namespace, statechartName, sgenPath, SOURCE_DIR, BASE_PACKAGE);
 		}
 	}
@@ -194,11 +194,11 @@ public abstract class TempWsUtils {
 		// Copy the .sctunit file from the temporary workspace to the execution
 		// directory
 		File source = new File(simplifiedSctunitPath);
-		File dest = new File(execLocationPath + "\\" + statechartName + "Test.sctunit");
+		File dest = new File(execLocationPath + File.separator + statechartName + "Test.sctunit");
 		int sctunit_suffix = 0;
 		while (dest.exists()) {
 			sctunit_suffix++;
-			dest = new File(execLocationPath + "\\" + statechartName + "Test_" + sctunit_suffix + ".sctunit");
+			dest = new File(execLocationPath + File.separator + statechartName + "Test_" + sctunit_suffix + ".sctunit");
 		}
 		Files.copy(source.toPath(), dest.toPath());
 		System.out.println(dest.getAbsolutePath() + " succesfully written");
@@ -209,7 +209,7 @@ public abstract class TempWsUtils {
 			System.out.println("*******************************************");
 			System.out.println("Compressing the artifacts...");
 			System.out.println("*******************************************");
-			String workspaceName = workspacePath.substring(workspacePath.lastIndexOf('\\'));
+			String workspaceName = workspacePath.substring(workspacePath.lastIndexOf(File.separator));
 			dest = new File(execLocationPath + workspaceName + ".zip");
 			ZipUtil.pack(new File(workspacePath), dest);
 			System.out.println(dest.getAbsolutePath() + " succesfully written");

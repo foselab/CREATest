@@ -33,7 +33,7 @@ public class SgenWriterTest {
 	public static void initTempFolder() throws IOException {
 		writer = new SgenWriter();
 		rootPath = tmpFolder.getRoot().getCanonicalFile().toString();
-		sgenPath = rootPath + "\\" + STATECHART_NAME + ".sgen";
+		sgenPath = rootPath + File.separator + STATECHART_NAME + ".sgen";
 	}
 	
 	@After

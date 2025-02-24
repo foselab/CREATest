@@ -2,6 +2,7 @@ package createst.cli;
 
 import static org.junit.Assert.*;
 
+import java.io.File;
 import java.io.IOException;
 
 import org.junit.BeforeClass;
@@ -53,8 +54,8 @@ public class CliManagerTest {
 		String[] args = new String[] 
 				{
 					"-h",
-					"-s", rootPath + "\\" + SCC,
-					"-y", rootPath + "\\" + YSC,
+					"-s", rootPath + File.separator + SCC,
+					"-y", rootPath + File.separator + YSC,
 				};
 		InputValues expected = null;
 		InputValues actual = cli.parse(args);
@@ -72,7 +73,7 @@ public class CliManagerTest {
 	public void testMissingRequiredOption() throws IOException {
 		String[] args = new String[] 
 				{
-					"--sccPath", rootPath + "\\" + SCC,
+					"--sccPath", rootPath + File.separator + SCC,
 					"-b", EVO_SEARCH_BUDGET,
 					"-g",
 				};
@@ -82,7 +83,7 @@ public class CliManagerTest {
 		
 		args = new String[] 
 				{
-					"--yscPath", rootPath + "\\" + YSC,
+					"--yscPath", rootPath + File.separator + YSC,
 					"-b", EVO_SEARCH_BUDGET,
 					"-g",
 				};
@@ -94,8 +95,8 @@ public class CliManagerTest {
 	public void testNonExistingOption() throws IOException {
 		String[] args = new String[] 
 				{
-					"--scc", rootPath + "\\" + SCC,
-					"-y", rootPath + "\\" + YSC,
+					"--scc", rootPath + File.separator + SCC,
+					"-y", rootPath + File.separator + YSC,
 				};
 		InputValues expected = null;
 		InputValues actual = cli.parse(args);
@@ -108,7 +109,7 @@ public class CliManagerTest {
 		String[] args = new String[] 
 				{
 					"-s", "WrongSccPath",
-					"-y", rootPath + "\\" + YSC,
+					"-y", rootPath + File.separator + YSC,
 				};
 		InputValues expected = null;
 		InputValues actual = cli.parse(args);
@@ -118,7 +119,7 @@ public class CliManagerTest {
 		args = new String[] 
 				{
 					"-s", rootPath,
-					"-y", rootPath + "\\" + YSC,
+					"-y", rootPath + File.separator + YSC,
 				};
 		actual = cli.parse(args);
 		assertEquals(expected, actual);
@@ -126,7 +127,7 @@ public class CliManagerTest {
 		// YSC does not exist
 		args = new String[] 
 				{
-					"-s", rootPath + "\\" + SCC,
+					"-s", rootPath + File.separator + SCC,
 					"-y", "WrongYscPath",
 				};
 		actual = cli.parse(args);
@@ -135,8 +136,8 @@ public class CliManagerTest {
 		// YSC is not a .ysc file
 		args = new String[] 
 				{
-					"-s", rootPath + "\\" + SCC,
-					"-y", rootPath + "\\" + YSC.replace(".ysc", ".txt"),
+					"-s", rootPath + File.separator + SCC,
+					"-y", rootPath + File.separator + YSC.replace(".ysc", ".txt"),
 				};
 		actual = cli.parse(args);
 		assertEquals(expected, actual);
@@ -145,8 +146,8 @@ public class CliManagerTest {
 		// EvoSearchBudget is negative
 		args = new String[] 
 				{
-					"-s", rootPath + "\\" + SCC,
-					"-y", rootPath + "\\" + YSC,
+					"-s", rootPath + File.separator + SCC,
+					"-y", rootPath + File.separator + YSC,
 					"-b", "-10"
 				};
 		actual = cli.parse(args);
@@ -155,8 +156,8 @@ public class CliManagerTest {
 		// EvoSearchBudget is not a number
 		args = new String[] 
 				{
-					"-s", rootPath + "\\" + SCC,
-					"-y", rootPath + "\\" + YSC,
+					"-s", rootPath + File.separator + SCC,
+					"-y", rootPath + File.separator + YSC,
 					"--evoSearchBudget", "-ten"
 				};
 		actual = cli.parse(args);
@@ -167,14 +168,14 @@ public class CliManagerTest {
 	public void testAllCorrectOption() throws IOException {
 		String[] args = new String[] 
 				{
-					"-sccPath", rootPath + "\\" + SCC,
-					"-yscPath", rootPath + "\\" + YSC,
+					"-sccPath", rootPath + File.separator + SCC,
+					"-yscPath", rootPath + File.separator + YSC,
 					"-evoSearchBudget", EVO_SEARCH_BUDGET,
 					"--genArtifacts"
 				};
 		InputValues expected = new InputValues();
-		expected.setSccPath(rootPath + "\\" + SCC);
-		expected.setYscPath(rootPath + "\\" + YSC);
+		expected.setSccPath(rootPath + File.separator + SCC);
+		expected.setYscPath(rootPath + File.separator + YSC);
 		expected.setEvoSearchBudget(Integer.parseInt(EVO_SEARCH_BUDGET));
 		expected.setGenArtifacts();
 		
@@ -188,12 +189,12 @@ public class CliManagerTest {
 		
 		args = new String[] 
 				{
-					"-s", rootPath + "\\" + SCC,
-					"-y", rootPath + "\\" + YSC,
+					"-s", rootPath + File.separator + SCC,
+					"-y", rootPath + File.separator + YSC,
 				};
 		expected = new InputValues();
-		expected.setSccPath(rootPath + "\\" + SCC);
-		expected.setYscPath(rootPath + "\\" + YSC);
+		expected.setSccPath(rootPath + File.separator + SCC);
+		expected.setYscPath(rootPath + File.separator + YSC);
 		
 		actual = cli.parse(args);
 		assertThat(actual)

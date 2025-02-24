@@ -23,7 +23,7 @@ import com.github.javaparser.ast.body.MethodDeclaration;
 import com.github.javaparser.ast.body.VariableDeclarator;
 
 public class JavaWriterTest {
-	private static final String RESOURCES_DIR = "src\\test\\resources";
+	private static final String RESOURCES_DIR = "src" + File.separator + "test" + File.separator + "resources";
 	private static final String JAVA_NAME = "Javawriting_statechart";
 	
 	private static IJavaWriter writer;
@@ -39,8 +39,8 @@ public class JavaWriterTest {
 	public static void initTempFolder() throws IOException {
 		writer = new JavaWriter();
 		rootPath = tmpFolder.getRoot().getCanonicalFile().toString();
-		javaPath = RESOURCES_DIR + "\\" + JAVA_NAME + ".java";
-		simplifiedJavaPath = rootPath + "\\" + JAVA_NAME + "Simplified.java";
+		javaPath = RESOURCES_DIR + File.separator + JAVA_NAME + ".java";
+		simplifiedJavaPath = rootPath + File.separator + JAVA_NAME + "Simplified.java";
 	}
 	
 	@After

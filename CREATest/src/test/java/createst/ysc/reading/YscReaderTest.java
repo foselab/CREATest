@@ -2,6 +2,7 @@ package createst.ysc.reading;
 
 import static org.junit.Assert.*;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -12,7 +13,7 @@ import org.junit.Test;
 import org.xml.sax.SAXException;
 
 public class YscReaderTest {
-	private static final String RESOURCES_DIR = "src\\test\\resources";
+	private static final String RESOURCES_DIR = "src" + File.separator + "test" + File.separator + "resources";
 	private static final String FILE_NAME = "Yscreading_Statechart.ysc";
 	private static final String STATECHART_NAME = "SctName";
 	
@@ -30,12 +31,12 @@ public class YscReaderTest {
 	
 	@Test(expected = IOException.class)
 	public void testNotExistingInput() throws ParserConfigurationException, SAXException, IOException {
-		reader = new YscReader(RESOURCES_DIR + "\\" + "NotExistingStatechart.ysc");
+		reader = new YscReader(RESOURCES_DIR + File.separator + "NotExistingStatechart.ysc");
 	}
 	
 	@Test
 	public void testCorrectInput() throws ParserConfigurationException, SAXException, IOException {
-		reader = new YscReader(RESOURCES_DIR + "\\" + FILE_NAME);
+		reader = new YscReader(RESOURCES_DIR + File.separator + FILE_NAME);
 		
 		String expectedStatechartName = STATECHART_NAME;
 		assertEquals(expectedStatechartName, reader.getStatechartName());

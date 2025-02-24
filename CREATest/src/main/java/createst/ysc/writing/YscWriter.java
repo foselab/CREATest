@@ -42,7 +42,7 @@ public class YscWriter implements IYscWriter {
         while (matcher.find()) {
         	String match = matcher.group(1);
         	String path = new File(match).getCanonicalPath();
-        	yscContent = yscContent.replace(match, path.substring(path.lastIndexOf("\\")+1));
+        	yscContent = yscContent.replace(match, path.substring(path.lastIndexOf(File.separator)+1));
         }
         // Write the new content
         BufferedWriter writer = new BufferedWriter(new FileWriter(sourceFilePath));

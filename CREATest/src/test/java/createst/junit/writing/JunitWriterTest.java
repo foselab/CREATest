@@ -22,7 +22,7 @@ import org.junit.Test;
 import org.junit.rules.TemporaryFolder;
 
 public class JunitWriterTest {
-	private static final String RESOURCES_DIR = "src\\test\\resources";
+	private static final String RESOURCES_DIR = "src" + File.separator + "test" + File.separator + "resources";
 	private static final String TEST_DIR = "test";
 	private static final String REPORT_DIR = "report";
 	private static final String PROJECT_NAME = "Junitwriting_project";
@@ -45,15 +45,15 @@ public class JunitWriterTest {
 
 	@BeforeClass
 	public static void initTempFolder() throws IOException {
-		srcDir = RESOURCES_DIR + "\\" + PROJECT_NAME + "\\" + SOURCE_DIR;
-		binDir = RESOURCES_DIR + "\\" + PROJECT_NAME + "\\" + BINARY_DIR; 
+		srcDir = RESOURCES_DIR + File.separator + PROJECT_NAME + File.separator + SOURCE_DIR;
+		binDir = RESOURCES_DIR + File.separator + PROJECT_NAME + File.separator + BINARY_DIR; 
 		writer = new JunitWriter();
 		rootPath = tmpFolder.getRoot().getCanonicalFile().toString();
-		junitPath = rootPath + "\\" + TEST_DIR + "\\" + PACKAGE_NAME + "\\" + FILE_NAME
+		junitPath = rootPath + File.separator + TEST_DIR + File.separator + PACKAGE_NAME + File.separator + FILE_NAME
 				+ "_ESTest.java";
-		scaffoldingPath = rootPath + "\\" + TEST_DIR + "\\" + PACKAGE_NAME + "\\" + FILE_NAME
+		scaffoldingPath = rootPath + File.separator + TEST_DIR + File.separator + PACKAGE_NAME + File.separator + FILE_NAME
 				+ "_ESTest_scaffolding.java";
-		csvPath = rootPath + "\\" + REPORT_DIR + "\\statistics.csv";
+		csvPath = rootPath + File.separator + REPORT_DIR + File.separator + "statistics.csv";
 		tmpFolder.newFolder(TEST_DIR);
 		tmpFolder.newFolder(REPORT_DIR);
 	}
@@ -70,9 +70,9 @@ public class JunitWriterTest {
 		compilationArgs.add("-implicit:class");
 		StandardJavaFileManager stdFileManager = compiler.getStandardFileManager(null, null, null);
 		List<File> toBeCompiled = new ArrayList<>();
-		toBeCompiled.add(new File(srcDir + "\\com\\yakindu\\core\\IEventDriven.java"));
-		toBeCompiled.add(new File(srcDir + "\\com\\yakindu\\core\\IStatemachine.java"));
-		toBeCompiled.add(new File(srcDir + "\\junitwriting\\Statechart.java"));
+		toBeCompiled.add(new File(srcDir + File.separator + "com" + File.separator + "yakindu" + File.separator + "core" + File.separator + "IEventDriven.java"));
+		toBeCompiled.add(new File(srcDir + File.separator + "com" + File.separator + "yakindu" + File.separator + "core" + File.separator + "IStatemachine.java"));
+		toBeCompiled.add(new File(srcDir  + File.separator + "junitwriting" + File.separator + "Statechart.java"));
 		Iterable<? extends JavaFileObject> compilationUnits = stdFileManager.getJavaFileObjectsFromFiles(toBeCompiled);
 		compiler.getTask(null, null, null, compilationArgs, null, compilationUnits).call();
 	}
@@ -94,9 +94,9 @@ public class JunitWriterTest {
 		assertFalse(Files.exists(Paths.get(csvPath)));
 		
 		String classOption = "-class " + PACKAGE_NAME +  "." + "WrongFileName";
-		String projectCpOption = "-projectCP " + RESOURCES_DIR + "\\" + PROJECT_NAME + "\\" + BINARY_DIR;
-		String testDirOption = "-Dtest_dir=" + rootPath + "\\" + TEST_DIR;
-		String reportDirOption = "-Dreport_dir=" + rootPath + "\\" + REPORT_DIR;
+		String projectCpOption = "-projectCP " + RESOURCES_DIR + File.separator + PROJECT_NAME + File.separator + BINARY_DIR;
+		String testDirOption = "-Dtest_dir=" + rootPath + File.separator + TEST_DIR;
+		String reportDirOption = "-Dreport_dir=" + rootPath + File.separator + REPORT_DIR;
 		
 		writer.callEvosuite(classOption, projectCpOption, testDirOption, reportDirOption, true, 1);
 		
@@ -112,9 +112,9 @@ public class JunitWriterTest {
 		assertFalse(Files.exists(Paths.get(csvPath)));
 		
 		String classOption = "-class " + PACKAGE_NAME +  "." + FILE_NAME;
-		String projectCpOption = "-projectCP " + RESOURCES_DIR + "\\" + PROJECT_NAME + "\\" + "WrongBinaryDir";
-		String testDirOption = "-Dtest_dir=" + rootPath + "\\" + TEST_DIR;
-		String reportDirOption = "-Dreport_dir=" + rootPath + "\\" + REPORT_DIR;
+		String projectCpOption = "-projectCP " + RESOURCES_DIR + File.separator + PROJECT_NAME + File.separator + "WrongBinaryDir";
+		String testDirOption = "-Dtest_dir=" + rootPath + File.separator + TEST_DIR;
+		String reportDirOption = "-Dreport_dir=" + rootPath + File.separator + REPORT_DIR;
 		
 		writer.callEvosuite(classOption, projectCpOption, testDirOption, reportDirOption, true, 1);
 	}
@@ -126,9 +126,9 @@ public class JunitWriterTest {
 		assertFalse(Files.exists(Paths.get(csvPath)));
 		
 		String classOption = "-class " + PACKAGE_NAME + "." + FILE_NAME;
-		String projectCpOption = "-projectCP " + RESOURCES_DIR + "\\" + PROJECT_NAME + "\\" + BINARY_DIR;
-		String testDirOption = "-Dtest_dir=" + rootPath + "\\" + TEST_DIR;
-		String reportDirOption = "-Dreport_dir=" + rootPath + "\\" + REPORT_DIR;
+		String projectCpOption = "-projectCP " + RESOURCES_DIR + File.separator + PROJECT_NAME + File.separator + BINARY_DIR;
+		String testDirOption = "-Dtest_dir=" + rootPath + File.separator + TEST_DIR;
+		String reportDirOption = "-Dreport_dir=" + rootPath + File.separator + REPORT_DIR;
 		
 		writer.callEvosuite(classOption, projectCpOption, testDirOption, reportDirOption, true, 1);
 		

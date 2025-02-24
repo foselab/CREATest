@@ -20,7 +20,7 @@ import org.junit.rules.TemporaryFolder;
 import org.xml.sax.SAXException;
 
 public class YscWriterTest {
-	private static final String RESOURCES_DIR = "src\\test\\resources";
+	private static final String RESOURCES_DIR = "src" + File.separator + "test" + File.separator + "resources";
 	private static final String STATECHART_NAME = "Yscwriting_statechart";
 	
 	private static IYscWriter writer;
@@ -35,13 +35,13 @@ public class YscWriterTest {
 	@BeforeClass
 	public static void initTempFolder() throws IOException{
 		writer = new YscWriter();
-		yscPath = RESOURCES_DIR + "\\" + STATECHART_NAME + ".ysc";
+		yscPath = RESOURCES_DIR + File.separator + STATECHART_NAME + ".ysc";
 		rootPath = tmpFolder.getRoot().getCanonicalFile().toString();
 	}
 	
 	@Before
 	public void copyFile() throws IOException {
-		yscCopyPath = rootPath + "\\" + STATECHART_NAME + ".ysc";
+		yscCopyPath = rootPath + File.separator + STATECHART_NAME + ".ysc";
 		Files.copy(new File(yscPath).toPath(), new File(yscCopyPath).toPath(), StandardCopyOption.REPLACE_EXISTING);
 	}
 	

@@ -2,6 +2,7 @@ package createst.junit.reading;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -14,7 +15,7 @@ import createst.java.reading.ProceedTime;
 import createst.java.reading.TimeUnit;
 
 public class JunitReaderTest {
-	private static final String RESOURCES_DIR = "src\\test\\resources";
+	private static final String RESOURCES_DIR = "src" + File.separator + "test" + File.separator + "resources";
 	private static final String FILE_NAME = "Junitreading_statechart_test.java";
 	private static final String STATECHART_NAME = "Statechart";
 	
@@ -33,7 +34,7 @@ public class JunitReaderTest {
 
 	@Test
 	public void testCorrectInput() throws IOException {
-		String junitPath = RESOURCES_DIR + "\\" + FILE_NAME;
+		String junitPath = RESOURCES_DIR + File.separator + FILE_NAME;
 		String statechartName = STATECHART_NAME;
 		
 		Map<String, String> statesNames = new HashMap<String, String>();

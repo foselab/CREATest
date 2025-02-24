@@ -46,7 +46,7 @@ public class JavaWriter implements IJavaWriter {
 			String statechartName) throws IOException {
 		Process p = new ProcessBuilder(itemisScc)
 				.redirectErrorStream(true)
-				.directory(new File(projectPath + "\\" + sourceDir))
+				.directory(new File(projectPath + File.separator + sourceDir))
 				.start();
 		BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
 		String line = null;

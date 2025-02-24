@@ -76,9 +76,9 @@ public class Createst {
 		String workspacePath = TempWsUtils.initProject(yscPath);
 
 		// Obtain the needed Strings
-		String sourceFile = yscPath.substring(yscPath.lastIndexOf('\\') + 1);
-		String projectPath = workspacePath + "\\" + TempWsUtils.PROJECT_NAME;
-		String sourceFilePath = projectPath + "\\" + TempWsUtils.MODELS_DIR + "\\" + sourceFile;
+		String sourceFile = yscPath.substring(yscPath.lastIndexOf(File.separator) + 1);
+		String projectPath = workspacePath + File.separator + TempWsUtils.PROJECT_NAME;
+		String sourceFilePath = projectPath + File.separator + TempWsUtils.MODELS_DIR + File.separator + sourceFile;
 
 		// Read the statechart
 		System.out.println("*******************************************");
@@ -103,25 +103,25 @@ public class Createst {
 		// Obtain the needed Strings
 		String firstUpperStatechartName = statechartName.substring(0, 1).toUpperCase() + statechartName.substring(1);
 
-		String sgenPath = projectPath + "\\" + TempWsUtils.MODELS_DIR + "\\" + firstUpperStatechartName + ".sgen";
+		String sgenPath = projectPath + File.separator + TempWsUtils.MODELS_DIR + File.separator + firstUpperStatechartName + ".sgen";
 
-		String actualPackage = TempWsUtils.BASE_PACKAGE + (yscReader.hasNamespace()? "\\" + namespace : "");
+		String actualPackage = TempWsUtils.BASE_PACKAGE + (yscReader.hasNamespace()? File.separator + namespace : "");
 		
-		String javaPath = projectPath + "\\" + TempWsUtils.SOURCE_DIR + "\\" + actualPackage + "\\" + firstUpperStatechartName + ".java";
-		String simplifiedJavaPath = projectPath + "\\" + TempWsUtils.SOURCE_DIR + "\\" + actualPackage + "\\" + firstUpperStatechartName
+		String javaPath = projectPath + File.separator + TempWsUtils.SOURCE_DIR + File.separator + actualPackage + File.separator + firstUpperStatechartName + ".java";
+		String simplifiedJavaPath = projectPath + File.separator + TempWsUtils.SOURCE_DIR + File.separator + actualPackage + File.separator + firstUpperStatechartName
 				+ "Simplified.java";
 
-		String compilerD = "-d " + projectPath + "\\" + TempWsUtils.BINARY_DIR;
-		String compilerClasspath = "-classpath " + projectPath + "\\" + TempWsUtils.SOURCE_DIR;
+		String compilerD = "-d " + projectPath + File.separator + TempWsUtils.BINARY_DIR;
+		String compilerClasspath = "-classpath " + projectPath + File.separator + TempWsUtils.SOURCE_DIR;
 
-		String evoSimplifiedClass = "-class " + actualPackage.replace("\\", ".") + "." + firstUpperStatechartName + "Simplified";
-		String evoProjectCP = "-projectCP " + projectPath + "\\" + TempWsUtils.BINARY_DIR;
-		String evoDTestDir = "-Dtest_dir=" + projectPath + "\\" + TempWsUtils.TEST_DIR;
-		String evoDReportDir = "-Dreport_dir=" + projectPath + "\\evosuite-report";
+		String evoSimplifiedClass = "-class " + actualPackage.replace(File.separator, ".") + "." + firstUpperStatechartName + "Simplified";
+		String evoProjectCP = "-projectCP " + projectPath + File.separator + TempWsUtils.BINARY_DIR;
+		String evoDTestDir = "-Dtest_dir=" + projectPath + File.separator + TempWsUtils.TEST_DIR;
+		String evoDReportDir = "-Dreport_dir=" + projectPath + File.separator + "evosuite-report";
 
-		String simplifiedJunitPath = projectPath + "\\" + TempWsUtils.TEST_DIR + "\\" + actualPackage + "\\" + firstUpperStatechartName
+		String simplifiedJunitPath = projectPath + File.separator + TempWsUtils.TEST_DIR + File.separator + actualPackage + File.separator + firstUpperStatechartName
 				+ "Simplified_ESTest.java";
-		String sctunitPath = projectPath + "\\" + TempWsUtils.MODELS_DIR + "\\" + firstUpperStatechartName + "Test.sctunit";
+		String sctunitPath = projectPath + File.separator + TempWsUtils.MODELS_DIR + File.separator + firstUpperStatechartName + "Test.sctunit";
 
 		// Generate the .sgen file needed by itemis CREATE to generate the java code
 		System.out.println("*******************************************");
@@ -163,7 +163,7 @@ public class Createst {
 		TempWsUtils.compile(compilerD, compilerClasspath, simplifiedJavaPath);
 
 		// Delete the VirtualTimer.class file to hide it to Evosuite
-		String virtualTimerPath = projectPath + "//" + TempWsUtils.BINARY_DIR + "//com//yakindu//core//VirtualTimer.class";
+		String virtualTimerPath = projectPath + File.separator + TempWsUtils.BINARY_DIR + File.separator + "com" + File.separator + "yakindu" + File.separator + "core" + File.separator + "VirtualTimer.class";
 		if (Files.exists(Paths.get(virtualTimerPath)))
 			new File(virtualTimerPath).delete();
 

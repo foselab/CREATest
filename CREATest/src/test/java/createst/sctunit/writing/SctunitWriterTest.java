@@ -34,7 +34,7 @@ public class SctunitWriterTest {
 	public static void initTempFolder() throws IOException {
 		writer = new SctunitWriter();
 		rootPath = tmpFolder.getRoot().getCanonicalFile().toString();
-		sctunitPath = rootPath + "\\" + STATECHART_NAME + ".sctunit";
+		sctunitPath = rootPath + File.separator + STATECHART_NAME + ".sctunit";
 	}
 	
 	@After
