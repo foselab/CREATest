@@ -30,11 +30,14 @@ public class YscReader implements IYscReader {
 	/** True if the statechart has a namespace, false otherwise.*/
 	private boolean hasNamespace;
 	
-	/** A list with the relative path of the imported sub-machines*/
-	private List<String> importedSubMachines;
+	/** The statechart namespace.*/
+	private String namespace;
 
 	/** The statechart name. */
 	private String statechartName;
+	
+	/** A list with the relative path of the imported sub-machines*/
+	private List<String> importedSubMachines;
 
 	/** The list containing all the full names of states in the statechart. */
 	private List<String> statesNames;
@@ -78,8 +81,8 @@ public class YscReader implements IYscReader {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public List<String> getImportedSubMachines() {
-		return this.importedSubMachines;
+	public String getNamespace() {
+		return this.namespace;
 	}
 	
 	
@@ -89,6 +92,14 @@ public class YscReader implements IYscReader {
 	@Override
 	public String getStatechartName() {
 		return this.statechartName;
+	}
+	
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public List<String> getImportedSubMachines() {
+		return this.importedSubMachines;
 	}
 
 	/**
@@ -141,6 +152,7 @@ public class YscReader implements IYscReader {
 	private void initStatechart() {
 		// Check if the statechart has a namespace
 		this.hasNamespace = this.statechartNode.getAttributes().getNamedItem("namespace") != null;
+		this.namespace = this.hasNamespace? this.statechartNode.getAttributes().getNamedItem("namespace").getNodeValue() : null;
 		
 		// Obtain the name of the statechart
 		Node nameAttribute = this.statechartNode.getAttributes().getNamedItem("name");
@@ -149,7 +161,7 @@ public class YscReader implements IYscReader {
 		// Obtain the list of imported sub-machines
 		String specAttribute = this.statechartNode.getAttributes().getNamedItem("specification").getNodeValue();
 		this.importedSubMachines = new ArrayList<>();
-        Pattern pattern = Pattern.compile("import:\\s*\"(.*)\"");
+        Pattern pattern = Pattern.compile("import\\s*:\\s*\"(.*)\"");
         Matcher matcher = pattern.matcher(specAttribute);
         while (matcher.find()) {
         	this.importedSubMachines.add(matcher.group(1));

@@ -20,6 +20,7 @@ import createst.junit.reading.TestCase;
 
 public class SctunitWriterTest {
 	private static final String STATECHART_NAME = "Statechart";
+	private static final String NAMESPACE = "my_ns";
 	
 	private static ISctunitWriter writer;
 
@@ -51,7 +52,7 @@ public class SctunitWriterTest {
 		
 		String wrongSctunitPath = null;
 		
-		writer.writeSctunit(wrongSctunitPath, STATECHART_NAME, new ArrayList<TestCase>(), false);
+		writer.writeSctunit(wrongSctunitPath, NAMESPACE, STATECHART_NAME, new ArrayList<TestCase>(), false);
 	}
 	
 	@Test(expected = IOException.class)
@@ -63,16 +64,16 @@ public class SctunitWriterTest {
 		
 		String wrongSctunitPath = rootPath;
 		
-		writer.writeSctunit(wrongSctunitPath, STATECHART_NAME, new ArrayList<TestCase>(), false);
+		writer.writeSctunit(wrongSctunitPath, NAMESPACE, STATECHART_NAME, new ArrayList<TestCase>(), false);
 	}
 	
 	@Test
-	public void testNullTestCases() throws IOException {
+	public void testNullTestCasesAndNamespace() throws IOException {
 		assertFalse(Files.exists(Paths.get(sctunitPath)));
-		writer.writeSctunit(sctunitPath, STATECHART_NAME, null, false);
+		writer.writeSctunit(sctunitPath, NAMESPACE, STATECHART_NAME, null, false);
 		assertTrue(Files.exists(Paths.get(sctunitPath)));
 		String sctunit = new String(Files.readAllBytes(Paths.get(sctunitPath)), StandardCharsets.UTF_8);
-		assertTrue(sctunit.contains("testclass " + STATECHART_NAME + "Test for statechart " + STATECHART_NAME + " {"));
+		assertTrue(sctunit.contains("testclass " + STATECHART_NAME + "Test for statechart " + NAMESPACE + "." + STATECHART_NAME + " {"));
 	}
 	
 	@Test
@@ -101,7 +102,7 @@ public class SctunitWriterTest {
 		testCases.add(t);
 		
 		assertFalse(Files.exists(Paths.get(sctunitPath)));
-		writer.writeSctunit(sctunitPath, STATECHART_NAME, testCases, true);
+		writer.writeSctunit(sctunitPath, null, STATECHART_NAME, testCases, true);
 		assertTrue(Files.exists(Paths.get(sctunitPath)));
 
 		String sctunit = new String(Files.readAllBytes(Paths.get(sctunitPath)), StandardCharsets.UTF_8);

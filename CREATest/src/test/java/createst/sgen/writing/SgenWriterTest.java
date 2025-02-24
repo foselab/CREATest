@@ -19,6 +19,7 @@ public class SgenWriterTest {
 	private static final String PROJECT_NAME = "Project";
 	private static final String TARGET_DIR = "TargetDir";
 	private static final String TARGET_PACKAGE = "TargetPackage";
+	private static final String NAMESPACE = "my_ns";
 	
 	private static ISgenWriter writer;
 
@@ -44,19 +45,32 @@ public class SgenWriterTest {
 	@Test(expected = NullPointerException.class)
 	public void testNullPath() throws IOException {
 		String wrongSgenPath = null;
-		writer.writeSgen(PROJECT_NAME, STATECHART_NAME, wrongSgenPath, TARGET_DIR, TARGET_PACKAGE);
+		writer.writeSgen(PROJECT_NAME, NAMESPACE, STATECHART_NAME, wrongSgenPath, TARGET_DIR, TARGET_PACKAGE);
 	}
 
 	@Test(expected = IOException.class)
 	public void testWrongPath() throws IOException {
 		String wrongSgenPath = rootPath;
-		writer.writeSgen(PROJECT_NAME, STATECHART_NAME, wrongSgenPath, TARGET_DIR, TARGET_PACKAGE);
+		writer.writeSgen(PROJECT_NAME, NAMESPACE, STATECHART_NAME, wrongSgenPath, TARGET_DIR, TARGET_PACKAGE);
 	}
 
 	@Test
 	public void testCorrectParameters() throws IOException {
 		assertFalse(Files.exists(Paths.get(sgenPath)));
-		writer.writeSgen(PROJECT_NAME, STATECHART_NAME, sgenPath, TARGET_DIR, TARGET_PACKAGE);
+		writer.writeSgen(PROJECT_NAME, NAMESPACE, STATECHART_NAME, sgenPath, TARGET_DIR, TARGET_PACKAGE);
+		assertTrue(Files.exists(Paths.get(sgenPath)));
+
+		String sgen = new String(Files.readAllBytes(Paths.get(sgenPath)), StandardCharsets.UTF_8);
+		assertTrue(sgen.contains("const PROJECT : string = \""+ PROJECT_NAME + "\""));
+		assertTrue(sgen.contains("const FOLDER : string = \""+ TARGET_DIR + "\""));
+		assertTrue(sgen.contains("statechart " + NAMESPACE + "." + STATECHART_NAME + " {"));
+		assertTrue(sgen.contains("basePackage = \"" + TARGET_PACKAGE +"\""));
+	}
+	
+	@Test
+	public void testNoNamespaceAndCorrectParameters() throws IOException {
+		assertFalse(Files.exists(Paths.get(sgenPath)));
+		writer.writeSgen(PROJECT_NAME, null, STATECHART_NAME, sgenPath, TARGET_DIR, TARGET_PACKAGE);
 		assertTrue(Files.exists(Paths.get(sgenPath)));
 
 		String sgen = new String(Files.readAllBytes(Paths.get(sgenPath)), StandardCharsets.UTF_8);

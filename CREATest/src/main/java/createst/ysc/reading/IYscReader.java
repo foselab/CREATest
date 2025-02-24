@@ -14,11 +14,11 @@ public interface IYscReader {
 	public boolean hasNamespace();
 	
 	/**
-	 * Gets the list of the imported sub-machines.
+	 * Gets the statechart namespace.
 	 *
-	 * @return the list of the imported sub-machines
+	 * @return the statechart namespace
 	 */
-	public List<String> getImportedSubMachines();
+	public String getNamespace();
 
 	/**
 	 * Gets the statechart name.
@@ -26,6 +26,13 @@ public interface IYscReader {
 	 * @return the statechart name
 	 */
 	public String getStatechartName();
+	
+	/**
+	 * Gets the list of the imported sub-machines.
+	 *
+	 * @return the list of the imported sub-machines
+	 */
+	public List<String> getImportedSubMachines();
 
 	/**
 	 * Gets all states names.

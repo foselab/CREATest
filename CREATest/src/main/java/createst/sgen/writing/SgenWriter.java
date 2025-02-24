@@ -15,7 +15,7 @@ public class SgenWriter implements ISgenWriter {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void writeSgen(String projectName, String statechartName, String sgenPath, String targetDir,
+	public void writeSgen(String projectName, String namespace, String statechartName, String sgenPath, String targetDir,
 			String targetPackage) throws IOException {
 		STGroupFile group = new STGroupFile("sgen_template.stg");
 		ST st = group.getInstanceOf("generator");
@@ -24,6 +24,7 @@ public class SgenWriter implements ISgenWriter {
 		// For the directory, the.sgen file expect "\\" as separator instaed of "\"
 		st.add("directory", targetDir.replace("\\", "\\\\"));
 		st.add("package_name", targetPackage);
+		st.add("namespace", namespace);
 		st.add("statechart_name", statechartName);
 		// Create the file in the same directory of the statechart
 		File genFile = new File(sgenPath);

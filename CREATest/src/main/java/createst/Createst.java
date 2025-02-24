@@ -40,6 +40,7 @@ import createst.sgen.writing.ISgenWriter;
 import createst.sgen.writing.SgenWriter;
 import createst.ysc.reading.IYscReader;
 import createst.ysc.reading.YscReader;
+import createst.ysc.writing.IYscWriter;
 import createst.ysc.writing.YscWriter;
 
 /**
@@ -51,9 +52,9 @@ public class Createst {
 	// src/main/resources/classpath.txt and src/main/resources/project.txt
 	// accordingly
 	private static final String WORKSPACE_NAME = "ws_";
-	private static final String PROJECT_NAME = "Project";
+	private static final String PROJECT_NAME = "CREATestProject";
 	private static final String SOURCE_DIR = "src";
-	private static final String PACKAGE = "statechart";
+	private static final String BASE_PACKAGE = "statechart";
 	private static final String BINARY_DIR = "bin";
 	private static final String TEST_DIR = "test";
 	private static final String MODELS_DIR = "models";
@@ -106,6 +107,7 @@ public class Createst {
 		System.out.println("Reading .ysc file...");
 		System.out.println("*******************************************");
 		IYscReader yscReader = new YscReader(sourceFilePath);
+		String namespace = yscReader.getNamespace();
 		String statechartName = yscReader.getStatechartName();
 		Map<String, String> statesNames = yscReader.getStatesNames();
 		Map<String, String> eventsNames = yscReader.getEventsNames();
@@ -120,28 +122,26 @@ public class Createst {
 			addSubmachines(workspacePath, yscPath, importedSubMachines);
 		}
 
-		// If necessary, create a new .ysc file without the definition of the namespace
-		if (yscReader.hasNamespace())
-			sourceFile = YscWriter.writeWithoutNSVersion(sourceFilePath);
-
 		// Obtain the needed Strings
 		String firstUpperStatechartName = statechartName.substring(0, 1).toUpperCase() + statechartName.substring(1);
 
 		String sgenPath = projectPath + "\\" + MODELS_DIR + "\\" + firstUpperStatechartName + ".sgen";
 
-		String javaPath = projectPath + "\\" + SOURCE_DIR + "\\" + PACKAGE + "\\" + firstUpperStatechartName + ".java";
-		String simplifiedJavaPath = projectPath + "\\" + SOURCE_DIR + "\\" + PACKAGE + "\\" + firstUpperStatechartName
+		String actualPackage = BASE_PACKAGE + (yscReader.hasNamespace()? "\\" + namespace : "");
+		
+		String javaPath = projectPath + "\\" + SOURCE_DIR + "\\" + actualPackage + "\\" + firstUpperStatechartName + ".java";
+		String simplifiedJavaPath = projectPath + "\\" + SOURCE_DIR + "\\" + actualPackage + "\\" + firstUpperStatechartName
 				+ "Simplified.java";
 
 		String compilerD = "-d " + projectPath + "\\" + BINARY_DIR;
 		String compilerClasspath = "-classpath " + projectPath + "\\" + SOURCE_DIR;
 
-		String evoSimplifiedClass = "-class " + PACKAGE + "." + firstUpperStatechartName + "Simplified";
+		String evoSimplifiedClass = "-class " + actualPackage.replace("\\", ".") + "." + firstUpperStatechartName + "Simplified";
 		String evoProjectCP = "-projectCP " + projectPath + "\\" + BINARY_DIR;
 		String evoDTestDir = "-Dtest_dir=" + projectPath + "\\" + TEST_DIR;
 		String evoDReportDir = "-Dreport_dir=" + projectPath + "\\evosuite-report";
 
-		String simplifiedJunitPath = projectPath + "\\" + TEST_DIR + "\\" + PACKAGE + "\\" + firstUpperStatechartName
+		String simplifiedJunitPath = projectPath + "\\" + TEST_DIR + "\\" + actualPackage + "\\" + firstUpperStatechartName
 				+ "Simplified_ESTest.java";
 		String sctunitPath = projectPath + "\\" + MODELS_DIR + "\\" + firstUpperStatechartName + "Test.sctunit";
 
@@ -150,7 +150,7 @@ public class Createst {
 		System.out.println("Generating .sgen file...");
 		System.out.println("*******************************************");
 		ISgenWriter sgenWriter = new SgenWriter();
-		sgenWriter.writeSgen(PROJECT_NAME, statechartName, sgenPath, SOURCE_DIR, PACKAGE);
+		sgenWriter.writeSgen(PROJECT_NAME, namespace, statechartName, sgenPath, SOURCE_DIR, BASE_PACKAGE);
 
 		// Call the itemis CREATE generators
 		System.out.println("*******************************************");
@@ -210,7 +210,7 @@ public class Createst {
 		System.out.println("Generating .sctunit file...");
 		System.out.println("*******************************************");
 		ISctunitWriter sctunitWriter = new SctunitWriter();
-		sctunitWriter.writeSctunit(sctunitPath, statechartName, testCaseList, true);
+		sctunitWriter.writeSctunit(sctunitPath, namespace, statechartName, testCaseList, true);
 
 		// Copy the final .sctunit file and eventually generate the .zip of the
 		// temporary workspace
@@ -316,6 +316,10 @@ public class Createst {
 	 */
 	private static void addSubmachines(String workspacePath, String statechartFilePath, List<String> importedSubmachines)
 			throws IOException, ParserConfigurationException, SAXException {
+		IYscWriter yscRwiter = new YscWriter();
+		ISgenWriter sgenWriter = new SgenWriter();
+		IYscReader yscReader;
+		// Initialize project and model files objects
 		File projectDir = new File(workspacePath + "\\" + PROJECT_NAME);
 		File modelsDir = new File(projectDir.getAbsolutePath() + "\\" + MODELS_DIR);
 		// Obtain the the statechart file name with extension and its parent directory
@@ -323,10 +327,8 @@ public class Createst {
 		String statechartFile = statechartPath.substring(statechartPath.lastIndexOf("\\")+1);
 		String statechartParentPath = statechartPath.substring(0, statechartPath.lastIndexOf("\\"));
 		// Make the imports statements as the submachines are in the same directory
-		YscWriter.changeImports(modelsDir + "\\" + statechartFile);
+		yscRwiter.changeImports(modelsDir + "\\" + statechartFile);
 		// Copy the sub-machines in the temporary directory
-		ISgenWriter sgenWriter = new SgenWriter();
-		IYscReader yscReader;
 		for (String subMachine: importedSubmachines) {
 			// Copy the submachine in the same directory of the importing statechart
 			String subMachinePath = new File(subMachine).getAbsolutePath();
@@ -339,12 +341,13 @@ public class Createst {
 			addSubmachines(workspacePath, source.toString(), yscReader.getImportedSubMachines());
 			// Make the imports statements as the submachines are in the same directory,
 			// if it was already done nothing should change
-			YscWriter.changeImports(dest.toString());
+			yscRwiter.changeImports(dest.toString());
 			// Create the .sgen file
 			String statechartName = yscReader.getStatechartName();
+			String namespace = yscReader.getNamespace();
 			String firstUpperStatechartName = statechartName.substring(0, 1).toUpperCase() + statechartName.substring(1);
 			String sgenPath = projectDir + "\\" + MODELS_DIR + "\\" + firstUpperStatechartName + ".sgen";
-			sgenWriter.writeSgen(PROJECT_NAME, statechartName, sgenPath, SOURCE_DIR, PACKAGE);
+			sgenWriter.writeSgen(PROJECT_NAME, namespace, statechartName, sgenPath, SOURCE_DIR, BASE_PACKAGE);
 		}
 	}
 
@@ -382,22 +385,6 @@ public class Createst {
 		}
 		Files.copy(source.toPath(), dest.toPath());
 		System.out.println(dest.getAbsolutePath() + " succesfully written");
-
-		// If the .ysc without namespace has been generated, copy it from the temporary
-		// workspace to the execution directory
-		String ysc_suffix = "_without_ns";
-		source = new File(sourceFilePath.replace(".ysc", ysc_suffix + ".ysc"));
-		if (source.exists()) {
-			String sourceFileName = sourceFilePath.substring(sourceFilePath.lastIndexOf("\\"),
-					sourceFilePath.lastIndexOf("."));
-			dest = new File(execLocationPath + "\\" + sourceFileName + ysc_suffix + ".ysc");
-			while (dest.exists()) {
-				ysc_suffix = ysc_suffix.concat("_");
-				dest = new File(execLocationPath + "\\" + sourceFileName + ysc_suffix + ".ysc");
-			}
-			Files.copy(source.toPath(), dest.toPath());
-			System.out.println(dest.getAbsolutePath() + " succesfully written");
-		}
 
 		// If the '-g' option is used, compress the temporary workspace into a .zip and
 		// put it in the execution directory

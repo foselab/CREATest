@@ -1,5 +1,5 @@
-test_class(statechart_name, test_suite, isSimplified) ::= 
-<<testclass <statechart_name><if(isSimplified)>Simplified<endif>Test for statechart <statechart_name> {
+test_class(namespace, statechart_name, test_suite, isSimplified) ::= 
+<<testclass <statechart_name><if(isSimplified)>Simplified<endif>Test for statechart <if(namespace)><namespace>.<endif><statechart_name> {
 	<test_suite:{test_case | <test_method(test_case, test_case.actions)>}>
 }>>
 
@@ -15,7 +15,7 @@ operation <test_name> () {
 actions(action) ::= 
 <<<if(action.enter)>enter
 <elseif(action.event)>raise <action.event><if(action.eventValue)>: <action.eventValue><endif>
-<elseif(action.state)>assert <if(action.not)>!<endif>active (<action.state>)
+<elseif(action.state)>assert <if(action.not)>!<endif>active (<if(namespace)><namespace>.<endif><action.state>)
 <elseif(action.isActive)>assert <if(action.not)>!<endif>is_active
 <elseif(action.isFinal)>assert <if(action.not)>!<endif>is_final
 <elseif(action.proceed)>proceed <action.proceed> cycle
