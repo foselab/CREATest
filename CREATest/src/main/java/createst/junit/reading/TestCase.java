@@ -2,6 +2,7 @@ package createst.junit.reading;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * The Class TestCase.
@@ -126,6 +127,24 @@ public class TestCase {
 	public List<Action> getActions() {
 		return actions;
 	}
-
+	
+	/**
+	 * Returns true if the test case is empty
+	 *
+	 * @return true if the test case is empty, false otherwise
+	 */
+	public boolean isEmpty() {
+		return actions.isEmpty();
+	}
+	
+	/**
+	 * Returns true if the test case has the same content of the input one <p>
+	 * IT IS NOT MEANT TO BE THE OVERWRITTEN Object.equals(Object o) METHOD
+	 *
+	 * @return true if the test cases have the same content, false otherwise
+	 */
+	public boolean sameContentOf(TestCase other) {
+	    return Objects.equals(this.actions, other.actions);
+	}
 
 }

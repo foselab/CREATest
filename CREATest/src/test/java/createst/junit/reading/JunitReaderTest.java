@@ -109,9 +109,16 @@ public class JunitReaderTest {
 		t3.addProceedTime(time_4, "ns");
 		t3.addTriggerWithoutEvent();
 		
+		TestCase t5 = new TestCase("test05");
+		t5.addEnter();
+		t5.addIsActive(true);
+		
 		expected.add(t0);
 		expected.add(t2);
 		expected.add(t3);
+		//expected.add(t4); // Empty test removed
+		expected.add(t5);
+		//expected.add(t6); // Duplicate test removed
 		
 		assertThat(actual)
 			.usingRecursiveComparison()

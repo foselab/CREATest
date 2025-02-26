@@ -70,5 +70,24 @@ public class Junitreading_statechart_test {
       assertFalse(statechart.isStateActive(statechart.State.valueof(MAIN_REGION_STATEC)));
   }
   
+  @Test(timeout = 4000)
+  public void test04()  throws Throwable  {
+	  Statechart statechart = new Statechart();
+  }
+  
+  @Test(timeout = 4000)
+  public void test05()  throws Throwable  {
+	  Statechart statechart = new Statechart();
+	  statechart.enter();
+	  assertTrue(statechart.isActive());
+  }
+  
+  @Test(timeout = 4000)
+  public void test06()  throws Throwable  {
+	  Statechart statechart = new Statechart();
+	  statechart.enter();
+	  assertTrue(statechart.isActive());
+  }
+  
   
 }

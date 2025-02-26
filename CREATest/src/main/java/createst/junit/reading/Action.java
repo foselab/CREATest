@@ -1,5 +1,7 @@
 package createst.junit.reading;
 
+import java.util.Objects;
+
 /**
  * The Class Action.
  */
@@ -56,6 +58,27 @@ public class Action {
 		this.timeValue = timeValue;
 		this.timeUnit = timeUnit;
 		this.triggerWithoutEvent = triggerWithoutEvent ? "" : null;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Action other = (Action) obj;
+		return Objects.equals(enter, other.enter) && Objects.equals(event, other.event)
+				&& Objects.equals(eventValue, other.eventValue) && Objects.equals(exit, other.exit)
+				&& Objects.equals(isActive, other.isActive) && Objects.equals(isFinal, other.isFinal)
+				&& Objects.equals(not, other.not) && Objects.equals(proceed, other.proceed)
+				&& Objects.equals(state, other.state) && Objects.equals(timeUnit, other.timeUnit)
+				&& Objects.equals(timeValue, other.timeValue)
+				&& Objects.equals(triggerWithoutEvent, other.triggerWithoutEvent);
 	}
 
 	/**

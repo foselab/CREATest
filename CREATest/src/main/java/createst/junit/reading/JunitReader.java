@@ -36,7 +36,14 @@ public class JunitReader implements IJunitReader {
 					+ "it is not guaranteed that all the test methods will pass,\n"
 					+ "especially  if the execution is Cycle-based.");
 		}
-		return testCaseList;
+		// Remove empty and duplicated test cases
+		List<TestCase> uniqueNotEmptyTestCases = new ArrayList<>();
+		for (TestCase testCase : testCaseList) {
+			if (testCase.isEmpty() || uniqueNotEmptyTestCases.stream().anyMatch(seen -> seen.sameContentOf(testCase)))
+				continue;
+			uniqueNotEmptyTestCases.add(testCase);
+		}
+		return uniqueNotEmptyTestCases;
 	}
 
 }
