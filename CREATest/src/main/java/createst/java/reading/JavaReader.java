@@ -62,7 +62,8 @@ public class JavaReader implements IJavaReader {
 					}
 					proceedTimes.put(id, new ProceedTime(value, unit));
 				} catch (Exception e) {
-					System.out.println("Unable to read time event with ID " + id + ", this may result in failing test methods.");
+					System.out.println("Unable to read time event with ID " + id +
+							", test cases trying to raise such time event will be skipped.");
 				}
 			}
 		}

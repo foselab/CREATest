@@ -111,6 +111,7 @@ public class TestCaseCollector extends VoidVisitorAdapter<List<TestCase>> {
 		// Creates and populate an instance of TestCase, adding an Action
 		// for each method call expression of interest contained in the test method.
 		TestCase testCase = new TestCase(node.getNameAsString());
+		boolean allRaiseTimesValid = true;
 		for (MethodCallExpr methodCall : methodCallList) {
 			String methodName = methodCall.getNameAsString();
 			if (methodName.equals("enter")) {
@@ -134,8 +135,10 @@ public class TestCaseCollector extends VoidVisitorAdapter<List<TestCase>> {
 				continue;
 			}
 			if (methodName.equals("raiseTimeEvent")) {
-				manageRaiseTimeEvent(methodCall, testCase);
-				continue;
+				if (manageRaiseTimeEvent(methodCall, testCase))
+					continue;
+				allRaiseTimesValid = false;
+				break;
 			}
 			if (methodName.startsWith("raise")) {
 				manageRaiseEvent(methodCall, testCase, variableTypes, node.getNameAsString());
@@ -147,10 +150,11 @@ public class TestCaseCollector extends VoidVisitorAdapter<List<TestCase>> {
 			}
 		}
 
-		// Add the test case only if it has no errors
-		if (hasErrors(testCase))
-			System.out.println(
-					node.getNameAsString() + ": proceed statement called after exit statement, the test is skipped.");
+		// Add the test case only if it has no errors and 
+		if (!allRaiseTimesValid)
+			System.out.println(node.getNameAsString() + ": it was not possible to correctly retrieve the actual time to be proceeded, the test is skipped.");
+		else if (hasErrors(testCase))
+			System.out.println(node.getNameAsString() + ": proceed statement called after exit statement, the test is skipped.");
 		else
 			collector.add(testCase);
 	}
@@ -163,7 +167,7 @@ public class TestCaseCollector extends VoidVisitorAdapter<List<TestCase>> {
 	public boolean hasTimeEvents() {
 		return timeEvents;
 	}
-	
+
 	/**
 	 * Adds an action representing the given proceedCycles method call to the test
 	 * case
@@ -186,34 +190,36 @@ public class TestCaseCollector extends VoidVisitorAdapter<List<TestCase>> {
 	 *
 	 * @param methodCall the raiseTimeEvent method call
 	 * @param testCase   the test case where to add the new action
+	 * @return true if it was possible to retrieve the actual time to be proceeded, false otherwise
 	 */
-	private void manageRaiseTimeEvent(MethodCallExpr methodCall, TestCase testCase) {
+	private boolean manageRaiseTimeEvent(MethodCallExpr methodCall, TestCase testCase) {
 		// The method raiseTimeEvent has only one argument and it's an int
 		String arg = methodCall.getArgument(0).toString();
-		// Only positive numbers are meaningfull
-		if (!arg.contains("-") && !arg.contains("(") && !arg.contains(")")) {
-			// Ignore time events not in the dictionary
-			if (proceedTimes.containsKey(Integer.parseInt(arg))) {
-				ProceedTime pt = proceedTimes.get(Integer.parseInt(arg));
-				String unit = "";
-				switch (pt.getUnit()) {
-				case SECONDS:
-					unit = "s";
-					break;
-				case MILLISECONDS:
-					unit = "ms";
-					break;
-				case MICROSECONDS:
-					unit = "us";
-					break;
-				case NANOSECONDS:
-					unit = "ns";
-					break;
-				}
-				testCase.addProceedTime(String.valueOf(pt.getValue()), unit);
-				this.timeEvents = true;
+		// Only positive numbers in the dictionary are meaningful
+		if (!arg.contains("-") && !arg.contains("(") && !arg.contains(")")
+				&& proceedTimes.containsKey(Integer.parseInt(arg))) {
+			ProceedTime pt = proceedTimes.get(Integer.parseInt(arg));
+			String unit = "";
+			switch (pt.getUnit()) {
+			case SECONDS:
+				unit = "s";
+				break;
+			case MILLISECONDS:
+				unit = "ms";
+				break;
+			case MICROSECONDS:
+				unit = "us";
+				break;
+			case NANOSECONDS:
+				unit = "ns";
+				break;
 			}
+			testCase.addProceedTime(String.valueOf(pt.getValue()), unit);
+			this.timeEvents = true;
+			return true;
 		}
+		return false;
+
 	}
 
 	/**
