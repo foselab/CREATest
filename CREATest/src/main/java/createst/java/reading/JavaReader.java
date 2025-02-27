@@ -22,7 +22,7 @@ public class JavaReader implements IJavaReader {
 	@Override
 	public Map<Integer, ProceedTime> getProceedTimes(String javaPath) throws IOException, FileNotFoundException {
 		// Wait the file to exist before trying to read
-		int attempts = 10; // Try for 10 seconds max
+		int attempts = 15; // Try for 15 seconds max
         File file = new File(javaPath);
         try {
 	        while (!file.exists() && attempts > 0) {

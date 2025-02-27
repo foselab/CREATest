@@ -16,12 +16,9 @@ public class Junitreading_statechart_test {
 	public void test00() throws Throwable {
 		Statechart statechart = new Statechart();
 		Statechart.Intrfc intrfc = Statechart.intrfc();
-		Statechart.Intrfc2 intrfc2 = Statechart.intrfc2();
 		statechart.enter();
 		statechart.raiseEvent1();
 		intrfc.raiseEvent2();
-		// interface not in interfacesNames dictionary (see test case), will be ignored
-		intrfc2.raiseEvent();
 		statechart.triggerWithoutEvent();
 		statechart.exit();
 		statechart.State statechart_State0 = statechart.State.MAIN_REGION_STATEA;
@@ -94,7 +91,7 @@ public class Junitreading_statechart_test {
 		statechart.enter();
 		assertTrue(statechart.isActive());
 	}
-
+	
 	// Test with raiseTimeEvent(ID) where ID is not in proceedTimes dictionary (see test case), will be ignored
 	@Test(timeout = 4000)
 	public void test07() throws Throwable {
@@ -103,6 +100,25 @@ public class Junitreading_statechart_test {
 		statechart.setTimerService(iTimerService0);
 		statechart.enter();
 		statechart.raiseTimeEvent(5);
+		assertTrue(statechart.isActive());
+	}
+	
+	// Test with raising an event from an interface not in interfacesNamse dictionary (see test case), will be ignored
+	@Test(timeout = 4000)
+	public void test08() throws Throwable {
+		Statechart statechart = new Statechart();
+		Statechart.Intrfc2 intrfc2 = Statechart.intrfc2();
+		statechart.enter();
+		intrfc2.raiseEvent();
+		assertTrue(statechart.isActive());
+	}
+
+	// Test with raising an event not in the eventsNames dictionary (see test case), will be ignored
+	@Test(timeout = 4000)
+	public void test09() throws Throwable {
+		Statechart statechart = new Statechart();
+		statechart.enter();
+		statechart.raiseNewEvent();
 		assertTrue(statechart.isActive());
 	}
 

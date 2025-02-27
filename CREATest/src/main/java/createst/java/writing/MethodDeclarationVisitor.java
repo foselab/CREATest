@@ -1,7 +1,9 @@
 package createst.java.writing;
 
+import com.github.javaparser.ast.Node;
 import com.github.javaparser.ast.body.ClassOrInterfaceDeclaration;
 import com.github.javaparser.ast.body.MethodDeclaration;
+import com.github.javaparser.ast.expr.ObjectCreationExpr;
 import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
 
 /**
@@ -21,9 +23,12 @@ public class MethodDeclarationVisitor extends VoidVisitorAdapter<Void> {
 		// To ensure child nodes of the current node are also visited
 		super.visit(node, arg);
 		// Do nothing if the method is setOperationCallback or setTimerService or if it
-		// is a method inside an interface
-		if (node.getNameAsString().equals("setOperationCallback") || node.getNameAsString().equals("setTimerService")
-				|| ((ClassOrInterfaceDeclaration) node.getParentNode().get()).isInterface())
+		// is a method inside an Interface or an ObjectCreationExpr
+		String methodName = node.getNameAsString();
+		Node parent = node.getParentNode().get();
+		if (methodName.equals("setOperationCallback") || methodName.equals("setTimerService")
+				|| parent instanceof ObjectCreationExpr
+				|| parent instanceof ClassOrInterfaceDeclaration && ((ClassOrInterfaceDeclaration) parent).isInterface())
 			return;
 		// Changes method visibility from protected to private
 		if (node.isProtected()) {
@@ -31,10 +36,10 @@ public class MethodDeclarationVisitor extends VoidVisitorAdapter<Void> {
 			node.setPrivate(true);
 		}
 		// Changes method visibility from public to private if it is a set or get method
-		if (node.isPublic() && (node.getNameAsString().startsWith("set") || node.getNameAsString().startsWith("get"))) {
+		if (node.isPublic() && (methodName.startsWith("set") || methodName.startsWith("get"))) {
 			// For set methods, change visibility only if the parameter's type is an Itemis
 			// Create built-in type or if the method name is setIsExecuting
-			if (node.getNameAsString().startsWith("set") && !node.getNameAsString().equals("setIsExecuting")) {
+			if (methodName.startsWith("set") && !methodName.equals("setIsExecuting")) {
 				String type = node.getParameter(0).getTypeAsString();
 				if (!type.matches("long|double|boolean|String"))
 					return;

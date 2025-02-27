@@ -64,6 +64,7 @@ public class YscReaderTest {
 		expectedEventsNames.put("raiseEventB", "EventB");
 		expectedEventsNames.put("raiseEvent_C", "Event_C");
 		expectedEventsNames.put("raiseEventD", "EventD");
+		expectedEventsNames.put("raiseUnusedEvent", "UnusedEvent");
 		expectedEventsNames.put("raiseEventE", "EventE");
 		assertEquals(expectedEventsNames, reader.getEventsNames());
 	}

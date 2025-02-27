@@ -26,17 +26,17 @@ public class YscReader implements IYscReader {
 
 	/** The node in the DOM representing the statechart. */
 	private Node statechartNode;
-	
-	/** True if the statechart has a namespace, false otherwise.*/
+
+	/** True if the statechart has a namespace, false otherwise. */
 	private boolean hasNamespace;
-	
-	/** The statechart namespace.*/
+
+	/** The statechart namespace. */
 	private String namespace;
 
 	/** The statechart name. */
 	private String statechartName;
-	
-	/** A list with the relative path of the imported sub-machines*/
+
+	/** A list with the relative path of the imported sub-machines */
 	private List<String> importedSubMachines;
 
 	/** The list containing all the full names of states in the statechart. */
@@ -68,7 +68,7 @@ public class YscReader implements IYscReader {
 
 		this.initStatechart();
 	}
-	
+
 	/**
 	 * {@inheritDoc}
 	 */
@@ -76,7 +76,7 @@ public class YscReader implements IYscReader {
 	public boolean hasNamespace() {
 		return this.hasNamespace;
 	}
-	
+
 	/**
 	 * {@inheritDoc}
 	 */
@@ -84,8 +84,7 @@ public class YscReader implements IYscReader {
 	public String getNamespace() {
 		return this.namespace;
 	}
-	
-	
+
 	/**
 	 * {@inheritDoc}
 	 */
@@ -93,7 +92,7 @@ public class YscReader implements IYscReader {
 	public String getStatechartName() {
 		return this.statechartName;
 	}
-	
+
 	/**
 	 * {@inheritDoc}
 	 */
@@ -152,33 +151,52 @@ public class YscReader implements IYscReader {
 	private void initStatechart() {
 		// Check if the statechart has a namespace
 		this.hasNamespace = this.statechartNode.getAttributes().getNamedItem("namespace") != null;
-		this.namespace = this.hasNamespace? this.statechartNode.getAttributes().getNamedItem("namespace").getNodeValue() : null;
-		
-		// Obtain the name of the statechart
-		Node nameAttribute = this.statechartNode.getAttributes().getNamedItem("name");
-		this.statechartName = nameAttribute.getNodeValue();
-		
-		// Obtain the list of imported sub-machines
-		String specAttribute = this.statechartNode.getAttributes().getNamedItem("specification").getNodeValue();
-		this.importedSubMachines = new ArrayList<>();
-        Pattern pattern = Pattern.compile("import\\s*:\\s*\"(.*)\"");
-        Matcher matcher = pattern.matcher(specAttribute);
-        while (matcher.find()) {
-        	this.importedSubMachines.add(matcher.group(1));
-        }
+		this.namespace = this.hasNamespace
+				? this.statechartNode.getAttributes().getNamedItem("namespace").getNodeValue()
+				: null;
 
-		// Initialize data structures
-		this.statesNames = new ArrayList<String>();
-		this.eventsNames = new ArrayList<String>();
+		// Obtain the name of the statechart
+		this.statechartName = this.statechartNode.getAttributes().getNamedItem("name").getNodeValue();
+
+		// Obtain the string representing the specification attribute
+		String specAttribute = this.statechartNode.getAttributes().getNamedItem("specification").getNodeValue();
+
+		// Obtain the list of imported sub-machines
+		this.importedSubMachines = new ArrayList<>();
+		Pattern importPattern = Pattern.compile("import\\s*:\\s*\"(.*)\"");
+		Matcher importMatcher = importPattern.matcher(specAttribute);
+		while (importMatcher.find()) {
+			this.importedSubMachines.add(importMatcher.group(1));
+		}
+
+		// Obtain the list of events full names (i.e. with their interface, if any)
 		this.interfacesNames = new ArrayList<String>();
+		this.eventsNames = new ArrayList<String>();
+		String idRegex = "[a-zA-Z0-9_-]*"; // also empty string
+		Pattern interfacePattern = Pattern.compile(
+				"interface\\s*(" + idRegex + "):\\s*(.*?)(?=(?:interface|import|internal)\\b|$)", Pattern.DOTALL);
+		Matcher interfaceMatcher = interfacePattern.matcher(specAttribute);
+		while (interfaceMatcher.find()) {
+			String interfaceName = interfaceMatcher.group(1);
+			if (!interfaceName.isEmpty())
+				interfacesNames.add(interfaceName);
+			String interfaceScope = interfaceMatcher.group(2);
+			Pattern inEventPattern = Pattern.compile("in event\\s*(" + idRegex + ")");
+			Matcher inEventMathcer = inEventPattern.matcher(interfaceScope);
+			while (inEventMathcer.find()) {
+				String eventName = inEventMathcer.group(1);
+				eventsNames.add(eventName);
+			}
+		}
 
 		// Search the nodes representing the starting regions of the statechart
+		this.statesNames = new ArrayList<String>();
 		NodeList nodeList = this.statechartNode.getChildNodes();
 		for (int i = 0; i < nodeList.getLength(); i++) {
 			Node child = nodeList.item(i);
 			if (child.getNodeType() == Node.ELEMENT_NODE && child.getNodeName().equals("regions")) {
 				// Start the visit of the subtree from the node representing the region
-				this.visitNode(child, this.statesNames, this.eventsNames, this.interfacesNames);
+				this.visitNode(child, this.statesNames);
 			}
 		}
 	}
@@ -188,19 +206,13 @@ public class YscReader implements IYscReader {
 	 *
 	 * @param node            the node to visit
 	 * @param statesNames     the list of all the names of the states visited so far
-	 * @param eventsNames     the list of all the names of the events used in
-	 *                        tranistions visited so far
-	 * @param interfacesNames the list of all the names of the interfaces used in
-	 *                        tranistions visited so far
 	 */
-	private void visitNode(Node node, List<String> statesNames, List<String> eventsNames,
-			List<String> interfacesNames) {
+	private void visitNode(Node node, List<String> statesNames) {
 		// If the node is a region, it may contain a final state
 		// else, it is a vertex and it may have outgoing transitions
 		if (node.getNodeName().equals("regions")) {
 			this.checkForFinalState(node, statesNames);
 		} else {
-			this.checkForTransitions(node, eventsNames, interfacesNames);
 			// A "normal" state is a node with name "vertices" and the attribute "xsi:type"
 			// equals to "sgraph:State",
 			// for that kind of node, the name is of interest
@@ -215,7 +227,7 @@ public class YscReader implements IYscReader {
 			Node child = nodeList.item(i);
 			if (child.getNodeType() == Node.ELEMENT_NODE
 					&& (child.getNodeName().equals("regions") || child.getNodeName().equals("vertices")))
-				visitNode(child, statesNames, eventsNames, interfacesNames);
+				visitNode(child, statesNames);
 		}
 	}
 
@@ -238,82 +250,6 @@ public class YscReader implements IYscReader {
 					return;
 				}
 			}
-		}
-	}
-
-	/**
-	 * Check if the node (state) contatins outgoing transitions.
-	 *
-	 * @param node            the node representing the state
-	 * @param eventsNames     the list of all the names of the events used in
-	 *                        tranistions visited so far
-	 * @param interfacesNames the list of all the names of the interfaces used in
-	 *                        tranistions visited so far
-	 */
-	private void checkForTransitions(Node node, List<String> eventsNames, List<String> interfacesNames) {
-		NodeList nodeList = node.getChildNodes();
-		for (int i = 0; i < nodeList.getLength(); i++) {
-			Node child = nodeList.item(i);
-			// The nodes of interest are outgoingTransitions with a non empty name
-			if (child.getNodeName().equals("outgoingTransitions")) {
-				Node attribute = child.getAttributes().getNamedItem("specification");
-				if (attribute != null) {
-					String specificationAttr = attribute.getNodeValue();
-					// Replace all sequences of withe spaces with just one space
-					specificationAttr = specificationAttr.replaceAll("\\s+", " ");
-					List<String> triggers = new ArrayList<String>();
-					String trigger;
-					// Triggers could be separated by commas, scan the string retrieving single
-					// triggers
-					while (specificationAttr.contains(",")) {
-						// Add the trigger and remove the relative substring
-						addTrigger(triggers, specificationAttr.substring(0, specificationAttr.indexOf(",")));
-						specificationAttr = specificationAttr.substring(specificationAttr.indexOf(",") + 1);
-					}
-					// After the last comma is removed, there is still a trigger to manage
-					Matcher matcher = Pattern.compile("\\[|/|#").matcher(specificationAttr);
-					if (matcher.find())
-						trigger = specificationAttr.substring(0, matcher.start());
-					else
-						trigger = specificationAttr;
-					addTrigger(triggers, trigger);
-					// Scan all triggers, adding the new one to the relative dictionaries
-					for (String t : triggers) {
-						// Transitions containing a dot are relative to events from a named interface
-						if (t.contains(".")) {
-							String interfaceName = t.substring(0, t.indexOf('.'));
-							if (!interfacesNames.contains(interfaceName))
-								interfacesNames.add(interfaceName);
-							String eventName = t.substring(t.indexOf('.') + 1);
-							if (!eventsNames.contains(eventName))
-								eventsNames.add(eventName);
-						} else {
-							if (!eventsNames.contains(t))
-								eventsNames.add(t);
-						}
-					}
-				}
-			}
-		}
-	}
-
-	/**
-	 * Add the string representing the trigger to the list. All spaces will be
-	 * removed and triggers relative to time events or conicident to other keywords
-	 * will not be added.
-	 *
-	 * @param triggers the list where to put the new one
-	 * @param trigger  the string representing the trigger to add
-	 */
-	private void addTrigger(List<String> triggers, String trigger) {
-		// Triggers relative to time events or conicident to other keywords are useless.
-		if (trigger.contains("after ") || trigger.contains("every ")
-				|| trigger.replace(" ", "").matches("always|oncycle|else|default"))
-			return;
-		// Remove the remainings spaces from the string
-		String trg = trigger.replace(" ", "");
-		if (!trg.isEmpty()) {
-			triggers.add(trg);
 		}
 	}
 
