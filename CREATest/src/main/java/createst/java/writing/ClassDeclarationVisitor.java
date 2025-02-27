@@ -25,7 +25,7 @@ import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
 public class ClassDeclarationVisitor extends VoidVisitorAdapter<Void> {
 
 	/**
-	 * Visit a class decalration, adding "Simplified" at the end of the name if it
+	 * Visit a class declaration, adding "Simplified" at the end of the name if it
 	 * is the public class, else (it's a nested class) change the type of the field
 	 * named "parent".
 	 *

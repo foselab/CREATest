@@ -295,7 +295,7 @@ public class TestCaseCollector extends VoidVisitorAdapter<List<TestCase>> {
 		// The statement that must be checked if it is true (or false) is retrieved.
 		// If the argument is a known variable, its assigned expression (right-hand-side
 		// of the assignment) is used,
-		// else, dircetly the argument is used.
+		// else, directly the argument is used.
 		String statementToCheck;
 		if (variableAssignments.containsKey(assertArgument)) {
 			statementToCheck = variableAssignments.get(assertArgument);
@@ -317,7 +317,7 @@ public class TestCaseCollector extends VoidVisitorAdapter<List<TestCase>> {
 			// The string representing the name of the state in Java is retrieved.
 			// If the argument is a known variable, its assigned expression (right-hand-side
 			// of the assignment) is used,
-			// else, dircetly the argument is used.
+			// else, directly the argument is used.
 			String javaStateName;
 			if (variableAssignments.containsKey(isStateActiveArgument)) {
 				javaStateName = variableAssignments.get(isStateActiveArgument);

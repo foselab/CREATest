@@ -10,8 +10,8 @@ import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
 public class ConstructorDeclarationVisitor extends VoidVisitorAdapter<Void> {
 	/**
 	 * Visit a constructor declaration, add "Simplified" at the end of the name if
-	 * it is the constructor of the pubblic class (recognizable by the absence of
-	 * parameters), else (it's the contrstructor of a nested class) change the type
+	 * it is the constructor of the public class (recognizable by the absence of
+	 * parameters), else (it's the constructor of a nested class) change the type
 	 * of its parameter.
 	 *
 	 * @param the constructor declaration

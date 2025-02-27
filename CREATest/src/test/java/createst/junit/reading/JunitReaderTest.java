@@ -116,9 +116,7 @@ public class JunitReaderTest {
 		expected.add(t0);
 		expected.add(t2);
 		expected.add(t3);
-		//expected.add(t4); // Empty test removed
 		expected.add(t5);
-		//expected.add(t6); // Duplicate test removed
 		
 		assertThat(actual)
 			.usingRecursiveComparison()
