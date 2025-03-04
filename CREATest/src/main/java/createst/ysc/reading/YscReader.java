@@ -204,8 +204,8 @@ public class YscReader implements IYscReader {
 	/**
 	 * Visit a node, recursively visit all its element child nodes.
 	 *
-	 * @param node            the node to visit
-	 * @param statesNames     the list of all the names of the states visited so far
+	 * @param node        the node to visit
+	 * @param statesNames the list of all the names of the states visited so far
 	 */
 	private void visitNode(Node node, List<String> statesNames) {
 		// If the node is a region, it may contain a final state
@@ -257,15 +257,34 @@ public class YscReader implements IYscReader {
 	 * Gets the full name of the node recursively, going up in the DOM tree.
 	 *
 	 * @param node the node for which it must be obtained the full name
-	 * @param name the full name obtained before the call of this method, it must
+	 * @param oldName the full name obtained before the call of this method, it must
 	 *             contain a dot at the start if it is not the first call
 	 * @return the full name obtained at the end of the call of this method
 	 */
-	private String getFullName(Node node, String name) {
-		// Note that non alphanumeric characters must be substitued with '_' to be
+	private String getFullName(Node node, String oldName) {
+		String name;
+		// If the node is a region without or with empty name, check its position as
+		// child node to determine its name
+		if (node.getNodeName().equals("regions") && (node.getAttributes().getNamedItem("name") == null
+				|| node.getAttributes().getNamedItem("name").getNodeValue().isEmpty())) {
+			Node parent = node.getParentNode();
+			int regionPosition = 0;
+			for (int i = 0; i < parent.getChildNodes().getLength(); i++) {
+				Node child = parent.getChildNodes().item(i);
+				if (child.getNodeName().equals("regions")) {
+					if (child == node) // == because it must be the same instance
+						break;
+					else
+						regionPosition++;
+				}
+			}
+			name = "_region" + regionPosition;
+		} else {
+			name = node.getAttributes().getNamedItem("name").getNodeValue();
+		}
+		// Note that non alphanumeric characters must be substituted with '_' to be
 		// compliant with SCTUnit (the name must be an ID)
-		String newName = node.getAttributes().getNamedItem("name").getNodeValue().replaceAll("[^a-zA-Z0-9]", "_")
-				+ name;
+		String newName = name.replaceAll("[^a-zA-Z0-9]", "_") + oldName;
 		Node parent = node.getParentNode();
 		if (parent.getNodeName().equals("sgraph:Statechart"))
 			// If the "root" of the statechart is reached, the final full name is returned
