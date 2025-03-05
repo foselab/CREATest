@@ -182,12 +182,12 @@ public class YscReader implements IYscReader {
 	private void initStatechart() {
 		// Check if the statechart has a namespace
 		this.hasNamespace = this.statechartNode.getAttributes().getNamedItem("namespace") != null;
-		this.namespace = this.hasNamespace
+		this.namespace = addCircumflex(this.hasNamespace
 				? this.statechartNode.getAttributes().getNamedItem("namespace").getNodeValue()
-				: null;
+				: null);
 
 		// Obtain the name of the statechart
-		this.statechartName = this.statechartNode.getAttributes().getNamedItem("name").getNodeValue();
+		this.statechartName = addCircumflex(this.statechartNode.getAttributes().getNamedItem("name").getNodeValue());
 
 		// Obtain the string representing the specification attribute
 		String specAttribute = this.statechartNode.getAttributes().getNamedItem("specification").getNodeValue();

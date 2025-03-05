@@ -101,12 +101,12 @@ public class Createst {
 			TempWsUtils.addSubmachines(workspacePath, yscPath, importedSubMachines);
 		}
 
-		// Obtain the needed Strings
-		String firstUpperStatechartName = statechartName.substring(0, 1).toUpperCase() + statechartName.substring(1);
-
+		// Obtain the needed Strings (remove circumflex '^' where needed)
+		String firstUpperStatechartName = statechartName.replace("^", "").substring(0, 1).toUpperCase() + statechartName.replace("^", "").substring(1);
+		
 		String sgenPath = projectPath + File.separator + TempWsUtils.MODELS_DIR + File.separator + firstUpperStatechartName + ".sgen";
 
-		String actualPackage = TempWsUtils.BASE_PACKAGE + (yscReader.hasNamespace()? File.separator + namespace : "");
+		String actualPackage = TempWsUtils.BASE_PACKAGE + (yscReader.hasNamespace()? File.separator + namespace.replace("^", "") : "");
 		
 		String javaPath = projectPath + File.separator + TempWsUtils.SOURCE_DIR + File.separator + actualPackage + File.separator + firstUpperStatechartName + ".java";
 		String simplifiedJavaPath = projectPath + File.separator + TempWsUtils.SOURCE_DIR + File.separator + actualPackage + File.separator + firstUpperStatechartName
@@ -119,11 +119,11 @@ public class Createst {
 		String evoProjectCP = "-projectCP " + projectPath + File.separator + TempWsUtils.BINARY_DIR;
 		String evoDTestDir = "-Dtest_dir=" + projectPath + File.separator + TempWsUtils.TEST_DIR;
 		String evoDReportDir = "-Dreport_dir=" + projectPath + File.separator + "evosuite-report";
-
+		
 		String simplifiedJunitPath = projectPath + File.separator + TempWsUtils.TEST_DIR + File.separator + actualPackage + File.separator + firstUpperStatechartName
 				+ "Simplified_ESTest.java";
 		String sctunitPath = projectPath + File.separator + TempWsUtils.MODELS_DIR + File.separator + firstUpperStatechartName + "Test.sctunit";
-
+		
 		// Generate the .sgen file needed by itemis CREATE to generate the java code
 		System.out.println("*******************************************");
 		System.out.println("Generating .sgen file...");
@@ -196,7 +196,7 @@ public class Createst {
 		System.out.println("*******************************************");
 		System.out.println("Copying .sctunit file...");
 		System.out.println("*******************************************");
-		TempWsUtils.copyAndCompress(workspacePath, sctunitPath, sourceFilePath, statechartName, hasGenArtifacts);
+		TempWsUtils.copyAndCompress(workspacePath, sctunitPath, sourceFilePath, firstUpperStatechartName, hasGenArtifacts);
 
 		// End the execution
 		System.out.println("*******************************************");
