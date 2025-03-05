@@ -47,6 +47,9 @@ public class YscReader implements IYscReader {
 
 	/** The list containing all the names of interfaces in the statechart. */
 	private List<String> interfacesNames;
+	
+	/** The list containing all the names of the operations in the statechart. */
+	private List<String> operationsNames;
 
 	/**
 	 * Instantiates a new statechart.
@@ -143,6 +146,20 @@ public class YscReader implements IYscReader {
 		}
 		return interfacesNames;
 	}
+	
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public Map<String, String> getOperationsNames() {
+		// Create a dictionary for the operations names with the method name
+		Map<String, String> operationsNames = new HashMap<String, String>();
+		for (String name : this.operationsNames) {
+			String methodName = name.substring(0, 1).toLowerCase() + name.substring(1);
+			operationsNames.put(methodName, name);
+		}
+		return operationsNames;
+	}
 
 	/**
 	 * Inits the statechart obtaining statechart name, states names end events
@@ -172,6 +189,7 @@ public class YscReader implements IYscReader {
 		// Obtain the list of events full names (i.e. with their interface, if any)
 		this.interfacesNames = new ArrayList<String>();
 		this.eventsNames = new ArrayList<String>();
+		this.operationsNames = new ArrayList<String>();
 		String idRegex = "[a-zA-Z0-9_-]*"; // also empty string
 		Pattern interfacePattern = Pattern.compile(
 				"interface\\s*(" + idRegex + "):\\s*(.*?)(?=(?:interface|import|internal)\\b|$)", Pattern.DOTALL);
@@ -186,6 +204,12 @@ public class YscReader implements IYscReader {
 			while (inEventMathcer.find()) {
 				String eventName = inEventMathcer.group(1);
 				eventsNames.add(eventName);
+			}
+			Pattern operationPattern = Pattern.compile("operation\\s*(" + idRegex + ")\\(");
+			Matcher operationMathcer = operationPattern.matcher(interfaceScope);
+			while (operationMathcer.find()) {
+				String operationsName = operationMathcer.group(1);
+				operationsNames.add(operationsName);
 			}
 		}
 

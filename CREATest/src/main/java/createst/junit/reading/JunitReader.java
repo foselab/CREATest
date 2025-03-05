@@ -21,7 +21,7 @@ public class JunitReader implements IJunitReader {
 	 */
 	@Override
 	public List<TestCase> getTestCases(String junitPath, String statechartName, Map<String, String> statesNames,
-			Map<String, String> eventsNames, Map<String, String> interfacesNames,
+			Map<String, String> eventsNames, Map<String, String> interfacesNames, Map<String, String> operationsNames,
 			Map<Integer, ProceedTime> proceedTimes) throws IOException {
 		// Get the compilation unit of the (test) class
 		CompilationUnit cu = StaticJavaParser.parse(new FileInputStream(junitPath));
@@ -29,7 +29,7 @@ public class JunitReader implements IJunitReader {
 		// Each visit of a method produces a TestCase object
 		List<TestCase> testCaseList = new ArrayList<TestCase>();
 		TestCaseCollector testCaseCollector = new TestCaseCollector(statechartName, statesNames, eventsNames,
-				interfacesNames, proceedTimes);
+				interfacesNames, operationsNames, proceedTimes);
 		testCaseCollector.visit(cu, testCaseList);
 		if (testCaseCollector.hasTimeEvents()) {
 			System.out.println("\nWARNING: the generated test suite uses time events,\n"

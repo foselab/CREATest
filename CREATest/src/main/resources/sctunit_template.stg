@@ -13,7 +13,8 @@ operation <test_name> () {
 >>
 
 actions(action) ::= 
-<<<if(action.enter)>enter
+<<<if(action.mockOperation)>mock <action.mockOperation> <if(action.mockValue)>returns (<action.mockValue>)<endif>
+<elseif(action.enter)>enter
 <elseif(action.event)>raise <action.event><if(action.eventValue)>: <action.eventValue><endif>
 <elseif(action.state)>assert <if(action.not)>!<endif>active (<if(namespace)><namespace>.<endif><action.state>)
 <elseif(action.isActive)>assert <if(action.not)>!<endif>is_active

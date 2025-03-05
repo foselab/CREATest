@@ -7,6 +7,7 @@ import java.util.Map;
 import com.github.javaparser.ast.Node;
 import com.github.javaparser.ast.body.MethodDeclaration;
 import com.github.javaparser.ast.body.VariableDeclarator;
+import com.github.javaparser.ast.expr.Expression;
 import com.github.javaparser.ast.expr.MethodCallExpr;
 import com.github.javaparser.ast.stmt.TryStmt;
 import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
@@ -40,6 +41,12 @@ public class TestCaseCollector extends VoidVisitorAdapter<List<TestCase>> {
 	Map<String, String> interfacesNames;
 
 	/**
+	 * The dictionary containing all the names of operations in the statechart. The
+	 * key is the string representing the corresponding method
+	 */
+	Map<String, String> operationsNames;
+
+	/**
 	 * The dictionary containing all the time events used in the statechart. The key
 	 * is the id
 	 */
@@ -51,21 +58,25 @@ public class TestCaseCollector extends VoidVisitorAdapter<List<TestCase>> {
 	 * Instantiates a new TestCaseCollector regarding to a statechart.
 	 *
 	 * @param statechartName  the name of the statechart
-	 * @param statesName      the disctionary of the states names with the
+	 * @param statesName      the dictionary of the states names with the
 	 *                        corresponding enum as key
 	 * @param eventsNames     the dictionary of the events names with the
 	 *                        corresponding method as key
 	 * @param interfacesNames the dictionary of the interfaces names with the
 	 *                        corresponding class name as key
+	 * @param operationNames  the dictionary of the operations names with the
+	 *                        corresponding method as key
 	 * @param proceedTimes    the dictionary of the time events with the
 	 *                        corresponding id key
 	 */
 	public TestCaseCollector(String statechartName, Map<String, String> statesNames, Map<String, String> eventsNames,
-			Map<String, String> interfacesNames, Map<Integer, ProceedTime> proceedTimes) {
+			Map<String, String> interfacesNames, Map<String, String> operationsNames,
+			Map<Integer, ProceedTime> proceedTimes) {
 		this.statechartName = statechartName;
 		this.statesNames = statesNames;
 		this.eventsNames = eventsNames;
 		this.interfacesNames = interfacesNames;
+		this.operationsNames = operationsNames;
 		this.proceedTimes = proceedTimes;
 		this.timeEvents = false;
 	}
@@ -84,6 +95,7 @@ public class TestCaseCollector extends VoidVisitorAdapter<List<TestCase>> {
 
 		// Discards methods dealing with exceptions (i.e. using try catch statements)
 		if (!node.findAll(TryStmt.class).isEmpty()) {
+			System.out.println(node.getNameAsString() + ": the test case contains a try catch statement, the test is skipped.");
 			return;
 		}
 
@@ -111,10 +123,17 @@ public class TestCaseCollector extends VoidVisitorAdapter<List<TestCase>> {
 		// Creates and populate an instance of TestCase, adding an Action
 		// for each method call expression of interest contained in the test method.
 		TestCase testCase = new TestCase(node.getNameAsString());
+		boolean allDoReturnValid = true;
 		boolean allRaiseTimesValid = true;
 		boolean allRaiseValid = true;
 		for (MethodCallExpr methodCall : methodCallList) {
 			String methodName = methodCall.getNameAsString();
+			if (methodName.equals("doReturn")) {
+				if (manageDoReturn(methodCall, methodCallList, testCase))
+					continue;
+				allDoReturnValid = false;
+				break;
+			}
 			if (methodName.equals("enter")) {
 				testCase.addEnter();
 				continue;
@@ -142,7 +161,7 @@ public class TestCaseCollector extends VoidVisitorAdapter<List<TestCase>> {
 				break;
 			}
 			if (methodName.startsWith("raise")) {
-				if(manageRaiseEvent(methodCall, testCase, variableTypes, node.getNameAsString()))
+				if (manageRaiseEvent(methodCall, testCase, variableTypes, node.getNameAsString()))
 					continue;
 				allRaiseValid = false;
 				break;
@@ -153,13 +172,19 @@ public class TestCaseCollector extends VoidVisitorAdapter<List<TestCase>> {
 			}
 		}
 
-		// Add the test case only if it has no errors and 
-		if (!allRaiseTimesValid)
-			System.out.println(node.getNameAsString() + ": it was not possible to correctly handle a proceeded, the test is skipped.");
+		// Add the test case only if it has no errors (last case) or possible sources of
+		// failure
+		if (!allDoReturnValid)
+			System.out.println(node.getNameAsString() + ": it was not possible to correctly handle a doReturn method call, the test is skipped.");
+		else if (!allRaiseTimesValid)
+			System.out.println(node.getNameAsString()
+					+ ": it was not possible to correctly handle a raiseTimeEvent method call, the test is skipped.");
 		else if (!allRaiseValid)
-			System.out.println(node.getNameAsString() + ": it was not possible to correctly handle a raise statement, the test is skipped.");
+			System.out.println(node.getNameAsString()
+					+ ": it was not possible to correctly handle a raiseEvent method call, the test is skipped.");
 		else if (hasErrors(testCase))
-			System.out.println(node.getNameAsString() + ": a proceed statement is called after an exit statement, the test is skipped.");
+			System.out.println(node.getNameAsString()
+					+ ": a runCycle or proceedCycles method call is called after an exit method call, the test is skipped.");
 		else
 			collector.add(testCase);
 	}
@@ -174,6 +199,47 @@ public class TestCaseCollector extends VoidVisitorAdapter<List<TestCase>> {
 	}
 
 	/**
+	 * Adds an action representing the given doReturn (for mocking) method call to
+	 * the test case, if possible
+	 *
+	 * @param methodCall     the doReturn method call
+	 * @param methodCallList the list of method calls that contains the given
+	 *                       doReturn method call
+	 * @param testCase       the test case where to add the new action
+	 * @return true if it was possible to add the action or if the argument is null,
+	 *         false otherwise
+	 */
+	private boolean manageDoReturn(MethodCallExpr methodCall, List<MethodCallExpr> methodCallList, TestCase testCase) {
+		int methodCallIndex = methodCallList.indexOf(methodCall);
+		// The doReturn() method should be followed by two cascade method calls:
+		// doReturn().when().myOperation()
+		MethodCallExpr whenCall = methodCallList.get(methodCallIndex - 1);
+		MethodCallExpr operationCall = methodCallList.get(methodCallIndex - 2);
+		// Check that the second method call is to when(), that the operation is in the
+		// operations dictionary and that doReturn method call has at most one parameter
+		if (!whenCall.getNameAsString().equals("when")
+				|| !this.operationsNames.containsKey(operationCall.getNameAsString())
+				|| methodCall.getArguments().size() != 1)
+			return false;
+		// Only mock methods with using parameters such as anyLong() or anyString() are
+		// supported
+		for (Expression expression : operationCall.getArguments()) {
+			String argument = expression.toString();
+			if (!argument.startsWith("any"))
+				return false;
+		}
+		// Get the operation to be mocked in SCTUnit
+		String mockOperation = this.operationsNames.get(operationCall.getNameAsString());
+		// Get the value to be used for mocking
+		String doReturnArgument = methodCall.getArgument(0).toString();
+		String mockValue = getSctunitArg(doReturnArgument);
+		// If doReturnArgument is not null, the mock is added, else, it is ignored
+		if (!mockValue.isEmpty())
+			testCase.addMock(mockOperation, mockValue);
+		return true;
+	}
+
+	/**
 	 * Adds an action representing the given proceedCycles method call to the test
 	 * case
 	 *
@@ -183,7 +249,7 @@ public class TestCaseCollector extends VoidVisitorAdapter<List<TestCase>> {
 	private void manageProceedCycles(MethodCallExpr methodCall, TestCase testCase) {
 		// The method proceedCycles has only one argument and it's an int
 		String arg = methodCall.getArgument(0).toString();
-		// Only positive numbers are meaningfull
+		// Only positive numbers are meaningful
 		if (!arg.contains("-") && !arg.contains("(") && !arg.contains(")")) {
 			testCase.addProceedCycles(arg);
 		}
@@ -195,7 +261,8 @@ public class TestCaseCollector extends VoidVisitorAdapter<List<TestCase>> {
 	 *
 	 * @param methodCall the raiseTimeEvent method call
 	 * @param testCase   the test case where to add the new action
-	 * @return true if it was possible to retrieve the actual time to be proceeded, false otherwise
+	 * @return true if it was possible to retrieve the actual time to be proceeded,
+	 *         false otherwise
 	 */
 	private boolean manageRaiseTimeEvent(MethodCallExpr methodCall, TestCase testCase) {
 		// The method raiseTimeEvent has only one argument and it's an int
@@ -235,7 +302,8 @@ public class TestCaseCollector extends VoidVisitorAdapter<List<TestCase>> {
 	 * @param testCase      the test case where to add the new action
 	 * @param variableTypes the map with the type for each used variable
 	 * @param testName      the name of the test case
-	 * @return true if it was possible to add the action or if the argument is null, false otherwise
+	 * @return true if it was possible to add the action or if the argument is null,
+	 *         false otherwise
 	 */
 	private boolean manageRaiseEvent(MethodCallExpr methodCall, TestCase testCase, Map<String, String> variableTypes,
 			String testName) {
@@ -246,7 +314,7 @@ public class TestCaseCollector extends VoidVisitorAdapter<List<TestCase>> {
 			// Get the type of the object whose method is called
 			String variableType = variableTypes.get(methodCall.getChildNodes().get(0).toString());
 			// If the type contain a dot, then it's from a nested class, generated by a
-			// named interface or a sub-machine, in the latter case the event is ignored
+			// named interface or a sub-machine, in the latter case the test is skipped
 			if (variableType.contains(".")) {
 				// Obtain the nested class name, if is not in the dictionary, ignore the event
 				String javaClassName = variableType.substring(variableType.indexOf('.') + 1);
@@ -259,20 +327,12 @@ public class TestCaseCollector extends VoidVisitorAdapter<List<TestCase>> {
 			// If the raise method call has an argument, then associated event has a type
 			// and the argument must be used as the value of the event
 			if (methodCall.getArguments().size() > 0) {
-				String value = methodCall.getArgument(0).toString();
-				// If the argument is not a string (something starting and ending with double
-				// quotes) or the boolean values true or false, it may need some modifications
-				if (!(value.startsWith("\"") && value.endsWith("\"")
-						&& !(value.equals("true") || value.equals("false")))) {
-					// If it contains null, the raise event is ignored because null is not supported
-					// in sctunit
-					if (value.contains("null"))
-						return true;
-					// Integers are substituted with long in java, but the final L must be dropped to
-					// be compliant with sctunit,
-					// also the external parenthesis are dropped to increase readability
-					value = value.replaceAll("[L()]", "");
-				}
+				String arg = methodCall.getArgument(0).toString();
+				String value = getSctunitArg(arg);
+				// If it contains null, the raise event is ignored because null is not supported
+				// in sctunit
+				if (value.isEmpty())
+					return true;
 				testCase.addTypedEvent(event, value);
 			} else {
 				testCase.addEvent(event);
@@ -281,6 +341,31 @@ public class TestCaseCollector extends VoidVisitorAdapter<List<TestCase>> {
 			return false;
 		}
 		return true;
+	}
+
+	/**
+	 * Given a String representing an argument used in Java, obtain the
+	 * corresponding argument to be used in SCTUnit. This method is supposed to
+	 * extract ONLY arguments of default SCTUnit types (boolean, strings, long,
+	 * double)
+	 * 
+	 * @param javaArg the java argument
+	 * @return the SCTUnit argument, empty if it is not a string and contains null
+	 */
+	private String getSctunitArg(String javaArg) {
+		// If the argument is not a string (something starting and ending with double
+		// quotes) or the boolean values true or false, it may need some modifications
+		if (!(javaArg.startsWith("\"") && javaArg.endsWith("\"")
+				&& !(javaArg.equals("true") || javaArg.equals("false")))) {
+			// If it contains null, return the empty string
+			if (javaArg.contains("null"))
+				return "";
+			// Integers are substituted with long in java, the final L must be dropped to
+			// be compliant with sctunit, also the external parenthesis are dropped to
+			// increase readability
+			javaArg = javaArg.replaceAll("[L()]", "");
+		}
+		return javaArg;
 	}
 
 	/**

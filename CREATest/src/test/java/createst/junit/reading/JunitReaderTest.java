@@ -23,13 +23,13 @@ public class JunitReaderTest {
 	
 	@Test(expected = NullPointerException.class)
 	public void testNullInput() throws IOException {
-		reader.getTestCases(null, null, null, null, null, null);
+		reader.getTestCases(null, null, null, null, null, null, null);
 	}
 
 	@Test(expected = IOException.class)
 	public void testEmptyPath() throws IOException {
 		String junitPath = "";
-		reader.getTestCases(junitPath, null, null, null, null, null);
+		reader.getTestCases(junitPath, null, null, null, null, null, null);
 	}
 
 	@Test
@@ -63,6 +63,8 @@ public class JunitReaderTest {
 		String intrfc = "intrfc";
 		interfacesNames.put("Intrfc", intrfc);
 		
+		Map<String, String> operationsNames = new HashMap<String, String>();
+		
 		Map<Integer, ProceedTime> proceedTimes = new HashMap<Integer, ProceedTime>();
 		String time_1 = "1";
 		String time_2 = "5";
@@ -76,7 +78,7 @@ public class JunitReaderTest {
 		proceedTimes.put(6, new ProceedTime(Integer.parseInt(time_6), TimeUnit.MILLISECONDS));
 		
 		List<TestCase> actual = reader.getTestCases(junitPath, statechartName, statesNames, eventsNames,
-				interfacesNames, proceedTimes);
+				interfacesNames, operationsNames, proceedTimes);
 		
 		List<TestCase> expected = new ArrayList<TestCase>();
 		

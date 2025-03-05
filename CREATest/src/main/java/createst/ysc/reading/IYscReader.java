@@ -58,4 +58,12 @@ public interface IYscReader {
 	 */
 	public Map<String, String> getInterfacesNames();
 
+	/**
+	 * Gets all operations names.
+	 *
+	 * @return the list containing all operations names where the key is the
+	 *         corresponding method
+	 */
+	public Map<String, String> getOperationsNames();
+
 }

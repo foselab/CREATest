@@ -90,6 +90,7 @@ public class Createst {
 		Map<String, String> statesNames = yscReader.getStatesNames();
 		Map<String, String> eventsNames = yscReader.getEventsNames();
 		Map<String, String> interfacesNames = yscReader.getInterfacesNames();
+		Map<String, String> operationsNames = yscReader.getOperationsNames();
 		List<String> importedSubMachines = yscReader.getImportedSubMachines();
 		
 		// Initialize the temporary Eclipse Project
@@ -181,7 +182,7 @@ public class Createst {
 		System.out.println("*******************************************");
 		IJunitReader junitReader = new JunitReader();
 		List<TestCase> testCaseList = junitReader.getTestCases(simplifiedJunitPath, statechartName, statesNames,
-				eventsNames, interfacesNames, proceedTimes);
+				eventsNames, interfacesNames, operationsNames, proceedTimes);
 
 		// Generate the .sctunit file
 		System.out.println("*******************************************");

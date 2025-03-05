@@ -7,6 +7,8 @@ import java.util.Objects;
  */
 public class Action {
 
+	private String mockOperation;
+	private String mockValue;
 	private String enter;
 	private String exit;
 	private String event;
@@ -21,9 +23,11 @@ public class Action {
 	private String triggerWithoutEvent;
 
 	/**
-	 * Instantiates a new action. The Strings that are not needed for the acton must
+	 * Instantiates a new action. The Strings that are not needed for the action must
 	 * be null
 	 *
+	 * @param mockOperation       the operation to be mocked
+	 * @param mockValue		      the value used for mocking
 	 * @param enter               true if the action is "enter", false otherwise
 	 * @param exit                true if the action is "exit", false otherwise
 	 * @param event               the event to be raised
@@ -36,16 +40,18 @@ public class Action {
 	 * @param assertTrue          true if the truth is wanted to be asserted, false
 	 *                            if the falseness is wanted to be asserted
 	 * @param proceed             the number of cycles to be proceeded associated
-	 *                            with the proceed cycle evet
+	 *                            with the proceed cycle event
 	 * @param timeValue           the value associated with the proceed time event
 	 * @param timeUnit            the time unit associated with the proceed time
 	 *                            event
 	 * @param triggerWithoutEvent true if the action is "triggerWithoutEvent", false
 	 *                            otherwise
 	 */
-	public Action(boolean enter, boolean exit, String event, String eventValue, String state, boolean isActive,
+	public Action(String mockOperation, String mockValue, boolean enter, boolean exit, String event, String eventValue, String state, boolean isActive,
 			boolean isFinal, boolean assertTrue, String proceed, String timeValue, String timeUnit,
 			boolean triggerWithoutEvent) {
+		this.mockOperation = mockOperation;
+		this.mockValue = mockValue;
 		this.enter = enter ? "" : null;
 		this.exit = exit ? "" : null;
 		this.event = event;
@@ -72,13 +78,32 @@ public class Action {
 		if (getClass() != obj.getClass())
 			return false;
 		Action other = (Action) obj;
-		return Objects.equals(enter, other.enter) && Objects.equals(event, other.event)
+		return Objects.equals(mockOperation, other.mockOperation) && Objects.equals(mockValue, other.mockValue)
+				&& Objects.equals(enter, other.enter) && Objects.equals(event, other.event)
 				&& Objects.equals(eventValue, other.eventValue) && Objects.equals(exit, other.exit)
 				&& Objects.equals(isActive, other.isActive) && Objects.equals(isFinal, other.isFinal)
 				&& Objects.equals(not, other.not) && Objects.equals(proceed, other.proceed)
 				&& Objects.equals(state, other.state) && Objects.equals(timeUnit, other.timeUnit)
 				&& Objects.equals(timeValue, other.timeValue)
 				&& Objects.equals(triggerWithoutEvent, other.triggerWithoutEvent);
+	}
+	
+	/**
+	 * Gets the mock operation string.
+	 *
+	 * @return the string
+	 */
+	public String getMockOperation() {
+		return mockOperation;
+	}
+
+	/**
+	 * Gets the mock value string.
+	 *
+	 * @return the string
+	 */
+	public String getMockValue() {
+		return mockValue;
 	}
 
 	/**

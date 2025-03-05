@@ -20,11 +20,13 @@ public interface IJunitReader {
 	 *                        corresponding method as key
 	 * @param interfacesNames the dictionary of the interfaces names with the
 	 *                        corresponding class name as key
+	 * @param operationsNames the dictionary of the operations names with the
+	 *                        method as key
 	 * @return the list of the test cases
 	 * @throws IOException if any IO errors occur.
 	 */
 	public List<TestCase> getTestCases(String junitPath, String statechartName, Map<String, String> statesNames,
-			Map<String, String> eventsNames, Map<String, String> interfacesNames,
+			Map<String, String> eventsNames, Map<String, String> interfacesNames, Map<String, String> operationsNames,
 			Map<Integer, ProceedTime> proceedTimes) throws IOException;
 	
 }
