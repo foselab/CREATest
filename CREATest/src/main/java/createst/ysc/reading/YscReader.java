@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -112,7 +113,7 @@ public class YscReader implements IYscReader {
 		// Create a dictionary for the states names with the corresponding enum as key
 		Map<String, String> statesNames = new HashMap<String, String>();
 		for (String name : this.statesNames) {
-			String enumName = name.toUpperCase().replace('.', '_');
+			String enumName = name.toUpperCase().replace('.', '_').replace("^", "");
 			statesNames.put(enumName, name);
 		}
 		return statesNames;
@@ -127,7 +128,7 @@ public class YscReader implements IYscReader {
 		Map<String, String> eventsNames = new HashMap<String, String>();
 		for (String name : this.eventsNames) {
 			String methodName = "raise" + name.substring(0, 1).toUpperCase() + name.substring(1);
-			eventsNames.put(methodName, name);
+			eventsNames.put(methodName, addCircumflex(name));
 		}
 		return eventsNames;
 	}
@@ -142,7 +143,7 @@ public class YscReader implements IYscReader {
 		Map<String, String> interfacesNames = new HashMap<String, String>();
 		for (String name : this.interfacesNames) {
 			String className = name.substring(0, 1).toUpperCase() + name.substring(1);
-			interfacesNames.put(className, name);
+			interfacesNames.put(className, addCircumflex(name));
 		}
 		return interfacesNames;
 	}
@@ -156,9 +157,22 @@ public class YscReader implements IYscReader {
 		Map<String, String> operationsNames = new HashMap<String, String>();
 		for (String name : this.operationsNames) {
 			String methodName = name.substring(0, 1).toLowerCase() + name.substring(1);
-			operationsNames.put(methodName, name);
+			operationsNames.put(methodName, addCircumflex(name));
 		}
 		return operationsNames;
+	}
+	
+	private static final Set<String> SCTUNIT_KEYWORDS = Set.of("testclass", "for", "statechart", "operation", "return",
+			"assert", "message", "called", "times", "proceed", "s", "ms", "us", "ns", "cycle", "if", "else", "while",
+			"mock", "returns", "testsuite");
+	
+	/**
+	 * TODO
+	 * @param input
+	 * @return
+	 */
+	private String addCircumflex(String input) {
+		return (SCTUNIT_KEYWORDS.contains(input)? "^" : "") + input;
 	}
 
 	/**
@@ -238,8 +252,7 @@ public class YscReader implements IYscReader {
 			this.checkForFinalState(node, statesNames);
 		} else {
 			// A "normal" state is a node with name "vertices" and the attribute "xsi:type"
-			// equals to "sgraph:State",
-			// for that kind of node, the name is of interest
+			// equals to "sgraph:State", for that kind of node, the name is of interest
 			Node attribute = node.getAttributes().getNamedItem("xsi:type");
 			if (attribute.getNodeValue().equals("sgraph:State")) {
 				statesNames.add(this.getFullName(node, ""));
@@ -256,7 +269,7 @@ public class YscReader implements IYscReader {
 	}
 
 	/**
-	 * Check if the node (region) contatins a final state.
+	 * Check if the node (region) contains a final state.
 	 *
 	 * @param node        the node representing the region
 	 * @param statesNames the list of all the names of the states visited so far
@@ -307,8 +320,8 @@ public class YscReader implements IYscReader {
 			name = node.getAttributes().getNamedItem("name").getNodeValue();
 		}
 		// Note that non alphanumeric characters must be substituted with '_' to be
-		// compliant with SCTUnit (the name must be an ID)
-		String newName = name.replaceAll("[^a-zA-Z0-9]", "_") + oldName;
+		// compliant with SCTUnit (the name must be an ID), except for '^' that must be kept
+		String newName = addCircumflex(name.replaceAll("[^a-zA-Z0-9\\^]", "_")) + oldName;
 		Node parent = node.getParentNode();
 		if (parent.getNodeName().equals("sgraph:Statechart"))
 			// If the "root" of the statechart is reached, the final full name is returned
