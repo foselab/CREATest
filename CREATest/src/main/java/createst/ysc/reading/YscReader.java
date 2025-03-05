@@ -48,7 +48,7 @@ public class YscReader implements IYscReader {
 
 	/** The list containing all the names of interfaces in the statechart. */
 	private List<String> interfacesNames;
-	
+
 	/** The list containing all the names of the operations in the statechart. */
 	private List<String> operationsNames;
 
@@ -147,7 +147,7 @@ public class YscReader implements IYscReader {
 		}
 		return interfacesNames;
 	}
-	
+
 	/**
 	 * {@inheritDoc}
 	 */
@@ -157,22 +157,42 @@ public class YscReader implements IYscReader {
 		Map<String, String> operationsNames = new HashMap<String, String>();
 		for (String name : this.operationsNames) {
 			String methodName = name.substring(0, 1).toLowerCase() + name.substring(1);
-			operationsNames.put(methodName, addCircumflex(name));
+			operationsNames.put(addID(methodName), addCircumflex(name));
 		}
 		return operationsNames;
 	}
-	
-	private static final Set<String> SCTUNIT_KEYWORDS = Set.of("testclass", "for", "statechart", "operation", "return",
+
+	public static final Set<String> SCTUNIT_KEYWORDS = Set.of("testclass", "for", "statechart", "operation", "return",
 			"assert", "message", "called", "times", "proceed", "s", "ms", "us", "ns", "cycle", "if", "else", "while",
 			"mock", "returns", "testsuite");
-	
+
+	public static final Set<String> JAVA_KEYWORDS = Set.of("abstract", "continue", "for", "new", "switch", "assert",
+			"default", "goto", "package", "synchronized", "boolean", "do", "if", "private", "this", "break", "double",
+			"implements", "protected", "throw", "byte", "else", "import", "public", "throws", "case", "enum",
+			"instanceof", "return", "transient", "catch", "extends", "int", "short", "try", "char", "final",
+			"interface", "static", "void", "class", "finally", "long", "strictfp", "volatile", "const", "float",
+			"native", "super", "while");
+
 	/**
-	 * TODO
-	 * @param input
-	 * @return
+	 * If the input string is a SCTUnit keyword, add the circumflex '^' as suffix
+	 * 
+	 * @param input the input string
+	 * @return the input string with the circumflex '^' as suffix if the input
+	 *         string is a SCTUnit keyword
 	 */
 	private String addCircumflex(String input) {
-		return (SCTUNIT_KEYWORDS.contains(input)? "^" : "") + input;
+		return (SCTUNIT_KEYWORDS.contains(input) ? "^" : "") + input;
+	}
+
+	/**
+	 * If the input string is a Java keyword, add "_ID" as prefix
+	 * 
+	 * @param input the input string
+	 * @return the input string with "_ID" as prefix if the input string is a Java
+	 *         keyword
+	 */
+	private String addID(String input) {
+		return input + (JAVA_KEYWORDS.contains(input) ? "_ID" : "");
 	}
 
 	/**
@@ -182,9 +202,9 @@ public class YscReader implements IYscReader {
 	private void initStatechart() {
 		// Check if the statechart has a namespace
 		this.hasNamespace = this.statechartNode.getAttributes().getNamedItem("namespace") != null;
-		this.namespace = addCircumflex(this.hasNamespace
-				? this.statechartNode.getAttributes().getNamedItem("namespace").getNodeValue()
-				: null);
+		this.namespace = this.hasNamespace
+				? addCircumflex(this.statechartNode.getAttributes().getNamedItem("namespace").getNodeValue())
+				: null;
 
 		// Obtain the name of the statechart
 		this.statechartName = addCircumflex(this.statechartNode.getAttributes().getNamedItem("name").getNodeValue());
@@ -293,9 +313,9 @@ public class YscReader implements IYscReader {
 	/**
 	 * Gets the full name of the node recursively, going up in the DOM tree.
 	 *
-	 * @param node the node for which it must be obtained the full name
+	 * @param node    the node for which it must be obtained the full name
 	 * @param oldName the full name obtained before the call of this method, it must
-	 *             contain a dot at the start if it is not the first call
+	 *                contain a dot at the start if it is not the first call
 	 * @return the full name obtained at the end of the call of this method
 	 */
 	private String getFullName(Node node, String oldName) {
@@ -320,7 +340,8 @@ public class YscReader implements IYscReader {
 			name = node.getAttributes().getNamedItem("name").getNodeValue();
 		}
 		// Note that non alphanumeric characters must be substituted with '_' to be
-		// compliant with SCTUnit (the name must be an ID), except for '^' that must be kept
+		// compliant with SCTUnit (the name must be an ID), except for '^' that must be
+		// kept
 		String newName = addCircumflex(name.replaceAll("[^a-zA-Z0-9\\^]", "_")) + oldName;
 		Node parent = node.getParentNode();
 		if (parent.getNodeName().equals("sgraph:Statechart"))

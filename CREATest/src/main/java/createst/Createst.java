@@ -102,7 +102,10 @@ public class Createst {
 		}
 
 		// Obtain the needed Strings (remove circumflex '^' where needed)
-		String firstUpperStatechartName = statechartName.replace("^", "").substring(0, 1).toUpperCase() + statechartName.replace("^", "").substring(1);
+		String statechartNameWithoutC = statechartName.replace("^", "");
+		String firstUpperStatechartName = statechartNameWithoutC.substring(0, 1).toUpperCase() + statechartNameWithoutC.substring(1);
+		if (YscReader.JAVA_KEYWORDS.contains(statechartNameWithoutC))
+			firstUpperStatechartName += "SM";
 		
 		String sgenPath = projectPath + File.separator + TempWsUtils.MODELS_DIR + File.separator + firstUpperStatechartName + ".sgen";
 
