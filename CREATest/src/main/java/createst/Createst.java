@@ -109,7 +109,7 @@ public class Createst {
 		
 		String sgenPath = projectPath + File.separator + TempWsUtils.MODELS_DIR + File.separator + firstUpperStatechartName + ".sgen";
 
-		String actualPackage = TempWsUtils.BASE_PACKAGE + (yscReader.hasNamespace()? File.separator + namespace.replace("^", "") : "");
+		String actualPackage = TempWsUtils.BASE_PACKAGE + (yscReader.hasNamespace()? File.separator + namespace.replace("^", "").replace(".", File.separator) : "");
 		
 		String javaPath = projectPath + File.separator + TempWsUtils.SOURCE_DIR + File.separator + actualPackage + File.separator + firstUpperStatechartName + ".java";
 		String simplifiedJavaPath = projectPath + File.separator + TempWsUtils.SOURCE_DIR + File.separator + actualPackage + File.separator + firstUpperStatechartName
@@ -140,6 +140,7 @@ public class Createst {
 		System.out.println("*******************************************");
 		IJavaWriter javaWriter = new JavaWriter();
 		javaWriter.callICGenerator(projectPath, itemisScc, TempWsUtils.MODELS_DIR);
+		javaWriter.overwriteReplacementCharacter(javaPath);
 
 		// Read the java file
 		System.out.println("*******************************************");
