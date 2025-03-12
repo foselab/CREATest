@@ -20,8 +20,11 @@ public class InputValues {
 	/** True if the parsed arguments have the option -g. */
 	private boolean hasGenArtifacts = false;
 
+	/** True if the parsed arguments have the option -e. */
+	private boolean hasRunExperiments = false;
+
 	/**
-	 * Gets the absolute path of the scc script.
+	 * Get the absolute path of the scc script.
 	 *
 	 * @return the absolute path of the scc script
 	 */
@@ -30,7 +33,7 @@ public class InputValues {
 	}
 
 	/**
-	 * Gets the absolute path of the ysc file.
+	 * Get the absolute path of the ysc file.
 	 *
 	 * @return the absolute path of the ysc file
 	 */
@@ -39,7 +42,7 @@ public class InputValues {
 	}
 
 	/**
-	 * Gets the (evosuite) search budget, 0 if not present.
+	 * Get the (evosuite) search budget, 0 if not present.
 	 *
 	 * @return the (evosuite) search budget
 	 */
@@ -48,7 +51,7 @@ public class InputValues {
 	}
 
 	/**
-	 * Checks for the option -b.
+	 * Check for the option -b.
 	 *
 	 * @return true if the parsed arguments have the option -b, false
 	 *         otherwise
@@ -58,7 +61,7 @@ public class InputValues {
 	}
 	
 	/**
-	 * Checks for the option -g.
+	 * Check for the option -g.
 	 *
 	 * @return true if the parsed arguments have the option -g, false
 	 *         otherwise
@@ -66,9 +69,19 @@ public class InputValues {
 	public boolean hasGenArtifacts() {
 		return hasGenArtifacts;
 	}
+	
+	/**
+	 * Check for the option -e.
+	 *
+	 * @return true if the parsed arguments have the option -e, false
+	 *         otherwise
+	 */
+	public boolean hasRunExperiments() {
+		return hasRunExperiments;
+	}
 
 	/**
-	 * Sets the absolute path of the scc script.
+	 * Set the absolute path of the scc script.
 	 *
 	 * @param sccPath the absolute path of the scc script
 	 */
@@ -77,7 +90,7 @@ public class InputValues {
 	}
 	
 	/**
-	 * Sets the absolute path of the ysc file.
+	 * Set the absolute path of the ysc file.
 	 *
 	 * @param yscPath the absolute path of the ysc file
 	 */
@@ -86,7 +99,7 @@ public class InputValues {
 	}
 
 	/**
-	 * Sets the (evosuite) search budget.
+	 * Set the (evosuite) search budget.
 	 *
 	 * @param searchBudget the (evosuite) search budget
 	 */
@@ -96,12 +109,20 @@ public class InputValues {
 	}
 	
 	/**
-	 * Sets the (evosuite) search budget.
+	 * Set the artifacts generation.
 	 *
-	 * @param searchBudget the (evosuite) search budget
 	 */
 	public void setGenArtifacts() {
 		this.hasGenArtifacts = true;
+	}
+
+	/**
+	 * Set has run experiments to true.
+	 * 
+	 */
+	public void setRunExperiments() {
+		this.hasRunExperiments  = true;
+		
 	}
 
 }

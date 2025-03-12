@@ -68,6 +68,7 @@ public class Createst {
 		boolean hasSearchBudget = input.hasSearchBudget();
 		int evoSearchBudget = input.getEvoSearchBudget();
 		boolean hasGenArtifacts = input.hasGenArtifacts();
+		boolean hasRunExperiments = input.hasRunExperiments();
 
 		// Initialize the temporary Eclipse Project
 		System.out.println("*******************************************");
@@ -112,20 +113,23 @@ public class Createst {
 		String actualPackage = TempWsUtils.BASE_PACKAGE + (yscReader.hasNamespace()? File.separator + namespace.replace("^", "").replace(".", File.separator) : "");
 		
 		String javaPath = projectPath + File.separator + TempWsUtils.SOURCE_DIR + File.separator + actualPackage + File.separator + firstUpperStatechartName + ".java";
-		String simplifiedJavaPath = projectPath + File.separator + TempWsUtils.SOURCE_DIR + File.separator + actualPackage + File.separator + firstUpperStatechartName
-				+ "Simplified.java";
+		String simplifiedJavaPath = javaPath.replace(".java", "Simplified.java");
 
 		String compilerD = "-d " + projectPath + File.separator + TempWsUtils.BINARY_DIR;
 		String compilerClasspath = "-classpath " + projectPath + File.separator + TempWsUtils.SOURCE_DIR;
 
-		String evoSimplifiedClass = "-class " + actualPackage.replace(File.separator, ".") + "." + firstUpperStatechartName + "Simplified";
+		String evoClass = "-class " + actualPackage.replace(File.separator, ".") + "." + firstUpperStatechartName;
+		String evoSimplifiedClass = evoClass + "Simplified";
 		String evoProjectCP = "-projectCP " + projectPath + File.separator + TempWsUtils.BINARY_DIR;
 		String evoDTestDir = "-Dtest_dir=" + projectPath + File.separator + TempWsUtils.TEST_DIR;
 		String evoDReportDir = "-Dreport_dir=" + projectPath + File.separator + "evosuite-report";
 		
-		String simplifiedJunitPath = projectPath + File.separator + TempWsUtils.TEST_DIR + File.separator + actualPackage + File.separator + firstUpperStatechartName
-				+ "Simplified_ESTest.java";
+		String junitPath = projectPath + File.separator + TempWsUtils.TEST_DIR + File.separator + actualPackage + File.separator + firstUpperStatechartName
+				+ "_ESTest.java";
+		String simplifiedJunitPath = junitPath.replace("_ESTest.java", "Simplified_ESTest.java");
+		
 		String sctunitPath = projectPath + File.separator + TempWsUtils.MODELS_DIR + File.separator + firstUpperStatechartName + "Test.sctunit";
+		String simplifiedSctunitPath = sctunitPath.replace("Test.sctunit", "SimplifiedTest.sctunit");
 		
 		// Generate the .sgen file needed by itemis CREATE to generate the java code
 		System.out.println("*******************************************");
@@ -140,6 +144,8 @@ public class Createst {
 		System.out.println("*******************************************");
 		IJavaWriter javaWriter = new JavaWriter();
 		javaWriter.callICGenerator(projectPath, itemisScc, TempWsUtils.MODELS_DIR);
+		System.out.println("--------------------------------------------------------------");
+		TempWsUtils.waitFileToBeReady(javaPath);
 		javaWriter.overwriteReplacementCharacter(javaPath);
 
 		// Read the java file
@@ -167,7 +173,7 @@ public class Createst {
 		System.out.println("*******************************************");
 		TempWsUtils.compile(compilerD, compilerClasspath, simplifiedJavaPath);
 
-		// Delete the VirtualTimer.class file to hide it to Evosuite
+		// Delete the VirtualTimer.class file to hide it from Evosuite
 		String virtualTimerPath = projectPath + File.separator + TempWsUtils.BINARY_DIR + File.separator + "com" + File.separator + "yakindu" + File.separator + "core" + File.separator + "VirtualTimer.class";
 		if (Files.exists(Paths.get(virtualTimerPath)))
 			new File(virtualTimerPath).delete();
@@ -193,14 +199,36 @@ public class Createst {
 		System.out.println("Generating .sctunit file...");
 		System.out.println("*******************************************");
 		ISctunitWriter sctunitWriter = new SctunitWriter();
-		sctunitWriter.writeSctunit(sctunitPath, namespace, statechartName, testCaseList, true);
-
+		// The final .sctunit name is clearer without the "Simplified" suffix,
+		// that is added only if otherwise there would be a collision
+		if (hasRunExperiments)
+			sctunitWriter.writeSctunit(simplifiedSctunitPath, namespace, statechartName, testCaseList, true);
+		else
+			sctunitWriter.writeSctunit(sctunitPath, namespace, statechartName, testCaseList, false);
+		
+		// TODO
+		System.out.println("*******************************************");
+		System.out.println("For experimental purposes:");
+		System.out.println("Generating .sctunit file without passing via the Java simplification step.");
+		System.out.println("*******************************************");
+		if (hasRunExperiments) {
+			System.out.println("-- Calling evosuite");
+			junitWriter.callEvosuite(evoClass, evoProjectCP, evoDTestDir, evoDReportDir, hasSearchBudget,
+					evoSearchBudget);
+			System.out.println("-- Reading .junit");
+			testCaseList = junitReader.getTestCases(junitPath, statechartName, statesNames,
+					eventsNames, interfacesNames, operationsNames, proceedTimes);
+			System.out.println("-- Writing .sctunit");
+			sctunitWriter.writeSctunit(sctunitPath, namespace, statechartName, testCaseList, false);
+		}
+		
 		// Copy the final .sctunit file and eventually generate the .zip of the
 		// temporary workspace
 		System.out.println("*******************************************");
 		System.out.println("Copying .sctunit file...");
 		System.out.println("*******************************************");
-		TempWsUtils.copyAndCompress(workspacePath, sctunitPath, sourceFilePath, firstUpperStatechartName, hasGenArtifacts);
+		TempWsUtils.copyAndCompress(workspacePath, sctunitPath, sourceFilePath, firstUpperStatechartName,
+				hasGenArtifacts, hasRunExperiments);
 
 		// End the execution
 		System.out.println("*******************************************");
@@ -209,5 +237,4 @@ public class Createst {
 		System.out.println("--------------------------------------------------------------");
 		System.exit(0);
 	}
-
 }

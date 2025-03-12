@@ -42,7 +42,7 @@ public class CliManager implements ICliManager {
 	}
 
 	/**
-	 * Initialises the option.
+	 * Initializes the option.
 	 *
 	 * @return the initialized options
 	 */
@@ -61,12 +61,15 @@ public class CliManager implements ICliManager {
 				.desc("the search budget to impose to Evosuite, it must be a positive integer").build();
 		Option genArtifacts = new Option("g", "genArtifacts", false, "Generate a .zip containing"
 				+ " all the artifacts produced during the process.");
+		Option runExperiment = new Option("e", "runExperiments", false, "Also run generate a .sctunit file without"
+				+ " passing via the Java simplification step. Useful for experimental purposes.");
 		Option help = new Option("h", "help", false, "print this message.");
 
 		options.addOption(sccPath);
 		options.addOption(yscPath);
 		options.addOption(evoSearchBudget);
 		options.addOption(genArtifacts);
+		options.addOption(runExperiment);
 		options.addOption(help);
 
 		return options;
@@ -159,6 +162,10 @@ public class CliManager implements ICliManager {
 		// Set the generation of artifacts to true
 		if (cmd.hasOption("g"))
 			parsedArgs.setGenArtifacts();
+		
+		// Set the generation of artifacts to true
+		if (cmd.hasOption("e"))
+			parsedArgs.setRunExperiments();
 
 		return parsedArgs;
 	}

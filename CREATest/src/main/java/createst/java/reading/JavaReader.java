@@ -2,7 +2,6 @@ package createst.java.reading;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -20,21 +19,7 @@ public class JavaReader implements IJavaReader {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public Map<Integer, ProceedTime> getProceedTimes(String javaPath) throws IOException, FileNotFoundException {
-		// Wait the file to exist before trying to read
-		int attempts = 15; // Try for 15 seconds max
-        File file = new File(javaPath);
-        try {
-	        while (!file.exists() && attempts > 0) {
-	            System.out.println("Waiting for file to be ready...");
-				Thread.sleep(1000);
-	            attempts--;
-	        }
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-        if (!file.exists())
-        	throw new FileNotFoundException("The file " + javaPath + " does not exists");
+	public Map<Integer, ProceedTime> getProceedTimes(String javaPath) throws IOException {
 		// Get the compilation unit of the java class
 		CompilationUnit cu = StaticJavaParser.parse(new FileInputStream(new File(javaPath).getCanonicalPath()));
 		// Create a dictionary for the time events, the key is the ID, the value is the
