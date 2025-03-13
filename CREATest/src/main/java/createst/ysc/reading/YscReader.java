@@ -202,9 +202,16 @@ public class YscReader implements IYscReader {
 	private void initStatechart() {
 		// Check if the statechart has a namespace
 		this.hasNamespace = this.statechartNode.getAttributes().getNamedItem("namespace") != null;
-		this.namespace = this.hasNamespace
-				? addCircumflex(this.statechartNode.getAttributes().getNamedItem("namespace").getNodeValue())
-				: null;
+		// Retrieve the namespace and add circumflex where needed
+		if (this.hasNamespace) {
+			String namespace = this.statechartNode.getAttributes().getNamedItem("namespace").getNodeValue();
+			String[] subNamespaces = namespace.split("\\.");
+			for (int i = 0; i < subNamespaces.length; i++)
+				subNamespaces[i] = addCircumflex(subNamespaces[i]);
+			this.namespace = String.join(".", subNamespaces);
+		} else {
+			this.namespace = null;
+		}
 
 		// Obtain the name of the statechart
 		this.statechartName = addCircumflex(this.statechartNode.getAttributes().getNamedItem("name").getNodeValue());
