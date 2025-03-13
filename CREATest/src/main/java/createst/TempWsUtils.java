@@ -277,7 +277,7 @@ public abstract class TempWsUtils {
 	 */
 	private static void copyCsv(String workspacePath, String execLocationPath) throws IOException {
 		String sourceReportPath = workspacePath + File.separator + PROJECT_NAME + File.separator + "evosuite-report" + File.separator + "statistics.csv";
-		String destReportPath = execLocationPath + File.separator + "evosuite_stats.csv";
+		String destReportPath = execLocationPath + File.separator + "evosuite-stats.csv";
 		if (Files.exists(Paths.get(destReportPath))) {
 			BufferedWriter writer = new BufferedWriter(new FileWriter(destReportPath, true));
 			BufferedReader reader = new BufferedReader(new FileReader(sourceReportPath));
