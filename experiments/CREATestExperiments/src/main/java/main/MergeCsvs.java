@@ -12,7 +12,9 @@ public class MergeCsvs {
 	private static final String MERGED_CSV = "../data/data.csv";
 
 	/**
-	 * TODO
+	 * Merges the csv containing the information on the statecharts (name, number of
+	 * states, avg depth and max depth) in the benchmark with the csv containing the
+	 * coverage info from evosuite
 	 */
 	public static void main(String[] args) throws IOException {
 		System.out.println("----------------------------");
@@ -22,58 +24,50 @@ public class MergeCsvs {
 		writer.append("File,StatechartName,NumStates,AvgDepth,MaxDepth,StandardEvosuiteCoverage,"
 				+ "StandardSCTUnitCoverage,StandardSCTUnitStatus,SimplifiedEvosuiteCoverage,"
 				+ "SimplifiedSCTUnitCoverage,SimplifiedSCTUnitStatus" + "\n");
-		FileReader evoCoverageFileReader = new FileReader(EVO_COVERAGE_CSV);
-		CSVReader evoCoverageCsvReader = new CSVReader(evoCoverageFileReader);
-		evoCoverageCsvReader.readNext();
-		// Read the csv from evosuite row by row, adding a new merged row ad each
+
+		// Read the benchmark csv row by row, adding a new merged row ad each
 		// iteration
-		String[] evoNextRecord = evoCoverageCsvReader.readNext();
-		while (evoNextRecord != null) {
+		FileReader benchmarkFileReader = new FileReader(BENCHMARK_CSV);
+		CSVReader benchmarkCsvReader = new CSVReader(benchmarkFileReader);
+		benchmarkCsvReader.readNext(); // Skip first row (headers)
+		String[] benchmarkNextRecord = benchmarkCsvReader.readNext();
+		while (benchmarkNextRecord != null) {
 			// Get the name of the statechart
-			String evoStatechart = evoNextRecord[0].substring(evoNextRecord[0].lastIndexOf('.') + 1);
-			// Skip if it ends with Simplified
-			if (evoStatechart.endsWith("Simplified")) {
-				evoNextRecord = evoCoverageCsvReader.readNext();
-				continue;
-			}
+			String benchmarkStatechart = benchmarkNextRecord[1];
 			String[] mergedRecord = new String[11];
-			mergedRecord[5] = evoNextRecord[2]; // StandardEvosuiteCoverage
-			mergedRecord[1] = evoStatechart; // StatechartName
-			// Search again in the evosuite csv for the corresponding simplified row
-			FileReader evoCoverageFileReader_bis = new FileReader(EVO_COVERAGE_CSV);
-			CSVReader evoCoverageCsvReader_bis = new CSVReader(evoCoverageFileReader_bis);
-			String[] evoNextRecord_bis = evoCoverageCsvReader_bis.readNext();
-			while (evoNextRecord_bis != null) {
-				String evoStatechart_bis = evoNextRecord_bis[0].substring(evoNextRecord_bis[0].lastIndexOf('.') + 1);
-				if (evoStatechart.equals(evoStatechart_bis.replace("Simplified", ""))) {
-					mergedRecord[8] = evoNextRecord_bis[2]; // SimplifiedEvosuiteCoverage
-					break;
+			// Add the data to the merged record
+			mergedRecord[0] = benchmarkNextRecord[0] + ".ysc"; // File
+			mergedRecord[1] = benchmarkNextRecord[1]; // StatechartName
+			mergedRecord[2] = benchmarkNextRecord[2]; // NumStates
+			mergedRecord[3] = benchmarkNextRecord[3]; // AvgDepth
+			mergedRecord[4] = benchmarkNextRecord[4]; // MaxDepth
+			// Search in the evosuite csv for the corresponding standard and simplified row
+			FileReader evoCoverageFileReader = new FileReader(EVO_COVERAGE_CSV);
+			CSVReader evoCoverageCsvReader = new CSVReader(evoCoverageFileReader);
+			evoCoverageCsvReader.readNext(); // Skip first row (headers)
+			String[] evoNextRecord = evoCoverageCsvReader.readNext();
+			boolean foundStandard = false;
+			boolean foundSimplified = false;
+			while (evoNextRecord != null && !(foundStandard && foundSimplified)) {
+				String evoStatechart = evoNextRecord[0].substring(evoNextRecord[0].lastIndexOf('.') + 1);
+				if (benchmarkStatechart.equals(evoStatechart.replace("Simplified", ""))) {
+					mergedRecord[5] = evoNextRecord[2]; // StandardEvosuiteCoverage
+					foundStandard = true;
 				}
-				evoNextRecord_bis = evoCoverageCsvReader_bis.readNext();
-			}
-			evoCoverageCsvReader_bis.close();
-			// Search in the benchmark csv the corresponding row
-			FileReader benchmarkFileReader = new FileReader(BENCHMARK_CSV);
-			CSVReader benchmarkCsvReader = new CSVReader(benchmarkFileReader);
-			String[] benchmarkNextRecord = benchmarkCsvReader.readNext();
-			while (benchmarkNextRecord != null) {
-				String benchmarkStatechart = benchmarkNextRecord[1];
 				if (benchmarkStatechart.equals(evoStatechart)) {
-					mergedRecord[0] = benchmarkNextRecord[0] + ".ysc"; // File
-					mergedRecord[2] = benchmarkNextRecord[2]; // NumStates
-					mergedRecord[3] = benchmarkNextRecord[3]; // AvgDepth
-					mergedRecord[4] = benchmarkNextRecord[4]; // MaxDepth
-					break;
+					mergedRecord[8] = evoNextRecord[2]; // SimplifiedEvosuiteCoverage
+					foundSimplified = true;
 				}
-				benchmarkNextRecord = benchmarkCsvReader.readNext();
+				evoNextRecord = evoCoverageCsvReader.readNext();
 			}
-			benchmarkCsvReader.close();
-			System.out.println("Writing " + evoStatechart + " row");
+			evoCoverageCsvReader.close();
+			benchmarkNextRecord = benchmarkCsvReader.readNext();
+			// Append the row to csv
+			System.out.println("Writing " + benchmarkStatechart + " row");
 			writer.append(String.join(",", mergedRecord) + "\n");
-			evoNextRecord = evoCoverageCsvReader.readNext();
 		}
 		System.out.println("\nFinished");
-		evoCoverageCsvReader.close();
+		benchmarkCsvReader.close();
 		writer.close();
 		System.out.println("----------------------------");
 	}
