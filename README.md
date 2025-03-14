@@ -1,11 +1,12 @@
 # CREATest
 
-## Replication package for the paper "Abstract Test Generation for itemis CREATE Statecharts by Code Transformation", submitted to ICST 2025
+## Replication package for the paper "Abstract Test Generation for itemis CREATE Statecharts by Code Transformation", submitted to ICTSS 2025
 
-This repository contains the replication package for the paper "Abstract Test Generation for itemis CREATE Statecharts by Code Transformation", submitted to ICST 2025. The package contains the following artifacts:
+This repository contains the replication package for the paper "Abstract Test Generation for itemis CREATE Statecharts by Code Transformation", submitted to ICTSS 2025. The package contains the following artifacts:
 
 * `CREATest`: folder containing the source code of the CREATest tool.
-* `dist`: folder containing the compiled version of the CREATest tool (`CREATest-0.0.2.jar`), together with the needed libraries (e.g., EvoSuite)
+* `dist`: folder containing the compiled version of the CREATest tool (`CREATest-0.0.3.jar`), together with the needed libraries (e.g., EvoSuite)
+* `experiments`: folder containing all the scripts and models used for the ecxperimental evaluation of the tool.
 * `experiments-model`: folder containing the models used in the evaluation of the paper.
     - `from_itemis`: folder containing the models taken from itemis repository
     - `from_stl4iot`: folder containing the models taken from the STL4IoT repository
@@ -25,7 +26,7 @@ JDK is available for the download at https://www.oracle.com/it/java/technologies
 * A working Eclipse-based installation of itemis CREATE (both standalone and Eclipse plug-in are supported). The supported versions of itemis CREATE are 5.2.x (the correct functioning of the tool is not guaranteed with different versions of itemis CREATE). itemis CREATE is available under license.
 No feature provided by the professional license is required to use the tool, so the standard license is sufficient. The installation of itemis CREATE comes with an evaluation license that is valid for 30 days. Licenses are available at https://www.itemis.com/en/products/itemis-create/licenses/. 
 itemis CREATE can be downloaded after filling out the form available at https://info.itemis.com/products/itemis-create/download/.
-* A directory named `libs` containing the dependencies as JAR files. The `libs` directory must be located in the same directory of `Createst-0.0.2.jar` and its content is available in the `dist/libs.zip` file available in this replication package. The required dependencies are:
+* A directory named `libs` containing the dependencies as JAR files. The `libs` directory must be located in the same directory of `Createst-0.0.3.jar` and its content is available in the `dist/libs.zip` file available in this replication package. The required dependencies are:
     - ANTLR Runtime version 3.3,
     - Apache Commons CLI version 1.6.0,
     - EvoSuite version 1.2.0,
@@ -47,6 +48,7 @@ The following options are optional:
 * `-h`, `--help`: print the help message, regardless of other options.
 * `-b <arg>`, `--evoSearchBudget <arg>`: the EvoSuite search budget, expressed in seconds. It must be a positive integer.
 * `-g`, `--genArtifacts`: generate a .zip containing all the artifacts produced during the process.
+* `-e`, `--runExperiments`: execute an extra time the generation process skipping the Java simplification phase. For experimental purposes.
 
 If an input option provided by the user is incorrect (e.g. the specified source file does not exist) or one of the required options is missing, a message describing the error is displayed.
 
