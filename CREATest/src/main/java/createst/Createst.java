@@ -2,6 +2,8 @@ package createst;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.io.StringWriter;
 import java.net.URISyntaxException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -53,6 +55,16 @@ public class Createst {
 	 */
 	public static void main(String[] args)
 			throws ParserConfigurationException, SAXException, IOException, URISyntaxException {
+		// Terminate immediately with a non-zero exit code, signaling that an error
+		// occurred, in case of exception
+		Thread.setDefaultUncaughtExceptionHandler((t, e) -> {
+		    StringWriter sw = new StringWriter();
+	        PrintWriter pw = new PrintWriter(sw);
+	        e.printStackTrace(pw);
+	        System.err.println(sw.toString());
+		    System.exit(1);
+		});
+
 		System.out.println("--------------------------------------------------------------");
 		System.out.println("\t\t\tCREATest");
 		System.out.println("--------------------------------------------------------------");
@@ -206,7 +218,8 @@ public class Createst {
 		else
 			sctunitWriter.writeSctunit(sctunitPath, namespace, statechartName, testCaseList, false);
 		
-		// TODO
+		// Run again EvoSuite directly with the output of itemis CEATE code generator
+		// and complete the generation process. For experimental purposes.
 		System.out.println("*******************************************");
 		System.out.println("For experimental purposes:");
 		System.out.println("Generating .sctunit file without passing via the Java simplification step.");
