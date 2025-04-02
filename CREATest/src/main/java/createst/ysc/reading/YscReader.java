@@ -221,12 +221,16 @@ public class YscReader implements IYscReader {
 
 		// Obtain the list of imported sub-machines
 		this.importedSubMachines = new ArrayList<>();
-		Pattern importPattern = Pattern.compile("import\\s*:\\s*\"(.*)\"");
+		Pattern importPattern = Pattern.compile("import\\s*:\\s*((?:\\s*\"[^\"]+\"\\s*)+)", Pattern.MULTILINE);
 		Matcher importMatcher = importPattern.matcher(specAttribute);
 		while (importMatcher.find()) {
-			this.importedSubMachines.add(importMatcher.group(1));
+			Pattern nestedImportPattern = Pattern.compile("\"(.*)\"");
+			Matcher nestedImportMatcher = nestedImportPattern.matcher(importMatcher.group(1));
+			while (nestedImportMatcher.find()) {
+				this.importedSubMachines.add(nestedImportMatcher.group(1));
+			}
 		}
-
+		
 		// Obtain the list of events full names (i.e. with their interface, if any)
 		this.interfacesNames = new ArrayList<String>();
 		this.eventsNames = new ArrayList<String>();

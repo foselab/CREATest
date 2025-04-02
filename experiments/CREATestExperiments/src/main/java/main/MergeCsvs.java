@@ -34,9 +34,11 @@ public class MergeCsvs {
 		while (benchmarkNextRecord != null) {
 			// Get the name of the statechart
 			String benchmarkStatechart = benchmarkNextRecord[1];
+			System.out.println("Writing " + benchmarkStatechart + " row");
+			benchmarkStatechart = benchmarkStatechart.substring(0, 1).toUpperCase() + benchmarkStatechart.substring(1);
 			String[] mergedRecord = new String[11];
 			// Add the data to the merged record
-			mergedRecord[0] = benchmarkNextRecord[0] + ".ysc"; // File
+			mergedRecord[0] = benchmarkNextRecord[0]; // File
 			mergedRecord[1] = benchmarkNextRecord[1]; // StatechartName
 			mergedRecord[2] = benchmarkNextRecord[2]; // NumStates
 			mergedRecord[3] = benchmarkNextRecord[3]; // AvgDepth
@@ -50,20 +52,20 @@ public class MergeCsvs {
 			boolean foundSimplified = false;
 			while (evoNextRecord != null && !(foundStandard && foundSimplified)) {
 				String evoStatechart = evoNextRecord[0].substring(evoNextRecord[0].lastIndexOf('.') + 1);
-				if (benchmarkStatechart.equals(evoStatechart.replace("Simplified", ""))) {
+				if (benchmarkStatechart.equals(evoStatechart)) {
 					mergedRecord[5] = evoNextRecord[2]; // StandardEvosuiteCoverage
 					foundStandard = true;
-				}
-				if (benchmarkStatechart.equals(evoStatechart)) {
+					System.out.println("\t*Matched standard case");
+				} else if (benchmarkStatechart.equals(evoStatechart.replace("Simplified", ""))) {
 					mergedRecord[8] = evoNextRecord[2]; // SimplifiedEvosuiteCoverage
 					foundSimplified = true;
+					System.out.println("\t*Matched simplified case");
 				}
 				evoNextRecord = evoCoverageCsvReader.readNext();
 			}
 			evoCoverageCsvReader.close();
 			benchmarkNextRecord = benchmarkCsvReader.readNext();
 			// Append the row to csv
-			System.out.println("Writing " + benchmarkStatechart + " row");
 			writer.append(String.join(",", mergedRecord) + "\n");
 		}
 		System.out.println("\nFinished");

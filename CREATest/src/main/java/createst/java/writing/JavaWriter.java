@@ -7,6 +7,7 @@ import java.io.FileInputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
@@ -24,7 +25,7 @@ public class JavaWriter implements IJavaWriter {
 	 */
 	@Override
 	public void overwriteReplacementCharacter(String javaPath) throws IOException {
-		String content = new String(Files.readAllBytes(Paths.get(javaPath)));
+		String content = new String(Files.readAllBytes(Paths.get(javaPath)), StandardCharsets.UTF_8);
 		BufferedWriter writer = new BufferedWriter(new FileWriter(javaPath));
 		writer.write(content.replaceAll("\\ufffd", "__CREATEST_UNRECOGNIZED_CHARACTER__"));
 		writer.close();

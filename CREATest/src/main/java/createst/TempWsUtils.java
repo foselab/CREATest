@@ -222,7 +222,9 @@ public abstract class TempWsUtils {
 		String execLocationPath = new File(Createst.class.getProtectionDomain().getCodeSource().getLocation().toURI())
 				.getParentFile().getPath();
 
-		copySctunitFile(sctunitPath, statechartName, execLocationPath);
+		if (Files.exists(Paths.get(sctunitPath)))
+			copySctunitFile(sctunitPath, statechartName, execLocationPath);
+		
 		String simplifiedSctunitPath = sctunitPath.replace("Test.sctunit", "SimplifiedTest.sctunit");
 		if (Files.exists(Paths.get(simplifiedSctunitPath)))
 			copySctunitFile(simplifiedSctunitPath, statechartName + "Simplified", execLocationPath);

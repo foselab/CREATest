@@ -225,14 +225,18 @@ public class Createst {
 		System.out.println("Generating .sctunit file without passing via the Java simplification step.");
 		System.out.println("*******************************************");
 		if (hasRunExperiments) {
-			System.out.println("-- Calling evosuite");
-			junitWriter.callEvosuite(evoClass, evoProjectCP, evoDTestDir, evoDReportDir, hasSearchBudget,
-					evoSearchBudget);
-			System.out.println("-- Reading .junit");
-			testCaseList = junitReader.getTestCases(junitPath, statechartName, statesNames,
-					eventsNames, interfacesNames, operationsNames, proceedTimes);
-			System.out.println("-- Writing .sctunit");
-			sctunitWriter.writeSctunit(sctunitPath, namespace, statechartName, testCaseList, false);
+			try {
+				System.out.println("-- Calling evosuite");
+				junitWriter.callEvosuite(evoClass, evoProjectCP, evoDTestDir, evoDReportDir, hasSearchBudget,
+						evoSearchBudget);
+				System.out.println("-- Reading .junit");
+				testCaseList = junitReader.getTestCases(junitPath, statechartName, statesNames,
+						eventsNames, interfacesNames, operationsNames, proceedTimes);
+				System.out.println("-- Writing .sctunit");
+				sctunitWriter.writeSctunit(sctunitPath, namespace, statechartName, testCaseList, false);
+			} catch (Exception e) {
+				System.err.println("Error in the generation of the \"standard\" SCTUnit suite");
+			}
 		}
 		
 		// Copy the final .sctunit file and eventually generate the .zip of the

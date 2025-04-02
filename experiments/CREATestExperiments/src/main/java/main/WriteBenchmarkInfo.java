@@ -77,7 +77,7 @@ public class WriteBenchmarkInfo {
 					double avgDepth = ((double) sumDepth) / numStates;
 
 					String fileName = statechartPath.substring(statechartPath.lastIndexOf('\\') + 1,
-							statechartPath.lastIndexOf('.'));
+							statechartPath.lastIndexOf('.')) + ".ysc";
 					String csv_row = fileName + "," + statechartName + "," + numStates + "," + avgDepth + "," + maxDepth + "\n";
 
 					System.out.println("-> Writing  " + csvPath + ".");
