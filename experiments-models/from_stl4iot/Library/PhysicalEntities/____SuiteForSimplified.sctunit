@@ -1,4 +1,0 @@
-testsuite SuiteForSimplified {
-	PhysicalEntity_TemplateSimplifiedTest,
-	Ultrasonic_MotionDetectorSimplifiedTest
-}

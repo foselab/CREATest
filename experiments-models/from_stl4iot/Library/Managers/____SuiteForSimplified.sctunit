@@ -1,4 +1,0 @@
-testsuite SuiteForSimplified {
-	Active_Systems_CounterSimplifiedTest,
-	Hub_PowerManagerSimplifiedTest
-}

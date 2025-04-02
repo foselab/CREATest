@@ -1,4 +1,0 @@
-testsuite ____SuiteForDefault {
-	HubTemplateTest,
-	SmartTemplateTest
-}
