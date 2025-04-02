@@ -49,27 +49,46 @@ public abstract class TempWsUtils {
 	public static final String BINARY_DIR = "bin";
 	public static final String TEST_DIR = "test";
 	public static final String MODELS_DIR = "models";
+
+	private static String workspaceDir;
 	
 	/**
-	 * Wait the file to exist. Try for 15 seconds max.
+	 * Wait for all .java files to exists. Must be called after initializing the project.
 	 * 
-	 * @param path the path of the file
-	 * @throws FileNotFoundException if after 15 seconds the file still not exists
+	 * @param path the path of project
+	 * @throws IOException if any IO errors occur.
 	 */
-	public static void waitFileToBeReady(String path) throws FileNotFoundException {
-		int attempts = 15;
-        File file = new File(path);
-        try {
-	        while (!file.exists() && attempts > 0) {
-	            System.out.println("Waiting for file to be ready...");
+	public static void waitFilesToBeReady() throws IOException {
+		String modelsDir = workspaceDir + File.separator + PROJECT_NAME + File.separator + MODELS_DIR;
+		String basePackageDir = workspaceDir + File.separator + PROJECT_NAME + File.separator + SOURCE_DIR + File.separator + BASE_PACKAGE;
+		int yscFilesCount = fileCount(modelsDir, ".ysc");
+		int attempts = 180; // 3 minutes max
+		try {
+			while (attempts > 0 && fileCount(basePackageDir, ".java") != yscFilesCount) {
+				System.out.println("Waiting all files to be ready"
+						+ " (if many statecharts are imported, this may take a few minutes)...");
 				Thread.sleep(1000);
-	            attempts--;
-	        }
+				attempts--;
+			}
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-        if (!file.exists())
-        	throw new FileNotFoundException("The file " + path + " does not exists");
+		if (attempts == 0)
+			throw new FileNotFoundException("After 3 minutes, some .java file still does not exists");
+	}
+
+	/**
+	 * Recursively count the number of files with the given extension starting from
+	 * the base directory
+	 * 
+	 * @param baseDir   the base directory
+	 * @param extension the extension of the files to be counted
+	 * @return the number of files
+	 * @throws IOException if any IO errors occur.
+	 */
+	private static int fileCount(String baseDir, String extension) throws IOException {
+		return (int) Files.walk(Paths.get(baseDir))
+				.filter(p -> !p.toFile().isDirectory() && p.toString().endsWith(extension)).count();
 	}
 
 	/**
@@ -110,7 +129,8 @@ public abstract class TempWsUtils {
 	public static String initProject(String yscPath) throws IOException, URISyntaxException {
 		// Create the structure of the temporary workspace
 		File workspace = Files.createTempDirectory(WORKSPACE_NAME).toFile();
-		File projectDir = new File(workspace.getAbsolutePath() + File.separator + PROJECT_NAME);
+		workspaceDir = workspace.getAbsolutePath();
+		File projectDir = new File(workspaceDir + File.separator + PROJECT_NAME);
 		File binDir = new File(projectDir.getAbsolutePath() + File.separator + BINARY_DIR);
 		File srcDir = new File(projectDir.getAbsolutePath() + File.separator + SOURCE_DIR);
 		File testDir = new File(projectDir.getAbsolutePath() + File.separator + TEST_DIR);
@@ -143,7 +163,7 @@ public abstract class TempWsUtils {
 		dest = new File(modelsDir.getAbsolutePath() + File.separator + sourceFile);
 		Files.copy(source.toPath(), dest.toPath());
 
-		return workspace.getAbsolutePath();
+		return workspaceDir;
 	}
 
 	/**
@@ -224,7 +244,7 @@ public abstract class TempWsUtils {
 
 		if (Files.exists(Paths.get(sctunitPath)))
 			copySctunitFile(sctunitPath, statechartName, execLocationPath);
-		
+
 		String simplifiedSctunitPath = sctunitPath.replace("Test.sctunit", "SimplifiedTest.sctunit");
 		if (Files.exists(Paths.get(simplifiedSctunitPath)))
 			copySctunitFile(simplifiedSctunitPath, statechartName + "Simplified", execLocationPath);
@@ -278,7 +298,8 @@ public abstract class TempWsUtils {
 	 * @throws IOException if any IO errors occur.
 	 */
 	private static void copyCsv(String workspacePath, String execLocationPath) throws IOException {
-		String sourceReportPath = workspacePath + File.separator + PROJECT_NAME + File.separator + "evosuite-report" + File.separator + "statistics.csv";
+		String sourceReportPath = workspacePath + File.separator + PROJECT_NAME + File.separator + "evosuite-report"
+				+ File.separator + "statistics.csv";
 		String destReportPath = execLocationPath + File.separator + "evosuite-stats.csv";
 		if (Files.exists(Paths.get(destReportPath))) {
 			BufferedWriter writer = new BufferedWriter(new FileWriter(destReportPath, true));
@@ -292,7 +313,7 @@ public abstract class TempWsUtils {
 			}
 			reader.close();
 			writer.close();
-			System.out.println(new File (destReportPath).getAbsolutePath() + " succesfully updated");
+			System.out.println(new File(destReportPath).getAbsolutePath() + " succesfully updated");
 		} else {
 			File source = new File(sourceReportPath);
 			File dest = new File(destReportPath);

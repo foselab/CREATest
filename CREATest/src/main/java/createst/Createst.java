@@ -157,7 +157,7 @@ public class Createst {
 		IJavaWriter javaWriter = new JavaWriter();
 		javaWriter.callICGenerator(projectPath, itemisScc, TempWsUtils.MODELS_DIR);
 		System.out.println("--------------------------------------------------------------");
-		TempWsUtils.waitFileToBeReady(javaPath);
+		TempWsUtils.waitFilesToBeReady();
 		javaWriter.overwriteReplacementCharacter(javaPath);
 
 		// Read the java file
