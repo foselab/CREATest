@@ -6,6 +6,8 @@ import java.io.IOException;
 
 import com.opencsv.CSVReader;
 
+import createst.ysc.reading.YscReader;
+
 public class MergeCsvs {
 	private static final String EVO_COVERAGE_CSV = "../data/evosuite-stats.csv";
 	private static final String BENCHMARK_CSV = "../data/benchmark-info.csv";
@@ -52,6 +54,9 @@ public class MergeCsvs {
 			boolean foundSimplified = false;
 			while (evoNextRecord != null && !(foundStandard && foundSimplified)) {
 				String evoStatechart = evoNextRecord[0].substring(evoNextRecord[0].lastIndexOf('.') + 1);
+				if ((evoStatechart.endsWith("SM") || evoStatechart.endsWith("SMSimplified"))
+						&& YscReader.JAVA_KEYWORDS.contains(benchmarkStatechart.toLowerCase()))
+					evoStatechart = evoStatechart.replace("SM", "");
 				if (benchmarkStatechart.equals(evoStatechart)) {
 					mergedRecord[5] = evoNextRecord[2]; // StandardEvosuiteCoverage
 					foundStandard = true;

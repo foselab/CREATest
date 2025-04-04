@@ -192,7 +192,7 @@ public class YscReader implements IYscReader {
 	 *         keyword
 	 */
 	private String addID(String input) {
-		return input + (JAVA_KEYWORDS.contains(input) ? "_ID" : "");
+		return input + (JAVA_KEYWORDS.contains(input.toLowerCase()) ? "_ID" : "");
 	}
 
 	/**
