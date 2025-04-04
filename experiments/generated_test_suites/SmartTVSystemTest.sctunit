@@ -1,0 +1,61 @@
+testclass SmartTVSystemTest for statechart SmartTVSystem {
+	@Test
+	operation test34 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test38 () {
+	    assert !is_active
+	    assert !active (SmartTVSystem._SmartTVSystem_.SmartTVSystem)
+	}
+
+	@Test
+	operation test49 () {
+	    assert !active (SmartTVSystem._SmartTVSystem_.SmartTVSystem.ActuatorComponent.off)
+	    assert !is_active
+	}
+
+	@Test
+	operation test50 () {
+	    assert !active (SmartTVSystem._SmartTVSystem_.SmartTVSystem.ActuatorComponent._Device_Functioning_)
+	    assert !is_active
+	}
+
+	@Test
+	operation test51 () {
+	    assert !is_active
+	    assert !active (SmartTVSystem._SmartTVSystem_.SmartTVSystem.ActuatorComponent._Actuator_Updates_)
+	}
+
+	@Test
+	operation test52 () {
+	    assert !is_active
+	    assert !active (SmartTVSystem._SmartTVSystem_.SmartTVSystem.SystemStatus.on)
+	}
+
+	@Test
+	operation test54 () {
+	    assert !active (SmartTVSystem._SmartTVSystem_.SmartTVSystem.SystemStatus.off)
+	    assert !is_active
+	}
+
+	@Test
+	operation test57 () {
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test75 () {
+	    assert !is_active
+	    assert !is_final
+	}
+
+	@Test
+	operation test83 () {
+	    assert !is_active
+	    exit
+	}
+
+}

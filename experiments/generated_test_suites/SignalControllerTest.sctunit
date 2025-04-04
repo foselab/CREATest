@@ -1,0 +1,53 @@
+testclass SignalControllerTest for statechart mrw.^statechart.SignalController {
+	@Test
+	operation test13 () {
+	    assert !active (mrw.^statechart.SignalController.main_region.Init.Init_process.Turning)
+	}
+
+	@Test
+	operation test14 () {
+	    assert !active (mrw.^statechart.SignalController.main_region.Init)
+	}
+
+	@Test
+	operation test33 () {
+	    assert !active (mrw.^statechart.SignalController.main_region.Init.Init_process.Turning.main.Completed)
+	}
+
+	@Test
+	operation test34 () {
+	    assert !active (mrw.^statechart.SignalController.main_region.Init.Init_process.Turning.main.Turn)
+	}
+
+	@Test
+	operation test35 () {
+	    assert !active (mrw.^statechart.SignalController.main_region.Init.Init_process.Turning.distant.Turn)
+	}
+
+	@Test
+	operation test36 () {
+	    assert !active (mrw.^statechart.SignalController.main_region.Wait_for_Start)
+	}
+
+	@Test
+	operation test38 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test39 () {
+	    exit
+	}
+
+	@Test
+	operation test41 () {
+	    assert !is_final
+	}
+
+	@Test
+	operation test62 () {
+	    assert !is_active
+	    exit
+	}
+
+}

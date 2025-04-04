@@ -1,0 +1,61 @@
+testclass cyclebasedTest for statechart cyclebased {
+	@Test
+	operation test00 () {
+	    proceed 200ms
+	    assert !is_active
+	}
+
+	@Test
+	operation test04 () {
+	    assert !active (cyclebased.main_region.StateE)
+	}
+
+	@Test
+	operation test05 () {
+	    assert !active (cyclebased.main_region.StateC)
+	}
+
+	@Test
+	operation test06 () {
+	    assert !active (cyclebased.main_region.StateB)
+	}
+
+	@Test
+	operation test07 () {
+	    assert !active (cyclebased.main_region.StateD)
+	}
+
+	@Test
+	operation test08 () {
+	    assert !active (cyclebased.main_region.StateA)
+	}
+
+	@Test
+	operation test09 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test10 () {
+	    exit
+	    assert !is_final
+	}
+
+	@Test
+	operation test13 () {
+	    assert !is_final
+	}
+
+	@Test
+	operation test15 () {
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test17 () {
+	    raise input
+	    assert !is_active
+	}
+
+}

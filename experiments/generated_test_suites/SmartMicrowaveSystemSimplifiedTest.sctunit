@@ -1,0 +1,80 @@
+testclass SmartMicrowaveSystemSimplifiedTest for statechart SmartMicrowaveSystem {
+	@Test
+	operation test03 () {
+	    assert !is_final
+	}
+
+	@Test
+	operation test06 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test10 () {
+	    assert !active (SmartMicrowaveSystem._SmartMicrowaveSystem_.SmartMicrowaveSystem.PowerCalculatorComponent._Initialize_Power_Component_)
+	}
+
+	@Test
+	operation test11 () {
+	    assert !active (SmartMicrowaveSystem._SmartMicrowaveSystem_.SmartMicrowaveSystem.NetworkComponent._Initialize_WiFi_Component_)
+	}
+
+	@Test
+	operation test12 () {
+	    assert !active (SmartMicrowaveSystem._SmartMicrowaveSystem_.SmartMicrowaveSystem.SensorComponent._Initialize_Sensor_Component_)
+	}
+
+	@Test
+	operation test13 () {
+	    assert !active (SmartMicrowaveSystem._SmartMicrowaveSystem_.SmartMicrowaveSystem.ControllerComponent._Initialize_Controller_Component_)
+	}
+
+	@Test
+	operation test14 () {
+	    assert !is_active
+	    assert !active (SmartMicrowaveSystem._SmartMicrowaveSystem_.SmartMicrowaveSystem)
+	}
+
+	@Test
+	operation test25 () {
+	    assert !active (SmartMicrowaveSystem._SmartMicrowaveSystem_.SmartMicrowaveSystem.ActuatorComponent.off)
+	    assert !is_active
+	}
+
+	@Test
+	operation test26 () {
+	    assert !is_active
+	    assert !active (SmartMicrowaveSystem._SmartMicrowaveSystem_.SmartMicrowaveSystem.ActuatorComponent._Device_Functioning_)
+	}
+
+	@Test
+	operation test27 () {
+	    assert !active (SmartMicrowaveSystem._SmartMicrowaveSystem_.SmartMicrowaveSystem.ActuatorComponent._Actuator_Updates_)
+	    assert !is_active
+	}
+
+	@Test
+	operation test28 () {
+	    assert !is_active
+	    assert !active (SmartMicrowaveSystem._SmartMicrowaveSystem_.SmartMicrowaveSystem.SystemStatus.on)
+	}
+
+	@Test
+	operation test30 () {
+	    assert !active (SmartMicrowaveSystem._SmartMicrowaveSystem_.SmartMicrowaveSystem.SystemStatus.off)
+	    assert !is_active
+	}
+
+	@Test
+	operation test37 () {
+	    exit
+	    assert !is_final
+	}
+
+	@Test
+	operation test40 () {
+	    assert !is_active
+	    assert !is_final
+	}
+
+}

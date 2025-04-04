@@ -1,0 +1,55 @@
+testclass AirConditioner_UnitTest for statechart AirConditioner_Unit {
+	@Test
+	operation test16 () {
+	    assert !active (AirConditioner_Unit._AirConditioner_.MonitorRoomTemp.MonitoringTemp.RoomTempChanging)
+	}
+
+	@Test
+	operation test22 () {
+	    assert !active (AirConditioner_Unit._AirConditioner_.MonitorRoomTemp.MonitoringTemp.RoomTempChanging.TemperatureChange.DetermineTempChange)
+	}
+
+	@Test
+	operation test23 () {
+	    assert !active (AirConditioner_Unit._AirConditioner_.MonitorRoomTemp.MonitoringTemp.RoomTempChanging.TemperatureChange.HeatingUp)
+	}
+
+	@Test
+	operation test24 () {
+	    assert !active (AirConditioner_Unit._AirConditioner_.MonitorRoomTemp.MonitoringTemp.Maintaining)
+	}
+
+	@Test
+	operation test25 () {
+	    assert !active (AirConditioner_Unit._AirConditioner_.MonitorRoomTemp)
+	}
+
+	@Test
+	operation test26 () {
+	    assert !active (AirConditioner_Unit._AirConditioner_.Off)
+	}
+
+	@Test
+	operation test28 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test43 () {
+	    assert !is_active
+	    exit
+	}
+
+	@Test
+	operation test46 () {
+	    assert !is_active
+	    assert !is_final
+	}
+
+	@Test
+	operation test52 () {
+	    exit
+	    assert !is_active
+	}
+
+}

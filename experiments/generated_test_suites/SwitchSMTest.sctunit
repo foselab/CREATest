@@ -1,0 +1,67 @@
+testclass SwitchTest for statechart mrw.^statechart.Switch {
+	@Test
+	operation test03 () {
+	    assert !active (mrw.^statechart.Switch.main_region.Operating.operating.Turning)
+	}
+
+	@Test
+	operation test04 () {
+	    assert !active (mrw.^statechart.Switch.main_region.Operating)
+	}
+
+	@Test
+	operation test05 () {
+	    assert !active (mrw.^statechart.Switch.main_region.Failed)
+	}
+
+	@Test
+	operation test06 () {
+	    assert !active (mrw.^statechart.Switch.main_region.Operating.operating.Turning.Turning_process.Turn_Left)
+	}
+
+	@Test
+	operation test07 () {
+	    assert !active (mrw.^statechart.Switch.main_region.Operating.operating.Turning.Turning_process.Turn_Right)
+	}
+
+	@Test
+	operation test08 () {
+	    assert !active (mrw.^statechart.Switch.main_region.Operating.operating.Locked)
+	}
+
+	@Test
+	operation test09 () {
+	    assert !active (mrw.^statechart.Switch.main_region.Operating.operating.Unlocked)
+	}
+
+	@Test
+	operation test10 () {
+	    assert !active (mrw.^statechart.Switch.main_region.Init)
+	}
+
+	@Test
+	operation test11 () {
+	    assert !active (mrw.^statechart.Switch.main_region.Operating.operating.Turning.Turning_process.Pending)
+	}
+
+	@Test
+	operation test12 () {
+	    assert !active (mrw.^statechart.Switch.main_region.Wait_for_Start)
+	}
+
+	@Test
+	operation test14 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test20 () {
+	    assert !is_final
+	}
+
+	@Test
+	operation test23 () {
+	    exit
+	}
+
+}

@@ -1,0 +1,273 @@
+testclass TrafficLightCtrlSimplifiedTest for statechart TrafficLightCtrl {
+	@Test
+	operation test02 () {
+	    enter
+	    raise toggle
+	    raise toggle
+	    triggerWithoutEvent
+	    assert is_active
+	}
+
+	@Test
+	operation test03 () {
+	    enter
+	    raise toggle
+	    proceed 1s
+	    assert !is_final
+	}
+
+	@Test
+	operation test04 () {
+	    enter
+	    raise toggle
+	    raise police_interrupt
+	    proceed 500ms
+	    proceed 500ms
+	    assert is_active
+	}
+
+	@Test
+	operation test05 () {
+	    enter
+	    raise toggle
+	    raise police_interrupt
+	    proceed 500ms
+	    raise police_interrupt
+	    assert is_active
+	}
+
+	@Test
+	operation test06 () {
+	    enter
+	    raise toggle
+	    raise toggle
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test07 () {
+	    enter
+	    raise toggle
+	    raise toggle
+	    raise toggle
+	    exit
+	    assert !is_final
+	}
+
+	@Test
+	operation test08 () {
+	    enter
+	    raise toggle
+	    raise toggle
+	    raise toggle
+	    raise police_interrupt
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test09 () {
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test11 () {
+	    enter
+	    raise toggle
+	    raise toggle
+	    assert active (TrafficLightCtrl.main.off)
+	}
+
+	@Test
+	operation test12 () {
+	    enter
+	    raise toggle
+	    raise toggle
+	    raise toggle
+	    assert is_active
+	    assert active (TrafficLightCtrl.main.main.timer.running.running.Red)
+	}
+
+	@Test
+	operation test13 () {
+	    enter
+	    raise toggle
+	    raise police_interrupt
+	    raise police_interrupt
+	    assert active (TrafficLightCtrl.main.main.timer.running)
+	}
+
+	@Test
+	operation test14 () {
+	    enter
+	    raise toggle
+	    raise police_interrupt
+	    assert is_active
+	    assert !active (TrafficLightCtrl.main.main.timer.running)
+	}
+
+	@Test
+	operation test15 () {
+	    enter
+	    raise toggle
+	    raise police_interrupt
+	    raise toggle
+	    raise toggle
+	    assert is_active
+	    assert active (TrafficLightCtrl.main.main.timer.disabled)
+	}
+
+	@Test
+	operation test16 () {
+	    enter
+	    raise toggle
+	    assert is_active
+	    assert active (TrafficLightCtrl.main.main.trafficlight.normal.normal.Red)
+	}
+
+	@Test
+	operation test17 () {
+	    enter
+	    raise toggle
+	    raise toggle
+	    raise toggle
+	    assert is_active
+	    assert active (TrafficLightCtrl.main.main.trafficlight.normal)
+	}
+
+	@Test
+	operation test18 () {
+	    enter
+	    raise toggle
+	    raise police_interrupt
+	    assert !active (TrafficLightCtrl.main.main.trafficlight.normal)
+	}
+
+	@Test
+	operation test19 () {
+	    enter
+	    raise toggle
+	    raise police_interrupt
+	    assert is_active
+	    assert active (TrafficLightCtrl.main.main.trafficlight.interrupted.blinking.Yellow)
+	}
+
+	@Test
+	operation test20 () {
+	    enter
+	    raise toggle
+	    raise police_interrupt
+	    proceed 500ms
+	    raise toggle
+	    raise toggle
+	    assert is_active
+	    assert active (TrafficLightCtrl.main.main.trafficlight.interrupted.blinking.Black)
+	}
+
+	@Test
+	operation test21 () {
+	    enter
+	    raise toggle
+	    raise police_interrupt
+	    raise toggle
+	    raise toggle
+	    assert active (TrafficLightCtrl.main.main.trafficlight.interrupted)
+	}
+
+	@Test
+	operation test22 () {
+	    enter
+	    raise toggle
+	    assert is_active
+	    assert active (TrafficLightCtrl.main.main)
+	}
+
+	@Test
+	operation test24 () {
+	    assert !active (TrafficLightCtrl.main.main.timer.running)
+	}
+
+	@Test
+	operation test25 () {
+	    assert !active (TrafficLightCtrl.main.main.trafficlight.normal)
+	}
+
+	@Test
+	operation test26 () {
+	    assert !active (TrafficLightCtrl.main.main.trafficlight.interrupted)
+	}
+
+	@Test
+	operation test27 () {
+	    assert !is_active
+	    assert !active (TrafficLightCtrl.main.main)
+	}
+
+	@Test
+	operation test28 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test33 () {
+	    assert !active (TrafficLightCtrl.main.main.trafficlight.normal.normal.Red)
+	    assert !is_active
+	}
+
+	@Test
+	operation test34 () {
+	    assert !is_active
+	    assert !active (TrafficLightCtrl.main.main.trafficlight.interrupted.blinking.Yellow)
+	}
+
+	@Test
+	operation test35 () {
+	    assert !is_active
+	    assert !active (TrafficLightCtrl.main.main.trafficlight.interrupted.blinking.Black)
+	}
+
+	@Test
+	operation test36 () {
+	    raise police_interrupt
+	    assert !is_final
+	}
+
+	@Test
+	operation test37 () {
+	    enter
+	    raise toggle
+	    raise police_interrupt
+	    proceed 500ms
+	    triggerWithoutEvent
+	    assert !is_final
+	}
+
+	@Test
+	operation test39 () {
+	    assert !is_active
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test44 () {
+	    assert !is_active
+	    assert !is_final
+	}
+
+	@Test
+	operation test45 () {
+	    enter
+	    raise toggle
+	    raise police_interrupt
+	    raise toggle
+	    raise toggle
+	    proceed 500ms
+	    exit
+	    assert !is_active
+	}
+
+}

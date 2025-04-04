@@ -1,0 +1,161 @@
+testclass test_remove_unreachable_states_expectedTest for statechart test_remove_unreachable_states_expected {
+	@Test
+	operation test00 () {
+	    raise operate
+	}
+
+	@Test
+	operation test04 () {
+	    enter
+	    raise operate
+	    triggerWithoutEvent
+	    assert is_active
+	}
+
+	@Test
+	operation test05 () {
+	    enter
+	    triggerWithoutEvent
+	    assert is_active
+	}
+
+	@Test
+	operation test06 () {
+	    exit
+	    assert !is_final
+	}
+
+	@Test
+	operation test07 () {
+	    enter
+	    raise operate
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test08 () {
+	    enter
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test09 () {
+	    enter
+	    raise operate
+	    raise operate
+	    assert is_active
+	    assert active (test_remove_unreachable_states_expected.main_region.B.Hello.K)
+	}
+
+	@Test
+	operation test10 () {
+	    enter
+	    raise operate
+	    assert is_active
+	    assert active (test_remove_unreachable_states_expected.main_region.B.Hello.J)
+	}
+
+	@Test
+	operation test11 () {
+	    enter
+	    raise operate
+	    assert is_active
+	    assert active (test_remove_unreachable_states_expected.main_region.B)
+	}
+
+	@Test
+	operation test12 () {
+	    enter
+	    assert is_active
+	    assert !active (test_remove_unreachable_states_expected.main_region.B)
+	}
+
+	@Test
+	operation test13 () {
+	    enter
+	    assert is_active
+	    assert active (test_remove_unreachable_states_expected.main_region.A)
+	}
+
+	@Test
+	operation test15 () {
+	    assert !active (test_remove_unreachable_states_expected.main_region.B)
+	}
+
+	@Test
+	operation test16 () {
+	    assert !active (test_remove_unreachable_states_expected.main_region.B.Hello.J)
+	}
+
+	@Test
+	operation test17 () {
+	    assert !active (test_remove_unreachable_states_expected.main_region.B.Hello.K)
+	}
+
+	@Test
+	operation test18 () {
+	    assert !active (test_remove_unreachable_states_expected.main_region.A)
+	}
+
+	@Test
+	operation test19 () {
+	    raise operate
+	    raise operate
+	    assert !is_final
+	}
+
+	@Test
+	operation test20 () {
+	    assert !is_active
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test21 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test22 () {
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test23 () {
+	    enter
+	    assert !is_active
+	}
+
+	@Test
+	operation test24 () {
+	    assert !is_active
+	    enter
+	    raise operate
+	    raise operate
+	    raise operate
+	    assert is_active
+	}
+
+	@Test
+	operation test25 () {
+	    assert !is_active
+	    assert !is_final
+	}
+
+	@Test
+	operation test26 () {
+	    enter
+	    raise operate
+	    raise operate
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+}

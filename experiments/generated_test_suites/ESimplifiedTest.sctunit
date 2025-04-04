@@ -1,0 +1,51 @@
+testclass ESimplifiedTest for statechart E {
+	@Test
+	operation test00 () {
+	    enter
+	    triggerWithoutEvent
+	}
+
+	@Test
+	operation test01 () {
+	    enter
+	    enter
+	    enter
+	    enter
+	    triggerWithoutEvent
+	}
+
+	@Test
+	operation test02 () {
+	    exit
+	    assert !is_active
+	    triggerWithoutEvent
+	    exit
+	    triggerWithoutEvent
+	    enter
+	    proceed 1s
+	}
+
+	@Test
+	operation test05 () {
+	    triggerWithoutEvent
+	    triggerWithoutEvent
+	    enter
+	    exit
+	}
+
+	@Test
+	operation test08 () {
+	    assert !is_final
+	    proceed 1s
+	    exit
+	    assert !is_final
+	}
+
+	@Test
+	operation test11 () {
+	    assert !is_active
+	    exit
+	    assert !is_active
+	}
+
+}

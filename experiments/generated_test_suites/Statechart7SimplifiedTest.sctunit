@@ -1,0 +1,207 @@
+testclass Statechart7SimplifiedTest for statechart Statechart7 {
+	@Test
+	operation test02 () {
+	    raise buttonValve.OFF
+	}
+
+	@Test
+	operation test04 () {
+	    raise buttonMotor.OFF
+	}
+
+	@Test
+	operation test05 () {
+	    raise buttonCancel.ON
+	}
+
+	@Test
+	operation test07 () {
+	    enter
+	    raise buttonMotor.ON
+	    raise buttonMotor.ON
+	    assert is_active
+	}
+
+	@Test
+	operation test08 () {
+	    enter
+	    raise buttonValve.ON
+	    raise buttonValve.ON
+	    assert is_active
+	}
+
+	@Test
+	operation test09 () {
+	    enter
+	    raise buttonCancel.OFF
+	    assert is_active
+	}
+
+	@Test
+	operation test10 () {
+	    exit
+	    assert !is_final
+	}
+
+	@Test
+	operation test11 () {
+	    enter
+	    raise buttonValve.ON
+	    proceed 3s
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test12 () {
+	    enter
+	    raise buttonMotor.ON
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test13 () {
+	    enter
+	    raise buttonValve.ON
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test14 () {
+	    enter
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test15 () {
+	    enter
+	    raise buttonMotor.ON
+	    assert is_active
+	    assert active (Statechart7.main_region.DecisionMotor)
+	}
+
+	@Test
+	operation test16 () {
+	    enter
+	    raise buttonValve.ON
+	    assert is_active
+	    assert active (Statechart7.main_region.DecisionValve)
+	}
+
+	@Test
+	operation test17 () {
+	    enter
+	    raise buttonMotor.ON
+	    proceed 3s
+	    assert active (Statechart7.main_region.StateMotorOn)
+	}
+
+	@Test
+	operation test18 () {
+	    enter
+	    assert is_active
+	    assert active (Statechart7.main_region.DecisionActivate)
+	}
+
+	@Test
+	operation test20 () {
+	    assert !active (Statechart7.main_region.StateValveOn3)
+	}
+
+	@Test
+	operation test21 () {
+	    assert !active (Statechart7.main_region.StateValveOn2)
+	}
+
+	@Test
+	operation test22 () {
+	    assert !active (Statechart7.main_region.StateValveOn1)
+	}
+
+	@Test
+	operation test23 () {
+	    assert !active (Statechart7.main_region.DecisionMotor)
+	}
+
+	@Test
+	operation test24 () {
+	    assert !active (Statechart7.main_region.DecisionValve)
+	}
+
+	@Test
+	operation test25 () {
+	    assert !active (Statechart7.main_region.StateMotorOn)
+	}
+
+	@Test
+	operation test26 () {
+	    assert !active (Statechart7.main_region.DecisionTimeOpen)
+	}
+
+	@Test
+	operation test27 () {
+	    assert !active (Statechart7.main_region.DecisionActivate)
+	}
+
+	@Test
+	operation test28 () {
+	    triggerWithoutEvent
+	    assert !is_active
+	}
+
+	@Test
+	operation test29 () {
+	    assert !is_active
+	    enter
+	    raise buttonMotor.ON
+	    proceed 3s
+	    raise buttonMotor.ON
+	    assert is_active
+	}
+
+	@Test
+	operation test30 () {
+	    assert !is_active
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test31 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test34 () {
+	    assert !is_active
+	    assert !is_final
+	}
+
+	@Test
+	operation test37 () {
+	    assert !is_active
+	    enter
+	    raise buttonValve.ON
+	    proceed 3s
+	    triggerWithoutEvent
+	    assert is_active
+	}
+
+	@Test
+	operation test38 () {
+	    enter
+	    raise buttonMotor.ON
+	    proceed 3s
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+}

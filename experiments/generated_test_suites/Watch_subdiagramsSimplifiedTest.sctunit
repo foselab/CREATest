@@ -1,0 +1,340 @@
+testclass watch_subdiagramsSimplifiedTest for statechart watch_subdiagrams {
+	@Test
+	operation test02 () {
+	    raise button.mode
+	    enter
+	    proceed 124 cycle
+	    raise button.mode
+	    proceed 1 cycle
+	    raise button.onoff
+	    proceed 449 cycle
+	    assert !is_final
+	}
+
+	@Test
+	operation test03 () {
+	    raise button.onoff
+	    enter
+	    proceed 124 cycle
+	    raise button.onoff
+	    proceed 1 cycle
+	    assert is_active
+	}
+
+	@Test
+	operation test04 () {
+	    raise button.light
+	    enter
+	    proceed 124 cycle
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test05 () {
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test06 () {
+	    raise button.mode
+	    enter
+	    proceed 124 cycle
+	    raise button.set
+	    proceed 1 cycle
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test07 () {
+	    raise button.mode
+	    enter
+	    proceed 124 cycle
+	    raise button.mode
+	    proceed 1 cycle
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test08 () {
+	    enter
+	    raise button.mode
+	    proceed 1 cycle
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test09 () {
+	    enter
+	    assert active (watch_subdiagrams.light.off)
+	}
+
+	@Test
+	operation test10 () {
+	    enter
+	    assert active (watch_subdiagrams.chime.quiet)
+	}
+
+	@Test
+	operation test11 () {
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test14 () {
+	    enter
+	    assert !active (watch_subdiagrams.modes.Regular._region0.Stop_Watch)
+	}
+
+	@Test
+	operation test15 () {
+	    enter
+	    assert is_active
+	    assert active (watch_subdiagrams.modes.Regular._region0.Clock._region0.normal)
+	}
+
+	@Test
+	operation test16 () {
+	    enter
+	    assert active (watch_subdiagrams.modes.Regular._region0.Clock)
+	}
+
+	@Test
+	operation test17 () {
+	    enter
+	    assert is_active
+	    assert active (watch_subdiagrams.modes.Regular)
+	}
+
+	@Test
+	operation test19 () {
+	    assert !active (watch_subdiagrams.modes.SetTime)
+	}
+
+	@Test
+	operation test20 () {
+	    assert !active (watch_subdiagrams.modes.Alarm)
+	}
+
+	@Test
+	operation test21 () {
+	    assert !active (watch_subdiagrams.modes.Regular._region0.Stop_Watch.r1.Operation)
+	}
+
+	@Test
+	operation test22 () {
+	    assert !active (watch_subdiagrams.modes.Regular._region0.Stop_Watch)
+	}
+
+	@Test
+	operation test23 () {
+	    assert !active (watch_subdiagrams.modes.Regular._region0.Clock)
+	}
+
+	@Test
+	operation test24 () {
+	    assert !active (watch_subdiagrams.modes.Regular)
+	}
+
+	@Test
+	operation test25 () {
+	    assert !active (watch_subdiagrams.light.on)
+	}
+
+	@Test
+	operation test26 () {
+	    assert !active (watch_subdiagrams.light.off)
+	}
+
+	@Test
+	operation test27 () {
+	    assert !active (watch_subdiagrams.chime.beep)
+	}
+
+	@Test
+	operation test28 () {
+	    assert !active (watch_subdiagrams.chime.quiet)
+	}
+
+	@Test
+	operation test29 () {
+	    assert !active (watch_subdiagrams.modes.Regular._region0.Stop_Watch.r1.Operation.run.pause)
+	}
+
+	@Test
+	operation test30 () {
+	    assert !active (watch_subdiagrams.modes.Regular._region0.Stop_Watch.r1.Operation.run.count)
+	}
+
+	@Test
+	operation test31 () {
+	    assert !active (watch_subdiagrams.modes.SetTime._region0.hr)
+	}
+
+	@Test
+	operation test32 () {
+	    assert !active (watch_subdiagrams.modes.SetTime._region0.min)
+	}
+
+	@Test
+	operation test33 () {
+	    assert !active (watch_subdiagrams.modes.SetTime._region0.sec)
+	}
+
+	@Test
+	operation test34 () {
+	    assert !active (watch_subdiagrams.modes.Alarm.r1.alarm_2_beeps)
+	}
+
+	@Test
+	operation test35 () {
+	    assert !active (watch_subdiagrams.modes.Alarm.r1.alarm_1_beeps)
+	}
+
+	@Test
+	operation test36 () {
+	    assert !active (watch_subdiagrams.modes.Regular._region0.Stop_Watch.r1.Operation.display.regular)
+	}
+
+	@Test
+	operation test37 () {
+	    assert !active (watch_subdiagrams.modes.Regular._region0.Stop_Watch.r1.Zero)
+	}
+
+	@Test
+	operation test38 () {
+	    assert !active (watch_subdiagrams.modes.Regular._region0.Set_Chime)
+	}
+
+	@Test
+	operation test39 () {
+	    assert !active (watch_subdiagrams.modes.Regular._region0.Alarm_2)
+	}
+
+	@Test
+	operation test40 () {
+	    assert !active (watch_subdiagrams.modes.Regular._region0.Alarm_1)
+	}
+
+	@Test
+	operation test41 () {
+	    assert !active (watch_subdiagrams.modes.Regular._region0.Date)
+	}
+
+	@Test
+	operation test42 () {
+	    assert !active (watch_subdiagrams.modes.Regular._region0.Clock._region0.normal)
+	}
+
+	@Test
+	operation test43 () {
+	    assert !active (watch_subdiagrams.modes.Regular._region0.Stop_Watch.r1.Operation.display.lap)
+	}
+
+	@Test
+	operation test44 () {
+	    assert !active (watch_subdiagrams.modes.Regular._region0.Clock._region0.wait_set)
+	}
+
+	@Test
+	operation test45 () {
+	    proceed 1 cycle
+	    assert !is_final
+	}
+
+	@Test
+	operation test46 () {
+	    raise button.mode
+	    assert !is_active
+	    enter
+	    proceed 124 cycle
+	    raise button.mode
+	    proceed 1 cycle
+	    raise button.mode
+	    proceed 449 cycle
+	    assert is_active
+	}
+
+	@Test
+	operation test47 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test48 () {
+	    assert !is_active
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test51 () {
+	    proceed 120s
+	    assert !is_active
+	}
+
+	@Test
+	operation test52 () {
+	    raise button.mode
+	    enter
+	    proceed 124 cycle
+	    raise button.set
+	    proceed 1 cycle
+	    raise button.set
+	    proceed 449 cycle
+	    assert !is_final
+	}
+
+	@Test
+	operation test53 () {
+	    raise button.light
+	    enter
+	    proceed 124 cycle
+	    raise button.light_r
+	    proceed 1 cycle
+	    assert is_active
+	}
+
+	@Test
+	operation test55 () {
+	    enter
+	    raise button.set
+	    proceed 124 cycle
+	    raise button.mode
+	    proceed 1 cycle
+	    assert !is_final
+	}
+
+	@Test
+	operation test56 () {
+	    assert !is_final
+	    assert !is_active
+	}
+
+	@Test
+	operation test57 () {
+	    raise button.onoff
+	    enter
+	    proceed 124 cycle
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test58 () {
+	    raise button.mode
+	    enter
+	    proceed 124 cycle
+	    raise button.set
+	    proceed 1 cycle
+	    raise button.light
+	    proceed 449 cycle
+	    assert !is_final
+	}
+
+}

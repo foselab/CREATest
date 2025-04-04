@@ -1,0 +1,365 @@
+testclass watchSimplifiedTest for statechart watch {
+	@Test
+	operation test03 () {
+	    assert !is_active
+	    assert !is_final
+	    assert !is_active
+	    assert !is_final
+	    assert !is_active
+	    assert !is_final
+	    enter
+	    assert is_active
+	    assert !is_final
+	    assert active (watch.chime.quiet)
+	    assert is_active
+	    assert !is_final
+	    enter
+	    assert is_active
+	    assert !is_final
+	    assert !active (watch.modes.Regular._region0.Stop_Watch.r1.Operation.run.pause)
+	    assert is_active
+	    assert !is_final
+	    proceed 1 cycle
+	    assert is_active
+	    assert !is_final
+	    proceed 9989 cycle
+	}
+
+	@Test
+	operation test05 () {
+	    assert !is_final
+	    assert !is_active
+	    assert !is_final
+	    assert !is_active
+	    assert !is_final
+	    assert !is_active
+	    proceed 1 cycle
+	    assert !is_final
+	    assert !is_active
+	    enter
+	    assert !is_final
+	    assert is_active
+	    assert !active (watch.modes.Alarm)
+	    assert !is_final
+	    assert is_active
+	    proceed 1983 cycle
+	    assert !is_final
+	    assert is_active
+	    proceed 9 cycle
+	    assert !is_final
+	    assert is_active
+	    assert active (watch.modes.Regular._region0.Clock._region0.normal)
+	    assert !is_final
+	    assert is_active
+	    assert active (watch.modes.Regular._region0.Clock._region0.normal)
+	    assert !is_final
+	    assert is_active
+	    proceed 637 cycle
+	}
+
+	@Test
+	operation test06 () {
+	    assert !is_final
+	    assert !is_active
+	    assert !is_final
+	    assert !is_active
+	    assert !active (watch.chime.beep)
+	    assert !is_final
+	    assert !is_active
+	    assert !active (watch.light.off)
+	    assert !is_final
+	    assert !is_active
+	    raise button.onoff
+	    assert !is_final
+	    assert !is_active
+	    raise button.light_r
+	    assert !is_final
+	    assert !is_active
+	    assert !is_final
+	    assert !is_active
+	    assert !active (watch.chime.beep)
+	    assert !is_final
+	    assert !is_active
+	    assert !is_final
+	    assert !is_active
+	    enter
+	    assert is_active
+	    assert !is_final
+	    assert !active (watch.modes.SetTime._region0.min)
+	    assert is_active
+	    assert !is_final
+	    raise button.light
+	    assert is_active
+	    assert !is_final
+	    assert is_active
+	    assert !is_final
+	    raise button.light
+	    assert is_active
+	    assert !is_final
+	    raise button.set
+	    assert is_active
+	    assert !is_final
+	    assert is_active
+	    assert !is_final
+	    raise button.light
+	    assert is_active
+	    assert !is_final
+	    enter
+	    assert is_active
+	    assert !is_final
+	    raise button.light_r
+	    assert is_active
+	    assert !is_final
+	    proceed 637 cycle
+	    assert is_active
+	    assert !is_final
+	    raise button.set
+	    assert is_active
+	    assert !is_final
+	    raise button.mode
+	    assert is_active
+	    assert !is_final
+	    proceed 1 cycle
+	    assert is_active
+	    assert !is_final
+	    raise button.mode
+	    assert is_active
+	    assert !is_final
+	    proceed 1 cycle
+	    assert is_active
+	    assert !is_final
+	    assert is_active
+	    assert is_active
+	    assert !is_final
+	    exit
+	    assert !is_final
+	    assert !is_active
+	}
+
+	@Test
+	operation test12 () {
+	    assert !is_final
+	    assert !is_active
+	    assert !is_final
+	    assert !is_active
+	    assert !is_active
+	    assert !is_final
+	    assert !is_active
+	    proceed 1 cycle
+	    assert !is_final
+	    assert !is_active
+	    enter
+	    assert !is_final
+	    assert is_active
+	    assert !is_final
+	    assert !is_final
+	    assert is_active
+	    proceed 1 cycle
+	    assert !is_final
+	    assert is_active
+	    enter
+	    assert !is_final
+	    assert is_active
+	    assert !is_final
+	    assert !is_final
+	    assert is_active
+	    assert active (watch.modes.Regular._region0.Clock)
+	    assert !is_final
+	    assert is_active
+	}
+
+	@Test
+	operation test13 () {
+	    assert !is_active
+	    assert !is_final
+	    assert !active (watch.chime.beep)
+	    assert !is_active
+	    assert !is_final
+	    assert !is_active
+	    assert !is_final
+	    assert !is_active
+	    assert !is_final
+	    enter
+	    assert is_active
+	    assert !is_final
+	    exit
+	    assert !is_active
+	    assert !is_final
+	    raise button.set
+	    assert !is_active
+	    assert !is_final
+	    raise button.light_r
+	    raise button.mode
+	    raise button.set
+	    raise button.light
+	    enter
+	    assert is_active
+	    assert !is_final
+	    raise button.light_r
+	    raise button.onoff
+	    raise button.set
+	    assert is_active
+	    assert is_active
+	    assert !is_final
+	    assert is_active
+	    assert !is_final
+	    raise button.mode
+	    assert is_active
+	    assert !is_final
+	    raise button.light
+	    assert is_active
+	    assert !is_final
+	    raise button.onoff
+	    assert is_active
+	    assert !is_final
+	    proceed 1 cycle
+	    assert is_active
+	    assert !is_final
+	    exit
+	    assert !is_active
+	    assert !is_final
+	    exit
+	    assert !is_active
+	    assert !is_final
+	    assert !is_active
+	    assert !is_final
+	    raise button.light
+	    assert !is_active
+	    assert !is_final
+	    assert !is_active
+	    assert !is_final
+	    raise button.light_r
+	    assert !is_active
+	    assert !is_final
+	}
+
+	@Test
+	operation test17 () {
+	    assert !is_final
+	    assert !is_active
+	    assert !active (watch.chime.beep)
+	    assert !is_final
+	    assert !is_active
+	    assert !is_final
+	    assert !is_active
+	    assert !is_final
+	    assert !is_active
+	    enter
+	    assert !is_final
+	    assert is_active
+	    exit
+	    assert !is_final
+	    assert !is_active
+	    raise button.set
+	    assert !is_final
+	    assert !is_active
+	    raise button.light_r
+	    raise button.mode
+	    raise button.set
+	    raise button.light
+	    enter
+	    assert !is_final
+	    assert is_active
+	    raise button.light_r
+	    raise button.onoff
+	    raise button.set
+	    assert is_active
+	    assert !is_final
+	    assert is_active
+	    assert !is_final
+	    assert is_active
+	    raise button.mode
+	    assert !is_final
+	    assert is_active
+	    raise button.onoff
+	    assert !is_final
+	    assert is_active
+	    proceed 1 cycle
+	    assert !is_final
+	    assert is_active
+	    exit
+	    assert !is_final
+	    assert !is_active
+	    assert !is_final
+	    assert !is_active
+	    exit
+	    assert !is_final
+	    assert !is_active
+	    assert !is_final
+	    assert !is_active
+	    assert !is_final
+	    assert !is_active
+	    raise button.light_r
+	    assert !is_final
+	    assert !is_active
+	}
+
+	@Test
+	operation test34 () {
+	    assert !is_active
+	    assert !is_final
+	    assert !active (watch.modes.SetTime._region0.min)
+	    assert !is_active
+	    assert !is_final
+	    assert !is_active
+	    assert !is_final
+	    raise button.onoff
+	    assert !is_active
+	    assert !is_final
+	    assert !is_active
+	    assert !is_final
+	    assert !is_final
+	    assert !is_active
+	    assert !is_final
+	}
+
+	@Test
+	operation test35 () {
+	    exit
+	    exit
+	    enter
+	    raise button.set
+	    raise button.light
+	    raise button.set
+	    raise button.mode
+	    raise button.onoff
+	    raise button.mode
+	    raise button.onoff
+	    raise button.onoff
+	    proceed 1 cycle
+	    proceed 1 cycle
+	    raise button.set
+	    proceed 1 cycle
+	    proceed 1 cycle
+	    assert !is_final
+	}
+
+	@Test
+	operation test45 () {
+	    raise button.set
+	    raise button.set
+	    raise button.set
+	    exit
+	    assert !is_final
+	}
+
+	@Test
+	operation test56 () {
+	    enter
+	    exit
+	    raise button.mode
+	    raise button.set
+	    raise button.light_r
+	    enter
+	    proceed 1 cycle
+	    raise button.onoff
+	    raise button.onoff
+	    raise button.onoff
+	    raise button.set
+	    raise button.mode
+	    raise button.mode
+	    raise button.mode
+	    raise button.light
+	}
+
+}

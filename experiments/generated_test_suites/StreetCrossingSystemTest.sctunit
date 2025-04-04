@@ -1,0 +1,62 @@
+testclass StreetCrossingSystemTest for statechart StreetCrossingSystem {
+	@Test
+	operation test02 () {
+	    assert !is_final
+	}
+
+	@Test
+	operation test04 () {
+	    assert !active (StreetCrossingSystem.system.Temporary_Outage_B)
+	}
+
+	@Test
+	operation test05 () {
+	    assert !active (StreetCrossingSystem.system.Off)
+	}
+
+	@Test
+	operation test06 () {
+	    assert !active (StreetCrossingSystem.system.Temporary_Outage_A)
+	}
+
+	@Test
+	operation test07 () {
+	    assert !active (StreetCrossingSystem.system.On)
+	}
+
+	@Test
+	operation test08 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test11 () {
+	    raise startAll
+	    assert !is_final
+	}
+
+	@Test
+	operation test13 () {
+	    proceed 60s
+	    assert !is_active
+	}
+
+	@Test
+	operation test14 () {
+	    raise outageB
+	    assert !is_final
+	}
+
+	@Test
+	operation test15 () {
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test18 () {
+	    raise outageA
+	    assert !is_active
+	}
+
+}

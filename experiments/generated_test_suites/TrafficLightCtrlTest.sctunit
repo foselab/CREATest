@@ -1,0 +1,53 @@
+testclass TrafficLightCtrlTest for statechart TrafficLightCtrl {
+	@Test
+	operation test15 () {
+	    assert !active (TrafficLightCtrl.main.main.trafficlight.normal)
+	}
+
+	@Test
+	operation test16 () {
+	    assert !active (TrafficLightCtrl.main.main.trafficlight.interrupted)
+	}
+
+	@Test
+	operation test17 () {
+	    assert !is_active
+	    assert !active (TrafficLightCtrl.main.main)
+	}
+
+	@Test
+	operation test18 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test24 () {
+	    assert !is_active
+	    assert !active (TrafficLightCtrl.main.main.trafficlight.interrupted.blinking.Yellow)
+	}
+
+	@Test
+	operation test26 () {
+	    assert !active (TrafficLightCtrl.main.main.trafficlight.interrupted.blinking.Black)
+	    assert !is_active
+	}
+
+	@Test
+	operation test41 () {
+	    assert !is_active
+	    exit
+	}
+
+	@Test
+	operation test42 () {
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test58 () {
+	    assert !is_active
+	    assert !is_final
+	}
+
+}

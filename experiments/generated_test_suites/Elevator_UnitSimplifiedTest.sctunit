@@ -1,0 +1,168 @@
+testclass Elevator_UnitSimplifiedTest for statechart Elevator_Unit {
+	@Test
+	operation test03 () {
+	    proceed 100ms
+	    assert !is_active
+	}
+
+	@Test
+	operation test04 () {
+	    raise stopped
+	    assert !is_active
+	}
+
+	@Test
+	operation test05 () {
+	    enter
+	    raise toggle
+	    raise input.up
+	    assert is_active
+	}
+
+	@Test
+	operation test06 () {
+	    enter
+	    raise toggle
+	    raise direction.down
+	    raise input.submit
+	}
+
+	@Test
+	operation test07 () {
+	    enter
+	    raise toggle
+	    raise direction.up
+	    raise direction.up
+	}
+
+	@Test
+	operation test08 () {
+	    enter
+	    raise toggle
+	    raise inUse
+	    raise input.submit
+	    assert is_active
+	}
+
+	@Test
+	operation test09 () {
+	    enter
+	    raise toggle
+	    exit
+	    exit
+	    assert is_active
+	}
+
+	@Test
+	operation test10 () {
+	    enter
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test12 () {
+	    assert !active (Elevator_Unit.main_region._Elevator_Available_.level._ElevatorLevel_)
+	}
+
+	@Test
+	operation test13 () {
+	    assert !active (Elevator_Unit.main_region._Elevator_Available_)
+	}
+
+	@Test
+	operation test14 () {
+	    assert !active (Elevator_Unit.main_region._Elevator_Available_.input._submitInput_)
+	}
+
+	@Test
+	operation test15 () {
+	    assert !active (Elevator_Unit.main_region._Elevator_Available_.input._gettingInput_)
+	}
+
+	@Test
+	operation test16 () {
+	    assert !active (Elevator_Unit.main_region._Elevator_Available_.level._ElevatorLevel_.r1._readingDataFromElevator_)
+	}
+
+	@Test
+	operation test17 () {
+	    assert !active (Elevator_Unit.main_region._Elevator_Available_.movement._downwards_)
+	}
+
+	@Test
+	operation test18 () {
+	    assert !active (Elevator_Unit.main_region._Elevator_Available_.movement._upwards_)
+	}
+
+	@Test
+	operation test19 () {
+	    assert !active (Elevator_Unit.main_region._Elevator_Available_.activity._active_)
+	}
+
+	@Test
+	operation test20 () {
+	    assert !active (Elevator_Unit.main_region._Elevator_Available_.activity._idle_)
+	}
+
+	@Test
+	operation test21 () {
+	    assert !active (Elevator_Unit.main_region._Elevator_Available_.movement._standby_)
+	}
+
+	@Test
+	operation test22 () {
+	    assert !active (Elevator_Unit.main_region._Elevator_Unavailable_)
+	}
+
+	@Test
+	operation test23 () {
+	    triggerWithoutEvent
+	    assert !is_final
+	}
+
+	@Test
+	operation test24 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test28 () {
+	    enter
+	    raise toggle
+	    raise direction.down
+	    raise direction.up
+	}
+
+	@Test
+	operation test29 () {
+	    assert !is_active
+	    assert !is_final
+	}
+
+	@Test
+	operation test30 () {
+	    enter
+	    raise toggle
+	    raise direction.up
+	    raise direction.down
+	}
+
+	@Test
+	operation test31 () {
+	    enter
+	    raise toggle
+	    raise input.down
+	    raise input.submit
+	    raise input.down
+	}
+
+	@Test
+	operation test32 () {
+	    assert !is_active
+	    enter
+	    assert is_active
+	}
+
+}

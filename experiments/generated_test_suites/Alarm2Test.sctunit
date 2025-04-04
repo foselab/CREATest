@@ -1,0 +1,45 @@
+testclass alarm2Test for statechart alarm2 {
+	@Test
+	operation test03 () {
+	    assert !active (alarm2.main_region.partiallyArmed)
+	}
+
+	@Test
+	operation test04 () {
+	    assert !active (alarm2.main_region.lightON)
+	}
+
+	@Test
+	operation test05 () {
+	    assert !active (alarm2.main_region.armed)
+	}
+
+	@Test
+	operation test07 () {
+	    assert !active (alarm2.main_region.disarmed)
+	}
+
+	@Test
+	operation test09 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test14 () {
+	    assert !is_active
+	    exit
+	}
+
+	@Test
+	operation test17 () {
+	    assert !is_active
+	    assert !is_final
+	}
+
+	@Test
+	operation test21 () {
+	    exit
+	    assert !is_active
+	}
+
+}

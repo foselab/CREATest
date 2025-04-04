@@ -1,0 +1,39 @@
+testclass Power_ComponentTest for statechart Power_Component {
+	@Test
+	operation test17 () {
+	    assert !active (Power_Component._Power_Component_.Power_Component)
+	}
+
+	@Test
+	operation test18 () {
+	    assert !active (Power_Component._Power_Component_.Power_Component._Calculating_Power_Consumption_._Consuming_Power_)
+	}
+
+	@Test
+	operation test19 () {
+	    assert !active (Power_Component._Power_Component_.Power_Component._Calculating_Power_Consumption_._NoPowerConsumed_)
+	}
+
+	@Test
+	operation test21 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test27 () {
+	    assert !is_final
+	}
+
+	@Test
+	operation test34 () {
+	    assert !is_active
+	    exit
+	}
+
+	@Test
+	operation test35 () {
+	    exit
+	    assert !is_active
+	}
+
+}

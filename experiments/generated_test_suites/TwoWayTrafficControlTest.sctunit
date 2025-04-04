@@ -1,0 +1,80 @@
+testclass TwoWayTrafficControlTest for statechart TwoWayTrafficControl {
+	@Test
+	operation test10 () {
+	    assert !active (TwoWayTrafficControl.main.Operate)
+	}
+
+	@Test
+	operation test12 () {
+	    assert !active (TwoWayTrafficControl.main.Operate.r.all_blocked_before_A)
+	}
+
+	@Test
+	operation test13 () {
+	    assert !active (TwoWayTrafficControl.main.Operate.r.B_Released)
+	}
+
+	@Test
+	operation test14 () {
+	    assert !active (TwoWayTrafficControl.main.Operate.r.Release_B)
+	}
+
+	@Test
+	operation test15 () {
+	    assert !active (TwoWayTrafficControl.main.Operate.r.all_blocked_before_B)
+	}
+
+	@Test
+	operation test16 () {
+	    assert !active (TwoWayTrafficControl.main.Standby)
+	}
+
+	@Test
+	operation test18 () {
+	    assert !active (TwoWayTrafficControl.main.Off)
+	}
+
+	@Test
+	operation test19 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test26 () {
+	    raise on
+	}
+
+	@Test
+	operation test28 () {
+	    exit
+	}
+
+	@Test
+	operation test30 () {
+	    assert !is_final
+	}
+
+	@Test
+	operation test32 () {
+	    raise standby
+	}
+
+	@Test
+	operation test33 () {
+	    assert !is_active
+	    exit
+	}
+
+	@Test
+	operation test38 () {
+	    raise operate
+	    assert !is_active
+	}
+
+	@Test
+	operation test39 () {
+	    raise off
+	    assert !is_active
+	}
+
+}

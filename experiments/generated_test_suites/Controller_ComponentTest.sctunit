@@ -1,0 +1,48 @@
+testclass Controller_ComponentTest for statechart Controller_Component {
+	@Test
+	operation test08 () {
+	    assert !active (Controller_Component._Controller_Component_._Controller_isON_)
+	}
+
+	@Test
+	operation test09 () {
+	    assert !active (Controller_Component._Controller_Component_._off_)
+	}
+
+	@Test
+	operation test10 () {
+	    assert !active (Controller_Component._Controller_Component_._Controller_isON_._Controller_Receiving_and_Sending_Signals_._Trigger_Actuator_)
+	}
+
+	@Test
+	operation test11 () {
+	    assert !active (Controller_Component._Controller_Component_._Controller_isON_._Controller_Receiving_and_Sending_Signals_._Controller_Processing_)
+	}
+
+	@Test
+	operation test12 () {
+	    assert !active (Controller_Component._Controller_Component_._Controller_isON_._Controller_Receiving_and_Sending_Signals_._Reading_Sensor_Data_)
+	}
+
+	@Test
+	operation test14 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test15 () {
+	    exit
+	}
+
+	@Test
+	operation test25 () {
+	    assert !is_final
+	}
+
+	@Test
+	operation test26 () {
+	    assert !is_active
+	    exit
+	}
+
+}

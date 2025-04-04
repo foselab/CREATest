@@ -1,0 +1,141 @@
+testclass cyclebasedSimplifiedTest for statechart cyclebased {
+	@Test
+	operation test00 () {
+	    raise input
+	    enter
+	    proceed 2233 cycle
+	    assert is_active
+	}
+
+	@Test
+	operation test01 () {
+	    enter
+	    proceed 421 cycle
+	    assert is_active
+	}
+
+	@Test
+	operation test02 () {
+	    exit
+	    assert !is_final
+	}
+
+	@Test
+	operation test03 () {
+	    raise input
+	    enter
+	    proceed 1 cycle
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test04 () {
+	    enter
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test05 () {
+	    raise input
+	    enter
+	    proceed 1 cycle
+	    proceed 200ms
+	    proceed 1 cycle
+	    assert is_active
+	    assert active (cyclebased.main_region.StateC)
+	}
+
+	@Test
+	operation test06 () {
+	    raise input
+	    enter
+	    proceed 1 cycle
+	    assert is_active
+	    assert active (cyclebased.main_region.StateB)
+	}
+
+	@Test
+	operation test07 () {
+	    enter
+	    assert is_active
+	    assert active (cyclebased.main_region.StateA)
+	}
+
+	@Test
+	operation test09 () {
+	    assert !active (cyclebased.main_region.StateE)
+	}
+
+	@Test
+	operation test10 () {
+	    assert !active (cyclebased.main_region.StateC)
+	}
+
+	@Test
+	operation test11 () {
+	    assert !active (cyclebased.main_region.StateB)
+	}
+
+	@Test
+	operation test12 () {
+	    assert !active (cyclebased.main_region.StateD)
+	}
+
+	@Test
+	operation test13 () {
+	    assert !active (cyclebased.main_region.StateA)
+	}
+
+	@Test
+	operation test14 () {
+	    proceed 2187 cycle
+	    assert !is_active
+	}
+
+	@Test
+	operation test15 () {
+	    raise input
+	    assert !is_active
+	    enter
+	    proceed 1 cycle
+	    proceed 200ms
+	    proceed 1 cycle
+	    proceed 1 cycle
+	    assert is_active
+	}
+
+	@Test
+	operation test16 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test19 () {
+	    assert !is_active
+	    assert !is_final
+	}
+
+	@Test
+	operation test20 () {
+	    raise input
+	    enter
+	    proceed 1 cycle
+	    proceed 200ms
+	    proceed 1 cycle
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test21 () {
+	    assert !is_active
+	    enter
+	    assert is_active
+	}
+
+}

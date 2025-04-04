@@ -1,0 +1,120 @@
+testclass parentfirstTest for statechart parentfirst {
+	@Test
+	operation test04 () {
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test08 () {
+	    enter
+	    proceed 1 cycle
+	}
+
+	@Test
+	operation test09 () {
+	    exit
+	}
+
+	@Test
+	operation test10 () {
+	    raise e
+	    enter
+	    proceed 1 cycle
+	    assert is_active
+	    assert active (parentfirst.main_region.D)
+	}
+
+	@Test
+	operation test11 () {
+	    enter
+	    assert is_active
+	    assert active (parentfirst.main_region.A.r1.B)
+	}
+
+	@Test
+	operation test12 () {
+	    enter
+	    assert is_active
+	    assert active (parentfirst.main_region.A)
+	}
+
+	@Test
+	operation test14 () {
+	    assert !active (parentfirst.main_region.A)
+	}
+
+	@Test
+	operation test15 () {
+	    assert !active (parentfirst.main_region.D)
+	}
+
+	@Test
+	operation test16 () {
+	    assert !active (parentfirst.main_region.A.r1.C)
+	}
+
+	@Test
+	operation test17 () {
+	    assert !active (parentfirst.main_region.A.r1.B)
+	}
+
+	@Test
+	operation test18 () {
+	    raise e
+	    enter
+	    proceed 1 cycle
+	    proceed 1 cycle
+	    assert is_active
+	}
+
+	@Test
+	operation test19 () {
+	    assert !is_active
+	    proceed 1 cycle
+	}
+
+	@Test
+	operation test21 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test22 () {
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test23 () {
+	    enter
+	    assert !is_active
+	}
+
+	@Test
+	operation test24 () {
+	    proceed 1 cycle
+	    assert !is_active
+	}
+
+	@Test
+	operation test26 () {
+	    assert !is_active
+	    assert !is_final
+	}
+
+	@Test
+	operation test29 () {
+	    enter
+	    raise e
+	    proceed 1 cycle
+	    exit
+	}
+
+	@Test
+	operation test30 () {
+	    enter
+	    exit
+	}
+
+}

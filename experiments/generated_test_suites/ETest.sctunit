@@ -1,0 +1,39 @@
+testclass ETest for statechart E {
+	@Test
+	operation test06 () {
+	    assert !active (E.main_region.OrthogonalState)
+	}
+
+	@Test
+	operation test07 () {
+	    assert !active (E.main_region.OrthogonalState.r2.StateB)
+	}
+
+	@Test
+	operation test08 () {
+	    assert !active (E.main_region.OrthogonalState.r1.StateA)
+	}
+
+	@Test
+	operation test10 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test11 () {
+	    exit
+	}
+
+	@Test
+	operation test16 () {
+	    assert !is_active
+	    exit
+	}
+
+	@Test
+	operation test19 () {
+	    assert !is_final
+	    assert !is_active
+	}
+
+}

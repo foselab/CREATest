@@ -1,0 +1,61 @@
+testclass Ultrasonic_MotionDetectorTest for statechart Ultrasonic_MotionDetector {
+	@Test
+	operation test33 () {
+	    assert !is_active
+	    assert !active (Ultrasonic_MotionDetector.Ultrasonic_MotionDetector._Detecting_.Comparator.Reading_Sensor_Data)
+	}
+
+	@Test
+	operation test34 () {
+	    assert !active (Ultrasonic_MotionDetector.Ultrasonic_MotionDetector._Detecting_)
+	    assert !is_active
+	}
+
+	@Test
+	operation test35 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test39 () {
+	    assert !active (Ultrasonic_MotionDetector.Ultrasonic_MotionDetector._Detecting_.Comparator.Reading_Sensor_Data.Processing.Comparing)
+	    assert !is_active
+	}
+
+	@Test
+	operation test40 () {
+	    assert !active (Ultrasonic_MotionDetector.Ultrasonic_MotionDetector._Detecting_.Comparator.Reading_Sensor_Data.Processing.Circuit_Changed)
+	    assert !is_active
+	}
+
+	@Test
+	operation test41 () {
+	    assert !active (Ultrasonic_MotionDetector.Ultrasonic_MotionDetector._Detecting_.Sensor.Receiving)
+	    assert !is_active
+	}
+
+	@Test
+	operation test43 () {
+	    assert !is_active
+	    assert !active (Ultrasonic_MotionDetector.Ultrasonic_MotionDetector._Detecting_.Sensor.Transmitting)
+	}
+
+	@Test
+	operation test60 () {
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test63 () {
+	    assert !is_active
+	    assert !is_final
+	}
+
+	@Test
+	operation test76 () {
+	    assert !is_active
+	    exit
+	}
+
+}

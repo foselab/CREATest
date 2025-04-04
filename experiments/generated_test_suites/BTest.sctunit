@@ -1,0 +1,34 @@
+testclass BTest for statechart B {
+	@Test
+	operation test02 () {
+	    assert !active (B.main_region.Outer)
+	}
+
+	@Test
+	operation test04 () {
+	    assert !active (B.main_region.Outer.r1.Inner)
+	}
+
+	@Test
+	operation test06 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test07 () {
+	    exit
+	    assert !is_final
+	}
+
+	@Test
+	operation test13 () {
+	    assert !is_final
+	}
+
+	@Test
+	operation test17 () {
+	    exit
+	    assert !is_active
+	}
+
+}

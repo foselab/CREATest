@@ -1,0 +1,39 @@
+testclass PhysicsTest for statechart Physics {
+	@Test
+	operation test12 () {
+	    assert !active (Physics.Physics.Physics.r2.Default)
+	}
+
+	@Test
+	operation test13 () {
+	    assert !active (Physics.Physics.Physics)
+	}
+
+	@Test
+	operation test14 () {
+	    assert !active (Physics.Physics.Physics.r1.Default)
+	}
+
+	@Test
+	operation test16 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test23 () {
+	    exit
+	}
+
+	@Test
+	operation test28 () {
+	    assert !is_active
+	    exit
+	}
+
+	@Test
+	operation test31 () {
+	    assert !is_final
+	    assert !is_active
+	}
+
+}

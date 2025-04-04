@@ -1,0 +1,219 @@
+testclass SignalControllerSimplifiedTest for statechart mrw.^statechart.SignalController {
+	@Test
+	operation test00 () {
+	    triggerWithoutEvent
+	    assert !is_active
+	}
+
+	@Test
+	operation test01 () {
+	    raise extend
+	    assert !is_final
+	}
+
+	@Test
+	operation test02 () {
+	    raise disable
+	    assert !is_final
+	}
+
+	@Test
+	operation test03 () {
+	    raise completedShunt
+	    assert !is_active
+	}
+
+	@Test
+	operation test12 () {
+	    enter
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test14 () {
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test26 () {
+	    enter
+	    assert is_active
+	    assert !active (mrw.^statechart.SignalController.main_region.Init.Init_process.Turning)
+	}
+
+	@Test
+	operation test28 () {
+	    enter
+	    assert is_active
+	    assert !active (mrw.^statechart.SignalController.main_region.Init)
+	}
+
+	@Test
+	operation test29 () {
+	    enter
+	    assert is_active
+	    assert active (mrw.^statechart.SignalController.main_region.Wait_for_Start)
+	}
+
+	@Test
+	operation test31 () {
+	    assert !active (mrw.^statechart.SignalController.main_region.Operating.Processing.Pending)
+	}
+
+	@Test
+	operation test32 () {
+	    assert !active (mrw.^statechart.SignalController.main_region.Operating.Processing.Tour_State.Processing.Waiting)
+	}
+
+	@Test
+	operation test33 () {
+	    assert !active (mrw.^statechart.SignalController.main_region.Operating.Processing.Tour_State)
+	}
+
+	@Test
+	operation test34 () {
+	    assert !active (mrw.^statechart.SignalController.main_region.Operating.Processing.Shunting_State.Processing.Waiting)
+	}
+
+	@Test
+	operation test35 () {
+	    assert !active (mrw.^statechart.SignalController.main_region.Operating.Processing.Shunting_State)
+	}
+
+	@Test
+	operation test36 () {
+	    assert !active (mrw.^statechart.SignalController.main_region.Operating)
+	}
+
+	@Test
+	operation test37 () {
+	    assert !active (mrw.^statechart.SignalController.main_region.Init.Init_process.Turning)
+	}
+
+	@Test
+	operation test38 () {
+	    assert !active (mrw.^statechart.SignalController.main_region.Init)
+	}
+
+	@Test
+	operation test39 () {
+	    assert !active (mrw.^statechart.SignalController.main_region.Init.Init_process.Turning.shunt.Turn)
+	}
+
+	@Test
+	operation test40 () {
+	    assert !active (mrw.^statechart.SignalController.main_region.Init.Init_process.Turning.distant.Turn)
+	}
+
+	@Test
+	operation test41 () {
+	    assert !active (mrw.^statechart.SignalController.main_region.Failed)
+	}
+
+	@Test
+	operation test42 () {
+	    assert !active (mrw.^statechart.SignalController.main_region.Operating.Processing.Pending.Pending.Go_Shunt)
+	}
+
+	@Test
+	operation test43 () {
+	    assert !active (mrw.^statechart.SignalController.main_region.Operating.Processing.Pending.Pending.Go_Distant)
+	}
+
+	@Test
+	operation test44 () {
+	    assert !active (mrw.^statechart.SignalController.main_region.Operating.Processing.Pending.Pending.Go_Main)
+	}
+
+	@Test
+	operation test45 () {
+	    assert !active (mrw.^statechart.SignalController.main_region.Operating.Processing.Tour_State.Processing.Idle)
+	}
+
+	@Test
+	operation test46 () {
+	    assert !active (mrw.^statechart.SignalController.main_region.Operating.Processing.Tour_State.Processing.Waiting.Tour_waiting.Extend)
+	}
+
+	@Test
+	operation test47 () {
+	    assert !active (mrw.^statechart.SignalController.main_region.Operating.Processing.Tour_State.Processing.Waiting.Tour_waiting.Stop_Shunt)
+	}
+
+	@Test
+	operation test48 () {
+	    assert !active (mrw.^statechart.SignalController.main_region.Operating.Processing.Tour_State.Processing.Waiting.Tour_waiting.Delay)
+	}
+
+	@Test
+	operation test49 () {
+	    assert !active (mrw.^statechart.SignalController.main_region.Operating.Processing.Tour_State.Processing.Waiting.Tour_waiting.Off_Distant)
+	}
+
+	@Test
+	operation test50 () {
+	    assert !active (mrw.^statechart.SignalController.main_region.Operating.Processing.Tour_State.Processing.Waiting.Tour_waiting.Stop_Distant)
+	}
+
+	@Test
+	operation test51 () {
+	    assert !active (mrw.^statechart.SignalController.main_region.Operating.Processing.Tour_State.Processing.Waiting.Tour_waiting.Stop_Main)
+	}
+
+	@Test
+	operation test52 () {
+	    assert !active (mrw.^statechart.SignalController.main_region.Operating.Processing.Shunting_State.Processing.Waiting.Shunt_waiting.Stop)
+	}
+
+	@Test
+	operation test53 () {
+	    assert !active (mrw.^statechart.SignalController.main_region.Operating.Processing.Shunting_State.Processing.Waiting.Shunt_waiting.Extend)
+	}
+
+	@Test
+	operation test54 () {
+	    assert !active (mrw.^statechart.SignalController.main_region.Operating.Processing.Shunting_State.Processing.Idle)
+	}
+
+	@Test
+	operation test55 () {
+	    assert !active (mrw.^statechart.SignalController.main_region.Operating.Processing.Unlocked)
+	}
+
+	@Test
+	operation test56 () {
+	    assert !active (mrw.^statechart.SignalController.main_region.Init.Init_process.Turning.main.Turn)
+	}
+
+	@Test
+	operation test57 () {
+	    assert !active (mrw.^statechart.SignalController.main_region.Wait_for_Start)
+	}
+
+	@Test
+	operation test59 () {
+	    raise clear
+	    assert !is_active
+	}
+
+	@Test
+	operation test61 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test63 () {
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test66 () {
+	    assert !is_final
+	    assert !is_active
+	}
+
+}

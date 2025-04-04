@@ -1,0 +1,329 @@
+testclass onoffSimplifiedTest for statechart onoff {
+	@Test
+	operation test05 () {
+	    triggerWithoutEvent
+	    assert !is_final
+	}
+
+	@Test
+	operation test06 () {
+	    enter
+	    raise chargerConnected
+	    raise chargerDisconnected
+	    assert is_active
+	}
+
+	@Test
+	operation test07 () {
+	    enter
+	    proceed 1s
+	    assert is_active
+	}
+
+	@Test
+	operation test08 () {
+	    enter
+	    raise comeCommand
+	    raise fetchCommand
+	    assert !is_final
+	}
+
+	@Test
+	operation test09 () {
+	    enter
+	    raise chargerConnected
+	    proceed 5s
+	    assert !is_final
+	}
+
+	@Test
+	operation test10 () {
+	    enter
+	    raise chargerConnected
+	    raise comeCommand
+	    assert is_active
+	}
+
+	@Test
+	operation test11 () {
+	    enter
+	    raise pet
+	    raise turnOff
+	    assert !is_final
+	}
+
+	@Test
+	operation test12 () {
+	    enter
+	    raise comeCommand
+	    raise turnOff
+	    assert is_active
+	}
+
+	@Test
+	operation test13 () {
+	    enter
+	    raise chargerConnected
+	    exit
+	    assert !is_final
+	}
+
+	@Test
+	operation test14 () {
+	    enter
+	    raise barkCommand
+	    exit
+	    assert is_active
+	}
+
+	@Test
+	operation test15 () {
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test16 () {
+	    enter
+	    raise fetchCommand
+	    exit
+	    assert !is_final
+	}
+
+	@Test
+	operation test17 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test18 () {
+	    enter
+	    raise chargerConnected
+	    raise fetchCommand
+	    assert !is_final
+	}
+
+	@Test
+	operation test19 () {
+	    enter
+	    assert active (onoff.main_region.On.Battery.default.Energy.Consume)
+	}
+
+	@Test
+	operation test20 () {
+	    assert !is_active
+	    enter
+	    assert active (onoff.main_region.On.Battery.default.Status.Normal)
+	}
+
+	@Test
+	operation test21 () {
+	    enter
+	    assert is_active
+	    assert active (onoff.main_region.On.Battery.default)
+	}
+
+	@Test
+	operation test22 () {
+	    assert !is_active
+	    enter
+	    assert is_active
+	    assert active (onoff.main_region.On.Temperature_Sensor.Optimal)
+	}
+
+	@Test
+	operation test23 () {
+	    enter
+	    raise pet
+	    assert active (onoff.main_region.On.Emotion.Love)
+	}
+
+	@Test
+	operation test24 () {
+	    assert !is_active
+	    enter
+	    assert active (onoff.main_region.On.Emotion.Normal)
+	}
+
+	@Test
+	operation test25 () {
+	    enter
+	    raise turnOn
+	    assert active (onoff.main_region.On.Tail.Wagging)
+	}
+
+	@Test
+	operation test26 () {
+	    enter
+	    assert is_active
+	    assert active (onoff.main_region.On.Tail.Idle)
+	}
+
+	@Test
+	operation test27 () {
+	    enter
+	    assert is_active
+	    assert active (onoff.main_region.On.Voice.Silent)
+	}
+
+	@Test
+	operation test28 () {
+	    enter
+	    raise fetchCommand
+	    assert active (onoff.main_region.On.Legs.Run)
+	}
+
+	@Test
+	operation test29 () {
+	    enter
+	    proceed 5s
+	    assert active (onoff.main_region.On.Legs.Walk)
+	}
+
+	@Test
+	operation test30 () {
+	    enter
+	    raise comeCommand
+	    raise chargerConnected
+	    assert !is_final
+	}
+
+	@Test
+	operation test31 () {
+	    enter
+	    assert active (onoff.main_region.On)
+	}
+
+	@Test
+	operation test32 () {
+	    enter
+	    raise fetchCommand
+	    raise turnOff
+	    assert !active (onoff.main_region.On)
+	}
+
+	@Test
+	operation test33 () {
+	    assert !is_active
+	    enter
+	    raise chargerDisconnected
+	    raise turnOff
+	    assert active (onoff.main_region.Off)
+	}
+
+	@Test
+	operation test36 () {
+	    assert !active (onoff.main_region.On)
+	    assert !is_active
+	}
+
+	@Test
+	operation test51 () {
+	    assert !is_active
+	    assert !active (onoff.main_region.On.Voice.Bark)
+	}
+
+	@Test
+	operation test52 () {
+	    assert !active (onoff.main_region.On.Voice.Silent)
+	    assert !is_active
+	}
+
+	@Test
+	operation test53 () {
+	    assert !is_active
+	    assert !active (onoff.main_region.On.Legs.Run)
+	}
+
+	@Test
+	operation test54 () {
+	    assert !is_active
+	    assert !active (onoff.main_region.On.Legs.Walk)
+	}
+
+	@Test
+	operation test55 () {
+	    assert !is_active
+	    assert !active (onoff.main_region.Off)
+	}
+
+	@Test
+	operation test56 () {
+	    enter
+	    raise fetchCommand
+	    raise turnOff
+	    raise chargerConnected
+	    assert is_active
+	}
+
+	@Test
+	operation test57 () {
+	    assert !is_active
+	    enter
+	    exit
+	    assert is_active
+	}
+
+	@Test
+	operation test59 () {
+	    assert !is_active
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test65 () {
+	    assert !is_active
+	    assert !is_final
+	}
+
+	@Test
+	operation test66 () {
+	    enter
+	    raise barkCommand
+	    raise turnOff
+	    assert is_active
+	}
+
+	@Test
+	operation test67 () {
+	    enter
+	    raise barkCommand
+	    assert active (onoff.main_region.On.Voice.Bark)
+	}
+
+	@Test
+	operation test68 () {
+	    enter
+	    raise chargerConnected
+	    raise turnOff
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test69 () {
+	    enter
+	    raise comeCommand
+	    exit
+	    assert is_active
+	}
+
+	@Test
+	operation test70 () {
+	    enter
+	    raise pet
+	    exit
+	    assert is_active
+	}
+
+	@Test
+	operation test71 () {
+	    enter
+	    raise fetchCommand
+	    raise turnOff
+	    raise turnOff
+	    assert is_active
+	}
+
+}

@@ -1,0 +1,132 @@
+testclass _02_DimmableLightSwitchTest for statechart _02_DimmableLightSwitch {
+	@Test
+	operation test00 () {
+	    raise switch
+	}
+
+	@Test
+	operation test05 () {
+	    enter
+	    raise switch
+	    assert is_active
+	}
+
+	@Test
+	operation test07 () {
+	    enter
+	    raise switch
+	    raise changeBrightness
+	    assert is_active
+	}
+
+	@Test
+	operation test08 () {
+	    enter
+	    raise switch
+	    triggerWithoutEvent
+	    assert is_active
+	}
+
+	@Test
+	operation test09 () {
+	    enter
+	    raise switch
+	    raise switch
+	    triggerWithoutEvent
+	    assert is_active
+	}
+
+	@Test
+	operation test10 () {
+	    enter
+	    raise switch
+	    exit
+	}
+
+	@Test
+	operation test11 () {
+	    enter
+	    raise switch
+	    raise switch
+	    raise switch
+	    raise switch
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test12 () {
+	    enter
+	    raise switch
+	    assert is_active
+	    assert active (_02_DimmableLightSwitch.main.On)
+	}
+
+	@Test
+	operation test13 () {
+	    enter
+	    raise switch
+	    raise switch
+	    assert is_active
+	    assert active (_02_DimmableLightSwitch.main.Off)
+	}
+
+	@Test
+	operation test15 () {
+	    assert !active (_02_DimmableLightSwitch.main.On)
+	}
+
+	@Test
+	operation test16 () {
+	    assert !active (_02_DimmableLightSwitch.main.Off)
+	}
+
+	@Test
+	operation test17 () {
+	    raise changeBrightness
+	    raise switch
+	}
+
+	@Test
+	operation test18 () {
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test19 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test20 () {
+	    exit
+	}
+
+	@Test
+	operation test21 () {
+	    assert !is_active
+	    exit
+	}
+
+	@Test
+	operation test22 () {
+	    enter
+	    assert !is_active
+	}
+
+	@Test
+	operation test23 () {
+	    assert !is_active
+	    assert !is_final
+	}
+
+	@Test
+	operation test24 () {
+	    enter
+	    raise switch
+	    raise changeBrightness
+	}
+
+}

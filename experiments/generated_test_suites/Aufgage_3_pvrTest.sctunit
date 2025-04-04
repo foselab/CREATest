@@ -1,0 +1,698 @@
+testclass aufgage_3_pvrTest for statechart aufgage_3_pvr {
+	@Test
+	operation test00 () {
+	    raise stop_eject
+	}
+
+	@Test
+	operation test07 () {
+	    enter
+	    raise tapeIn
+	    raise record
+	    raise record
+	    raise stop_eject
+	    assert is_active
+	}
+
+	@Test
+	operation test08 () {
+	    enter
+	    raise tapeIn
+	    raise record
+	    raise record
+	    raise play
+	    assert is_active
+	}
+
+	@Test
+	operation test09 () {
+	    enter
+	    raise tapeIn
+	    raise record
+	    raise record
+	    raise pause
+	    assert is_active
+	}
+
+	@Test
+	operation test10 () {
+	    enter
+	    raise tapeIn
+	    raise record
+	    raise pause
+	    raise stop_eject
+	    assert is_active
+	}
+
+	@Test
+	operation test11 () {
+	    enter
+	    raise tapeIn
+	    raise record
+	    raise pause
+	    raise record
+	    assert is_active
+	}
+
+	@Test
+	operation test12 () {
+	    enter
+	    raise tapeIn
+	    raise record
+	    raise pause
+	    raise rewind
+	    assert is_active
+	}
+
+	@Test
+	operation test13 () {
+	    enter
+	    raise tapeIn
+	    raise record
+	    raise pause
+	    triggerWithoutEvent
+	    assert is_active
+	}
+
+	@Test
+	operation test14 () {
+	    enter
+	    raise tapeIn
+	    raise record
+	    raise tapeIn
+	    assert is_active
+	}
+
+	@Test
+	operation test16 () {
+	    enter
+	    raise tapeIn
+	    raise play
+	    raise stop_eject
+	    raise record
+	    assert is_active
+	}
+
+	@Test
+	operation test17 () {
+	    enter
+	    raise operate
+	    raise rewind
+	    triggerWithoutEvent
+	    assert is_active
+	}
+
+	@Test
+	operation test19 () {
+	    enter
+	    raise operate
+	    raise fastForward
+	    raise rewind
+	    assert is_active
+	}
+
+	@Test
+	operation test21 () {
+	    enter
+	    raise tapeIn
+	    raise play
+	    raise rewind
+	    raise stop_eject
+	    assert is_active
+	}
+
+	@Test
+	operation test22 () {
+	    enter
+	    raise tapeIn
+	    raise play
+	    raise rewind
+	    triggerWithoutEvent
+	    assert is_active
+	}
+
+	@Test
+	operation test23 () {
+	    enter
+	    raise tapeIn
+	    raise play
+	    raise rewind
+	    raise play
+	    assert is_active
+	}
+
+	@Test
+	operation test24 () {
+	    enter
+	    raise tapeIn
+	    raise play
+	    raise rewind
+	    raise pause
+	    assert is_active
+	}
+
+	@Test
+	operation test25 () {
+	    enter
+	    raise tapeIn
+	    raise play
+	    raise rewind
+	    raise pause
+	    raise operate
+	    assert is_active
+	}
+
+	@Test
+	operation test26 () {
+	    enter
+	    raise tapeIn
+	    raise play
+	    raise rewind
+	    raise pause
+	    raise fastForward
+	    raise record
+	    assert is_active
+	}
+
+	@Test
+	operation test27 () {
+	    enter
+	    raise tapeIn
+	    raise play
+	    raise rewind
+	    raise pause
+	    raise fastForward
+	    assert is_active
+	}
+
+	@Test
+	operation test28 () {
+	    enter
+	    raise tapeIn
+	    raise play
+	    raise fastForward
+	    raise stop_eject
+	    assert is_active
+	}
+
+	@Test
+	operation test29 () {
+	    enter
+	    raise tapeIn
+	    raise play
+	    raise fastForward
+	    raise record
+	    assert is_active
+	}
+
+	@Test
+	operation test30 () {
+	    enter
+	    raise tapeIn
+	    raise play
+	    raise fastForward
+	    raise play
+	    assert is_active
+	}
+
+	@Test
+	operation test31 () {
+	    enter
+	    raise tapeIn
+	    raise play
+	    raise fastForward
+	    raise rewind
+	    assert is_active
+	}
+
+	@Test
+	operation test32 () {
+	    enter
+	    raise tapeIn
+	    raise play
+	    raise record
+	    assert is_active
+	}
+
+	@Test
+	operation test33 () {
+	    enter
+	    raise tapeIn
+	    raise play
+	    triggerWithoutEvent
+	    assert is_active
+	}
+
+	@Test
+	operation test34 () {
+	    enter
+	    raise operate
+	    raise play
+	    assert is_active
+	}
+
+	@Test
+	operation test35 () {
+	    enter
+	    raise operate
+	    raise operate
+	    raise tapeIn
+	    assert is_active
+	}
+
+	@Test
+	operation test36 () {
+	    enter
+	    raise tapeIn
+	    triggerWithoutEvent
+	    assert is_active
+	}
+
+	@Test
+	operation test37 () {
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test38 () {
+	    enter
+	    raise tapeIn
+	    raise record
+	    raise record
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test39 () {
+	    enter
+	    raise tapeIn
+	    raise record
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test40 () {
+	    enter
+	    raise operate
+	    raise rewind
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test41 () {
+	    enter
+	    raise operate
+	    raise operate
+	    raise operate
+	    raise fastForward
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test42 () {
+	    enter
+	    raise tapeIn
+	    raise record
+	    raise stop_eject
+	    raise play
+	    raise rewind
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test43 () {
+	    enter
+	    raise tapeIn
+	    raise play
+	    raise rewind
+	    raise pause
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test44 () {
+	    enter
+	    raise tapeIn
+	    raise play
+	    raise fastForward
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test45 () {
+	    enter
+	    raise tapeIn
+	    raise play
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test46 () {
+	    enter
+	    raise operate
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test47 () {
+	    enter
+	    raise tapeIn
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test48 () {
+	    enter
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test49 () {
+	    enter
+	    raise tapeIn
+	    raise record
+	    raise record
+	    assert is_active
+	    assert active (aufgage_3_pvr.main_region.automatischer_Modus_der_Aufnahme)
+	}
+
+	@Test
+	operation test50 () {
+	    enter
+	    raise tapeIn
+	    raise record
+	    raise pause
+	    assert is_active
+	    assert active (aufgage_3_pvr.main_region.pausierte_Aufnahme)
+	}
+
+	@Test
+	operation test51 () {
+	    enter
+	    raise tapeIn
+	    raise record
+	    assert is_active
+	    assert active (aufgage_3_pvr.main_region.normaler_Modus_der_Aufnahme)
+	}
+
+	@Test
+	operation test52 () {
+	    enter
+	    raise operate
+	    raise rewind
+	    raise stop_eject
+	    raise stop_eject
+	    assert is_active
+	    assert active (aufgage_3_pvr.main_region.beendete_Wiedergabe)
+	}
+
+	@Test
+	operation test53 () {
+	    enter
+	    raise operate
+	    raise rewind
+	    assert is_active
+	}
+
+	@Test
+	operation test54 () {
+	    enter
+	    raise operate
+	    raise fastForward
+	    assert is_active
+	    assert active (aufgage_3_pvr.main_region.vorgespultes_Tape)
+	}
+
+	@Test
+	operation test55 () {
+	    enter
+	    raise tapeIn
+	    raise play
+	    raise rewind
+	    assert is_active
+	}
+
+	@Test
+	operation test56 () {
+	    enter
+	    raise operate
+	    raise rewind
+	    raise stop_eject
+	    assert is_active
+	    assert active (aufgage_3_pvr.main_region.angehaltene_Wiedergabe)
+	}
+
+	@Test
+	operation test57 () {
+	    enter
+	    raise tapeIn
+	    raise play
+	    raise fastForward
+	    assert is_active
+	    assert active (aufgage_3_pvr.main_region.beschleunigte_Wiedergabe)
+	}
+
+	@Test
+	operation test58 () {
+	    enter
+	    raise tapeIn
+	    raise play
+	    assert is_active
+	    assert active (aufgage_3_pvr.main_region.wiedergebend)
+	}
+
+	@Test
+	operation test59 () {
+	    enter
+	    raise operate
+	    assert is_active
+	    assert active (aufgage_3_pvr.main_region.kein_tape_eingelegt)
+	}
+
+	@Test
+	operation test60 () {
+	    enter
+	    raise tapeIn
+	    assert is_active
+	    assert active (aufgage_3_pvr.main_region.tape_eingelegt)
+	}
+
+	@Test
+	operation test61 () {
+	    enter
+	    assert is_active
+	    assert active (aufgage_3_pvr.main_region.ausgeschaltet)
+	}
+
+	@Test
+	operation test63 () {
+	    assert !active (aufgage_3_pvr.main_region.automatischer_Modus_der_Aufnahme)
+	}
+
+	@Test
+	operation test64 () {
+	    assert !active (aufgage_3_pvr.main_region.pausierte_Aufnahme)
+	}
+
+	@Test
+	operation test65 () {
+	    assert !active (aufgage_3_pvr.main_region.normaler_Modus_der_Aufnahme)
+	}
+
+	@Test
+	operation test66 () {
+	    assert !active (aufgage_3_pvr.main_region.beendete_Wiedergabe)
+	}
+
+	@Test
+	operation test68 () {
+	    assert !active (aufgage_3_pvr.main_region.vorgespultes_Tape)
+	}
+
+	@Test
+	operation test70 () {
+	    assert !active (aufgage_3_pvr.main_region.angehaltene_Wiedergabe)
+	}
+
+	@Test
+	operation test71 () {
+	    assert !active (aufgage_3_pvr.main_region.beschleunigte_Wiedergabe)
+	}
+
+	@Test
+	operation test72 () {
+	    assert !active (aufgage_3_pvr.main_region.wiedergebend)
+	}
+
+	@Test
+	operation test73 () {
+	    assert !active (aufgage_3_pvr.main_region.tape_eingelegt)
+	}
+
+	@Test
+	operation test74 () {
+	    assert !active (aufgage_3_pvr.main_region.eingeschaltet)
+	}
+
+	@Test
+	operation test75 () {
+	    assert !active (aufgage_3_pvr.main_region.kein_tape_eingelegt)
+	}
+
+	@Test
+	operation test76 () {
+	    assert !active (aufgage_3_pvr.main_region.ausgeschaltet)
+	}
+
+	@Test
+	operation test77 () {
+	    raise operate
+	    raise pause
+	    triggerWithoutEvent
+	    assert !is_final
+	}
+
+	@Test
+	operation test78 () {
+	    assert !is_active
+	    enter
+	    raise tapeIn
+	    raise record
+	    raise pause
+	    raise play
+	    assert is_active
+	}
+
+	@Test
+	operation test79 () {
+	    assert !is_active
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test80 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test84 () {
+	    assert !is_active
+	    assert !is_final
+	}
+
+	@Test
+	operation test85 () {
+	    enter
+	    raise tapeIn
+	    raise play
+	    raise stop_eject
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test86 () {
+	    assert !is_active
+	    enter
+	    raise operate
+	    raise fastForward
+	    raise stop_eject
+	    assert is_active
+	}
+
+	@Test
+	operation test87 () {
+	    enter
+	    raise tapeIn
+	    raise play
+	    raise fastForward
+	    raise pause
+	    assert is_active
+	}
+
+	@Test
+	operation test88 () {
+	    enter
+	    assert !is_active
+	}
+
+	@Test
+	operation test89 () {
+	    assert !is_active
+	    enter
+	    raise tapeIn
+	    raise record
+	    raise record
+	    raise pause
+	    assert is_active
+	}
+
+	@Test
+	operation test90 () {
+	    enter
+	    raise tapeIn
+	    raise record
+	    raise pause
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test91 () {
+	    assert !is_active
+	    enter
+	    raise tapeIn
+	    raise play
+	    raise rewind
+	    raise pause
+	    raise rewind
+	    assert is_active
+	}
+
+	@Test
+	operation test92 () {
+	    assert !is_active
+	    enter
+	    raise tapeIn
+	    raise stop_eject
+	    assert is_active
+	}
+
+	@Test
+	operation test93 () {
+	    enter
+	    raise operate
+	    raise rewind
+	    raise stop_eject
+	    raise stop_eject
+	    raise fastForward
+	    assert is_active
+	}
+
+}

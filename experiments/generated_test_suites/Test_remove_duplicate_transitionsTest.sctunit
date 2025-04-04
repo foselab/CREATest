@@ -1,0 +1,83 @@
+testclass test_remove_duplicate_transitionsTest for statechart test_remove_duplicate_transitions {
+	@Test
+	operation test07 () {
+	    enter
+	    triggerWithoutEvent
+	    assert is_active
+	}
+
+	@Test
+	operation test08 () {
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test09 () {
+	    enter
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test11 () {
+	    enter
+	    assert is_active
+	    assert active (test_remove_duplicate_transitions.main_region.Off)
+	}
+
+	@Test
+	operation test13 () {
+	    assert !active (test_remove_duplicate_transitions.main_region.On)
+	}
+
+	@Test
+	operation test14 () {
+	    assert !active (test_remove_duplicate_transitions.main_region.Off)
+	}
+
+	@Test
+	operation test16 () {
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test17 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test19 () {
+	    assert !is_final
+	}
+
+	@Test
+	operation test20 () {
+	    triggerWithoutEvent
+	    assert !is_active
+	}
+
+	@Test
+	operation test21 () {
+	    raise user.operate
+	    raise user.operate
+	}
+
+	@Test
+	operation test22 () {
+	    enter
+	    assert !is_active
+	}
+
+	@Test
+	operation test23 () {
+	    enter
+	    raise user.operate
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+}

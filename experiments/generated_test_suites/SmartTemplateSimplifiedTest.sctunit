@@ -1,0 +1,85 @@
+testclass SmartTemplateSimplifiedTest for statechart SmartTemplate {
+	@Test
+	operation test02 () {
+	    assert !is_final
+	}
+
+	@Test
+	operation test03 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test09 () {
+	    assert !active (SmartTemplate._IoT_Template_.IoT_Template.trackingDeviceTemperature._Initialize_DeviceTemp_Component_)
+	}
+
+	@Test
+	operation test10 () {
+	    assert !active (SmartTemplate._IoT_Template_.IoT_Template.PowerCalculatorComponent._Initialize_Power_Component_)
+	}
+
+	@Test
+	operation test11 () {
+	    assert !active (SmartTemplate._IoT_Template_.IoT_Template.NetworkComponent._Initialize_Network_Component_)
+	}
+
+	@Test
+	operation test12 () {
+	    assert !active (SmartTemplate._IoT_Template_.IoT_Template.SensorComponent._Sensor_Component_isON_)
+	}
+
+	@Test
+	operation test13 () {
+	    assert !active (SmartTemplate._IoT_Template_.IoT_Template.ControllerComponent._Controller_Component_isON_)
+	}
+
+	@Test
+	operation test14 () {
+	    assert !is_active
+	    assert !active (SmartTemplate._IoT_Template_.IoT_Template)
+	}
+
+	@Test
+	operation test24 () {
+	    assert !active (SmartTemplate._IoT_Template_.IoT_Template.ActuatorComponent.off)
+	    assert !is_active
+	}
+
+	@Test
+	operation test25 () {
+	    assert !is_active
+	    assert !active (SmartTemplate._IoT_Template_.IoT_Template.ActuatorComponent._Device_Actuated_)
+	}
+
+	@Test
+	operation test26 () {
+	    assert !active (SmartTemplate._IoT_Template_.IoT_Template.ActuatorComponent._Actuator_onStandby_)
+	    assert !is_active
+	}
+
+	@Test
+	operation test27 () {
+	    assert !is_active
+	    assert !active (SmartTemplate._IoT_Template_.IoT_Template.DeviceSwitchStatus.on)
+	}
+
+	@Test
+	operation test29 () {
+	    assert !is_active
+	    assert !active (SmartTemplate._IoT_Template_.IoT_Template.DeviceSwitchStatus.off)
+	}
+
+	@Test
+	operation test36 () {
+	    exit
+	    assert !is_final
+	}
+
+	@Test
+	operation test41 () {
+	    assert !is_final
+	    assert !is_active
+	}
+
+}

@@ -1,0 +1,63 @@
+testclass UpdateTest for statechart mrw.^statechart.Update {
+	@Test
+	operation test09 () {
+	    assert !active (mrw.^statechart.Update.main_region.Failed)
+	}
+
+	@Test
+	operation test10 () {
+	    assert !active (mrw.^statechart.Update.main_region.Wait_Bootloader)
+	}
+
+	@Test
+	operation test11 () {
+	    assert !active (mrw.^statechart.Update.main_region.Flash_Check)
+	}
+
+	@Test
+	operation test12 () {
+	    assert !active (mrw.^statechart.Update.main_region.Flash_Rest)
+	}
+
+	@Test
+	operation test13 () {
+	    assert !active (mrw.^statechart.Update.main_region.Flash_Request)
+	}
+
+	@Test
+	operation test14 () {
+	    assert !active (mrw.^statechart.Update.main_region.Reset)
+	}
+
+	@Test
+	operation test15 () {
+	    assert !active (mrw.^statechart.Update.main_region.Flash_Complete_Page)
+	}
+
+	@Test
+	operation test16 () {
+	    assert !active (mrw.^statechart.Update.main_region.Ping)
+	}
+
+	@Test
+	operation test18 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test27 () {
+	    exit
+	}
+
+	@Test
+	operation test29 () {
+	    assert !is_final
+	}
+
+	@Test
+	operation test30 () {
+	    assert !is_active
+	    exit
+	}
+
+}

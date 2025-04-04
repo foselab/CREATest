@@ -1,0 +1,93 @@
+testclass TwoWayTrafficControlSimplifiedTest for statechart TwoWayTrafficControl {
+	@Test
+	operation test01 () {
+	    proceed 0 cycle
+	    assert !is_final
+	}
+
+	@Test
+	operation test02 () {
+	    assert !is_final
+	}
+
+	@Test
+	operation test05 () {
+	    assert !active (TwoWayTrafficControl.main.Operate)
+	}
+
+	@Test
+	operation test06 () {
+	    assert !active (TwoWayTrafficControl.main.Operate.r.A_Released)
+	}
+
+	@Test
+	operation test07 () {
+	    assert !active (TwoWayTrafficControl.main.Operate.r.Release_A)
+	}
+
+	@Test
+	operation test08 () {
+	    assert !active (TwoWayTrafficControl.main.Operate.r.all_blocked_before_A)
+	}
+
+	@Test
+	operation test09 () {
+	    assert !active (TwoWayTrafficControl.main.Operate.r.Release_B)
+	}
+
+	@Test
+	operation test10 () {
+	    assert !active (TwoWayTrafficControl.main.Operate.r.all_blocked_before_B)
+	}
+
+	@Test
+	operation test11 () {
+	    assert !active (TwoWayTrafficControl.main.Standby)
+	}
+
+	@Test
+	operation test12 () {
+	    assert !active (TwoWayTrafficControl.main.Operate.r.B_Released)
+	}
+
+	@Test
+	operation test13 () {
+	    assert !active (TwoWayTrafficControl.main.Off)
+	}
+
+	@Test
+	operation test14 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test16 () {
+	    raise off
+	    assert !is_active
+	}
+
+	@Test
+	operation test18 () {
+	    raise standby
+	    assert !is_final
+	}
+
+	@Test
+	operation test21 () {
+	    raise operate
+	    assert !is_final
+	}
+
+	@Test
+	operation test26 () {
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test27 () {
+	    raise on
+	    assert !is_active
+	}
+
+}

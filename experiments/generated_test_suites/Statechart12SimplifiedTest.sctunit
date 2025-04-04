@@ -1,0 +1,206 @@
+testclass Statechart12SimplifiedTest for statechart Statechart12 {
+	@Test
+	operation test00 () {
+	    triggerWithoutEvent
+	    assert !is_final
+	}
+
+	@Test
+	operation test01 () {
+	    enter
+	    proceed 2s
+	    raise carDetected
+	    assert !is_final
+	}
+
+	@Test
+	operation test02 () {
+	    enter
+	    proceed 2s
+	    raise buttonPressed
+	    raise buttonReleased
+	    raise carDetected
+	    assert is_active
+	}
+
+	@Test
+	operation test03 () {
+	    exit
+	    assert !is_final
+	}
+
+	@Test
+	operation test04 () {
+	    enter
+	    proceed 2s
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test05 () {
+	    assert !is_active
+	    enter
+	    raise buttonPressed
+	    assert is_active
+	    assert active (Statechart12.main_region.TrafficLight.toggleButtonHandling.PressedShort)
+	}
+
+	@Test
+	operation test06 () {
+	    assert !is_active
+	    enter
+	    assert is_active
+	    assert active (Statechart12.main_region.TrafficLight.toggleButtonHandling.ToggleModeUnpressed)
+	}
+
+	@Test
+	operation test07 () {
+	    enter
+	    proceed 2s
+	    proceed 5s
+	    assert active (Statechart12.main_region.TrafficLight.trafficLightsHandling.NormalBehavior.r1.yellow)
+	}
+
+	@Test
+	operation test08 () {
+	    enter
+	    proceed 2s
+	    assert is_active
+	    assert active (Statechart12.main_region.TrafficLight.trafficLightsHandling.NormalBehavior.r1.green)
+	}
+
+	@Test
+	operation test09 () {
+	    assert !is_active
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test10 () {
+	    assert !is_active
+	    enter
+	    assert is_active
+	    assert active (Statechart12.main_region.TrafficLight.trafficLightsHandling.NormalBehavior.r1.red)
+	}
+
+	@Test
+	operation test11 () {
+	    assert !is_active
+	    enter
+	    assert is_active
+	    assert active (Statechart12.main_region.TrafficLight.trafficLightsHandling.NormalBehavior)
+	}
+
+	@Test
+	operation test12 () {
+	    assert !is_active
+	    enter
+	    assert is_active
+	    assert active (Statechart12.main_region.TrafficLight)
+	}
+
+	@Test
+	operation test13 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test15 () {
+	    assert !is_active
+	    assert !active (Statechart12.main_region.TrafficLight.trafficLightsHandling.NormalBehavior)
+	}
+
+	@Test
+	operation test16 () {
+	    assert !active (Statechart12.main_region.TrafficLight.trafficLightsHandling.PoliceInterruptBehavior)
+	    assert !is_active
+	}
+
+	@Test
+	operation test17 () {
+	    assert !is_active
+	    assert !active (Statechart12.main_region.TrafficLight)
+	}
+
+	@Test
+	operation test22 () {
+	    assert !is_active
+	    assert !active (Statechart12.main_region.TrafficLight.trafficLightsHandling.NormalBehavior.r1.red)
+	}
+
+	@Test
+	operation test23 () {
+	    assert !active (Statechart12.main_region.TrafficLight.trafficLightsHandling.PoliceInterruptBehavior.r1.YellowOff)
+	    assert !is_active
+	}
+
+	@Test
+	operation test25 () {
+	    assert !is_active
+	    assert !active (Statechart12.main_region.TrafficLight.trafficLightsHandling.PoliceInterruptBehavior.r1.YellowOn)
+	}
+
+	@Test
+	operation test26 () {
+	    enter
+	    proceed 2s
+	    proceed 5s
+	    raise carDetected
+	    assert is_active
+	}
+
+	@Test
+	operation test30 () {
+	    assert !is_active
+	    enter
+	    raise buttonPressed
+	    raise buttonReleased
+	    raise buttonPressed
+	    raise buttonReleased
+	    assert is_active
+	}
+
+	@Test
+	operation test31 () {
+	    assert !is_active
+	    assert !is_final
+	}
+
+	@Test
+	operation test32 () {
+	    enter
+	    raise buttonPressed
+	    proceed 2s
+	    assert is_active
+	}
+
+	@Test
+	operation test34 () {
+	    enter
+	    raise buttonPressed
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test35 () {
+	    enter
+	    proceed 2s
+	    proceed 5s
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test36 () {
+	    assert !is_active
+	    enter
+	    raise buttonPressed
+	    proceed 5s
+	    assert is_active
+	}
+
+}

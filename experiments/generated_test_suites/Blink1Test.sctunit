@@ -1,0 +1,44 @@
+testclass blink1Test for statechart blink1 {
+	@Test
+	operation test12 () {
+	    assert !active (blink1.esp.Blink)
+	}
+
+	@Test
+	operation test13 () {
+	    assert !active (blink1.esp.Idle)
+	}
+
+	@Test
+	operation test14 () {
+	    assert !active (blink1.esp.Blink.blinky.Off)
+	}
+
+	@Test
+	operation test15 () {
+	    assert !active (blink1.esp.Blink.blinky.On)
+	}
+
+	@Test
+	operation test17 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test18 () {
+	    exit
+	}
+
+	@Test
+	operation test19 () {
+	    assert !is_active
+	    exit
+	}
+
+	@Test
+	operation test31 () {
+	    assert !is_active
+	    assert !is_final
+	}
+
+}

@@ -1,0 +1,54 @@
+testclass TV_UnitTest for statechart TV_Unit {
+	@Test
+	operation test09 () {
+	    assert !active (TV_Unit._TV_Unit_._TV_On_._TV_Working_.satelliteTV)
+	}
+
+	@Test
+	operation test10 () {
+	    assert !active (TV_Unit._TV_Unit_._TV_On_)
+	}
+
+	@Test
+	operation test11 () {
+	    assert !active (TV_Unit._TV_Unit_._TV_onSleep_)
+	}
+
+	@Test
+	operation test12 () {
+	    assert !active (TV_Unit._TV_Unit_._TV_On_._TV_Working_.hdmi)
+	}
+
+	@Test
+	operation test13 () {
+	    assert !active (TV_Unit._TV_Unit_._TV_On_._TV_Working_.cable)
+	}
+
+	@Test
+	operation test15 () {
+	    assert !active (TV_Unit._TV_Unit_._TV_On_._TV_Working_.satelliteTV._Changing_Channel_.changeChannel)
+	}
+
+	@Test
+	operation test17 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test25 () {
+	    exit
+	}
+
+	@Test
+	operation test30 () {
+	    assert !is_active
+	    exit
+	}
+
+	@Test
+	operation test33 () {
+	    assert !is_active
+	    assert !is_final
+	}
+
+}

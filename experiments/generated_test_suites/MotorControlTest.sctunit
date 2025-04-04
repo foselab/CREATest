@@ -1,0 +1,214 @@
+testclass MotorControlTest for statechart MotorControl {
+	@Test
+	operation test08 () {
+	    raise setTargetSpeed: 0
+	}
+
+	@Test
+	operation test09 () {
+	    raise setTargetSpeed: 3852.04617663
+	}
+
+	@Test
+	operation test10 () {
+	    raise setTargetSpeed: -1.0
+	}
+
+	@Test
+	operation test11 () {
+	    raise setActualSpeed: 0
+	}
+
+	@Test
+	operation test12 () {
+	    raise setActualSpeed: 1.0
+	}
+
+	@Test
+	operation test13 () {
+	    raise setActualSpeed: -1.0
+	}
+
+	@Test
+	operation test16 () {
+	    enter
+	    raise setActualSpeed: 0.0
+	    assert is_active
+	}
+
+	@Test
+	operation test17 () {
+	    enter
+	    raise setActualSpeed: -10.0
+	    raise setActualSpeed: -10.0
+	    assert is_active
+	}
+
+	@Test
+	operation test18 () {
+	    enter
+	    raise setActualSpeed: -10.0
+	    raise setActualSpeed: 1.0
+	    assert is_active
+	}
+
+	@Test
+	operation test19 () {
+	    enter
+	    raise setActualSpeed: 1.0
+	    raise setActualSpeed: 1.0
+	    assert is_active
+	}
+
+	@Test
+	operation test20 () {
+	    enter
+	    raise setActualSpeed: 0.0
+	    raise setTargetSpeed: 1.0
+	    assert is_active
+	}
+
+	@Test
+	operation test21 () {
+	    exit
+	}
+
+	@Test
+	operation test22 () {
+	    enter
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test23 () {
+	    enter
+	    raise setActualSpeed: 1.0
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test26 () {
+	    enter
+	    assert is_active
+	    assert active (MotorControl.MotorControl.MotorControl.r2.Default)
+	}
+
+	@Test
+	operation test27 () {
+	    enter
+	    assert is_active
+	    assert active (MotorControl.MotorControl.MotorControl.r1.cruising)
+	}
+
+	@Test
+	operation test28 () {
+	    enter
+	    raise setTargetSpeed: 2607.010687954458
+	    raise setActualSpeed: 0.0
+	    assert active (MotorControl.MotorControl.MotorControl.r1.accelerating)
+	}
+
+	@Test
+	operation test29 () {
+	    enter
+	    raise setActualSpeed: 1.0
+	    assert is_active
+	    assert active (MotorControl.MotorControl.MotorControl.r1.breaking)
+	}
+
+	@Test
+	operation test30 () {
+	    enter
+	    assert is_active
+	    assert active (MotorControl.MotorControl.MotorControl)
+	}
+
+	@Test
+	operation test32 () {
+	    assert !active (MotorControl.MotorControl.MotorControl)
+	}
+
+	@Test
+	operation test33 () {
+	    assert !active (MotorControl.MotorControl.MotorControl.r1.cruising)
+	}
+
+	@Test
+	operation test34 () {
+	    assert !active (MotorControl.MotorControl.MotorControl.r1.accelerating)
+	}
+
+	@Test
+	operation test35 () {
+	    assert !active (MotorControl.MotorControl.MotorControl.r2.Default)
+	}
+
+	@Test
+	operation test36 () {
+	    assert !active (MotorControl.MotorControl.MotorControl.r1.breaking)
+	}
+
+	@Test
+	operation test37 () {
+	    raise setActualSpeed: -264.94512488
+	    raise setTargetSpeed: -868
+	}
+
+	@Test
+	operation test38 () {
+	    enter
+	    raise setActualSpeed: -973.9575548211919
+	    raise setTargetSpeed: -973.9575548211919
+	    assert is_active
+	}
+
+	@Test
+	operation test39 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test40 () {
+	    assert !is_active
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test42 () {
+	    enter
+	    assert !is_active
+	}
+
+	@Test
+	operation test43 () {
+	    assert !is_final
+	}
+
+	@Test
+	operation test44 () {
+	    assert !is_active
+	    triggerWithoutEvent
+	}
+
+	@Test
+	operation test45 () {
+	    enter
+	    raise setActualSpeed: 0.0
+	    raise setActualSpeed: -2271
+	}
+
+	@Test
+	operation test47 () {
+	    enter
+	    raise setActualSpeed: -973.9575548211919
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+}

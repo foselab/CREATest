@@ -1,0 +1,45 @@
+testclass Ultrasonic_SensorTest for statechart Ultrasonic_Sensor {
+	@Test
+	operation test25 () {
+	    assert !active (Ultrasonic_Sensor._Ultrasonic_Sensor_._Sensor_Monitoring_.UltrasonicReceiver.Receiving)
+	}
+
+	@Test
+	operation test26 () {
+	    assert !active (Ultrasonic_Sensor._Ultrasonic_Sensor_._off_)
+	}
+
+	@Test
+	operation test27 () {
+	    assert !active (Ultrasonic_Sensor._Ultrasonic_Sensor_._Sensor_Monitoring_)
+	}
+
+	@Test
+	operation test28 () {
+	    assert !active (Ultrasonic_Sensor._Ultrasonic_Sensor_._Sensor_Monitoring_.UltrasonicTransducer.Transmitting)
+	}
+
+	@Test
+	operation test30 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test31 () {
+	    assert !is_active
+	    exit
+	}
+
+	@Test
+	operation test41 () {
+	    assert !is_final
+	    assert !is_active
+	}
+
+	@Test
+	operation test51 () {
+	    exit
+	    assert !is_active
+	}
+
+}

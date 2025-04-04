@@ -1,0 +1,74 @@
+testclass Statechart7Test for statechart Statechart7 {
+	@Test
+	operation test12 () {
+	    assert !active (Statechart7.main_region.StateValveOn3)
+	}
+
+	@Test
+	operation test13 () {
+	    assert !active (Statechart7.main_region.StateValveOn1)
+	}
+
+	@Test
+	operation test14 () {
+	    assert !active (Statechart7.main_region.DecisionTimeOpen)
+	}
+
+	@Test
+	operation test15 () {
+	    assert !active (Statechart7.main_region.DecisionMotor)
+	}
+
+	@Test
+	operation test16 () {
+	    assert !active (Statechart7.main_region.DecisionValve)
+	}
+
+	@Test
+	operation test17 () {
+	    assert !active (Statechart7.main_region.StateMotorOn)
+	}
+
+	@Test
+	operation test18 () {
+	    assert !active (Statechart7.main_region.StateValveOn2)
+	}
+
+	@Test
+	operation test19 () {
+	    assert !active (Statechart7.main_region.DecisionActivate)
+	}
+
+	@Test
+	operation test21 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test22 () {
+	    exit
+	}
+
+	@Test
+	operation test27 () {
+	    raise motor.OFF
+	}
+
+	@Test
+	operation test36 () {
+	    raise motor.ON
+	}
+
+	@Test
+	operation test40 () {
+	    assert !is_active
+	    exit
+	}
+
+	@Test
+	operation test44 () {
+	    assert !is_final
+	    assert !is_active
+	}
+
+}

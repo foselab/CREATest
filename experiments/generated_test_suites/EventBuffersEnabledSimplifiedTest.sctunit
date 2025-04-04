@@ -1,0 +1,126 @@
+testclass EventBuffersEnabledSimplifiedTest for statechart EventBuffersEnabled {
+	@Test
+	operation test00 () {
+	    enter
+	    raise e
+	    proceed 1 cycle
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test01 () {
+	    exit
+	    assert !is_final
+	}
+
+	@Test
+	operation test02 () {
+	    enter
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test03 () {
+	    raise e
+	    enter
+	    proceed 2979 cycle
+	    assert is_active
+	    assert active (EventBuffersEnabled.r2.D)
+	}
+
+	@Test
+	operation test04 () {
+	    enter
+	    assert is_active
+	    assert active (EventBuffersEnabled.r2.C)
+	}
+
+	@Test
+	operation test05 () {
+	    raise e
+	    enter
+	    proceed 1862 cycle
+	    raise f
+	    proceed 1 cycle
+	    assert is_active
+	    assert active (EventBuffersEnabled.r1.B)
+	}
+
+	@Test
+	operation test06 () {
+	    enter
+	    assert is_active
+	    assert active (EventBuffersEnabled.r1.A)
+	}
+
+	@Test
+	operation test08 () {
+	    assert !active (EventBuffersEnabled.r2.D)
+	}
+
+	@Test
+	operation test09 () {
+	    assert !active (EventBuffersEnabled.r1.B)
+	}
+
+	@Test
+	operation test10 () {
+	    assert !active (EventBuffersEnabled.r2.C)
+	}
+
+	@Test
+	operation test11 () {
+	    assert !active (EventBuffersEnabled.r1.A)
+	}
+
+	@Test
+	operation test12 () {
+	    proceed 1 cycle
+	    assert !is_active
+	}
+
+	@Test
+	operation test13 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test14 () {
+	    assert !is_active
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test15 () {
+	    raise e
+	    enter
+	    proceed 1 cycle
+	    raise f
+	    proceed 1 cycle
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test16 () {
+	    assert !is_active
+	    assert !is_final
+	}
+
+	@Test
+	operation test17 () {
+	    enter
+	    raise e
+	    proceed 1 cycle
+	    raise f
+	    proceed 1294 cycle
+	    assert !is_final
+	}
+
+}

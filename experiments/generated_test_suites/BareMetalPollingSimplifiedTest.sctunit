@@ -1,0 +1,139 @@
+testclass bareMetalPollingSimplifiedTest for statechart bareMetalPolling {
+	@Test
+	operation test00 () {
+	    triggerWithoutEvent
+	    assert !is_active
+	}
+
+	@Test
+	operation test01 () {
+	    enter
+	    raise inEvent1
+	    raise inEvent2
+	    assert is_active
+	}
+
+	@Test
+	operation test02 () {
+	    enter
+	    proceed 2s
+	    assert is_active
+	}
+
+	@Test
+	operation test03 () {
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test04 () {
+	    enter
+	    raise inEvent1
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test05 () {
+	    enter
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test06 () {
+	    enter
+	    raise inEvent2
+	    assert is_final
+	    assert active (bareMetalPolling.main_region._final_)
+	}
+
+	@Test
+	operation test07 () {
+	    assert !is_active
+	    enter
+	    assert active (bareMetalPolling.main_region.StateA)
+	}
+
+	@Test
+	operation test08 () {
+	    assert !active (bareMetalPolling.main_region._final_)
+	    assert !is_active
+	}
+
+	@Test
+	operation test09 () {
+	    assert !active (bareMetalPolling.main_region.StateB)
+	    assert !is_active
+	}
+
+	@Test
+	operation test10 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test11 () {
+	    assert !is_active
+	    assert !active (bareMetalPolling.main_region.StateA)
+	}
+
+	@Test
+	operation test12 () {
+	    enter
+	    raise inEvent2
+	    raise inEvent1
+	    assert is_final
+	}
+
+	@Test
+	operation test13 () {
+	    enter
+	    raise inEvent2
+	    assert is_final
+	}
+
+	@Test
+	operation test14 () {
+	    assert !is_final
+	    assert !is_active
+	}
+
+	@Test
+	operation test15 () {
+	    assert !is_active
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test18 () {
+	    assert !is_active
+	    enter
+	    raise inEvent1
+	    proceed 2s
+	    assert is_active
+	}
+
+	@Test
+	operation test19 () {
+	    enter
+	    raise inEvent2
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test21 () {
+	    assert !is_active
+	    enter
+	    raise inEvent1
+	    assert is_active
+	    assert active (bareMetalPolling.main_region.StateB)
+	}
+
+}

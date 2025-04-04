@@ -1,0 +1,218 @@
+testclass TrafficLight_UnitSimplifiedTest for statechart TrafficLight_Unit {
+	@Test
+	operation test03 () {
+	    enter
+	    raise off
+	    assert is_active
+	}
+
+	@Test
+	operation test04 () {
+	    enter
+	    raise on
+	    proceed 1s
+	    proceed 1s
+	    proceed 1s
+	    proceed 1s
+	    proceed 1s
+	    proceed 1s
+	    proceed 1s
+	    proceed 1s
+	    proceed 1s
+	    proceed 1s
+	    raise off
+	    exit
+	    raise off
+	    assert is_active
+	}
+
+	@Test
+	operation test05 () {
+	    enter
+	    raise on
+	    proceed 1s
+	    proceed 1s
+	    proceed 1s
+	    proceed 1s
+	    proceed 1s
+	    proceed 1s
+	    proceed 1s
+	    proceed 1s
+	    proceed 1s
+	    proceed 1s
+	    raise off
+	    raise off
+	    assert !is_final
+	}
+
+	@Test
+	operation test06 () {
+	    enter
+	    raise on
+	    exit
+	    exit
+	    exit
+	    assert is_active
+	}
+
+	@Test
+	operation test07 () {
+	    enter
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test08 () {
+	    enter
+	    raise on
+	    proceed 1s
+	    proceed 1s
+	    proceed 1s
+	    proceed 1s
+	    proceed 1s
+	    proceed 1s
+	    proceed 1s
+	    proceed 1s
+	    proceed 1s
+	    proceed 1s
+	    triggerWithoutEvent
+	    assert active (TrafficLight_Unit._TrafficLight_Unit_.On.Timer._timer_running_._Timer_Countdown_._yellow_period_)
+	}
+
+	@Test
+	operation test09 () {
+	    enter
+	    raise on
+	    assert active (TrafficLight_Unit._TrafficLight_Unit_.On.Timer._timer_running_._Timer_Countdown_._green_period_)
+	}
+
+	@Test
+	operation test10 () {
+	    enter
+	    raise on
+	    assert is_active
+	    assert active (TrafficLight_Unit._TrafficLight_Unit_.On.Timer._timer_running_)
+	}
+
+	@Test
+	operation test11 () {
+	    enter
+	    raise on
+	    exit
+	    exit
+	    assert is_active
+	    assert !active (TrafficLight_Unit._TrafficLight_Unit_.On.Timer._timer_running_)
+	}
+
+	@Test
+	operation test12 () {
+	    enter
+	    raise on
+	    assert active (TrafficLight_Unit._TrafficLight_Unit_.On.PedestrianLight_Color.StopHand)
+	}
+
+	@Test
+	operation test13 () {
+	    assert !active (TrafficLight_Unit._TrafficLight_Unit_.On.TrafficLight_Color.Green)
+	}
+
+	@Test
+	operation test14 () {
+	    enter
+	    raise on
+	    assert active (TrafficLight_Unit._TrafficLight_Unit_.On)
+	}
+
+	@Test
+	operation test15 () {
+	    enter
+	    assert is_active
+	    assert !active (TrafficLight_Unit._TrafficLight_Unit_.On)
+	}
+
+	@Test
+	operation test16 () {
+	    enter
+	    assert is_active
+	    assert active (TrafficLight_Unit._TrafficLight_Unit_.Off)
+	}
+
+	@Test
+	operation test18 () {
+	    assert !active (TrafficLight_Unit._TrafficLight_Unit_.On.Timer._timer_running_)
+	}
+
+	@Test
+	operation test19 () {
+	    assert !active (TrafficLight_Unit._TrafficLight_Unit_.On)
+	    assert !is_active
+	}
+
+	@Test
+	operation test20 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test25 () {
+	    assert !is_active
+	    assert !active (TrafficLight_Unit._TrafficLight_Unit_.On.PedestrianLight_Color.BlinkingWalkingMan)
+	}
+
+	@Test
+	operation test26 () {
+	    assert !active (TrafficLight_Unit._TrafficLight_Unit_.On.PedestrianLight_Color.StopHand)
+	    assert !is_active
+	}
+
+	@Test
+	operation test27 () {
+	    assert !active (TrafficLight_Unit._TrafficLight_Unit_.On.TrafficLight_Color.Yellow)
+	    assert !is_active
+	}
+
+	@Test
+	operation test28 () {
+	    assert !is_active
+	    assert !active (TrafficLight_Unit._TrafficLight_Unit_.On.TrafficLight_Color.Red)
+	}
+
+	@Test
+	operation test29 () {
+	    assert !active (TrafficLight_Unit._TrafficLight_Unit_.Off)
+	    assert !is_active
+	}
+
+	@Test
+	operation test30 () {
+	    assert !is_active
+	    enter
+	    raise on
+	    exit
+	    assert is_active
+	}
+
+	@Test
+	operation test32 () {
+	    assert !is_active
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test35 () {
+	    assert !is_active
+	    assert !is_final
+	}
+
+	@Test
+	operation test37 () {
+	    enter
+	    raise on
+	    raise off
+	    assert !is_final
+	}
+
+}

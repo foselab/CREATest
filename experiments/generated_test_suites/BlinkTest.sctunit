@@ -1,0 +1,61 @@
+testclass blinkTest for statechart blink {
+	@Test
+	operation test06 () {
+	    assert !is_active
+	    assert !active (blink.main.Light)
+	}
+
+	@Test
+	operation test07 () {
+	    assert !active (blink.main.Dark)
+	    assert !is_active
+	}
+
+	@Test
+	operation test08 () {
+	    assert !is_active
+	    assert !active (blink.main.Light._region0.On4)
+	}
+
+	@Test
+	operation test09 () {
+	    assert !active (blink.main.Light._region0.On3)
+	    assert !is_active
+	}
+
+	@Test
+	operation test10 () {
+	    assert !is_active
+	    assert !active (blink.main.Light._region0.On2)
+	}
+
+	@Test
+	operation test11 () {
+	    assert !is_active
+	    assert !active (blink.main.Light._region0.On5)
+	}
+
+	@Test
+	operation test12 () {
+	    assert !is_active
+	    assert !active (blink.main.Light._region0.On1)
+	}
+
+	@Test
+	operation test13 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test18 () {
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test21 () {
+	    assert !is_final
+	    assert !is_active
+	}
+
+}

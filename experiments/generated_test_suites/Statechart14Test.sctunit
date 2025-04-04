@@ -1,0 +1,79 @@
+testclass Statechart14Test for statechart Statechart14 {
+	@Test
+	operation test08 () {
+	    assert !active (Statechart14.main_region.orthogonal.TRAFFIC_LIGHT_MODES.interrupted)
+	}
+
+	@Test
+	operation test09 () {
+	    assert !active (Statechart14.main_region.orthogonal.TRAFFIC_LIGHT_MODES.normal.r1.smart_green)
+	}
+
+	@Test
+	operation test10 () {
+	    assert !active (Statechart14.main_region.orthogonal.TRAFFIC_LIGHT_MODES.normal)
+	}
+
+	@Test
+	operation test11 () {
+	    assert !active (Statechart14.main_region.orthogonal)
+	}
+
+	@Test
+	operation test12 () {
+	    assert !active (Statechart14.main_region.orthogonal.TRAFFIC_LIGHT_MODES.interrupted.r1.allblack)
+	}
+
+	@Test
+	operation test13 () {
+	    assert !active (Statechart14.main_region.orthogonal.TRAFFIC_LIGHT_MODES.interrupted.r1.yellow)
+	}
+
+	@Test
+	operation test14 () {
+	    assert !active (Statechart14.main_region.orthogonal.TRAFFIC_LIGHT_MODES.normal.r1.smart_green.r1.green)
+	}
+
+	@Test
+	operation test15 () {
+	    assert !active (Statechart14.main_region.orthogonal.TRAFFIC_LIGHT_MODES.normal.r1.red)
+	}
+
+	@Test
+	operation test16 () {
+	    assert !active (Statechart14.main_region.orthogonal.TOGGLE_MODE_BUTTON.pressed)
+	}
+
+	@Test
+	operation test17 () {
+	    assert !active (Statechart14.main_region.orthogonal.TRAFFIC_LIGHT_MODES.normal.r1.yellow)
+	}
+
+	@Test
+	operation test18 () {
+	    assert !active (Statechart14.main_region.orthogonal.TOGGLE_MODE_BUTTON.not_pressed)
+	}
+
+	@Test
+	operation test20 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test29 () {
+	    assert !is_final
+	}
+
+	@Test
+	operation test30 () {
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test35 () {
+	    assert !is_active
+	    assert !is_final
+	}
+
+}

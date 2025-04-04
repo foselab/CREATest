@@ -1,0 +1,241 @@
+testclass Statechart14SimplifiedTest for statechart Statechart14 {
+	@Test
+	operation test00 () {
+	    raise carDetected
+	    assert !is_final
+	}
+
+	@Test
+	operation test02 () {
+	    enter
+	    raise buttonPressed
+	    proceed 2s
+	    proceed 2s
+	    assert !is_final
+	}
+
+	@Test
+	operation test03 () {
+	    enter
+	    proceed 2s
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test04 () {
+	    exit
+	    assert !is_final
+	}
+
+	@Test
+	operation test06 () {
+	    enter
+	    raise buttonPressed
+	    proceed 2s
+	    assert is_active
+	    assert active (Statechart14.main_region.orthogonal.TRAFFIC_LIGHT_MODES.interrupted.r1.yellow)
+	}
+
+	@Test
+	operation test07 () {
+	    enter
+	    raise buttonPressed
+	    proceed 2s
+	    assert is_active
+	    assert active (Statechart14.main_region.orthogonal.TRAFFIC_LIGHT_MODES.interrupted)
+	}
+
+	@Test
+	operation test08 () {
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test09 () {
+	    enter
+	    proceed 2s
+	    assert is_active
+	    assert active (Statechart14.main_region.orthogonal.TRAFFIC_LIGHT_MODES.normal.r1.smart_green.r1.green)
+	}
+
+	@Test
+	operation test10 () {
+	    enter
+	    proceed 2s
+	    assert is_active
+	    assert active (Statechart14.main_region.orthogonal.TRAFFIC_LIGHT_MODES.normal.r1.smart_green)
+	}
+
+	@Test
+	operation test12 () {
+	    enter
+	    assert is_active
+	    assert active (Statechart14.main_region.orthogonal.TRAFFIC_LIGHT_MODES.normal.r1.red)
+	}
+
+	@Test
+	operation test13 () {
+	    enter
+	    assert is_active
+	    assert active (Statechart14.main_region.orthogonal.TRAFFIC_LIGHT_MODES.normal)
+	}
+
+	@Test
+	operation test14 () {
+	    enter
+	    raise buttonPressed
+	    assert is_active
+	    assert active (Statechart14.main_region.orthogonal.TOGGLE_MODE_BUTTON.pressed)
+	}
+
+	@Test
+	operation test15 () {
+	    enter
+	    assert is_active
+	    assert active (Statechart14.main_region.orthogonal.TOGGLE_MODE_BUTTON.not_pressed)
+	}
+
+	@Test
+	operation test16 () {
+	    enter
+	    assert is_active
+	    assert active (Statechart14.main_region.orthogonal)
+	}
+
+	@Test
+	operation test18 () {
+	    assert !active (Statechart14.main_region.orthogonal.TRAFFIC_LIGHT_MODES.interrupted)
+	}
+
+	@Test
+	operation test19 () {
+	    assert !active (Statechart14.main_region.orthogonal.TRAFFIC_LIGHT_MODES.normal.r1.smart_green)
+	}
+
+	@Test
+	operation test20 () {
+	    assert !active (Statechart14.main_region.orthogonal.TRAFFIC_LIGHT_MODES.normal)
+	}
+
+	@Test
+	operation test21 () {
+	    assert !active (Statechart14.main_region.orthogonal)
+	}
+
+	@Test
+	operation test22 () {
+	    assert !active (Statechart14.main_region.orthogonal.TRAFFIC_LIGHT_MODES.interrupted.r1.allblack)
+	}
+
+	@Test
+	operation test23 () {
+	    assert !active (Statechart14.main_region.orthogonal.TRAFFIC_LIGHT_MODES.normal.r1.smart_green.r1.green)
+	}
+
+	@Test
+	operation test24 () {
+	    assert !active (Statechart14.main_region.orthogonal.TRAFFIC_LIGHT_MODES.normal.r1.yellow)
+	}
+
+	@Test
+	operation test25 () {
+	    assert !active (Statechart14.main_region.orthogonal.TRAFFIC_LIGHT_MODES.normal.r1.red)
+	}
+
+	@Test
+	operation test26 () {
+	    assert !active (Statechart14.main_region.orthogonal.TOGGLE_MODE_BUTTON.pressed)
+	}
+
+	@Test
+	operation test27 () {
+	    assert !active (Statechart14.main_region.orthogonal.TRAFFIC_LIGHT_MODES.interrupted.r1.yellow)
+	}
+
+	@Test
+	operation test28 () {
+	    assert !active (Statechart14.main_region.orthogonal.TOGGLE_MODE_BUTTON.not_pressed)
+	}
+
+	@Test
+	operation test29 () {
+	    enter
+	    proceed 2s
+	    proceed 5s
+	    triggerWithoutEvent
+	    assert !is_final
+	}
+
+	@Test
+	operation test30 () {
+	    raise buttonReleased
+	    assert !is_active
+	}
+
+	@Test
+	operation test31 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test32 () {
+	    assert !is_active
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test34 () {
+	    enter
+	    raise buttonPressed
+	    proceed 2s
+	    raise buttonPressed
+	    proceed 2s
+	    assert !is_final
+	}
+
+	@Test
+	operation test35 () {
+	    assert !is_active
+	    assert !is_final
+	}
+
+	@Test
+	operation test36 () {
+	    enter
+	    raise buttonPressed
+	    proceed 2s
+	    proceed 500ms
+	    assert !is_final
+	}
+
+	@Test
+	operation test38 () {
+	    enter
+	    raise buttonPressed
+	    proceed 2s
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test39 () {
+	    enter
+	    raise buttonPressed
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test40 () {
+	    enter
+	    proceed 2s
+	    proceed 5s
+	    exit
+	    assert !is_active
+	}
+
+}

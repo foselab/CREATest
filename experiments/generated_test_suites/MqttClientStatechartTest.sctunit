@@ -1,0 +1,79 @@
+testclass MqttClientStatechartTest for statechart MqttClientStatechart {
+	@Test
+	operation test26 () {
+	    assert !active (MqttClientStatechart.main_region.Undefined)
+	}
+
+	@Test
+	operation test38 () {
+	    assert !active (MqttClientStatechart.main_region.Undefined.r1.Start)
+	}
+
+	@Test
+	operation test39 () {
+	    assert !active (MqttClientStatechart.main_region.Undefined.r1.ResetSystem)
+	}
+
+	@Test
+	operation test40 () {
+	    assert !active (MqttClientStatechart.main_region.Undefined.r1.RestartModule)
+	}
+
+	@Test
+	operation test41 () {
+	    assert !active (MqttClientStatechart.main_region.Undefined.r1.TestModule)
+	}
+
+	@Test
+	operation test42 () {
+	    assert !active (MqttClientStatechart.main_region.Undefined.r1.ResetModule)
+	}
+
+	@Test
+	operation test44 () {
+	    assert !active (MqttClientStatechart.main_region.Undefined.r1.Entry)
+	}
+
+	@Test
+	operation test45 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test61 () {
+	    raise WizFi360.error
+	}
+
+	@Test
+	operation test63 () {
+	    raise WizFi360.fail
+	}
+
+	@Test
+	operation test72 () {
+	    raise WizFi360.ready
+	}
+
+	@Test
+	operation test75 () {
+	    raise WizFi360.ok
+	}
+
+	@Test
+	operation test86 () {
+	    proceed 1s
+	}
+
+	@Test
+	operation test92 () {
+	    assert !is_active
+	    exit
+	}
+
+	@Test
+	operation test95 () {
+	    exit
+	    assert !is_active
+	}
+
+}

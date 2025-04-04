@@ -1,0 +1,121 @@
+testclass UpdateSimplifiedTest for statechart mrw.^statechart.Update {
+	@Test
+	operation test00 () {
+	    raise failed
+	    assert !is_final
+	}
+
+	@Test
+	operation test03 () {
+	    enter
+	    raise connected
+	    raise connected
+	    assert is_active
+	}
+
+	@Test
+	operation test04 () {
+	    exit
+	    assert !is_final
+	}
+
+	@Test
+	operation test05 () {
+	    enter
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test07 () {
+	    enter
+	    raise connected
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test08 () {
+	    assert !is_active
+	    enter
+	    assert active (mrw.^statechart.Update.main_region.Wait_for_Connect)
+	}
+
+	@Test
+	operation test11 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test14 () {
+	    assert !is_active
+	    assert !active (mrw.^statechart.Update.main_region.Failed)
+	}
+
+	@Test
+	operation test15 () {
+	    assert !active (mrw.^statechart.Update.main_region.Flash_Check)
+	    assert !is_active
+	}
+
+	@Test
+	operation test16 () {
+	    assert !is_active
+	    assert !active (mrw.^statechart.Update.main_region.Flash_Rest)
+	}
+
+	@Test
+	operation test17 () {
+	    assert !active (mrw.^statechart.Update.main_region.Flash_Complete_Page)
+	    assert !is_active
+	}
+
+	@Test
+	operation test18 () {
+	    assert !is_active
+	    assert !active (mrw.^statechart.Update.main_region.Flash_Request)
+	}
+
+	@Test
+	operation test19 () {
+	    assert !is_active
+	    assert !active (mrw.^statechart.Update.main_region.Reset)
+	}
+
+	@Test
+	operation test20 () {
+	    assert !is_active
+	    assert !active (mrw.^statechart.Update.main_region.Wait_Bootloader)
+	}
+
+	@Test
+	operation test21 () {
+	    assert !active (mrw.^statechart.Update.main_region.Ping)
+	    assert !is_active
+	}
+
+	@Test
+	operation test25 () {
+	    assert !is_active
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test32 () {
+	    assert !is_active
+	    enter
+	    raise connected
+	    assert is_active
+	    assert active (mrw.^statechart.Update.main_region.Ping)
+	}
+
+	@Test
+	operation test33 () {
+	    assert !is_active
+	    assert !is_final
+	}
+
+}

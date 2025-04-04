@@ -1,0 +1,79 @@
+testclass Statechart5Test for statechart Statechart5 {
+	@Test
+	operation test10 () {
+	    assert !active (Statechart5.main_region.State2PrepareActuation)
+	}
+
+	@Test
+	operation test11 () {
+	    assert !active (Statechart5.main_region.StateCancelActuation)
+	}
+
+	@Test
+	operation test12 () {
+	    assert !active (Statechart5.main_region.StateMotorOn)
+	}
+
+	@Test
+	operation test13 () {
+	    assert !active (Statechart5.main_region.State1PrepareActuation)
+	}
+
+	@Test
+	operation test15 () {
+	    assert !active (Statechart5.main_region.DecisionActivate)
+	}
+
+	@Test
+	operation test17 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test20 () {
+	    raise ledGreen.ON
+	}
+
+	@Test
+	operation test22 () {
+	    raise ledRed.OFF
+	}
+
+	@Test
+	operation test27 () {
+	    raise motor.ON
+	}
+
+	@Test
+	operation test29 () {
+	    raise motor.OFF
+	}
+
+	@Test
+	operation test30 () {
+	    assert !is_final
+	}
+
+	@Test
+	operation test31 () {
+	    raise ledRed.ON
+	}
+
+	@Test
+	operation test35 () {
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test36 () {
+	    raise ledGreen.OFF
+	}
+
+	@Test
+	operation test38 () {
+	    exit
+	    assert !is_final
+	}
+
+}

@@ -1,0 +1,355 @@
+testclass SwitchSimplifiedTest for statechart mrw.^statechart.Switch {
+	@Test
+	operation test00 () {
+	    triggerWithoutEvent
+	    assert !is_active
+	}
+
+	@Test
+	operation test01 () {
+	    raise queued
+	    assert !is_active
+	}
+
+	@Test
+	operation test02 () {
+	    enter
+	    raise start
+	    raise failed
+	    raise turn
+	    assert is_active
+	}
+
+	@Test
+	operation test03 () {
+	    mock doTurnLeft returns (true)
+	    mock isFree returns (false)
+	    enter
+	    raise start
+	    raise response
+	    raise turn
+	    raise leftResponse
+	    assert is_active
+	}
+
+	@Test
+	operation test04 () {
+	    mock doTurnLeft returns (false)
+	    mock doTurnLeft returns (false)
+	    enter
+	    raise start
+	    raise response
+	    raise turn
+	    raise rightResponse
+	    raise unlock
+	    assert is_active
+	}
+
+	@Test
+	operation test05 () {
+	    enter
+	    raise start
+	    raise response
+	    raise leftResponse
+	    assert is_active
+	}
+
+	@Test
+	operation test06 () {
+	    enter
+	    raise start
+	    raise turn
+	    assert is_active
+	}
+
+	@Test
+	operation test08 () {
+	    enter
+	    raise failed
+	    assert is_active
+	}
+
+	@Test
+	operation test09 () {
+	    mock doTurnLeft returns (true)
+	    mock doTurnLeft returns (true)
+	    enter
+	    raise start
+	    raise response
+	    raise turn
+	    raise rightResponse
+	    assert is_active
+	}
+
+	@Test
+	operation test10 () {
+	    mock doTurnLeft returns (true)
+	    enter
+	    raise start
+	    raise response
+	    raise turn
+	    raise start
+	    assert !is_final
+	}
+
+	@Test
+	operation test11 () {
+	    mock doTurnLeft returns (false)
+	    enter
+	    raise start
+	    raise response
+	    raise turn
+	    raise start
+	    assert is_active
+	}
+
+	@Test
+	operation test12 () {
+	    exit
+	    assert !is_final
+	}
+
+	@Test
+	operation test13 () {
+	    mock doTurnLeft returns (true)
+	    enter
+	    raise start
+	    raise response
+	    raise turn
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test14 () {
+	    mock doTurnLeft returns (false)
+	    enter
+	    raise start
+	    raise response
+	    raise turn
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test15 () {
+	    enter
+	    raise start
+	    raise response
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test16 () {
+	    enter
+	    raise start
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test17 () {
+	    enter
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test18 () {
+	    enter
+	    raise start
+	    mock doTurnLeft returns (true)
+	    raise response
+	    raise turn
+	    assert is_active
+	    assert active (mrw.^statechart.Switch.main_region.Operating.operating.Turning.Turning_process.Turn_Left)
+	}
+
+	@Test
+	operation test19 () {
+	    mock doTurnLeft returns (false)
+	    enter
+	    raise start
+	    raise response
+	    raise turn
+	    assert is_active
+	    assert active (mrw.^statechart.Switch.main_region.Operating.operating.Turning)
+	}
+
+	@Test
+	operation test20 () {
+	    enter
+	    assert is_active
+	    assert !active (mrw.^statechart.Switch.main_region.Operating.operating.Turning)
+	}
+
+	@Test
+	operation test21 () {
+	    mock doTurnLeft returns (false)
+	    mock doTurnLeft returns (false)
+	    enter
+	    raise start
+	    raise response
+	    raise turn
+	    raise rightResponse
+	    assert is_active
+	    assert active (mrw.^statechart.Switch.main_region.Operating.operating.Locked)
+	}
+
+	@Test
+	operation test22 () {
+	    enter
+	    raise start
+	    raise response
+	    assert is_active
+	    assert active (mrw.^statechart.Switch.main_region.Operating.operating.Unlocked)
+	}
+
+	@Test
+	operation test23 () {
+	    enter
+	    raise start
+	    raise response
+	    assert is_active
+	    assert active (mrw.^statechart.Switch.main_region.Operating)
+	}
+
+	@Test
+	operation test24 () {
+	    enter
+	    assert is_active
+	    assert !active (mrw.^statechart.Switch.main_region.Operating)
+	}
+
+	@Test
+	operation test25 () {
+	    enter
+	    raise start
+	    assert is_active
+	    assert active (mrw.^statechart.Switch.main_region.Init)
+	}
+
+	@Test
+	operation test26 () {
+	    enter
+	    assert is_active
+	    assert active (mrw.^statechart.Switch.main_region.Wait_for_Start)
+	}
+
+	@Test
+	operation test28 () {
+	    assert !active (mrw.^statechart.Switch.main_region.Operating.operating.Turning)
+	}
+
+	@Test
+	operation test29 () {
+	    assert !is_active
+	    assert !active (mrw.^statechart.Switch.main_region.Operating)
+	}
+
+	@Test
+	operation test30 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test33 () {
+	    assert !active (mrw.^statechart.Switch.main_region.Operating.operating.Locked)
+	    assert !is_active
+	}
+
+	@Test
+	operation test34 () {
+	    assert !is_active
+	    assert !active (mrw.^statechart.Switch.main_region.Operating.operating.Unlocked)
+	}
+
+	@Test
+	operation test35 () {
+	    assert !is_active
+	    assert !active (mrw.^statechart.Switch.main_region.Init)
+	}
+
+	@Test
+	operation test37 () {
+	    assert !is_active
+	    assert !active (mrw.^statechart.Switch.main_region.Wait_for_Start)
+	}
+
+	@Test
+	operation test39 () {
+	    assert !is_active
+	    enter
+	    raise start
+	    raise failed
+	    raise clear
+	    assert is_active
+	}
+
+	@Test
+	operation test40 () {
+	    assert !is_active
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test44 () {
+	    assert !is_active
+	    assert !is_final
+	}
+
+	@Test
+	operation test46 () {
+	    mock doTurnLeft returns (true)
+	    mock isFree returns (false)
+	    assert !is_active
+	    enter
+	    raise start
+	    raise response
+	    raise turn
+	    raise rightResponse
+	    raise start
+	    assert is_active
+	}
+
+	@Test
+	operation test47 () {
+	    assert !is_active
+	    enter
+	    raise start
+	    raise response
+	    raise failed
+	    assert is_active
+	}
+
+	@Test
+	operation test48 () {
+	    enter
+	    raise start
+	    raise failed
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test49 () {
+	    mock doTurnLeft returns (false)
+	    mock doTurnLeft returns (false)
+	    enter
+	    raise start
+	    raise response
+	    raise turn
+	    raise rightResponse
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+}

@@ -1,0 +1,85 @@
+testclass SmartLightSystemSimplifiedTest for statechart SmartLightSystem {
+	@Test
+	operation test02 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test06 () {
+	    assert !is_final
+	}
+
+	@Test
+	operation test10 () {
+	    assert !active (SmartLightSystem._SmartLightSystem_.SmartLightSystem.trackingDeviceTemperature._Initialize_DeviceTemp_Component_)
+	}
+
+	@Test
+	operation test11 () {
+	    assert !active (SmartLightSystem._SmartLightSystem_.SmartLightSystem.PowerCalculatorComponent._Initialize_Power_Component_)
+	}
+
+	@Test
+	operation test12 () {
+	    assert !active (SmartLightSystem._SmartLightSystem_.SmartLightSystem.NetworkComponent._Initialize_WiFi_Component_)
+	}
+
+	@Test
+	operation test13 () {
+	    assert !active (SmartLightSystem._SmartLightSystem_.SmartLightSystem.PhysicalEntity._Initialize_Sensor_Component_)
+	}
+
+	@Test
+	operation test14 () {
+	    assert !active (SmartLightSystem._SmartLightSystem_.SmartLightSystem.ControllerComponent._Initialize_Controller_Component_)
+	}
+
+	@Test
+	operation test15 () {
+	    assert !is_active
+	    assert !active (SmartLightSystem._SmartLightSystem_.SmartLightSystem)
+	}
+
+	@Test
+	operation test25 () {
+	    assert !active (SmartLightSystem._SmartLightSystem_.SmartLightSystem.ActuatorComponent.off)
+	    assert !is_active
+	}
+
+	@Test
+	operation test26 () {
+	    assert !is_active
+	    assert !active (SmartLightSystem._SmartLightSystem_.SmartLightSystem.ActuatorComponent._Device_Functioning_)
+	}
+
+	@Test
+	operation test27 () {
+	    assert !active (SmartLightSystem._SmartLightSystem_.SmartLightSystem.ActuatorComponent._Actuator_Updates_)
+	    assert !is_active
+	}
+
+	@Test
+	operation test28 () {
+	    assert !is_active
+	    assert !active (SmartLightSystem._SmartLightSystem_.SmartLightSystem.SystemStatus.on)
+	}
+
+	@Test
+	operation test30 () {
+	    assert !is_active
+	    assert !active (SmartLightSystem._SmartLightSystem_.SmartLightSystem.SystemStatus.off)
+	}
+
+	@Test
+	operation test40 () {
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test41 () {
+	    assert !is_active
+	    assert !is_final
+	}
+
+}

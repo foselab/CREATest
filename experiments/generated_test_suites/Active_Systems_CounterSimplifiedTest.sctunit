@@ -1,0 +1,71 @@
+testclass Active_Systems_CounterSimplifiedTest for statechart Active_Systems_Counter {
+	@Test
+	operation test01 () {
+	    enter
+	    raise decrement
+	    assert is_active
+	}
+
+	@Test
+	operation test02 () {
+	    enter
+	    triggerWithoutEvent
+	    assert is_active
+	}
+
+	@Test
+	operation test03 () {
+	    enter
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test04 () {
+	    enter
+	    assert is_active
+	    assert active (Active_Systems_Counter.main_region.StaticUpdate)
+	}
+
+	@Test
+	operation test06 () {
+	    assert !active (Active_Systems_Counter.main_region.StaticUpdate)
+	}
+
+	@Test
+	operation test07 () {
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test08 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test09 () {
+	    assert !is_final
+	}
+
+	@Test
+	operation test10 () {
+	    triggerWithoutEvent
+	    assert !is_active
+	}
+
+	@Test
+	operation test12 () {
+	    enter
+	    raise increment
+	    assert is_active
+	}
+
+	@Test
+	operation test13 () {
+	    exit
+	    assert !is_active
+	}
+
+}

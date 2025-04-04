@@ -1,0 +1,82 @@
+testclass SmartTrafficLightSystemSimplifiedTest for statechart SmartTrafficLightSystem {
+	@Test
+	operation test00 () {
+	    raise system.off
+	}
+
+	@Test
+	operation test04 () {
+	    triggerWithoutEvent
+	    assert !is_active
+	}
+
+	@Test
+	operation test05 () {
+	    proceed 500ms
+	    assert !is_active
+	}
+
+	@Test
+	operation test07 () {
+	    assert !active (SmartTrafficLightSystem.main_region.SmartTrafficLightSystem.trackingDeviceTemperature._Initialize_DeviceTemp_Component_)
+	}
+
+	@Test
+	operation test08 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test12 () {
+	    assert !is_active
+	    assert !active (SmartTrafficLightSystem.main_region.SmartTrafficLightSystem)
+	}
+
+	@Test
+	operation test22 () {
+	    assert !is_active
+	    assert !active (SmartTrafficLightSystem.main_region.SmartTrafficLightSystem.ActuatorComponent.off)
+	}
+
+	@Test
+	operation test23 () {
+	    assert !active (SmartTrafficLightSystem.main_region.SmartTrafficLightSystem.ActuatorComponent._Device_Functioning_)
+	    assert !is_active
+	}
+
+	@Test
+	operation test24 () {
+	    assert !is_active
+	    assert !active (SmartTrafficLightSystem.main_region.SmartTrafficLightSystem.ActuatorComponent._Actuator_Updates_)
+	}
+
+	@Test
+	operation test25 () {
+	    assert !active (SmartTrafficLightSystem.main_region.SmartTrafficLightSystem.SystemStatus.on)
+	    assert !is_active
+	}
+
+	@Test
+	operation test27 () {
+	    assert !active (SmartTrafficLightSystem.main_region.SmartTrafficLightSystem.SystemStatus.off)
+	    assert !is_active
+	}
+
+	@Test
+	operation test31 () {
+	    raise system.on
+	}
+
+	@Test
+	operation test33 () {
+	    assert !is_active
+	    assert !is_final
+	}
+
+	@Test
+	operation test35 () {
+	    exit
+	    assert !is_final
+	}
+
+}

@@ -1,0 +1,148 @@
+testclass TrafficLightSimplifiedTest for statechart TrafficLight {
+	@Test
+	operation test03 () {
+	    exit
+	    assert !is_final
+	}
+
+	@Test
+	operation test04 () {
+	    raise switchOn
+	    enter
+	    proceed 2091 cycle
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test05 () {
+	    enter
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test06 () {
+	    enter
+	    raise switchOn
+	    proceed 1 cycle
+	    assert is_active
+	    assert active (TrafficLight.main.On)
+	}
+
+	@Test
+	operation test07 () {
+	    enter
+	    assert is_active
+	    assert !active (TrafficLight.main.On)
+	}
+
+	@Test
+	operation test08 () {
+	    enter
+	    assert is_active
+	    assert active (TrafficLight.main.Off)
+	}
+
+	@Test
+	operation test10 () {
+	    assert !active (TrafficLight.main.On)
+	}
+
+	@Test
+	operation test11 () {
+	    assert !active (TrafficLight.main.On.main.PrepareBlock)
+	}
+
+	@Test
+	operation test12 () {
+	    assert !active (TrafficLight.main.On.main.Attention)
+	}
+
+	@Test
+	operation test13 () {
+	    assert !active (TrafficLight.main.On.main.Blocked)
+	}
+
+	@Test
+	operation test14 () {
+	    assert !active (TrafficLight.main.On.main.Released)
+	}
+
+	@Test
+	operation test15 () {
+	    assert !active (TrafficLight.main.Off)
+	}
+
+	@Test
+	operation test16 () {
+	    proceed 1 cycle
+	    assert !is_active
+	}
+
+	@Test
+	operation test17 () {
+	    assert !is_active
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test18 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test21 () {
+	    assert !is_final
+	    assert !is_active
+	}
+
+	@Test
+	operation test22 () {
+	    raise switchOn
+	    assert !is_active
+	    enter
+	    proceed 2063 cycle
+	    raise switchOff
+	    proceed 2091 cycle
+	    assert is_active
+	}
+
+	@Test
+	operation test24 () {
+	    raise release
+	    assert !is_active
+	}
+
+	@Test
+	operation test26 () {
+	    raise attention
+	    assert !is_active
+	}
+
+	@Test
+	operation test27 () {
+	    raise switchOn
+	    enter
+	    proceed 2063 cycle
+	    raise block
+	    proceed 2091 cycle
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test28 () {
+	    assert !is_active
+	    enter
+	    raise switchOn
+	    proceed 1 cycle
+	    assert is_active
+	    assert active (TrafficLight.main.On.main.Attention)
+	}
+
+}

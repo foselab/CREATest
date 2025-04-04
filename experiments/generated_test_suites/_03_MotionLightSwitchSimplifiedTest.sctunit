@@ -1,0 +1,223 @@
+testclass _03_MotionLightSwitchSimplifiedTest for statechart _03_MotionLightSwitch {
+	@Test
+	operation test00 () {
+	    triggerWithoutEvent
+	    assert !is_active
+	}
+
+	@Test
+	operation test01 () {
+	    enter
+	    raise toggleMode
+	    raise toggleMode
+	    raise toggleMode
+	    raise switch
+	    raise switch
+	    assert is_active
+	}
+
+	@Test
+	operation test02 () {
+	    enter
+	    raise motionDetected
+	    raise motionDetected
+	    assert is_active
+	}
+
+	@Test
+	operation test03 () {
+	    enter
+	    raise motionDetected
+	    proceed 30s
+	    assert is_active
+	}
+
+	@Test
+	operation test04 () {
+	    enter
+	    proceed 30s
+	    assert is_active
+	}
+
+	@Test
+	operation test05 () {
+	    enter
+	    raise toggleMode
+	    raise switch
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test06 () {
+	    enter
+	    raise toggleMode
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test07 () {
+	    enter
+	    raise motionDetected
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test08 () {
+	    enter
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test09 () {
+	    enter
+	    raise toggleMode
+	    raise switch
+	    assert is_active
+	    assert active (_03_MotionLightSwitch.main.Manual.r1.On)
+	}
+
+	@Test
+	operation test10 () {
+	    enter
+	    raise toggleMode
+	    assert is_active
+	    assert active (_03_MotionLightSwitch.main.Manual.r1.Off)
+	}
+
+	@Test
+	operation test11 () {
+	    enter
+	    raise toggleMode
+	    assert is_active
+	    assert active (_03_MotionLightSwitch.main.Manual)
+	}
+
+	@Test
+	operation test12 () {
+	    enter
+	    assert is_active
+	    assert !active (_03_MotionLightSwitch.main.Manual)
+	}
+
+	@Test
+	operation test13 () {
+	    enter
+	    raise motionDetected
+	    assert is_active
+	    assert active (_03_MotionLightSwitch.main.MotionSensing.r1.On)
+	}
+
+	@Test
+	operation test14 () {
+	    enter
+	    assert is_active
+	    assert active (_03_MotionLightSwitch.main.MotionSensing.r1.Off)
+	}
+
+	@Test
+	operation test15 () {
+	    enter
+	    assert is_active
+	    assert active (_03_MotionLightSwitch.main.MotionSensing)
+	}
+
+	@Test
+	operation test16 () {
+	    assert !active (_03_MotionLightSwitch.main.Manual)
+	}
+
+	@Test
+	operation test17 () {
+	    assert !active (_03_MotionLightSwitch.main.MotionSensing)
+	}
+
+	@Test
+	operation test18 () {
+	    assert !active (_03_MotionLightSwitch.main.Manual.r1.On)
+	}
+
+	@Test
+	operation test19 () {
+	    assert !active (_03_MotionLightSwitch.main.Manual.r1.Off)
+	}
+
+	@Test
+	operation test20 () {
+	    assert !active (_03_MotionLightSwitch.main.MotionSensing.r1.On)
+	}
+
+	@Test
+	operation test22 () {
+	    assert !active (_03_MotionLightSwitch.main.MotionSensing.r1.Off)
+	}
+
+	@Test
+	operation test23 () {
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test24 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test25 () {
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test27 () {
+	    assert !is_active
+	    enter
+	    raise toggleMode
+	    raise switch
+	    raise toggleMode
+	    assert is_active
+	}
+
+	@Test
+	operation test29 () {
+	    enter
+	    raise toggleMode
+	    raise toggleMode
+	    raise motionDetected
+	    raise toggleMode
+	    assert !is_final
+	}
+
+	@Test
+	operation test30 () {
+	    assert !is_final
+	    assert !is_active
+	}
+
+	@Test
+	operation test31 () {
+	    assert !is_active
+	    enter
+	    raise toggleMode
+	    raise switch
+	    raise changeBrightness
+	    raise changeBrightness
+	    raise changeBrightness
+	    raise changeBrightness
+	    raise changeBrightness
+	    raise changeBrightness
+	    raise changeBrightness
+	    raise changeBrightness
+	    raise changeBrightness
+	    assert is_active
+	}
+
+}

@@ -1,0 +1,56 @@
+testclass SmartMicrowaveSystemTest for statechart SmartMicrowaveSystem {
+	@Test
+	operation test33 () {
+	    assert !active (SmartMicrowaveSystem._SmartMicrowaveSystem_.SmartMicrowaveSystem)
+	}
+
+	@Test
+	operation test44 () {
+	    assert !active (SmartMicrowaveSystem._SmartMicrowaveSystem_.SmartMicrowaveSystem.ActuatorComponent.off)
+	}
+
+	@Test
+	operation test45 () {
+	    assert !active (SmartMicrowaveSystem._SmartMicrowaveSystem_.SmartMicrowaveSystem.ActuatorComponent._Device_Functioning_)
+	}
+
+	@Test
+	operation test46 () {
+	    assert !active (SmartMicrowaveSystem._SmartMicrowaveSystem_.SmartMicrowaveSystem.ActuatorComponent._Actuator_Updates_)
+	}
+
+	@Test
+	operation test47 () {
+	    assert !active (SmartMicrowaveSystem._SmartMicrowaveSystem_.SmartMicrowaveSystem.SystemStatus.on)
+	}
+
+	@Test
+	operation test48 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test49 () {
+	    assert !is_active
+	    assert !active (SmartMicrowaveSystem._SmartMicrowaveSystem_.SmartMicrowaveSystem.SystemStatus.off)
+	}
+
+	@Test
+	operation test52 () {
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test53 () {
+	    assert !is_active
+	    exit
+	}
+
+	@Test
+	operation test80 () {
+	    assert !is_final
+	    assert !is_active
+	}
+
+}

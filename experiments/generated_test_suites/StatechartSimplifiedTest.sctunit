@@ -1,0 +1,92 @@
+testclass StatechartSimplifiedTest for statechart Statechart {
+	@Test
+	operation test00 () {
+	    enter
+	    raise myEvent
+	    triggerWithoutEvent
+	    assert is_active
+	}
+
+	@Test
+	operation test01 () {
+	    enter
+	    raise myEvent
+	    raise myEvent
+	    triggerWithoutEvent
+	    assert is_active
+	}
+
+	@Test
+	operation test02 () {
+	    enter
+	    raise myEvent
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test03 () {
+	    enter
+	    raise myEvent
+	    assert is_active
+	    assert active (Statechart.main_region.StateB)
+	}
+
+	@Test
+	operation test04 () {
+	    enter
+	    assert is_active
+	    assert active (Statechart.main_region.StateA)
+	}
+
+	@Test
+	operation test06 () {
+	    assert !active (Statechart.main_region.StateB)
+	}
+
+	@Test
+	operation test07 () {
+	    assert !active (Statechart.main_region.StateA)
+	}
+
+	@Test
+	operation test08 () {
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test09 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test10 () {
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test11 () {
+	    triggerWithoutEvent
+	    assert !is_final
+	}
+
+	@Test
+	operation test12 () {
+	    assert !is_final
+	    assert !is_active
+	}
+
+	@Test
+	operation test13 () {
+	    enter
+	    raise myEvent
+	    raise myEvent
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+}

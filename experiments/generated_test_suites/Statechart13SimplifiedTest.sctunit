@@ -1,0 +1,252 @@
+testclass Statechart13SimplifiedTest for statechart Statechart13 {
+	@Test
+	operation test00 () {
+	    enter
+	    raise buttonPressed
+	    proceed 2s
+	    raise buttonReleased
+	    raise carDetected
+	    raise carDetected
+	    assert is_active
+	}
+
+	@Test
+	operation test01 () {
+	    enter
+	    raise buttonPressed
+	    proceed 2s
+	    raise buttonReleased
+	    triggerWithoutEvent
+	    assert is_active
+	}
+
+	@Test
+	operation test02 () {
+	    enter
+	    raise buttonPressed
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test03 () {
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test04 () {
+	    enter
+	    proceed 2s
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test05 () {
+	    enter
+	    raise buttonPressed
+	    raise buttonReleased
+	    raise buttonPressed
+	    assert is_active
+	    assert active (Statechart13.main_region.Controller.r2.Intermediate_2)
+	}
+
+	@Test
+	operation test06 () {
+	    enter
+	    assert is_active
+	    assert active (Statechart13.main_region.Controller.r2.Dumb_Mode)
+	}
+
+	@Test
+	operation test07 () {
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test08 () {
+	    enter
+	    raise buttonPressed
+	    proceed 2s
+	    raise buttonReleased
+	    raise carDetected
+	    assert is_active
+	    assert active (Statechart13.main_region.Controller.r1.Smart_and_Dumb_Mode.r1.Green.r1.Sensor_Recheck)
+	}
+
+	@Test
+	operation test09 () {
+	    enter
+	    proceed 2s
+	    assert active (Statechart13.main_region.Controller.r1.Smart_and_Dumb_Mode.r1.Green.r1.Sensor_Check)
+	}
+
+	@Test
+	operation test10 () {
+	    enter
+	    proceed 2s
+	    assert is_active
+	}
+
+	@Test
+	operation test11 () {
+	    enter
+	    assert is_active
+	    assert !active (Statechart13.main_region.Controller.r1.Smart_and_Dumb_Mode.r1.Green)
+	}
+
+	@Test
+	operation test12 () {
+	    enter
+	    assert is_active
+	    assert active (Statechart13.main_region.Controller.r1.Smart_and_Dumb_Mode.r1.Red)
+	}
+
+	@Test
+	operation test13 () {
+	    enter
+	    assert is_active
+	    assert active (Statechart13.main_region.Controller.r1.Smart_and_Dumb_Mode)
+	}
+
+	@Test
+	operation test14 () {
+	    enter
+	    assert is_active
+	    assert active (Statechart13.main_region.Controller)
+	}
+
+	@Test
+	operation test16 () {
+	    assert !active (Statechart13.main_region.Controller.r1.Police_Mode)
+	}
+
+	@Test
+	operation test17 () {
+	    assert !active (Statechart13.main_region.Controller.r1.Smart_and_Dumb_Mode.r1.Green)
+	}
+
+	@Test
+	operation test18 () {
+	    assert !active (Statechart13.main_region.Controller.r1.Smart_and_Dumb_Mode)
+	}
+
+	@Test
+	operation test19 () {
+	    assert !is_active
+	    assert !active (Statechart13.main_region.Controller)
+	}
+
+	@Test
+	operation test20 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test28 () {
+	    assert !is_active
+	    assert !active (Statechart13.main_region.Controller.r1.Smart_and_Dumb_Mode.r1.Green.r1.Sensor_Check)
+	}
+
+	@Test
+	operation test29 () {
+	    assert !active (Statechart13.main_region.Controller.r1.Smart_and_Dumb_Mode.r1.Yellow)
+	    assert !is_active
+	}
+
+	@Test
+	operation test31 () {
+	    assert !is_active
+	    assert !active (Statechart13.main_region.Controller.r1.Smart_and_Dumb_Mode.r1.Red)
+	}
+
+	@Test
+	operation test32 () {
+	    enter
+	    raise buttonPressed
+	    raise buttonReleased
+	    raise buttonPressed
+	    raise carDetected
+	    assert is_active
+	}
+
+	@Test
+	operation test33 () {
+	    raise buttonPressed
+	    assert !is_active
+	}
+
+	@Test
+	operation test34 () {
+	    assert !is_active
+	    enter
+	    raise buttonPressed
+	    proceed 2s
+	    raise carDetected
+	    raise buttonReleased
+	    assert is_active
+	}
+
+	@Test
+	operation test35 () {
+	    enter
+	    raise buttonPressed
+	    proceed 2s
+	    raise buttonReleased
+	    raise carDetected
+	    raise buttonPressed
+	    raise buttonReleased
+	    raise buttonPressed
+	    assert !is_final
+	}
+
+	@Test
+	operation test37 () {
+	    assert !is_active
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test40 () {
+	    assert !is_active
+	    assert !is_final
+	}
+
+	@Test
+	operation test41 () {
+	    enter
+	    raise buttonPressed
+	    proceed 2s
+	    raise buttonReleased
+	    raise carDetected
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test42 () {
+	    enter
+	    raise buttonPressed
+	    raise buttonReleased
+	    raise buttonPressed
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test43 () {
+	    enter
+	    raise buttonPressed
+	    proceed 2s
+	    raise carDetected
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+}

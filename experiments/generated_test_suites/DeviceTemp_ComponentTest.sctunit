@@ -1,0 +1,53 @@
+testclass DeviceTemp_ComponentTest for statechart DeviceTemp_Component {
+	@Test
+	operation test18 () {
+	    assert !active (DeviceTemp_Component._DeviceTemp_Component_._Temperature_Component_)
+	}
+
+	@Test
+	operation test20 () {
+	    assert !active (DeviceTemp_Component._DeviceTemp_Component_._Temperature_Component_._Monitoring_Device_Temperature_.coolingState._Device_Cooling_Down_.cooling)
+	}
+
+	@Test
+	operation test21 () {
+	    assert !active (DeviceTemp_Component._DeviceTemp_Component_._Temperature_Component_._Monitoring_Device_Temperature_.overheat)
+	}
+
+	@Test
+	operation test22 () {
+	    assert !active (DeviceTemp_Component._DeviceTemp_Component_._Temperature_Component_._Monitoring_Device_Temperature_.heatingUp)
+	}
+
+	@Test
+	operation test23 () {
+	    assert !active (DeviceTemp_Component._DeviceTemp_Component_._Temperature_Component_._Monitoring_Device_Temperature_.coolingState)
+	}
+
+	@Test
+	operation test24 () {
+	    assert !active (DeviceTemp_Component._DeviceTemp_Component_._Temperature_Component_._Monitoring_Device_Temperature_.restState)
+	}
+
+	@Test
+	operation test26 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test38 () {
+	    exit
+	}
+
+	@Test
+	operation test40 () {
+	    assert !is_final
+	}
+
+	@Test
+	operation test44 () {
+	    assert !is_active
+	    exit
+	}
+
+}

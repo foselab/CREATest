@@ -1,0 +1,60 @@
+testclass SmartFireSystemTest for statechart SmartFireSystem {
+	@Test
+	operation test049 () {
+	    assert !is_active
+	    assert !active (SmartFireSystem._SmartFiresystem_.SmartFireSystem)
+	}
+
+	@Test
+	operation test050 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test062 () {
+	    assert !active (SmartFireSystem._SmartFiresystem_.SmartFireSystem.ActuatorComponent._Actuator_off_)
+	    assert !is_active
+	}
+
+	@Test
+	operation test063 () {
+	    assert !is_active
+	    assert !active (SmartFireSystem._SmartFiresystem_.SmartFireSystem.ActuatorComponent._Device_Actuated_)
+	}
+
+	@Test
+	operation test064 () {
+	    assert !is_active
+	    assert !active (SmartFireSystem._SmartFiresystem_.SmartFireSystem.ActuatorComponent._Actuator_OnStandby_)
+	}
+
+	@Test
+	operation test065 () {
+	    assert !active (SmartFireSystem._SmartFiresystem_.SmartFireSystem.DeviceStatus.on)
+	}
+
+	@Test
+	operation test067 () {
+	    assert !active (SmartFireSystem._SmartFiresystem_.SmartFireSystem.DeviceStatus.off)
+	    assert !is_active
+	}
+
+	@Test
+	operation test070 () {
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test071 () {
+	    assert !is_active
+	    exit
+	}
+
+	@Test
+	operation test106 () {
+	    assert !is_final
+	    assert !is_active
+	}
+
+}

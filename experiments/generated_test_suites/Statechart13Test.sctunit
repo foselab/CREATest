@@ -1,0 +1,48 @@
+testclass Statechart13Test for statechart Statechart13 {
+	@Test
+	operation test08 () {
+	    assert !active (Statechart13.main_region.Controller.r1.Smart_and_Dumb_Mode.r1.Green)
+	}
+
+	@Test
+	operation test09 () {
+	    assert !active (Statechart13.main_region.Controller)
+	}
+
+	@Test
+	operation test20 () {
+	    assert !active (Statechart13.main_region.Controller.r1.Smart_and_Dumb_Mode.r1.Yellow)
+	}
+
+	@Test
+	operation test21 () {
+	    assert !active (Statechart13.main_region.Controller.r1.Smart_and_Dumb_Mode)
+	}
+
+	@Test
+	operation test22 () {
+	    assert !active (Statechart13.main_region.Controller.r1.Smart_and_Dumb_Mode.r1.Red)
+	}
+
+	@Test
+	operation test24 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test25 () {
+	    exit
+	}
+
+	@Test
+	operation test35 () {
+	    assert !is_final
+	}
+
+	@Test
+	operation test46 () {
+	    assert !is_active
+	    exit
+	}
+
+}

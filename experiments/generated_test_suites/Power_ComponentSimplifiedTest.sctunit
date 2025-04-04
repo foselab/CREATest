@@ -1,0 +1,89 @@
+testclass Power_ComponentSimplifiedTest for statechart Power_Component {
+	@Test
+	operation test01 () {
+	    triggerWithoutEvent
+	    assert !is_final
+	}
+
+	@Test
+	operation test03 () {
+	    raise on
+	    assert !is_final
+	}
+
+	@Test
+	operation test04 () {
+	    exit
+	    assert !is_final
+	}
+
+	@Test
+	operation test05 () {
+	    enter
+	    assert is_active
+	    assert active (Power_Component._Power_Component_.Power_Component._Calculating_Power_Consumption_._NoPowerConsumed_)
+	}
+
+	@Test
+	operation test06 () {
+	    enter
+	    assert is_active
+	    assert active (Power_Component._Power_Component_.Power_Component)
+	}
+
+	@Test
+	operation test07 () {
+	    assert !active (Power_Component._Power_Component_.Power_Component)
+	}
+
+	@Test
+	operation test08 () {
+	    assert !active (Power_Component._Power_Component_.Power_Component._Calculating_Power_Consumption_._Consuming_Power_)
+	}
+
+	@Test
+	operation test10 () {
+	    assert !active (Power_Component._Power_Component_.Power_Component._Calculating_Power_Consumption_._NoPowerConsumed_)
+	}
+
+	@Test
+	operation test11 () {
+	    raise off
+	    assert !is_active
+	}
+
+	@Test
+	operation test12 () {
+	    assert !is_active
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test13 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test15 () {
+	    assert !is_active
+	    enter
+	    raise off
+	    assert is_active
+	}
+
+	@Test
+	operation test18 () {
+	    assert !is_final
+	    assert !is_active
+	}
+
+	@Test
+	operation test19 () {
+	    enter
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+}

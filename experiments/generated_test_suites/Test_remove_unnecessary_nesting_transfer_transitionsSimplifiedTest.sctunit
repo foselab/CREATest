@@ -1,0 +1,53 @@
+testclass test_remove_unnecessary_nesting_transfer_transitionsSimplifiedTest for statechart test_remove_unnecessary_nesting_transfer_transitions {
+	@Test
+	operation test0 () {
+	    triggerWithoutEvent
+	    triggerWithoutEvent
+	    enter
+	    raise operate
+	}
+
+	@Test
+	operation test1 () {
+	    exit
+	    triggerWithoutEvent
+	    enter
+	    enter
+	    raise hello
+	}
+
+	@Test
+	operation test2 () {
+	    exit
+	    raise hello
+	    assert !is_final
+	}
+
+	@Test
+	operation test4 () {
+	    raise hello
+	    triggerWithoutEvent
+	    raise operate
+	    triggerWithoutEvent
+	    raise hello
+	    raise operate
+	    triggerWithoutEvent
+	    raise hello
+	    raise hello
+	    exit
+	    exit
+	    triggerWithoutEvent
+	    enter
+	    raise hello
+	}
+
+	@Test
+	operation test5 () {
+	    triggerWithoutEvent
+	    raise hello
+	    enter
+	    enter
+	    raise operate
+	}
+
+}

@@ -1,0 +1,313 @@
+testclass Statechart1SimplifiedTest for statechart Statechart1 {
+	@Test
+	operation test00 () {
+	    triggerWithoutEvent
+	    assert !is_active
+	}
+
+	@Test
+	operation test01 () {
+	    enter
+	    raise speed_up
+	    raise red_light_on
+	    raise restart
+	    assert is_active
+	}
+
+	@Test
+	operation test02 () {
+	    enter
+	    raise speed_up
+	    raise yellow_light_on
+	    raise speed_up
+	    assert is_active
+	}
+
+	@Test
+	operation test03 () {
+	    enter
+	    raise speed_up
+	    raise speed_up
+	    raise speed_up
+	    raise speed_up
+	    raise speed_up
+	    raise speed_up
+	    raise red_light_on
+	    assert is_active
+	}
+
+	@Test
+	operation test04 () {
+	    enter
+	    raise speed_up
+	    raise leave_station
+	    raise enter_station
+	    assert !is_final
+	}
+
+	@Test
+	operation test05 () {
+	    enter
+	    raise speed_up
+	    raise speed_up
+	    raise speed_down
+	    assert is_active
+	}
+
+	@Test
+	operation test06 () {
+	    enter
+	    raise speed_up
+	    raise speed_down
+	    assert !is_final
+	}
+
+	@Test
+	operation test07 () {
+	    enter
+	    raise speed_up
+	    enter
+	    raise red_light_on
+	    assert is_active
+	}
+
+	@Test
+	operation test08 () {
+	    exit
+	    assert !is_final
+	}
+
+	@Test
+	operation test09 () {
+	    enter
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test10 () {
+	    enter
+	    raise speed_up
+	    raise red_light_on
+	    assert is_active
+	    assert active (Statechart1.main_region.Emergency)
+	}
+
+	@Test
+	operation test11 () {
+	    enter
+	    raise speed_up
+	    raise yellow_light_on
+	    assert is_active
+	    assert active (Statechart1.main_region.Moving.Yellow_light.Yellow_light_is_on)
+	}
+
+	@Test
+	operation test12 () {
+	    enter
+	    raise speed_up
+	    assert active (Statechart1.main_region.Moving.Yellow_light.Yellow_light_is_off)
+	}
+
+	@Test
+	operation test13 () {
+	    enter
+	    raise speed_up
+	    assert is_active
+	    assert active (Statechart1.main_region.Moving.Warning_light.Warning_light_is_off)
+	}
+
+	@Test
+	operation test14 () {
+	    enter
+	    raise speed_up
+	    assert active (Statechart1.main_region.Moving)
+	}
+
+	@Test
+	operation test15 () {
+	    enter
+	    assert is_active
+	    assert !active (Statechart1.main_region.Moving)
+	}
+
+	@Test
+	operation test16 () {
+	    enter
+	    raise door_open
+	    proceed 7s
+	    assert is_active
+	    assert active (Statechart1.main_region.Door_Open.Flashing_light.Flashing_light_is_on)
+	}
+
+	@Test
+	operation test17 () {
+	    enter
+	    raise door_open
+	    assert is_active
+	    assert active (Statechart1.main_region.Door_Open.Flashing_light.Flashing_light_is_off)
+	}
+
+	@Test
+	operation test18 () {
+	    enter
+	    raise door_open
+	    assert is_active
+	    assert active (Statechart1.main_region.Door_Open)
+	}
+
+	@Test
+	operation test19 () {
+	    enter
+	    assert is_active
+	    assert !active (Statechart1.main_region.Door_Open)
+	}
+
+	@Test
+	operation test20 () {
+	    enter
+	    assert is_active
+	    assert active (Statechart1.main_region.Stop)
+	}
+
+	@Test
+	operation test22 () {
+	    assert !active (Statechart1.main_region.Moving)
+	}
+
+	@Test
+	operation test23 () {
+	    assert !is_active
+	    assert !active (Statechart1.main_region.Door_Open)
+	}
+
+	@Test
+	operation test24 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test28 () {
+	    assert !active (Statechart1.main_region.Moving.Warning_light.Warning_light_is_off)
+	    assert !is_active
+	}
+
+	@Test
+	operation test29 () {
+	    assert !active (Statechart1.main_region.Door_Open.Flashing_light.Flashing_light_is_on)
+	    assert !is_active
+	}
+
+	@Test
+	operation test30 () {
+	    assert !is_active
+	    assert !active (Statechart1.main_region.Door_Open.Flashing_light.Flashing_light_is_off)
+	}
+
+	@Test
+	operation test31 () {
+	    assert !active (Statechart1.main_region.Stop)
+	    assert !is_active
+	}
+
+	@Test
+	operation test32 () {
+	    assert !is_active
+	    enter
+	    raise speed_up
+	    raise yellow_light_on
+	    raise red_light_on
+	    assert is_active
+	}
+
+	@Test
+	operation test33 () {
+	    assert !is_active
+	    enter
+	    raise speed_up
+	    raise emergency_button
+	    raise door_open
+	    assert is_active
+	}
+
+	@Test
+	operation test34 () {
+	    assert !is_active
+	    enter
+	    raise door_open
+	    proceed 7s
+	    raise emergency_button
+	    assert is_active
+	}
+
+	@Test
+	operation test35 () {
+	    assert !is_active
+	    enter
+	    raise speed_up
+	    exit
+	    assert is_active
+	}
+
+	@Test
+	operation test37 () {
+	    assert !is_active
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test39 () {
+	    assert !is_final
+	    assert !is_active
+	}
+
+	@Test
+	operation test40 () {
+	    assert !is_active
+	    enter
+	    raise door_open
+	    proceed 10s
+	    assert is_active
+	}
+
+	@Test
+	operation test42 () {
+	    enter
+	    raise door_open
+	    proceed 7s
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test43 () {
+	    enter
+	    raise speed_up
+	    raise red_light_on
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test44 () {
+	    enter
+	    raise door_open
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test45 () {
+	    assert !is_active
+	    enter
+	    raise speed_up
+	    raise yellow_light_on
+	    exit
+	    assert is_active
+	}
+
+}

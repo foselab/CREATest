@@ -1,0 +1,38 @@
+testclass CTest for statechart C {
+	@Test
+	operation test05 () {
+	    assert !active (C.main_region.One)
+	}
+
+	@Test
+	operation test06 () {
+	    assert !active (C.main_region.Initial)
+	}
+
+	@Test
+	operation test07 () {
+	    assert !active (C.main_region.Zero)
+	}
+
+	@Test
+	operation test09 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test10 () {
+	    exit
+	}
+
+	@Test
+	operation test12 () {
+	    assert !is_final
+	}
+
+	@Test
+	operation test14 () {
+	    assert !is_active
+	    exit
+	}
+
+}

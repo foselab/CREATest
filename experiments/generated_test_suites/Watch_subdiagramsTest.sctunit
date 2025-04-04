@@ -1,0 +1,97 @@
+testclass watch_subdiagramsTest for statechart watch_subdiagrams {
+	@Test
+	operation test00 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test02 () {
+	    proceed 120s
+	    assert !is_active
+	}
+
+	@Test
+	operation test35 () {
+	    assert !is_active
+	    assert !active (watch_subdiagrams.modes.Regular._region0.Clock)
+	}
+
+	@Test
+	operation test36 () {
+	    assert !active (watch_subdiagrams.modes.Regular)
+	    assert !is_active
+	}
+
+	@Test
+	operation test52 () {
+	    assert !active (watch_subdiagrams.modes.Regular._region0.Alarm_1)
+	    assert !is_active
+	}
+
+	@Test
+	operation test53 () {
+	    assert !active (watch_subdiagrams.modes.Regular._region0.Date)
+	    assert !is_active
+	}
+
+	@Test
+	operation test54 () {
+	    assert !active (watch_subdiagrams.modes.Regular._region0.Clock._region0.normal)
+	    assert !is_active
+	}
+
+	@Test
+	operation test56 () {
+	    assert !active (watch_subdiagrams.modes.Regular._region0.Clock._region0.wait_set)
+	    assert !is_active
+	}
+
+	@Test
+	operation test58 () {
+	    assert !is_active
+	    exit
+	}
+
+	@Test
+	operation test61 () {
+	    raise button.onoff
+	    assert !is_active
+	}
+
+	@Test
+	operation test62 () {
+	    raise button.mode
+	    assert !is_active
+	}
+
+	@Test
+	operation test63 () {
+	    raise button.light
+	    assert !is_active
+	}
+
+	@Test
+	operation test64 () {
+	    raise button.set
+	    assert !is_active
+	}
+
+	@Test
+	operation test76 () {
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test79 () {
+	    raise button.light_r
+	    assert !is_active
+	}
+
+	@Test
+	operation test83 () {
+	    assert !is_active
+	    assert !is_final
+	}
+
+}

@@ -1,0 +1,115 @@
+testclass signalcontrolTest for statechart signalcontrol {
+	@Test
+	operation test01 () {
+	    raise right: false
+	}
+
+	@Test
+	operation test03 () {
+	    raise hazard
+	}
+
+	@Test
+	operation test22 () {
+	    enter
+	    assert is_active
+	    exit
+	}
+
+	@Test
+	operation test27 () {
+	    enter
+	    assert is_active
+	    assert !active (signalcontrol.main.Blink.r.Left)
+	}
+
+	@Test
+	operation test28 () {
+	    enter
+	    assert is_active
+	    assert !active (signalcontrol.main.Blink.r.Right)
+	}
+
+	@Test
+	operation test29 () {
+	    enter
+	    assert is_active
+	    assert !active (signalcontrol.main.Blink)
+	}
+
+	@Test
+	operation test30 () {
+	    enter
+	    assert is_active
+	    assert active (signalcontrol.main.Idle)
+	}
+
+	@Test
+	operation test32 () {
+	    assert !active (signalcontrol.main.Blink.r.Right)
+	}
+
+	@Test
+	operation test33 () {
+	    assert !active (signalcontrol.main.Blink)
+	}
+
+	@Test
+	operation test37 () {
+	    assert !active (signalcontrol.main.Blink.r.Right.right.Regular)
+	}
+
+	@Test
+	operation test38 () {
+	    assert !active (signalcontrol.main.Blink.r.Right.right.Comfort)
+	}
+
+	@Test
+	operation test40 () {
+	    assert !active (signalcontrol.main.Idle)
+	}
+
+	@Test
+	operation test41 () {
+	    raise left: true
+	}
+
+	@Test
+	operation test42 () {
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test43 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test44 () {
+	    exit
+	}
+
+	@Test
+	operation test46 () {
+	    enter
+	    assert !is_active
+	}
+
+	@Test
+	operation test50 () {
+	    enter
+	    triggerWithoutEvent
+	}
+
+	@Test
+	operation test52 () {
+	    assert !is_final
+	}
+
+	@Test
+	operation test54 () {
+	    triggerWithoutEvent
+	}
+
+}

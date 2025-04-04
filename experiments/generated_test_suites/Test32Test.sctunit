@@ -1,0 +1,34 @@
+testclass test32Test for statechart test32 {
+	@Test
+	operation test10 () {
+	    assert !active (test32.main_region.Pause)
+	}
+
+	@Test
+	operation test11 () {
+	    assert !active (test32.main_region.Standard)
+	}
+
+	@Test
+	operation test13 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test14 () {
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test21 () {
+	    assert !is_final
+	}
+
+	@Test
+	operation test27 () {
+	    exit
+	    assert !is_final
+	}
+
+}

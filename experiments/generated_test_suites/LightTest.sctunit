@@ -1,0 +1,35 @@
+testclass lightTest for statechart light {
+	@Test
+	operation test06 () {
+	    assert !active (light.main_region.On)
+	}
+
+	@Test
+	operation test07 () {
+	    assert !active (light.main_region.Off)
+	}
+
+	@Test
+	operation test09 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test10 () {
+	    assert !is_active
+	    exit
+	}
+
+	@Test
+	operation test12 () {
+	    assert !is_final
+	    assert !is_active
+	}
+
+	@Test
+	operation test14 () {
+	    exit
+	    assert !is_active
+	}
+
+}

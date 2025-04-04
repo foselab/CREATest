@@ -1,0 +1,51 @@
+testclass controllerTest for statechart controller {
+	@Test
+	operation test00 () {
+	    enter
+	}
+
+	@Test
+	operation test01 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test04 () {
+	    enter
+	    assert !is_final
+	}
+
+	@Test
+	operation test06 () {
+	    assert !active (controller.main_region.Green_On)
+	}
+
+	@Test
+	operation test08 () {
+	    assert !active (controller.main_region.Red_on)
+	}
+
+	@Test
+	operation test13 () {
+	    assert !is_final
+	}
+
+	@Test
+	operation test14 () {
+	    exit
+	    assert !is_final
+	}
+
+	@Test
+	operation test16 () {
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test18 () {
+	    assert !is_active
+	    assert !is_final
+	}
+
+}

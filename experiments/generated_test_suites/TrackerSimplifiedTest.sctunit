@@ -1,0 +1,125 @@
+testclass TrackerSimplifiedTest for statechart mrw.^statechart.Tracker {
+	@Test
+	operation test00 () {
+	    enter
+	    triggerWithoutEvent
+	    assert is_active
+	}
+
+	@Test
+	operation test02 () {
+	    enter
+	    raise received
+	    triggerWithoutEvent
+	    assert is_active
+	}
+
+	@Test
+	operation test03 () {
+	    enter
+	    raise received
+	    raise received
+	    assert is_active
+	}
+
+	@Test
+	operation test04 () {
+	    exit
+	    assert !is_final
+	}
+
+	@Test
+	operation test05 () {
+	    enter
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test07 () {
+	    enter
+	    raise received
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test08 () {
+	    enter
+	    assert is_active
+	    assert active (mrw.^statechart.Tracker.main_region.Idle)
+	}
+
+	@Test
+	operation test11 () {
+	    enter
+	    raise received
+	    assert is_active
+	    assert !active (mrw.^statechart.Tracker.main_region.Driving)
+	}
+
+	@Test
+	operation test12 () {
+	    enter
+	    raise received
+	    assert is_active
+	    assert active (mrw.^statechart.Tracker.main_region.Preparing)
+	}
+
+	@Test
+	operation test14 () {
+	    assert !active (mrw.^statechart.Tracker.main_region.Idle)
+	}
+
+	@Test
+	operation test15 () {
+	    assert !active (mrw.^statechart.Tracker.main_region.Driving.Tracking.Free)
+	}
+
+	@Test
+	operation test16 () {
+	    assert !active (mrw.^statechart.Tracker.main_region.Driving.Tracking.Occupy)
+	}
+
+	@Test
+	operation test17 () {
+	    assert !active (mrw.^statechart.Tracker.main_region.Driving.Tracking.First)
+	}
+
+	@Test
+	operation test18 () {
+	    assert !active (mrw.^statechart.Tracker.main_region.Driving)
+	}
+
+	@Test
+	operation test19 () {
+	    assert !active (mrw.^statechart.Tracker.main_region.Preparing)
+	}
+
+	@Test
+	operation test21 () {
+	    raise received
+	    assert !is_final
+	}
+
+	@Test
+	operation test23 () {
+	    assert !is_active
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test24 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test28 () {
+	    assert !is_active
+	    assert !is_final
+	}
+
+}

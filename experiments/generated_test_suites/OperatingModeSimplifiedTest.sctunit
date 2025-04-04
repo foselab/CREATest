@@ -1,0 +1,115 @@
+testclass OperatingModeSimplifiedTest for statechart mrw.^statechart.OperatingMode {
+	@Test
+	operation test01 () {
+	    triggerWithoutEvent
+	    assert !is_active
+	}
+
+	@Test
+	operation test03 () {
+	    raise started
+	    assert !is_active
+	}
+
+	@Test
+	operation test04 () {
+	    raise operate
+	    assert !is_active
+	}
+
+	@Test
+	operation test05 () {
+	    raise failed
+	    assert !is_final
+	}
+
+	@Test
+	operation test06 () {
+	    raise edit
+	    assert !is_final
+	}
+
+	@Test
+	operation test07 () {
+	    raise clear
+	    assert !is_final
+	}
+
+	@Test
+	operation test08 () {
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test09 () {
+	    enter
+	    assert is_active
+	    assert active (mrw.^statechart.OperatingMode.main_region.Prepare_Bus)
+	}
+
+	@Test
+	operation test10 () {
+	    assert !active (mrw.^statechart.OperatingMode.main_region.Operating)
+	}
+
+	@Test
+	operation test11 () {
+	    assert !active (mrw.^statechart.OperatingMode.main_region.Failed)
+	}
+
+	@Test
+	operation test12 () {
+	    assert !active (mrw.^statechart.OperatingMode.main_region.Editing)
+	}
+
+	@Test
+	operation test13 () {
+	    assert !active (mrw.^statechart.OperatingMode.main_region.Init)
+	}
+
+	@Test
+	operation test15 () {
+	    assert !active (mrw.^statechart.OperatingMode.main_region.Prepare_Bus)
+	}
+
+	@Test
+	operation test18 () {
+	    raise can.connected
+	}
+
+	@Test
+	operation test19 () {
+	    assert !is_active
+	    enter
+	    raise init
+	    assert is_active
+	}
+
+	@Test
+	operation test20 () {
+	    assert !is_active
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test21 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test24 () {
+	    assert !is_final
+	    assert !is_active
+	}
+
+	@Test
+	operation test26 () {
+	    enter
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+}

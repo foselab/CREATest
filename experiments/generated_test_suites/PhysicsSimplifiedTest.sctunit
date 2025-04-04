@@ -1,0 +1,90 @@
+testclass PhysicsSimplifiedTest for statechart Physics {
+	@Test
+	operation test00 () {
+	    triggerWithoutEvent
+	    assert !is_active
+	}
+
+	@Test
+	operation test02 () {
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test03 () {
+	    assert !is_active
+	    enter
+	    assert is_active
+	    assert active (Physics.Physics.Physics.r2.Default)
+	}
+
+	@Test
+	operation test04 () {
+	    assert !is_active
+	    enter
+	    assert is_active
+	    assert active (Physics.Physics.Physics.r1.Default)
+	}
+
+	@Test
+	operation test05 () {
+	    assert !is_active
+	    enter
+	    assert is_active
+	    assert active (Physics.Physics.Physics)
+	}
+
+	@Test
+	operation test06 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test07 () {
+	    assert !active (Physics.Physics.Physics.r2.Default)
+	    assert !is_active
+	}
+
+	@Test
+	operation test08 () {
+	    assert !active (Physics.Physics.Physics)
+	    assert !is_active
+	}
+
+	@Test
+	operation test09 () {
+	    assert !active (Physics.Physics.Physics.r1.Default)
+	    assert !is_active
+	}
+
+	@Test
+	operation test11 () {
+	    assert !is_active
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test14 () {
+	    assert !is_active
+	    assert !is_final
+	}
+
+	@Test
+	operation test15 () {
+	    assert !is_active
+	    enter
+	    proceed 10ms
+	    assert is_active
+	}
+
+	@Test
+	operation test16 () {
+	    enter
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+}

@@ -1,0 +1,81 @@
+testclass SmartHubSystemTest for statechart SmartHubSystem {
+	@Test
+	operation test047 () {
+	    assert !active (SmartHubSystem._SmartHubSystem_.HubOn.SmartHubRegion.SmartHubSystemStatus.HubStatusRegion.System_Manager)
+	}
+
+	@Test
+	operation test048 () {
+	    assert !active (SmartHubSystem._SmartHubSystem_.HubOn.SmartHubRegion.SmartHubSystemStatus)
+	}
+
+	@Test
+	operation test049 () {
+	    assert !active (SmartHubSystem._SmartHubSystem_.HubOn)
+	}
+
+	@Test
+	operation test075 () {
+	    assert !active (SmartHubSystem._SmartHubSystem_.HubOn.SmartHubRegion.SmartHubSystemStatus.HubStatusRegion.System_Manager.System1.STV_ON)
+	}
+
+	@Test
+	operation test076 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test077 () {
+	    assert !active (SmartHubSystem._SmartHubSystem_.HubOff)
+	    assert !is_active
+	}
+
+	@Test
+	operation test081 () {
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test092 () {
+	    raise SmartLightsHUB.isON
+	    assert !is_active
+	}
+
+	@Test
+	operation test106 () {
+	    raise SmartMicrowave.isON
+	    assert !is_active
+	}
+
+	@Test
+	operation test118 () {
+	    raise SmartLightsHUB.isOFF
+	    assert !is_active
+	}
+
+	@Test
+	operation test131 () {
+	    assert !is_active
+	    assert !is_final
+	}
+
+	@Test
+	operation test132 () {
+	    raise SmartMicrowave.isOFF
+	    assert !is_active
+	}
+
+	@Test
+	operation test139 () {
+	    raise SmartTV.isOFF
+	    assert !is_active
+	}
+
+	@Test
+	operation test148 () {
+	    assert !is_active
+	    exit
+	}
+
+}

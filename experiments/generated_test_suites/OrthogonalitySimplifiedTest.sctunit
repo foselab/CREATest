@@ -1,0 +1,194 @@
+testclass OrthogonalitySimplifiedTest for statechart Orthogonality {
+	@Test
+	operation test00 () {
+	    enter
+	    raise ^proceed
+	    proceed 1 cycle
+	    raise pb
+	    proceed 1342 cycle
+	    raise pa
+	    proceed 1342 cycle
+	    assert is_active
+	}
+
+	@Test
+	operation test01 () {
+	    enter
+	    proceed 1 cycle
+	    assert is_active
+	}
+
+	@Test
+	operation test02 () {
+	    enter
+	    raise ^proceed
+	    proceed 805 cycle
+	    raise pa
+	    proceed 1 cycle
+	    exit
+	    assert is_active
+	}
+
+	@Test
+	operation test03 () {
+	    enter
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test04 () {
+	    enter
+	    raise ^proceed
+	    proceed 1 cycle
+	    raise pb
+	    raise pa
+	    proceed 1342 cycle
+	    assert active (Orthogonality.main_region.Cleanup)
+	}
+
+	@Test
+	operation test05 () {
+	    enter
+	    raise ^proceed
+	    proceed 1 cycle
+	    raise pa
+	    proceed 1573 cycle
+	    assert !is_final
+	}
+
+	@Test
+	operation test06 () {
+	    raise ^proceed
+	    enter
+	    proceed 1 cycle
+	    assert is_active
+	    assert active (Orthogonality.main_region.Process.r2.Line_B_1)
+	}
+
+	@Test
+	operation test07 () {
+	    enter
+	    raise ^proceed
+	    proceed 1708 cycle
+	    assert is_active
+	    assert active (Orthogonality.main_region.Process.r1.Line_A_1)
+	}
+
+	@Test
+	operation test08 () {
+	    enter
+	    raise ^proceed
+	    proceed 1 cycle
+	    assert is_active
+	    assert active (Orthogonality.main_region.Process)
+	}
+
+	@Test
+	operation test09 () {
+	    enter
+	    assert is_active
+	    assert !active (Orthogonality.main_region.Process)
+	}
+
+	@Test
+	operation test10 () {
+	    enter
+	    assert is_active
+	    assert active (Orthogonality.main_region.Initialize)
+	}
+
+	@Test
+	operation test12 () {
+	    assert !active (Orthogonality.main_region.Process)
+	}
+
+	@Test
+	operation test13 () {
+	    assert !active (Orthogonality.main_region.Process.r2.Line_B_1)
+	}
+
+	@Test
+	operation test14 () {
+	    assert !active (Orthogonality.main_region.Cleanup)
+	}
+
+	@Test
+	operation test15 () {
+	    assert !active (Orthogonality.main_region._final_)
+	}
+
+	@Test
+	operation test16 () {
+	    assert !active (Orthogonality.main_region.Process.r1.Line_A_1)
+	}
+
+	@Test
+	operation test17 () {
+	    assert !active (Orthogonality.main_region.Initialize)
+	}
+
+	@Test
+	operation test18 () {
+	    raise ^proceed
+	    enter
+	    proceed 1 cycle
+	    raise pb
+	    proceed 1539 cycle
+	    exit
+	    assert is_active
+	}
+
+	@Test
+	operation test19 () {
+	    assert !is_final
+	}
+
+	@Test
+	operation test20 () {
+	    enter
+	    raise ^proceed
+	    proceed 1 cycle
+	    exit
+	    assert is_active
+	}
+
+	@Test
+	operation test21 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test22 () {
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test23 () {
+	    exit
+	    assert !is_final
+	}
+
+	@Test
+	operation test24 () {
+	    enter
+	    raise ^proceed
+	    proceed 1 cycle
+	    raise pb
+	    raise pa
+	    proceed 1342 cycle
+	    raise ^proceed
+	    proceed 1 cycle
+	    proceed 1 cycle
+	    assert is_active
+	}
+
+	@Test
+	operation test25 () {
+	    proceed 1 cycle
+	    assert !is_active
+	}
+
+}

@@ -1,0 +1,43 @@
+testclass LineFollowerTest for statechart LineFollower {
+	@Test
+	operation test00 () {
+	    proceed 100ms
+	}
+
+	@Test
+	operation test49 () {
+	    assert !active (LineFollower.State_Transitions.Forward)
+	}
+
+	@Test
+	operation test50 () {
+	    assert !active (LineFollower.PID_Calculater.PID_Compute)
+	}
+
+	@Test
+	operation test51 () {
+	    assert !active (LineFollower.State_Transitions.Static_State)
+	}
+
+	@Test
+	operation test52 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test53 () {
+	    exit
+	}
+
+	@Test
+	operation test57 () {
+	    assert !is_final
+	}
+
+	@Test
+	operation test66 () {
+	    assert !is_active
+	    exit
+	}
+
+}

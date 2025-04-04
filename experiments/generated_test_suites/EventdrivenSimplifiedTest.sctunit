@@ -1,0 +1,176 @@
+testclass eventdrivenSimplifiedTest for statechart eventdriven {
+	@Test
+	operation test00 () {
+	    enter
+	    raise input
+	    proceed 200ms
+	    raise input
+	    assert is_active
+	}
+
+	@Test
+	operation test01 () {
+	    enter
+	    raise input
+	    triggerWithoutEvent
+	    assert is_active
+	}
+
+	@Test
+	operation test02 () {
+	    enter
+	    triggerWithoutEvent
+	    assert is_active
+	}
+
+	@Test
+	operation test03 () {
+	    exit
+	    assert !is_final
+	}
+
+	@Test
+	operation test04 () {
+	    enter
+	    raise input
+	    proceed 200ms
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test05 () {
+	    enter
+	    raise input
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test06 () {
+	    enter
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test07 () {
+	    enter
+	    raise input
+	    proceed 200ms
+	    assert is_active
+	    assert active (eventdriven.main_region.StateC)
+	}
+
+	@Test
+	operation test08 () {
+	    enter
+	    raise input
+	    assert is_active
+	    assert active (eventdriven.main_region.StateB)
+	}
+
+	@Test
+	operation test09 () {
+	    enter
+	    assert is_active
+	    assert active (eventdriven.main_region.StateA)
+	}
+
+	@Test
+	operation test11 () {
+	    assert !active (eventdriven.main_region.StateE)
+	}
+
+	@Test
+	operation test12 () {
+	    assert !active (eventdriven.main_region.StateD)
+	}
+
+	@Test
+	operation test13 () {
+	    assert !active (eventdriven.main_region.StateB)
+	}
+
+	@Test
+	operation test14 () {
+	    assert !active (eventdriven.main_region.StateC)
+	}
+
+	@Test
+	operation test15 () {
+	    assert !active (eventdriven.main_region.StateA)
+	}
+
+	@Test
+	operation test16 () {
+	    triggerWithoutEvent
+	    assert !is_final
+	}
+
+	@Test
+	operation test17 () {
+	    assert !is_active
+	    enter
+	    raise input
+	    proceed 200ms
+	    proceed 500ms
+	    proceed 200ms
+	    assert is_active
+	}
+
+	@Test
+	operation test18 () {
+	    assert !is_active
+	    enter
+	    raise input
+	    proceed 200ms
+	    proceed 200ms
+	    proceed 200ms
+	    assert is_active
+	}
+
+	@Test
+	operation test19 () {
+	    assert !is_active
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test20 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test23 () {
+	    assert !is_active
+	    assert !is_final
+	}
+
+	@Test
+	operation test24 () {
+	    enter
+	    raise input
+	    proceed 200ms
+	    proceed 200ms
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test25 () {
+	    enter
+	    raise input
+	    proceed 200ms
+	    proceed 500ms
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+}

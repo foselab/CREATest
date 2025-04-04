@@ -1,0 +1,138 @@
+testclass Statechart6SimplifiedTest for statechart Statechart6 {
+	@Test
+	operation test02 () {
+	    enter
+	    proceed 1s
+	    assert is_active
+	}
+
+	@Test
+	operation test03 () {
+	    enter
+	    raise ultrasonic._30toLarger
+	    proceed 1s
+	    assert is_active
+	}
+
+	@Test
+	operation test04 () {
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test05 () {
+	    enter
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test06 () {
+	    enter
+	    raise ultrasonic._0to30
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test07 () {
+	    enter
+	    assert is_active
+	    assert active (Statechart6.main_region.Decision)
+	}
+
+	@Test
+	operation test08 () {
+	    enter
+	    raise ultrasonic._30toLarger
+	    assert is_active
+	    assert active (Statechart6.main_region.StateLightOn)
+	}
+
+	@Test
+	operation test09 () {
+	    enter
+	    raise ultrasonic._0to30
+	    assert is_active
+	    assert active (Statechart6.main_region.StateLightOff)
+	}
+
+	@Test
+	operation test10 () {
+	    assert !active (Statechart6.main_region.Decision)
+	}
+
+	@Test
+	operation test11 () {
+	    assert !active (Statechart6.main_region.StateLightOn)
+	}
+
+	@Test
+	operation test13 () {
+	    assert !active (Statechart6.main_region.StateLightOff)
+	}
+
+	@Test
+	operation test14 () {
+	    triggerWithoutEvent
+	    assert !is_final
+	}
+
+	@Test
+	operation test15 () {
+	    assert !is_active
+	    enter
+	    raise ultrasonic._30toLarger
+	    raise ultrasonic._30toLarger
+	    assert is_active
+	}
+
+	@Test
+	operation test16 () {
+	    assert !is_active
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test17 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test21 () {
+	    assert !is_final
+	    assert !is_active
+	}
+
+	@Test
+	operation test22 () {
+	    assert !is_active
+	    enter
+	    raise ultrasonic._0to30
+	    proceed 1s
+	    assert is_active
+	}
+
+	@Test
+	operation test23 () {
+	    assert !is_active
+	    enter
+	    raise ultrasonic._0to30
+	    raise ultrasonic._30toLarger
+	    assert is_active
+	}
+
+	@Test
+	operation test24 () {
+	    enter
+	    raise ultrasonic._30toLarger
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+}

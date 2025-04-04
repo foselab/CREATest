@@ -1,0 +1,61 @@
+testclass PhysicalEntity_TemplateTest for statechart PhysicalEntity_Template {
+	@Test
+	operation test36 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test37 () {
+	    assert !is_active
+	    assert !active (PhysicalEntity_Template.PhysicalEntity_Template._Detecting_)
+	}
+
+	@Test
+	operation test42 () {
+	    assert !is_active
+	    assert !active (PhysicalEntity_Template.PhysicalEntity_Template._Detecting_.Controller.Reading_Sensor_Data.Processing.Comparing)
+	}
+
+	@Test
+	operation test43 () {
+	    assert !active (PhysicalEntity_Template.PhysicalEntity_Template._Detecting_.Controller.Reading_Sensor_Data.Processing.Trigger_Changed)
+	    assert !is_active
+	}
+
+	@Test
+	operation test45 () {
+	    assert !active (PhysicalEntity_Template.PhysicalEntity_Template._Detecting_.Sensor.Receiving)
+	    assert !is_active
+	}
+
+	@Test
+	operation test46 () {
+	    assert !active (PhysicalEntity_Template.PhysicalEntity_Template._Detecting_.Controller.Reading_Sensor_Data)
+	    assert !is_active
+	}
+
+	@Test
+	operation test47 () {
+	    assert !is_active
+	    assert !active (PhysicalEntity_Template.PhysicalEntity_Template._Detecting_.Sensor.Transmitting)
+	}
+
+	@Test
+	operation test50 () {
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test61 () {
+	    assert !is_active
+	    assert !is_final
+	}
+
+	@Test
+	operation test78 () {
+	    assert !is_active
+	    exit
+	}
+
+}

@@ -1,0 +1,251 @@
+testclass _02_composite_statesSimplifiedTest for statechart _02_composite_states {
+	@Test
+	operation test03 () {
+	    proceed 30s
+	    assert !is_active
+	}
+
+	@Test
+	operation test04 () {
+	    enter
+	    raise user.mode_button
+	    proceed 1 cycle
+	    raise user.on_button
+	    proceed 492 cycle
+	    assert is_active
+	}
+
+	@Test
+	operation test05 () {
+	    raise user.on_button
+	    enter
+	    proceed 492 cycle
+	    assert is_active
+	}
+
+	@Test
+	operation test06 () {
+	    raise user.on_button
+	    enter
+	    proceed 1 cycle
+	    raise user.off_button
+	    proceed 492 cycle
+	    assert is_active
+	}
+
+	@Test
+	operation test07 () {
+	    raise sensor.motion
+	    enter
+	    proceed 4 cycle
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test08 () {
+	    enter
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test09 () {
+	    enter
+	    raise user.mode_button
+	    proceed 1 cycle
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test10 () {
+	    raise user.on_button
+	    enter
+	    proceed 1 cycle
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test11 () {
+	    raise sensor.motion
+	    enter
+	    proceed 4 cycle
+	    assert is_active
+	    assert active (_02_composite_states.main_region.MotionDetectionMode.r1.MotionDetected)
+	}
+
+	@Test
+	operation test12 () {
+	    enter
+	    assert is_active
+	    assert active (_02_composite_states.main_region.MotionDetectionMode.r1.Idle)
+	}
+
+	@Test
+	operation test13 () {
+	    enter
+	    assert is_active
+	    assert active (_02_composite_states.main_region.MotionDetectionMode)
+	}
+
+	@Test
+	operation test14 () {
+	    raise user.on_button
+	    enter
+	    proceed 1 cycle
+	    assert is_active
+	    assert !active (_02_composite_states.main_region.MotionDetectionMode)
+	}
+
+	@Test
+	operation test15 () {
+	    enter
+	    raise user.mode_button
+	    proceed 1 cycle
+	    assert is_active
+	    assert active (_02_composite_states.main_region.TwilightDetectionMode.r1.Idle)
+	}
+
+	@Test
+	operation test16 () {
+	    enter
+	    raise user.mode_button
+	    proceed 578 cycle
+	    assert is_active
+	    assert active (_02_composite_states.main_region.TwilightDetectionMode)
+	}
+
+	@Test
+	operation test17 () {
+	    enter
+	    raise user.on_button
+	    proceed 1 cycle
+	    assert is_active
+	    assert !active (_02_composite_states.main_region.TwilightDetectionMode)
+	}
+
+	@Test
+	operation test18 () {
+	    enter
+	    raise user.on_button
+	    proceed 1 cycle
+	    assert is_active
+	    assert active (_02_composite_states.main_region.ManualMode)
+	}
+
+	@Test
+	operation test20 () {
+	    assert !active (_02_composite_states.main_region.MotionDetectionMode)
+	}
+
+	@Test
+	operation test21 () {
+	    assert !active (_02_composite_states.main_region.TwilightDetectionMode)
+	}
+
+	@Test
+	operation test22 () {
+	    assert !active (_02_composite_states.main_region.MotionDetectionMode.r1.MotionDetected)
+	}
+
+	@Test
+	operation test23 () {
+	    assert !active (_02_composite_states.main_region.MotionDetectionMode.r1.Idle)
+	}
+
+	@Test
+	operation test24 () {
+	    assert !active (_02_composite_states.main_region.TwilightDetectionMode.r1.Idle)
+	}
+
+	@Test
+	operation test25 () {
+	    assert !active (_02_composite_states.main_region.TwilightDetectionMode.r1.TwilightDetected)
+	}
+
+	@Test
+	operation test26 () {
+	    assert !active (_02_composite_states.main_region.ManualMode)
+	}
+
+	@Test
+	operation test27 () {
+	    proceed 1 cycle
+	    assert !is_active
+	}
+
+	@Test
+	operation test28 () {
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test29 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test30 () {
+	    exit
+	    assert !is_final
+	}
+
+	@Test
+	operation test33 () {
+	    raise lum_sensor.dark
+	    assert !is_active
+	}
+
+	@Test
+	operation test34 () {
+	    raise lum_sensor.bright
+	    assert !is_active
+	}
+
+	@Test
+	operation test35 () {
+	    assert !is_active
+	    enter
+	    raise user.mode_button
+	    proceed 1 cycle
+	    raise user.mode_button
+	    proceed 1 cycle
+	    assert is_active
+	}
+
+	@Test
+	operation test36 () {
+	    assert !is_final
+	    assert !is_active
+	}
+
+	@Test
+	operation test37 () {
+	    raise user.on_button
+	    assert !is_active
+	    enter
+	    proceed 1 cycle
+	    raise user.on_button
+	    proceed 1 cycle
+	    assert is_active
+	}
+
+	@Test
+	operation test38 () {
+	    raise sensor.motion
+	    assert !is_active
+	    enter
+	    proceed 1 cycle
+	    raise sensor.motion
+	    proceed 4 cycle
+	    assert is_active
+	}
+
+}

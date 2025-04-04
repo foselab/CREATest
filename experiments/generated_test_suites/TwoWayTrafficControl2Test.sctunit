@@ -1,0 +1,152 @@
+testclass TwoWayTrafficControl2Test for statechart TwoWayTrafficControl2 {
+	@Test
+	operation test05 () {
+	    assert !is_final
+	}
+
+	@Test
+	operation test09 () {
+	    raise on
+	    enter
+	    proceed 1 cycle
+	    proceed 1 cycle
+	    assert is_active
+	}
+
+	@Test
+	operation test10 () {
+	    raise on
+	    enter
+	    proceed 1 cycle
+	    raise off
+	    proceed 1 cycle
+	    assert is_active
+	}
+
+	@Test
+	operation test11 () {
+	    enter
+	    proceed 1 cycle
+	    assert is_active
+	}
+
+	@Test
+	operation test12 () {
+	    raise on
+	    enter
+	    proceed 1 cycle
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test13 () {
+	    enter
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test14 () {
+	    enter
+	    assert is_active
+	    assert !active (TwoWayTrafficControl2.main.Operate)
+	}
+
+	@Test
+	operation test15 () {
+	    raise on
+	    enter
+	    proceed 1 cycle
+	    assert is_active
+	    assert active (TwoWayTrafficControl2.main.Standby)
+	}
+
+	@Test
+	operation test16 () {
+	    enter
+	    assert is_active
+	    assert active (TwoWayTrafficControl2.main.Off)
+	}
+
+	@Test
+	operation test18 () {
+	    assert !active (TwoWayTrafficControl2.main.Operate)
+	}
+
+	@Test
+	operation test19 () {
+	    assert !active (TwoWayTrafficControl2.main.Operate.r.Process_B)
+	}
+
+	@Test
+	operation test20 () {
+	    assert !active (TwoWayTrafficControl2.main.Standby)
+	}
+
+	@Test
+	operation test21 () {
+	    assert !active (TwoWayTrafficControl2.main.Operate.r.Process_A)
+	}
+
+	@Test
+	operation test22 () {
+	    assert !active (TwoWayTrafficControl2.main.Off)
+	}
+
+	@Test
+	operation test23 () {
+	    proceed 1 cycle
+	    assert !is_final
+	}
+
+	@Test
+	operation test24 () {
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test25 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test26 () {
+	    exit
+	    assert !is_final
+	}
+
+	@Test
+	operation test27 () {
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test28 () {
+	    enter
+	    assert !is_active
+	}
+
+	@Test
+	operation test29 () {
+	    proceed 1 cycle
+	    assert !is_active
+	}
+
+	@Test
+	operation test30 () {
+	    assert !is_active
+	    assert !is_final
+	}
+
+	@Test
+	operation test32 () {
+	    raise standby
+	    assert !is_active
+	}
+
+}

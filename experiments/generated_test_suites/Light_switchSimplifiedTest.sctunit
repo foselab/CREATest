@@ -1,0 +1,65 @@
+testclass light_switchSimplifiedTest for statechart light_switch {
+	@Test
+	operation test01 () {
+	    exit
+	    assert !is_final
+	}
+
+	@Test
+	operation test02 () {
+	    enter
+	    assert is_active
+	    assert active (light_switch.main_region.Off)
+	}
+
+	@Test
+	operation test04 () {
+	    assert !active (light_switch.main_region.On)
+	}
+
+	@Test
+	operation test05 () {
+	    assert !active (light_switch.main_region.Off)
+	}
+
+	@Test
+	operation test07 () {
+	    proceed 30s
+	    assert !is_active
+	}
+
+	@Test
+	operation test08 () {
+	    assert !is_active
+	    enter
+	    triggerWithoutEvent
+	    assert is_active
+	}
+
+	@Test
+	operation test09 () {
+	    assert !is_active
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test10 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test16 () {
+	    assert !is_final
+	    assert !is_active
+	}
+
+	@Test
+	operation test17 () {
+	    enter
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+}

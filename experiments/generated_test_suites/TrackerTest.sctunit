@@ -1,0 +1,54 @@
+testclass TrackerTest for statechart mrw.^statechart.Tracker {
+	@Test
+	operation test03 () {
+	    assert !active (mrw.^statechart.Tracker.main_region.Driving)
+	}
+
+	@Test
+	operation test04 () {
+	    assert !active (mrw.^statechart.Tracker.main_region.Idle)
+	}
+
+	@Test
+	operation test05 () {
+	    assert !active (mrw.^statechart.Tracker.main_region.Driving.Tracking.Occupy)
+	}
+
+	@Test
+	operation test06 () {
+	    assert !active (mrw.^statechart.Tracker.main_region.Driving.Tracking.First)
+	}
+
+	@Test
+	operation test07 () {
+	    assert !active (mrw.^statechart.Tracker.main_region.Driving.Tracking.Free)
+	}
+
+	@Test
+	operation test08 () {
+	    assert !active (mrw.^statechart.Tracker.main_region.Preparing)
+	}
+
+	@Test
+	operation test10 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test12 () {
+	    assert !is_final
+	}
+
+	@Test
+	operation test14 () {
+	    exit
+	    assert !is_final
+	}
+
+	@Test
+	operation test18 () {
+	    exit
+	    assert !is_active
+	}
+
+}

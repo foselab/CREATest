@@ -1,0 +1,56 @@
+testclass SmartTrafficLightSystemTest for statechart SmartTrafficLightSystem {
+	@Test
+	operation test41 () {
+	    assert !active (SmartTrafficLightSystem.main_region.SmartTrafficLightSystem)
+	}
+
+	@Test
+	operation test52 () {
+	    assert !active (SmartTrafficLightSystem.main_region.SmartTrafficLightSystem.ActuatorComponent.off)
+	}
+
+	@Test
+	operation test53 () {
+	    assert !active (SmartTrafficLightSystem.main_region.SmartTrafficLightSystem.ActuatorComponent._Device_Functioning_)
+	}
+
+	@Test
+	operation test54 () {
+	    assert !active (SmartTrafficLightSystem.main_region.SmartTrafficLightSystem.ActuatorComponent._Actuator_Updates_)
+	}
+
+	@Test
+	operation test55 () {
+	    assert !active (SmartTrafficLightSystem.main_region.SmartTrafficLightSystem.SystemStatus.on)
+	}
+
+	@Test
+	operation test56 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test57 () {
+	    assert !active (SmartTrafficLightSystem.main_region.SmartTrafficLightSystem.SystemStatus.off)
+	    assert !is_active
+	}
+
+	@Test
+	operation test60 () {
+	    assert !is_active
+	    exit
+	}
+
+	@Test
+	operation test76 () {
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test90 () {
+	    assert !is_active
+	    assert !is_final
+	}
+
+}

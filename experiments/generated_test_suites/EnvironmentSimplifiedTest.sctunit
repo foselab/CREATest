@@ -1,0 +1,314 @@
+testclass EnvironmentSimplifiedTest for statechart Environment {
+	@Test
+	operation test01 () {
+	    raise Simulator.launch
+	}
+
+	@Test
+	operation test05 () {
+	    raise Clock.reset
+	}
+
+	@Test
+	operation test07 () {
+	    triggerWithoutEvent
+	    assert !is_final
+	}
+
+	@Test
+	operation test08 () {
+	    proceed 5s
+	    assert !is_active
+	}
+
+	@Test
+	operation test09 () {
+	    enter
+	    raise start
+	    raise run
+	    raise Simulator.terminate
+	    raise Simulator.^cycle
+	}
+
+	@Test
+	operation test10 () {
+	    enter
+	    raise start
+	    enter
+	    raise stop
+	    assert !is_final
+	}
+
+	@Test
+	operation test11 () {
+	    enter
+	    raise start
+	    exit
+	    exit
+	    exit
+	    assert is_active
+	}
+
+	@Test
+	operation test12 () {
+	    enter
+	    raise start
+	    raise run
+	    raise Simulator.terminate
+	    exit
+	    assert is_active
+	}
+
+	@Test
+	operation test13 () {
+	    enter
+	    raise start
+	    raise Clock.run
+	    raise run
+	    exit
+	    assert is_active
+	}
+
+	@Test
+	operation test14 () {
+	    enter
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test15 () {
+	    enter
+	    raise start
+	    raise stop
+	    raise start
+	    assert is_active
+	}
+
+	@Test
+	operation test16 () {
+	    enter
+	    raise start
+	    raise run
+	    enter
+	    raise start
+	    raise run
+	    assert is_active
+	}
+
+	@Test
+	operation test17 () {
+	    enter
+	    raise start
+	    assert !active (Environment.SimEnvironment.Start_Simulation.SmartFire_Evaluator.EnvironmentEvaluator.r1.Simulating.F.monitoring)
+	}
+
+	@Test
+	operation test18 () {
+	    enter
+	    raise start
+	    raise Simulator.start
+	    assert active (Environment.SimEnvironment.Start_Simulation.SmartFire_Evaluator.EnvironmentEvaluator.r1.Simulating)
+	}
+
+	@Test
+	operation test19 () {
+	    enter
+	    raise start
+	    assert is_active
+	}
+
+	@Test
+	operation test20 () {
+	    enter
+	    raise start
+	    assert active (Environment.SimEnvironment.Start_Simulation.SmartFire_Evaluator.EnvironmentEvaluator)
+	}
+
+	@Test
+	operation test21 () {
+	    enter
+	    raise start
+	    assert is_active
+	    assert active (Environment.SimEnvironment.Start_Simulation.Sensors.LaunchSensors)
+	}
+
+	@Test
+	operation test22 () {
+	    enter
+	    raise start
+	    raise run
+	    assert active (Environment.SimEnvironment.Start_Simulation.Clock.Run_Clock.running.Running)
+	}
+
+	@Test
+	operation test23 () {
+	    enter
+	    raise start
+	    assert !active (Environment.SimEnvironment.Start_Simulation.Clock.Run_Clock)
+	}
+
+	@Test
+	operation test24 () {
+	    enter
+	    raise start
+	    assert is_active
+	    assert active (Environment.SimEnvironment.Start_Simulation.Clock.Stop_Clock)
+	}
+
+	@Test
+	operation test25 () {
+	    enter
+	    assert !active (Environment.SimEnvironment.Start_Simulation.Initialization.Run)
+	}
+
+	@Test
+	operation test26 () {
+	    enter
+	    raise start
+	    assert active (Environment.SimEnvironment.Start_Simulation.Initialization.Initialize_Simulation)
+	}
+
+	@Test
+	operation test27 () {
+	    enter
+	    raise start
+	    assert active (Environment.SimEnvironment.Start_Simulation)
+	}
+
+	@Test
+	operation test28 () {
+	    enter
+	    assert is_active
+	    assert !active (Environment.SimEnvironment.Start_Simulation)
+	}
+
+	@Test
+	operation test29 () {
+	    enter
+	    assert is_active
+	    assert active (Environment.SimEnvironment.Stop_Simulation)
+	}
+
+	@Test
+	operation test31 () {
+	    assert !active (Environment.SimEnvironment.Start_Simulation.SmartFire_Evaluator.EnvironmentEvaluator.r1.Simulating.F.monitoring)
+	}
+
+	@Test
+	operation test32 () {
+	    assert !active (Environment.SimEnvironment.Start_Simulation.SmartFire_Evaluator.EnvironmentEvaluator.r1.Simulating)
+	}
+
+	@Test
+	operation test33 () {
+	    assert !active (Environment.SimEnvironment.Start_Simulation.SmartFire_Evaluator.EnvironmentEvaluator)
+	}
+
+	@Test
+	operation test34 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test35 () {
+	    assert !active (Environment.SimEnvironment.Start_Simulation.Initialization.Run)
+	    assert !is_active
+	}
+
+	@Test
+	operation test36 () {
+	    assert !is_active
+	    assert !active (Environment.SimEnvironment.Start_Simulation)
+	}
+
+	@Test
+	operation test47 () {
+	    assert !active (Environment.SimEnvironment.Start_Simulation.Initialization.Run.r1.LaunchSimulation)
+	    assert !is_active
+	}
+
+	@Test
+	operation test48 () {
+	    assert !is_active
+	    assert !active (Environment.SimEnvironment.Start_Simulation.Initialization.Run.r1.LaunchGlobalClock)
+	}
+
+	@Test
+	operation test49 () {
+	    assert !is_active
+	    assert !active (Environment.SimEnvironment.Start_Simulation.Initialization.Initialize_Simulation)
+	}
+
+	@Test
+	operation test51 () {
+	    assert !active (Environment.SimEnvironment.Stop_Simulation)
+	    assert !is_active
+	}
+
+	@Test
+	operation test52 () {
+	    assert !is_active
+	    enter
+	    raise start
+	    exit
+	    assert is_active
+	}
+
+	@Test
+	operation test54 () {
+	    assert !is_active
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test58 () {
+	    enter
+	    raise start
+	    raise Clock.run
+	    raise Clock.stop
+	}
+
+	@Test
+	operation test59 () {
+	    enter
+	    raise start
+	    raise run
+	    raise Simulator.terminate
+	    raise stop
+	    assert !is_final
+	}
+
+	@Test
+	operation test63 () {
+	    assert !is_active
+	    enter
+	    raise start
+	    raise run
+	    exit
+	    exit
+	    assert is_active
+	}
+
+	@Test
+	operation test64 () {
+	    enter
+	    raise start
+	    raise run
+	    raise stop
+	    assert is_active
+	}
+
+	@Test
+	operation test65 () {
+	    assert !is_active
+	    enter
+	    raise start
+	    exit
+	    exit
+	    assert is_active
+	    assert !active (Environment.SimEnvironment.Start_Simulation.SmartFire_Evaluator.EnvironmentEvaluator)
+	}
+
+}

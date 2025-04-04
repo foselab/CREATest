@@ -1,0 +1,97 @@
+testclass controllerSimplifiedTest for statechart controller {
+	@Test
+	operation test00 () {
+	    enter
+	    proceed 1s
+	    triggerWithoutEvent
+	    assert is_active
+	}
+
+	@Test
+	operation test01 () {
+	    enter
+	    proceed 1s
+	    assert is_active
+	}
+
+	@Test
+	operation test02 () {
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test03 () {
+	    enter
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test04 () {
+	    enter
+	    proceed 1s
+	    assert is_active
+	    assert active (controller.main_region.Green_On)
+	}
+
+	@Test
+	operation test05 () {
+	    enter
+	    assert is_active
+	    assert active (controller.main_region.Red_on)
+	}
+
+	@Test
+	operation test07 () {
+	    assert !active (controller.main_region.Green_On)
+	}
+
+	@Test
+	operation test08 () {
+	    assert !active (controller.main_region.Red_on)
+	}
+
+	@Test
+	operation test09 () {
+	    enter
+	    proceed 1s
+	    proceed 1s
+	    assert is_active
+	}
+
+	@Test
+	operation test10 () {
+	    proceed 1s
+	    assert !is_active
+	}
+
+	@Test
+	operation test11 () {
+	    assert !is_active
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test12 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test15 () {
+	    enter
+	    proceed 1s
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test16 () {
+	    assert !is_active
+	    assert !is_final
+	}
+
+}
