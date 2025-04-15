@@ -18,13 +18,13 @@ This repository contains the replication package for the paper "Introducing CREA
 
 The tool has the following requirements:
 
-* A machine with a Windows operating system installed and at least 21MB of
+* A machine with a Windows operating system installed and at least 22MB of
 free hard disk space.
 * Java Development Kit (JDK) version 9 installed on the machine. The
-JDK is available for the download at https://www.oracle.com/it/java/technologies/javase/javase9-archive-downloads.html.
+JDK is available for the download [here](https://www.oracle.com/it/java/technologies/javase/javase9-archive-downloads.html).
 * A working Eclipse-based installation of itemis CREATE (both standalone and Eclipse plug-in are supported). The supported versions of itemis CREATE are 5.2.x (the correct functioning of the tool is not guaranteed with different versions of itemis CREATE). itemis CREATE is available under license.
-No feature provided by the professional license is required to use the tool, so the standard license is sufficient. The installation of itemis CREATE comes with an evaluation license that is valid for 30 days. Licenses are available at https://www.itemis.com/en/products/itemis-create/licenses/. 
-itemis CREATE can be downloaded after filling out the form available at https://info.itemis.com/products/itemis-create/download/.
+No feature provided by the professional license is required to use the tool, so the standard license is sufficient. The installation of itemis CREATE comes with an evaluation license that is valid for 30 days. Licenses are available at [the official itemis website](https://www.itemis.com/en/products/itemis-create/licenses/).
+itemis CREATE can be downloaded after filling out the form available at [the itemis CREATE download page](https://info.itemis.com/products/itemis-create/download/).
 * A directory named `libs` containing the dependencies as JAR files. The `libs` directory must be located in the same directory of `Createst-0.0.3.jar` and its content is available in the `dist/libs.zip` file available in this replication package. The required dependencies are:
     - ANTLR Runtime version 3.3,
     - Apache Commons CLI version 1.6.0,
@@ -57,6 +57,26 @@ Once all the requirements are met, the CREATest tool can be used. It is sufficie
 
 If the `-g` option is used, a .zip file is also created. After decompressing the .zip file, the resulting directory can be opened as a workspace with itemis CREATE. The workspace contains a project with all the produced artefacts. In itemis CREATE, the CREATE statechart can be opened and the SCTUnit test class can be executed. To fix the compilation errors in the project, it is necessary to add the EvoSuite 1.2.0 jar as a dependency of the project. The JUnit test class must be runned with JUnit 4 as test runner and Java JDK 9 as runtime JRE.
 
-### Input Statechart Limitations
+### Input statechart limitations
 
 It is not recomended to use characters that are not the underscore or alphanumeric characters in the statechart definition section or in states and regions. It is also discuraged the use of Java and SCTUnit keywords. Especially in the namespace, the use of such characters or keywords may lead to the failure of the tool.
+
+## EvoSuite configuration
+
+In the following, we provide a brief overview of some of EvoSuite's options and parameters considered for configuring EvoSuite within CREATest:
+
+* `-Dtarget_method=<arg>` and `-Dtarget_method_list=<arg>` allow specifying the methods for which tests should be generated. Unfortunately, we were unable to get these parameters to work with either version 1.0.6 (the version available in the [official download page](https://www.evosuite.org/downloads)) or version 1.2.0 (the [latest available release](https://github.com/EvoSuite/evosuite/releases/tag/v1.2.0)). These issues have been discussed [in this GitHub issue](https://github.com/EvoSuite/evosuite/issues/261) for version 1.0.6 and [this one](https://github.com/EvoSuite/evosuite/issues/439) for version 1.2.0. To achieve a similar functionality, CREATest automatically modify the visibility of the members of the target Java class.
+* `-generateSuite`, `-generateMOSuite`, `-generateRandom`, `-generateSuiteUsingDSE` options are mutually exclusive and are used to specify the strategy and algorithm used by EvoSuite. These options serve as shorthand for setting `-Dstrategy` and `-Dalgorithm`, which, when used directly, allow selecting from wider ranges of strategies and algorithms. `-generateMOSuite` is the default since version 1.1.0. We conducted experiments on the presented benchmark both using `-generateSuite` and `-generateMOSuite`, with the latter showing better performance. This aligns with the findings in "*An Empirical Evaluation of Evolutionary Algorithms for Test Suite Generation*" by Campos et al., which concluded that DynaMOSA is the most effective algorithm for unit test generation. The `-generateMOSuite` sets `-Dstrategy=MOSUITE` and `-Dalgorithm=DYNAMOSA`.
+* `-criterion` allows specifying one or more coverage criteria from a set of 23 available criteria, which are used as the fitness function during test generation. The selected critera in our configuration are: No-Exception Top-Level Method Coverage and Branch Coverage. The first ensures that all public methods (including all methods that raises input events) are called at least once in a valid state and with valid parameters. Branch Coverage is chosen because branches in the Java implementation often correspond to transitions and ``being in a state'' in the Statechart. A brief, non-exhaustive evaluation showed that this configuration yielded better performance compared to both the default and other alternatives.
+* `-Dsearch_budget=<arg>` sets the maximum search duration. In CREATest, this can be set using the `-b <arg>` or `--evoSearchBudget <arg>` command-line argument.
+
+We also found that changing the value of a parameter in the configuration can lead to higher coverage for the implementation of some Statecharts, while resulting in poorer performance for others. Therefore, an optimal configuration for our purposes that is the best across all cases may not exist.
+
+Within CREATest, the call to EvoSuite is equivalent to the following command-line invocation:
+```
+java -jar evosuite-1.2.0.jar -class my.package.MyClass -projectCP path\to\project\bin -generateMOSuite -criterion BRANCH:METHODNOEXCEPTION
+```
+
+We acknowledge that there may be configurations that perform better overall than the one we adopted. However, the lack of comprehensive documentation and the large number of possible configurations make identifying such configurations challenging.
+
+An alternative approach could involve refining EvoSuite to include a coverage criterion more tailored to Statecharts. However, this would compromise one of the core strengths of the CREATest approach: leveraging off-the-shelf components to build a fully functional abstract test generator with relatively low development effort.
