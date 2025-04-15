@@ -22,13 +22,13 @@ public class JunitWriter implements IJunitWriter {
 		evoArgs.addAll(Arrays.asList(evoProjectCP.split(" ")));
 		evoArgs.add(DtestDir);
 		evoArgs.add(DreportDir);
-		// Default setting, use whole suite generation
-		evoArgs.add("-generateSuite");
+		// Default setting, use DynaMOSA algorithm
+		evoArgs.add("-generateMOSuite");
 		// Allow minimization task to run without limitations for at most 10min
 		//evoArgs.add("-Dassertion_minimization_fallback_time=1.0");
 		//evoArgs.add("-Dminimization_timeout=600");
 		// Impose which coverage criterion to use
-		evoArgs.add("-criterion"); evoArgs.add("BRANCH:METHODNOEXCEPTION:OUTPUT");
+		evoArgs.add("-criterion"); evoArgs.add("BRANCH:METHODNOEXCEPTION");
 		// Impose a search budget
 		if (hasSearchBudget)
 			evoArgs.add("-Dsearch_budget=" + searchBudget);

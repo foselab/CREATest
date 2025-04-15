@@ -14,7 +14,7 @@ import createst.ysc.reading.IYscReader;
 import createst.ysc.reading.YscReader;
 
 public class WriteBenchmarkInfo {
-	private static final String BENCHMARK_CSV = "../data/benchmark-info.csv";
+	private static final String BENCHMARK_CSV = "../data-dynamosa/benchmark-info.csv";
 	private static final String TARGET_DIR = "../benchmark";
 
 	/**

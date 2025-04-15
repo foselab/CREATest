@@ -9,9 +9,9 @@ import com.opencsv.CSVReader;
 import createst.ysc.reading.YscReader;
 
 public class MergeCsvs {
-	private static final String EVO_COVERAGE_CSV = "../data/evosuite-stats.csv";
-	private static final String BENCHMARK_CSV = "../data/benchmark-info.csv";
-	private static final String MERGED_CSV = "../data/data.csv";
+	private static final String EVO_COVERAGE_CSV = "../data-dynamosa/evosuite-stats.csv";
+	private static final String BENCHMARK_CSV = "../data-dynamosa/benchmark-info.csv";
+	private static final String MERGED_CSV = "../data-dynamosa/data.csv";
 
 	/**
 	 * Merges the csv containing the information on the statecharts (name, number of

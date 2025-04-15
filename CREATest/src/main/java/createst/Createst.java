@@ -220,11 +220,11 @@ public class Createst {
 		
 		// Run again EvoSuite directly with the output of itemis CEATE code generator
 		// and complete the generation process. For experimental purposes.
-		System.out.println("*******************************************");
-		System.out.println("For experimental purposes:");
-		System.out.println("Generating .sctunit file without passing via the Java simplification step.");
-		System.out.println("*******************************************");
 		if (hasRunExperiments) {
+			System.out.println("*******************************************");
+			System.out.println("For experimental purposes:");
+			System.out.println("Generating .sctunit file without passing via the Java simplification step.");
+			System.out.println("*******************************************");
 			try {
 				System.out.println("-- Calling evosuite");
 				junitWriter.callEvosuite(evoClass, evoProjectCP, evoDTestDir, evoDReportDir, hasSearchBudget,
