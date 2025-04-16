@@ -1,0 +1,113 @@
+testclass musicPlayerTest for statechart musicPlayer {
+	@Test
+	operation test027 () {
+	    assert !active (musicPlayer.main_region.Speaker.functions.functions.r2.network_modePlay.r2.internetStates)
+	}
+
+	@Test
+	operation test028 () {
+	    assert !active (musicPlayer.main_region.Speaker.functions.functions.r2.network_modePlay)
+	}
+
+	@Test
+	operation test029 () {
+	    assert !active (musicPlayer.main_region.Speaker.functions.functions.timer.Timer_Clcok)
+	}
+
+	@Test
+	operation test030 () {
+	    assert !active (musicPlayer.main_region.Speaker.functions.functions)
+	}
+
+	@Test
+	operation test031 () {
+	    assert !active (musicPlayer.main_region.Speaker.modes.Radio)
+	}
+
+	@Test
+	operation test032 () {
+	    assert !active (musicPlayer.main_region.Speaker.modes.Network.r1.play)
+	}
+
+	@Test
+	operation test033 () {
+	    assert !active (musicPlayer.main_region.Speaker.modes.Network)
+	}
+
+	@Test
+	operation test034 () {
+	    assert !active (musicPlayer.main_region.Speaker.modes.Clock_Display.r1.SetAlarmClock)
+	}
+
+	@Test
+	operation test035 () {
+	    assert !active (musicPlayer.main_region.Speaker.modes.Clock_Display.r1.stopwatch)
+	}
+
+	@Test
+	operation test036 () {
+	    assert !active (musicPlayer.main_region.Speaker.modes.Clock_Display.r1.Timer)
+	}
+
+	@Test
+	operation test037 () {
+	    assert !active (musicPlayer.main_region.Speaker.modes.Clock_Display)
+	}
+
+	@Test
+	operation test038 () {
+	    assert !active (musicPlayer.main_region.Speaker.modes.Aux)
+	}
+
+	@Test
+	operation test039 () {
+	    assert !active (musicPlayer.main_region.Speaker.modes.USB.r1.Play)
+	}
+
+	@Test
+	operation test040 () {
+	    assert !active (musicPlayer.main_region.Speaker.modes.USB)
+	}
+
+	@Test
+	operation test041 () {
+	    assert !is_active
+	    assert !active (musicPlayer.main_region.Speaker)
+	}
+
+	@Test
+	operation test042 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test063 () {
+	    assert !is_active
+	    assert !active (musicPlayer.main_region.Speaker.modes.USB.r1.Pause)
+	}
+
+	@Test
+	operation test065 () {
+	    assert !active (musicPlayer.main_region.Speaker.modes.USB.r1.Play.r1.playDefault)
+	    assert !is_active
+	}
+
+	@Test
+	operation test068 () {
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test113 () {
+	    assert !is_active
+	    assert !is_final
+	}
+
+	@Test
+	operation test115 () {
+	    assert !is_active
+	    exit
+	}
+
+}

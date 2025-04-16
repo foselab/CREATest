@@ -1,0 +1,76 @@
+testclass Statechart2SimplifiedTest for statechart Statechart2 {
+	@Test
+	operation test03 () {
+	    raise computer.a_press
+	}
+
+	@Test
+	operation test04 () {
+	    triggerWithoutEvent
+	    assert !is_final
+	}
+
+	@Test
+	operation test05 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test36 () {
+	    assert !active (Statechart2.^s.Autonomous_Mode___Logging.Calibration_on_entry_to_the_maze.Calibration._region0.Centering__move_away_from_wall)
+	}
+
+	@Test
+	operation test45 () {
+	    assert !active (Statechart2.^s.Manual_Mode.Manual_Mode.turning_left)
+	}
+
+	@Test
+	operation test46 () {
+	    assert !is_active
+	    assert !active (Statechart2.^s.Manual_Mode.Manual_Mode.turning_right)
+	}
+
+	@Test
+	operation test47 () {
+	    assert !active (Statechart2.^s.Manual_Mode.Manual_Mode.deaccelerate)
+	}
+
+	@Test
+	operation test48 () {
+	    assert !is_active
+	    assert !active (Statechart2.^s.Manual_Mode.Manual_Mode.accelerate)
+	}
+
+	@Test
+	operation test51 () {
+	    assert !is_active
+	    assert !active (Statechart2.^s.Manual_Mode.Manual_Mode.stopped)
+	}
+
+	@Test
+	operation test53 () {
+	    proceed 2s
+	    assert !is_active
+	}
+
+	@Test
+	operation test55 () {
+	    exit
+	    assert !is_final
+	}
+
+	@Test
+	operation test68 () {
+	    assert !is_final
+	    assert !is_active
+	}
+
+	@Test
+	operation test71 () {
+	    assert !is_active
+	    enter
+	    assert is_active
+	}
+
+}

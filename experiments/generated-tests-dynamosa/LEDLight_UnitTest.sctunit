@@ -1,0 +1,43 @@
+testclass LEDLight_UnitTest for statechart LEDLight_Unit {
+	@Test
+	operation test10 () {
+	    assert !active (LEDLight_Unit._LED_Light_Unit_._On_._Bulb_Status_.Bulb_on)
+	}
+
+	@Test
+	operation test11 () {
+	    assert !active (LEDLight_Unit._LED_Light_Unit_._On_)
+	}
+
+	@Test
+	operation test12 () {
+	    assert !active (LEDLight_Unit._LED_Light_Unit_._On_._Bulb_Status_.Bulb_on._Luminosity_.Change_Luminosity_Level)
+	}
+
+	@Test
+	operation test13 () {
+	    assert !active (LEDLight_Unit._LED_Light_Unit_._On_._Bulb_Status_.Bulb_on_standby)
+	}
+
+	@Test
+	operation test15 () {
+	    assert !active (LEDLight_Unit._LED_Light_Unit_._Off_)
+	}
+
+	@Test
+	operation test17 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test24 () {
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test26 () {
+	    assert !is_final
+	}
+
+}

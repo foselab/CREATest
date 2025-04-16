@@ -1,0 +1,271 @@
+testclass OrthogonalityTest for statechart Orthogonality {
+	@Test
+	operation test05 () {
+	    enter
+	    proceed 1 cycle
+	    assert is_active
+	}
+
+	@Test
+	operation test06 () {
+	    enter
+	    raise ^proceed
+	    proceed 1 cycle
+	    raise pb
+	    proceed 1 cycle
+	    exit
+	    assert is_active
+	}
+
+	@Test
+	operation test07 () {
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test08 () {
+	    enter
+	    raise ^proceed
+	    proceed 1 cycle
+	    raise pa
+	    proceed 1 cycle
+	    exit
+	    assert is_active
+	}
+
+	@Test
+	operation test09 () {
+	    enter
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test10 () {
+	    enter
+	    raise ^proceed
+	    proceed 1 cycle
+	    raise pb
+	    raise pa
+	    proceed 1 cycle
+	    proceed 1 cycle
+	    assert is_active
+	    assert active (Orthogonality.main_region.Cleanup)
+	}
+
+	@Test
+	operation test11 () {
+	    enter
+	    raise ^proceed
+	    proceed 1 cycle
+	    raise pb
+	    raise pa
+	    proceed 1 cycle
+	    proceed 1 cycle
+	    raise ^proceed
+	    proceed 1 cycle
+	    assert is_active
+	    assert active (Orthogonality.main_region._final_)
+	}
+
+	@Test
+	operation test12 () {
+	    enter
+	    raise ^proceed
+	    proceed 1 cycle
+	    raise pa
+	    proceed 1 cycle
+	    proceed 1 cycle
+	    assert is_active
+	}
+
+	@Test
+	operation test13 () {
+	    enter
+	    raise ^proceed
+	    proceed 1 cycle
+	    assert is_active
+	    assert active (Orthogonality.main_region.Process.r2.Line_B_1)
+	}
+
+	@Test
+	operation test14 () {
+	    enter
+	    raise ^proceed
+	    proceed 1 cycle
+	    raise pb
+	    proceed 1 cycle
+	    raise pa
+	    proceed 1 cycle
+	    proceed 1 cycle
+	    assert !is_final
+	}
+
+	@Test
+	operation test15 () {
+	    enter
+	    raise ^proceed
+	    proceed 1 cycle
+	    assert is_active
+	    assert active (Orthogonality.main_region.Process.r1.Line_A_1)
+	}
+
+	@Test
+	operation test16 () {
+	    enter
+	    raise ^proceed
+	    proceed 1 cycle
+	    assert is_active
+	    assert active (Orthogonality.main_region.Process)
+	}
+
+	@Test
+	operation test17 () {
+	    enter
+	    assert is_active
+	    assert !active (Orthogonality.main_region.Process)
+	}
+
+	@Test
+	operation test18 () {
+	    enter
+	    assert is_active
+	    assert active (Orthogonality.main_region.Initialize)
+	}
+
+	@Test
+	operation test20 () {
+	    assert !active (Orthogonality.main_region.Process)
+	}
+
+	@Test
+	operation test21 () {
+	    assert !active (Orthogonality.main_region.Process.r2.Line_B_1)
+	}
+
+	@Test
+	operation test22 () {
+	    assert !active (Orthogonality.main_region.Cleanup)
+	}
+
+	@Test
+	operation test23 () {
+	    assert !active (Orthogonality.main_region._final_)
+	}
+
+	@Test
+	operation test24 () {
+	    assert !active (Orthogonality.main_region.Process.r1.Line_A_1)
+	}
+
+	@Test
+	operation test25 () {
+	    assert !active (Orthogonality.main_region.Initialize)
+	}
+
+	@Test
+	operation test26 () {
+	    proceed 1 cycle
+	    assert !is_final
+	}
+
+	@Test
+	operation test27 () {
+	    enter
+	    raise ^proceed
+	    proceed 1 cycle
+	    raise pb
+	    raise pa
+	    proceed 1 cycle
+	    proceed 1 cycle
+	    raise ^proceed
+	    proceed 1 cycle
+	    proceed 1 cycle
+	    assert is_final
+	}
+
+	@Test
+	operation test28 () {
+	    enter
+	    raise ^proceed
+	    proceed 1 cycle
+	    raise pb
+	    raise pa
+	    proceed 1 cycle
+	    proceed 1 cycle
+	    raise ^proceed
+	    proceed 1 cycle
+	    assert is_final
+	}
+
+	@Test
+	operation test29 () {
+	    assert !is_active
+	    assert !is_final
+	}
+
+	@Test
+	operation test30 () {
+	    assert !is_active
+	    enter
+	    raise ^proceed
+	    proceed 1 cycle
+	    exit
+	    assert is_active
+	}
+
+	@Test
+	operation test31 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test32 () {
+	    assert !is_active
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test34 () {
+	    enter
+	    assert !is_active
+	}
+
+	@Test
+	operation test35 () {
+	    proceed 1 cycle
+	    assert !is_active
+	}
+
+	@Test
+	operation test36 () {
+	    enter
+	    raise ^proceed
+	    proceed 1 cycle
+	    raise pb
+	    raise pa
+	    proceed 1 cycle
+	    proceed 1 cycle
+	    raise ^proceed
+	    proceed 1 cycle
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test37 () {
+	    assert !is_active
+	    enter
+	    raise ^proceed
+	    proceed 1 cycle
+	    raise pb
+	    proceed 1 cycle
+	    proceed 1 cycle
+	    assert is_active
+	}
+
+}

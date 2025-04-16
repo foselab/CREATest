@@ -1,0 +1,48 @@
+testclass HubTemplateTest for statechart HubTemplate {
+	@Test
+	operation test15 () {
+	    assert !active (HubTemplate._HUB_Template_.HUBTemplate.SmartHubRegion.SmartHubSystemStatus.HubStatusRegion.System_Manager)
+	}
+
+	@Test
+	operation test16 () {
+	    assert !active (HubTemplate._HUB_Template_.HUBTemplate.SmartHubRegion.SmartHubSystemStatus)
+	}
+
+	@Test
+	operation test17 () {
+	    assert !active (HubTemplate._HUB_Template_.HUBTemplate)
+	}
+
+	@Test
+	operation test30 () {
+	    assert !active (HubTemplate._HUB_Template_.HUBTemplate.SmartHubRegion.SmartHubSystemStatus.HubStatusRegion.AllSystemsOFF)
+	}
+
+	@Test
+	operation test32 () {
+	    assert !active (HubTemplate._HUB_Template_.HubOff)
+	}
+
+	@Test
+	operation test34 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test35 () {
+	    exit
+	}
+
+	@Test
+	operation test58 () {
+	    assert !is_final
+	}
+
+	@Test
+	operation test64 () {
+	    assert !is_active
+	    exit
+	}
+
+}

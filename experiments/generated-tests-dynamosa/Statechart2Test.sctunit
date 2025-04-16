@@ -1,0 +1,88 @@
+testclass Statechart2Test for statechart Statechart2 {
+	@Test
+	operation test000 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test122 () {
+	    assert !active (Statechart2.^s.Autonomous_Mode___Logging.Calibration_on_entry_to_the_maze.Calibration)
+	}
+
+	@Test
+	operation test123 () {
+	    assert !active (Statechart2.^s.Autonomous_Mode___Logging)
+	}
+
+	@Test
+	operation test124 () {
+	    assert !active (Statechart2.^s.Manual_Mode)
+	}
+
+	@Test
+	operation test131 () {
+	    assert !active (Statechart2.^s.Autonomous_Mode___Logging.RotationCalibration.rotate_right)
+	}
+
+	@Test
+	operation test133 () {
+	    assert !active (Statechart2.^s.Autonomous_Mode___Logging.RotationCalibration.calibrating)
+	}
+
+	@Test
+	operation test138 () {
+	    assert !active (Statechart2.^s.Autonomous_Mode___Logging.^s.finish)
+	}
+
+	@Test
+	operation test144 () {
+	    assert !active (Statechart2.^s.Autonomous_Mode___Logging.^s.leftClear)
+	}
+
+	@Test
+	operation test161 () {
+	    assert !active (Statechart2.^s.Manual_Mode.Manual_Mode.turning_left)
+	    assert !is_active
+	}
+
+	@Test
+	operation test163 () {
+	    assert !active (Statechart2.^s.Manual_Mode.Manual_Mode.deaccelerate)
+	    assert !is_active
+	}
+
+	@Test
+	operation test164 () {
+	    assert !active (Statechart2.^s.Manual_Mode.Manual_Mode.accelerate)
+	}
+
+	@Test
+	operation test165 () {
+	    assert !active (Statechart2.^s.Manual_Mode.Manual_Mode.moving)
+	    assert !is_active
+	}
+
+	@Test
+	operation test167 () {
+	    assert !is_active
+	    assert !active (Statechart2.^s.Manual_Mode.Manual_Mode.stopped)
+	}
+
+	@Test
+	operation test170 () {
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test278 () {
+	    assert !is_final
+	}
+
+	@Test
+	operation test282 () {
+	    assert !is_final
+	    assert !is_active
+	}
+
+}

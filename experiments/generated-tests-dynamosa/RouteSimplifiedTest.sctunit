@@ -1,0 +1,333 @@
+testclass RouteSimplifiedTest for statechart mrw.^statechart.Route {
+	@Test
+	operation test00 () {
+	    triggerWithoutEvent
+	    assert !is_final
+	}
+
+	@Test
+	operation test02 () {
+	    mock isCompleted returns (false)
+	    enter
+	    raise turn
+	    raise disable
+	    raise completed
+	    raise completed
+	    raise failed
+	    assert is_active
+	}
+
+	@Test
+	operation test03 () {
+	    mock isCompleted returns (false)
+	    enter
+	    raise turn
+	    raise failed
+	    raise failed
+	    assert !is_final
+	}
+
+	@Test
+	operation test04 () {
+	    enter
+	    raise turn
+	    raise turn
+	    assert is_active
+	}
+
+	@Test
+	operation test05 () {
+	    enter
+	    raise completed
+	    assert is_active
+	}
+
+	@Test
+	operation test06 () {
+	    mock isCompleted returns (true)
+	    enter
+	    raise turn
+	    raise failed
+	    raise failed
+	    assert is_active
+	}
+
+	@Test
+	operation test07 () {
+	    mock isCompleted returns (true)
+	    mock isCompleted returns (true)
+	    enter
+	    raise turn
+	    raise completed
+	    raise failed
+	    assert is_active
+	}
+
+	@Test
+	operation test08 () {
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test09 () {
+	    mock isCompleted returns (true)
+	    enter
+	    raise turn
+	    raise failed
+	    raise completed
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test10 () {
+	    mock isTour returns (true)
+	    enter
+	    raise turn
+	    raise completed
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test11 () {
+	    mock isTour returns (false)
+	    enter
+	    raise turn
+	    raise completed
+	    raise completed
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test12 () {
+	    enter
+	    raise turn
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test13 () {
+	    enter
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test14 () {
+	    mock isCompleted returns (false)
+	    enter
+	    raise turn
+	    raise failed
+	    raise completed
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test15 () {
+	    mock isCompleted returns (false)
+	    enter
+	    raise turn
+	    raise failed
+	    assert is_active
+	    assert active (mrw.^statechart.Route.main_region.Wait)
+	}
+
+	@Test
+	operation test16 () {
+	    mock isTour returns (false)
+	    enter
+	    raise turn
+	    raise completed
+	    assert is_active
+	    assert active (mrw.^statechart.Route.main_region.Active.processing.Signal_Turning)
+	}
+
+	@Test
+	operation test17 () {
+	    enter
+	    raise turn
+	    assert is_active
+	    assert active (mrw.^statechart.Route.main_region.Active.processing.Switch_Turning)
+	}
+
+	@Test
+	operation test18 () {
+	    enter
+	    raise turn
+	    assert is_active
+	    assert active (mrw.^statechart.Route.main_region.Active)
+	}
+
+	@Test
+	operation test19 () {
+	    enter
+	    assert is_active
+	    assert !active (mrw.^statechart.Route.main_region.Active)
+	}
+
+	@Test
+	operation test20 () {
+	    enter
+	    assert is_active
+	    assert active (mrw.^statechart.Route.main_region.Start)
+	}
+
+	@Test
+	operation test21 () {
+	    mock isCompleted returns (true)
+	    enter
+	    raise turn
+	    raise failed
+	    assert active (mrw.^statechart.Route.main_region.Disable)
+	}
+
+	@Test
+	operation test23 () {
+	    assert !is_active
+	    assert !active (mrw.^statechart.Route.main_region.Active)
+	}
+
+	@Test
+	operation test24 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test29 () {
+	    assert !is_active
+	    assert !active (mrw.^statechart.Route.main_region.Active.processing.Section_Activation)
+	}
+
+	@Test
+	operation test30 () {
+	    assert !active (mrw.^statechart.Route.main_region.Active.processing.Signal_Turning)
+	    assert !is_active
+	}
+
+	@Test
+	operation test31 () {
+	    assert !is_active
+	    assert !active (mrw.^statechart.Route.main_region.Active.processing.Switch_Turning)
+	}
+
+	@Test
+	operation test32 () {
+	    assert !is_active
+	    assert !active (mrw.^statechart.Route.main_region._final_)
+	}
+
+	@Test
+	operation test33 () {
+	    assert !is_active
+	    assert !active (mrw.^statechart.Route.main_region.Start)
+	}
+
+	@Test
+	operation test35 () {
+	    assert !active (mrw.^statechart.Route.main_region.Disable)
+	    assert !is_active
+	}
+
+	@Test
+	operation test37 () {
+	    mock isCompleted returns (true)
+	    enter
+	    raise turn
+	    raise disable
+	    raise completed
+	    raise completed
+	    raise failed
+	    assert is_final
+	}
+
+	@Test
+	operation test38 () {
+	    mock isCompleted returns (false)
+	    enter
+	    raise turn
+	    raise disable
+	    raise completed
+	    raise completed
+	}
+
+	@Test
+	operation test39 () {
+	    assert !is_final
+	    assert !is_active
+	}
+
+	@Test
+	operation test40 () {
+	    assert !is_active
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test45 () {
+	    mock isTour returns (true)
+	    assert !is_active
+	    enter
+	    raise turn
+	    raise completed
+	    assert active (mrw.^statechart.Route.main_region.Active.processing.Flank_Turning)
+	}
+
+	@Test
+	operation test46 () {
+	    mock isCompleted returns (false)
+	    mock isCompleted returns (false)
+	    enter
+	    raise turn
+	    raise completed
+	    raise completed
+	    raise failed
+	    assert is_active
+	}
+
+	@Test
+	operation test47 () {
+	    mock isCompleted returns (true)
+	    enter
+	    raise turn
+	    raise disable
+	    raise completed
+	    raise completed
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test48 () {
+	    mock isCompleted returns (false)
+	    mock isCompleted returns (false)
+	    assert !is_active
+	    enter
+	    raise turn
+	    raise completed
+	    raise failed
+	    assert is_active
+	}
+
+	@Test
+	operation test49 () {
+	    mock isCompleted returns (false)
+	    enter
+	    raise turn
+	    raise failed
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+}

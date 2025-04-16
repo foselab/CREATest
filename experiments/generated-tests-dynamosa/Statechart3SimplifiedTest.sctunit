@@ -1,0 +1,128 @@
+testclass Statechart3SimplifiedTest for statechart Statechart3 {
+	@Test
+	operation test00 () {
+	    enter
+	    triggerWithoutEvent
+	    assert is_active
+	}
+
+	@Test
+	operation test01 () {
+	    enter
+	    raise pir.ON
+	    raise pir.OFF
+	    assert is_active
+	}
+
+	@Test
+	operation test02 () {
+	    enter
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test03 () {
+	    enter
+	    raise pir.ON
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test04 () {
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test05 () {
+	    enter
+	    assert is_active
+	    assert active (Statechart3.main_region.Decision)
+	}
+
+	@Test
+	operation test06 () {
+	    enter
+	    raise pir.ON
+	    assert is_active
+	    assert active (Statechart3.main_region.StateLightOn)
+	}
+
+	@Test
+	operation test07 () {
+	    enter
+	    raise pir.OFF
+	    assert is_active
+	    assert active (Statechart3.main_region.StateLightOff)
+	}
+
+	@Test
+	operation test09 () {
+	    assert !active (Statechart3.main_region.Decision)
+	}
+
+	@Test
+	operation test10 () {
+	    assert !active (Statechart3.main_region.StateLightOn)
+	}
+
+	@Test
+	operation test11 () {
+	    assert !active (Statechart3.main_region.StateLightOff)
+	}
+
+	@Test
+	operation test12 () {
+	    raise pir.OFF
+	}
+
+	@Test
+	operation test13 () {
+	    assert !is_active
+	    enter
+	    raise pir.OFF
+	    raise pir.ON
+	    assert is_active
+	}
+
+	@Test
+	operation test14 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test16 () {
+	    assert !is_active
+	    assert !is_final
+	}
+
+	@Test
+	operation test18 () {
+	    assert !is_active
+	    enter
+	    raise pir.ON
+	    proceed 1s
+	    assert is_active
+	}
+
+	@Test
+	operation test20 () {
+	    enter
+	    raise pir.OFF
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test21 () {
+	    assert !is_active
+	    enter
+	    assert is_active
+	}
+
+}

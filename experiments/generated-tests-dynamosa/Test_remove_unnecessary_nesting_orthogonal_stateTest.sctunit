@@ -1,0 +1,153 @@
+testclass test_remove_unnecessary_nesting_orthogonal_stateTest for statechart test_remove_unnecessary_nesting_orthogonal_state {
+	@Test
+	operation test02 () {
+	    enter
+	    raise operate
+	    assert is_active
+	}
+
+	@Test
+	operation test06 () {
+	    enter
+	    raise hello
+	    assert is_active
+	}
+
+	@Test
+	operation test07 () {
+	    enter
+	    raise operate
+	    raise hello
+	    assert is_active
+	}
+
+	@Test
+	operation test08 () {
+	    enter
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test09 () {
+	    enter
+	    raise operate
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test10 () {
+	    enter
+	    assert is_active
+	    assert active (test_remove_unnecessary_nesting_orthogonal_state.main_region.A)
+	}
+
+	@Test
+	operation test11 () {
+	    enter
+	    raise operate
+	    assert is_active
+	    assert active (test_remove_unnecessary_nesting_orthogonal_state.main_region.C.E.F)
+	}
+
+	@Test
+	operation test12 () {
+	    enter
+	    raise operate
+	    assert is_active
+	    assert active (test_remove_unnecessary_nesting_orthogonal_state.main_region.C.D.B)
+	}
+
+	@Test
+	operation test13 () {
+	    enter
+	    raise operate
+	    assert is_active
+	    assert active (test_remove_unnecessary_nesting_orthogonal_state.main_region.C)
+	}
+
+	@Test
+	operation test15 () {
+	    assert !active (test_remove_unnecessary_nesting_orthogonal_state.main_region.C)
+	}
+
+	@Test
+	operation test16 () {
+	    assert !active (test_remove_unnecessary_nesting_orthogonal_state.main_region.A)
+	}
+
+	@Test
+	operation test17 () {
+	    assert !active (test_remove_unnecessary_nesting_orthogonal_state.main_region.C.E.F)
+	}
+
+	@Test
+	operation test18 () {
+	    assert !active (test_remove_unnecessary_nesting_orthogonal_state.main_region.C.D.B)
+	}
+
+	@Test
+	operation test19 () {
+	    raise operate
+	    raise operate
+	    assert !is_active
+	}
+
+	@Test
+	operation test20 () {
+	    raise hello
+	}
+
+	@Test
+	operation test21 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test22 () {
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test23 () {
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test24 () {
+	    exit
+	    assert !is_final
+	}
+
+	@Test
+	operation test25 () {
+	    enter
+	    assert !is_active
+	}
+
+	@Test
+	operation test26 () {
+	    assert !is_final
+	}
+
+	@Test
+	operation test27 () {
+	    triggerWithoutEvent
+	    assert !is_active
+	}
+
+	@Test
+	operation test28 () {
+	    assert !is_active
+	    enter
+	    raise operate
+	    raise operate
+	    assert is_active
+	}
+
+}

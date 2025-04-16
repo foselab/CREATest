@@ -1,0 +1,54 @@
+testclass FireAlarm_UnitTest for statechart FireAlarm_Unit {
+	@Test
+	operation test036 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test040 () {
+	    assert !active (FireAlarm_Unit._FireAlarm_Unit_._Fire_Alarm_Running_.Status.Warning)
+	}
+
+	@Test
+	operation test041 () {
+	    assert !is_active
+	    assert !active (FireAlarm_Unit._FireAlarm_Unit_._Fire_Alarm_Running_)
+	}
+
+	@Test
+	operation test053 () {
+	    assert !is_active
+	    assert !active (FireAlarm_Unit._FireAlarm_Unit_._Fire_Alarm_Running_.Status.Warning.Level.initial_warning)
+	}
+
+	@Test
+	operation test054 () {
+	    assert !active (FireAlarm_Unit._FireAlarm_Unit_._Fire_Alarm_Running_.Status.Safe)
+	    assert !is_active
+	}
+
+	@Test
+	operation test055 () {
+	    assert !active (FireAlarm_Unit._FireAlarm_Unit_._Fire_Alarm_Running_.Alarm_Switch.Alarm_On)
+	    assert !is_active
+	}
+
+	@Test
+	operation test057 () {
+	    assert !is_active
+	    assert !active (FireAlarm_Unit._FireAlarm_Unit_._Fire_Alarm_Running_.Alarm_Switch.Alarm_Off)
+	}
+
+	@Test
+	operation test060 () {
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test093 () {
+	    assert !is_active
+	    exit
+	}
+
+}

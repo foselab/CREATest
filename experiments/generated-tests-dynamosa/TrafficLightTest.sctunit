@@ -1,0 +1,82 @@
+testclass TrafficLightTest for statechart TrafficLight {
+	@Test
+	operation test10 () {
+	    assert !active (TrafficLight.main.On)
+	}
+
+	@Test
+	operation test11 () {
+	    assert !active (TrafficLight.main.On.main.Attention)
+	}
+
+	@Test
+	operation test12 () {
+	    assert !active (TrafficLight.main.On.main.Released)
+	}
+
+	@Test
+	operation test13 () {
+	    assert !active (TrafficLight.main.On.main.Blocked)
+	}
+
+	@Test
+	operation test14 () {
+	    assert !active (TrafficLight.main.On.main.PrepareBlock)
+	}
+
+	@Test
+	operation test15 () {
+	    assert !active (TrafficLight.main.Off)
+	}
+
+	@Test
+	operation test16 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test17 () {
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test26 () {
+	    raise release
+	    assert !is_final
+	}
+
+	@Test
+	operation test29 () {
+	    raise block
+	}
+
+	@Test
+	operation test30 () {
+	    raise attention
+	    assert !is_final
+	}
+
+	@Test
+	operation test32 () {
+	    raise switchOff
+	}
+
+	@Test
+	operation test34 () {
+	    assert !is_final
+	}
+
+	@Test
+	operation test38 () {
+	    raise switchOn
+	    assert !is_active
+	}
+
+	@Test
+	operation test41 () {
+	    proceed 500ms
+	    assert !is_active
+	}
+
+}

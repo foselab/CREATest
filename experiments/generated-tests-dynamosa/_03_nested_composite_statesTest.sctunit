@@ -1,0 +1,100 @@
+testclass _03_nested_composite_statesTest for statechart _03_nested_composite_states {
+	@Test
+	operation test08 () {
+	    assert !active (_03_nested_composite_states.main_region.AutomaticMode.r1.MotionDetectionMode)
+	}
+
+	@Test
+	operation test09 () {
+	    assert !active (_03_nested_composite_states.main_region.AutomaticMode.r1.TwilightDetectionMode)
+	}
+
+	@Test
+	operation test10 () {
+	    assert !active (_03_nested_composite_states.main_region.AutomaticMode)
+	}
+
+	@Test
+	operation test11 () {
+	    assert !active (_03_nested_composite_states.main_region.AutomaticMode.r1.MotionDetectionMode.r1.MotionDetected)
+	}
+
+	@Test
+	operation test12 () {
+	    assert !active (_03_nested_composite_states.main_region.AutomaticMode.r1.MotionDetectionMode.r1.Idle)
+	}
+
+	@Test
+	operation test13 () {
+	    assert !active (_03_nested_composite_states.main_region.AutomaticMode.r1.TwilightDetectionMode.r1.Idle)
+	}
+
+	@Test
+	operation test14 () {
+	    assert !active (_03_nested_composite_states.main_region.AutomaticMode.r1.TwilightDetectionMode.r1.TwilightDetected)
+	}
+
+	@Test
+	operation test15 () {
+	    assert !active (_03_nested_composite_states.main_region.ManualMode)
+	}
+
+	@Test
+	operation test16 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test19 () {
+	    raise lum_sensor.dark
+	}
+
+	@Test
+	operation test20 () {
+	    raise lum_sensor.bright
+	}
+
+	@Test
+	operation test21 () {
+	    raise sensor.motion
+	}
+
+	@Test
+	operation test22 () {
+	    raise user.mode_button
+	}
+
+	@Test
+	operation test23 () {
+	    raise user.off_button
+	}
+
+	@Test
+	operation test24 () {
+	    raise user.on_button
+	}
+
+	@Test
+	operation test27 () {
+	    assert !is_final
+	}
+
+	@Test
+	operation test29 () {
+	    proceed 30s
+	    assert !is_active
+	}
+
+	@Test
+	operation test30 () {
+	    exit
+	    assert !is_final
+	}
+
+	@Test
+	operation test33 () {
+	    exit
+	    assert !is_active
+	}
+
+}

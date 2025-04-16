@@ -1,0 +1,48 @@
+testclass SmartLightHUBTest for statechart SmartLightHUB {
+	@Test
+	operation test24 () {
+	    assert !active (SmartLightHUB.SmartLightHubSystem_1_0.SmartLightsHUB.SmartHubStatusRegion.SmartLightHubSystemStatus.HubStatusRegion.System_Manager)
+	}
+
+	@Test
+	operation test25 () {
+	    assert !active (SmartLightHUB.SmartLightHubSystem_1_0.SmartLightsHUB.SmartHubStatusRegion.SmartLightHubSystemStatus)
+	}
+
+	@Test
+	operation test26 () {
+	    assert !active (SmartLightHUB.SmartLightHubSystem_1_0.SmartLightsHUB)
+	}
+
+	@Test
+	operation test41 () {
+	    assert !active (SmartLightHUB.SmartLightHubSystem_1_0.SmartLightsHUB.SmartHubStatusRegion.SmartLightHubSystemStatus.HubStatusRegion.AllSystemsOFF)
+	}
+
+	@Test
+	operation test43 () {
+	    assert !active (SmartLightHUB.SmartLightHubSystem_1_0.HubOff)
+	}
+
+	@Test
+	operation test45 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test46 () {
+	    exit
+	}
+
+	@Test
+	operation test77 () {
+	    assert !is_final
+	}
+
+	@Test
+	operation test89 () {
+	    assert !is_active
+	    exit
+	}
+
+}

@@ -1,0 +1,54 @@
+testclass Microwave_UnitTest for statechart Microwave_Unit {
+	@Test
+	operation test14 () {
+	    assert !active (Microwave_Unit._Microwave_Unit_._on_._Microwave_isWorking_.startTimer)
+	}
+
+	@Test
+	operation test15 () {
+	    assert !active (Microwave_Unit._Microwave_Unit_._on_)
+	}
+
+	@Test
+	operation test19 () {
+	    assert !active (Microwave_Unit._Microwave_Unit_._on_._Microwave_isWorking_.startTimer._Starting_Timer_.pause)
+	}
+
+	@Test
+	operation test20 () {
+	    assert !active (Microwave_Unit._Microwave_Unit_._on_._Microwave_isWorking_.idle_standby)
+	}
+
+	@Test
+	operation test21 () {
+	    assert !active (Microwave_Unit._Microwave_Unit_._on_._Microwave_isWorking_.startTimer._Starting_Timer_.start)
+	}
+
+	@Test
+	operation test22 () {
+	    assert !active (Microwave_Unit._Microwave_Unit_._off_)
+	}
+
+	@Test
+	operation test24 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test25 () {
+	    exit
+	}
+
+	@Test
+	operation test37 () {
+	    assert !is_active
+	    exit
+	}
+
+	@Test
+	operation test50 () {
+	    assert !is_final
+	    assert !is_active
+	}
+
+}

@@ -1,0 +1,138 @@
+testclass BouncingBallTest for statechart BouncingBall {
+	@Test
+	operation test02 () {
+	    enter
+	    proceed 1 cycle
+	    proceed 1 cycle
+	    assert is_active
+	}
+
+	@Test
+	operation test03 () {
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test06 () {
+	    enter
+	    proceed 1 cycle
+	}
+
+	@Test
+	operation test11 () {
+	    exit
+	}
+
+	@Test
+	operation test12 () {
+	    enter
+	    proceed 1 cycle
+	    exit
+	}
+
+	@Test
+	operation test13 () {
+	    enter
+	    exit
+	}
+
+	@Test
+	operation test14 () {
+	    enter
+	    proceed 1 cycle
+	    proceed 1 cycle
+	    proceed 1 cycle
+	    assert is_active
+	    assert active (BouncingBall.main_region.Rest)
+	}
+
+	@Test
+	operation test15 () {
+	    enter
+	    proceed 1 cycle
+	    assert is_active
+	    assert active (BouncingBall.main_region.Bounce)
+	}
+
+	@Test
+	operation test16 () {
+	    enter
+	    assert is_active
+	    assert active (BouncingBall.main_region.In_the_air)
+	}
+
+	@Test
+	operation test18 () {
+	    assert !active (BouncingBall.main_region.Bounce)
+	}
+
+	@Test
+	operation test19 () {
+	    assert !active (BouncingBall.main_region.Rest)
+	}
+
+	@Test
+	operation test20 () {
+	    assert !active (BouncingBall.main_region.In_the_air)
+	}
+
+	@Test
+	operation test21 () {
+	    assert !is_active
+	    proceed 1 cycle
+	}
+
+	@Test
+	operation test22 () {
+	    enter
+	    proceed 1 cycle
+	    proceed 1 cycle
+	    proceed 1 cycle
+	}
+
+	@Test
+	operation test24 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test25 () {
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test26 () {
+	    enter
+	    assert !is_active
+	}
+
+	@Test
+	operation test27 () {
+	    assert !is_final
+	    assert !is_active
+	}
+
+	@Test
+	operation test30 () {
+	    enter
+	    proceed 1 cycle
+	    proceed 1 cycle
+	    exit
+	}
+
+	@Test
+	operation test31 () {
+	    proceed 1 cycle
+	    assert !is_active
+	}
+
+	@Test
+	operation test33 () {
+	    enter
+	    proceed 1 cycle
+	    proceed 1 cycle
+	}
+
+}

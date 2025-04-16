@@ -1,0 +1,31 @@
+testclass flashTest for statechart flash {
+	@Test
+	operation test02 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test06 () {
+	    assert !is_active
+	    assert !active (flash.flash.Dark)
+	}
+
+	@Test
+	operation test08 () {
+	    assert !active (flash.flash.Light)
+	    assert !is_active
+	}
+
+	@Test
+	operation test11 () {
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test18 () {
+	    assert !is_final
+	    assert !is_active
+	}
+
+}

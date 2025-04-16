@@ -1,0 +1,277 @@
+testclass watch_subdiagramsSimplifiedTest for statechart watch_subdiagrams {
+	@Test
+	operation test01 () {
+	    proceed 2s
+	    assert !is_active
+	}
+
+	@Test
+	operation test02 () {
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test03 () {
+	    enter
+	    raise button.light
+	    proceed 1 cycle
+	    assert active (watch_subdiagrams.light.on)
+	}
+
+	@Test
+	operation test04 () {
+	    enter
+	    assert is_active
+	    assert active (watch_subdiagrams.light.off)
+	}
+
+	@Test
+	operation test05 () {
+	    enter
+	    assert is_active
+	    assert active (watch_subdiagrams.chime.quiet)
+	}
+
+	@Test
+	operation test06 () {
+	    enter
+	    assert !active (watch_subdiagrams.modes.SetTime)
+	}
+
+	@Test
+	operation test07 () {
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test10 () {
+	    enter
+	    assert is_active
+	    assert active (watch_subdiagrams.modes.Regular._region0.Clock._region0.normal)
+	}
+
+	@Test
+	operation test11 () {
+	    enter
+	    assert active (watch_subdiagrams.modes.Regular._region0.Clock)
+	}
+
+	@Test
+	operation test12 () {
+	    enter
+	    assert is_active
+	    assert active (watch_subdiagrams.modes.Regular)
+	}
+
+	@Test
+	operation test14 () {
+	    assert !active (watch_subdiagrams.modes.SetTime)
+	}
+
+	@Test
+	operation test15 () {
+	    assert !active (watch_subdiagrams.modes.Alarm)
+	}
+
+	@Test
+	operation test16 () {
+	    assert !active (watch_subdiagrams.modes.Regular._region0.Stop_Watch.r1.Operation)
+	}
+
+	@Test
+	operation test17 () {
+	    assert !active (watch_subdiagrams.modes.Regular._region0.Clock)
+	}
+
+	@Test
+	operation test18 () {
+	    assert !active (watch_subdiagrams.modes.Regular)
+	}
+
+	@Test
+	operation test19 () {
+	    assert !active (watch_subdiagrams.light.on)
+	}
+
+	@Test
+	operation test20 () {
+	    assert !active (watch_subdiagrams.light.off)
+	}
+
+	@Test
+	operation test21 () {
+	    assert !active (watch_subdiagrams.chime.beep)
+	}
+
+	@Test
+	operation test22 () {
+	    assert !active (watch_subdiagrams.chime.quiet)
+	}
+
+	@Test
+	operation test23 () {
+	    assert !active (watch_subdiagrams.modes.Regular._region0.Stop_Watch.r1.Operation.run.pause)
+	}
+
+	@Test
+	operation test24 () {
+	    assert !active (watch_subdiagrams.modes.Regular._region0.Stop_Watch.r1.Operation.run.count)
+	}
+
+	@Test
+	operation test25 () {
+	    assert !active (watch_subdiagrams.modes.SetTime._region0.hr)
+	}
+
+	@Test
+	operation test26 () {
+	    assert !active (watch_subdiagrams.modes.SetTime._region0.min)
+	}
+
+	@Test
+	operation test27 () {
+	    assert !active (watch_subdiagrams.modes.SetTime._region0.sec)
+	}
+
+	@Test
+	operation test28 () {
+	    assert !active (watch_subdiagrams.modes.Alarm.r1.alarm_2_beeps)
+	}
+
+	@Test
+	operation test29 () {
+	    assert !active (watch_subdiagrams.modes.Alarm.r1.alarm_1_beeps)
+	}
+
+	@Test
+	operation test30 () {
+	    assert !active (watch_subdiagrams.modes.Regular._region0.Stop_Watch.r1.Operation.display.lap)
+	}
+
+	@Test
+	operation test31 () {
+	    assert !active (watch_subdiagrams.modes.Regular._region0.Stop_Watch.r1.Operation.display.regular)
+	}
+
+	@Test
+	operation test32 () {
+	    assert !active (watch_subdiagrams.modes.Regular._region0.Stop_Watch.r1.Zero)
+	}
+
+	@Test
+	operation test33 () {
+	    assert !active (watch_subdiagrams.modes.Regular._region0.Set_Chime)
+	}
+
+	@Test
+	operation test34 () {
+	    assert !active (watch_subdiagrams.modes.Regular._region0.Alarm_2)
+	}
+
+	@Test
+	operation test35 () {
+	    assert !active (watch_subdiagrams.modes.Regular._region0.Alarm_1)
+	}
+
+	@Test
+	operation test36 () {
+	    assert !active (watch_subdiagrams.modes.Regular._region0.Date)
+	}
+
+	@Test
+	operation test37 () {
+	    assert !active (watch_subdiagrams.modes.Regular._region0.Clock._region0.normal)
+	}
+
+	@Test
+	operation test38 () {
+	    assert !active (watch_subdiagrams.modes.Regular._region0.Stop_Watch)
+	}
+
+	@Test
+	operation test39 () {
+	    assert !active (watch_subdiagrams.modes.Regular._region0.Clock._region0.wait_set)
+	}
+
+	@Test
+	operation test40 () {
+	    enter
+	    raise button.light
+	    proceed 16 cycle
+	    assert !is_final
+	}
+
+	@Test
+	operation test41 () {
+	    proceed 1 cycle
+	    assert !is_final
+	}
+
+	@Test
+	operation test42 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test43 () {
+	    assert !is_active
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test46 () {
+	    raise button.onoff
+	    assert !is_active
+	}
+
+	@Test
+	operation test47 () {
+	    raise button.light_r
+	}
+
+	@Test
+	operation test48 () {
+	    raise button.mode
+	    enter
+	    proceed 1 cycle
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test49 () {
+	    enter
+	    raise button.light
+	    proceed 1 cycle
+	    exit
+	    assert !is_final
+	}
+
+	@Test
+	operation test51 () {
+	    enter
+	    raise button.set
+	    proceed 1 cycle
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test52 () {
+	    enter
+	    raise button.set
+	    proceed 16 cycle
+	    assert !is_final
+	}
+
+	@Test
+	operation test53 () {
+	    assert !is_final
+	    assert !is_active
+	}
+
+}

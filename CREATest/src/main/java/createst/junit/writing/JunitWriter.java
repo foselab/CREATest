@@ -28,7 +28,7 @@ public class JunitWriter implements IJunitWriter {
 		//evoArgs.add("-Dassertion_minimization_fallback_time=1.0");
 		//evoArgs.add("-Dminimization_timeout=600");
 		// Impose which coverage criterion to use
-		evoArgs.add("-criterion"); evoArgs.add("BRANCH:METHODNOEXCEPTION");
+		evoArgs.add("-criterion"); evoArgs.add("BRANCH:METHODNOEXCEPTION:OUTPUT");
 		// Impose a search budget
 		if (hasSearchBudget)
 			evoArgs.add("-Dsearch_budget=" + searchBudget);

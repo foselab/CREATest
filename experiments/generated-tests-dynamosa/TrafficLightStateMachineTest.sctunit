@@ -1,0 +1,64 @@
+testclass TrafficLightStateMachineTest for statechart TrafficLightStateMachine {
+	@Test
+	operation test02 () {
+	    assert !active (TrafficLightStateMachine.trafficlight.standby)
+	}
+
+	@Test
+	operation test03 () {
+	    assert !active (TrafficLightStateMachine.trafficlight.operating)
+	}
+
+	@Test
+	operation test04 () {
+	    assert !active (TrafficLightStateMachine.trafficlight.standby.blink.off)
+	}
+
+	@Test
+	operation test05 () {
+	    assert !active (TrafficLightStateMachine.trafficlight.standby.blink.on)
+	}
+
+	@Test
+	operation test06 () {
+	    assert !active (TrafficLightStateMachine.trafficlight.operating.r.go)
+	}
+
+	@Test
+	operation test07 () {
+	    assert !active (TrafficLightStateMachine.trafficlight.operating.r.stop)
+	}
+
+	@Test
+	operation test08 () {
+	    assert !active (TrafficLightStateMachine.trafficlight.operating.r.prepare.switch.to_stop)
+	}
+
+	@Test
+	operation test09 () {
+	    assert !active (TrafficLightStateMachine.trafficlight.operating.r.prepare)
+	}
+
+	@Test
+	operation test10 () {
+	    assert !active (TrafficLightStateMachine.trafficlight.operating.r.prepare.switch.to_go)
+	}
+
+	@Test
+	operation test12 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test13 () {
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test29 () {
+	    assert !is_final
+	    assert !is_active
+	}
+
+}

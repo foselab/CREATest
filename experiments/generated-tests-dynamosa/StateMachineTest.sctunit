@@ -1,0 +1,39 @@
+testclass StateMachineTest for statechart StateMachine {
+	@Test
+	operation test03 () {
+	    assert !active (StateMachine.main_region.StateB)
+	}
+
+	@Test
+	operation test04 () {
+	    assert !active (StateMachine.main_region._final_)
+	}
+
+	@Test
+	operation test05 () {
+	    assert !active (StateMachine.main_region.StateA)
+	}
+
+	@Test
+	operation test07 () {
+	    assert !is_final
+	}
+
+	@Test
+	operation test08 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test14 () {
+	    exit
+	    assert !is_final
+	}
+
+	@Test
+	operation test19 () {
+	    exit
+	    assert !is_active
+	}
+
+}

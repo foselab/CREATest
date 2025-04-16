@@ -1,0 +1,51 @@
+testclass blinkyStateMachineTest for statechart blinkyStateMachine {
+	@Test
+	operation test02 () {
+	    assert !active (blinkyStateMachine.main_region.red_LED_off)
+	}
+
+	@Test
+	operation test03 () {
+	    assert !active (blinkyStateMachine.main_region.red_LED_on)
+	}
+
+	@Test
+	operation test05 () {
+	    assert !active (blinkyStateMachine.main_region.Initialization)
+	}
+
+	@Test
+	operation test06 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test07 () {
+	    exit
+	    assert !is_final
+	}
+
+	@Test
+	operation test11 () {
+	    assert !is_final
+	}
+
+	@Test
+	operation test13 () {
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test14 () {
+	    assert !is_final
+	    assert !is_active
+	}
+
+	@Test
+	operation test15 () {
+	    proceed 1s
+	    assert !is_active
+	}
+
+}

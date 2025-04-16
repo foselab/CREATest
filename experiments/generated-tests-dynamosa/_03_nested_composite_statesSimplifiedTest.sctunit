@@ -1,0 +1,294 @@
+testclass _03_nested_composite_statesSimplifiedTest for statechart _03_nested_composite_states {
+	@Test
+	operation test03 () {
+	    proceed 0 cycle
+	    assert !is_final
+	}
+
+	@Test
+	operation test04 () {
+	    enter
+	    proceed 1 cycle
+	    assert is_active
+	}
+
+	@Test
+	operation test05 () {
+	    enter
+	    raise user.on_button
+	    proceed 1 cycle
+	    raise user.on_button
+	    proceed 1 cycle
+	    assert is_active
+	}
+
+	@Test
+	operation test06 () {
+	    enter
+	    raise user.on_button
+	    proceed 1 cycle
+	    proceed 1 cycle
+	    assert is_active
+	}
+
+	@Test
+	operation test07 () {
+	    raise sensor.motion
+	    enter
+	    proceed 1 cycle
+	    raise user.on_button
+	    proceed 1 cycle
+	    assert is_active
+	}
+
+	@Test
+	operation test08 () {
+	    enter
+	    raise user.mode_button
+	    proceed 1 cycle
+	    raise user.on_button
+	    proceed 1 cycle
+	    assert is_active
+	}
+
+	@Test
+	operation test09 () {
+	    raise sensor.motion
+	    enter
+	    proceed 1 cycle
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test10 () {
+	    enter
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test11 () {
+	    enter
+	    raise user.mode_button
+	    proceed 1 cycle
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test12 () {
+	    enter
+	    raise user.on_button
+	    proceed 1 cycle
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test13 () {
+	    raise sensor.motion
+	    enter
+	    proceed 1 cycle
+	    assert is_active
+	    assert active (_03_nested_composite_states.main_region.AutomaticMode.r1.MotionDetectionMode.r1.MotionDetected)
+	}
+
+	@Test
+	operation test14 () {
+	    enter
+	    assert is_active
+	    assert active (_03_nested_composite_states.main_region.AutomaticMode.r1.MotionDetectionMode.r1.Idle)
+	}
+
+	@Test
+	operation test15 () {
+	    enter
+	    assert is_active
+	    assert active (_03_nested_composite_states.main_region.AutomaticMode.r1.MotionDetectionMode)
+	}
+
+	@Test
+	operation test16 () {
+	    enter
+	    raise user.on_button
+	    proceed 1 cycle
+	    assert is_active
+	    assert !active (_03_nested_composite_states.main_region.AutomaticMode.r1.MotionDetectionMode)
+	}
+
+	@Test
+	operation test17 () {
+	    enter
+	    raise user.mode_button
+	    proceed 1 cycle
+	    assert is_active
+	    assert active (_03_nested_composite_states.main_region.AutomaticMode.r1.TwilightDetectionMode.r1.Idle)
+	}
+
+	@Test
+	operation test18 () {
+	    enter
+	    raise user.mode_button
+	    proceed 1 cycle
+	    assert is_active
+	    assert active (_03_nested_composite_states.main_region.AutomaticMode.r1.TwilightDetectionMode)
+	}
+
+	@Test
+	operation test19 () {
+	    enter
+	    raise user.on_button
+	    proceed 1 cycle
+	    assert is_active
+	    assert !active (_03_nested_composite_states.main_region.AutomaticMode.r1.TwilightDetectionMode)
+	}
+
+	@Test
+	operation test20 () {
+	    enter
+	    assert is_active
+	    assert active (_03_nested_composite_states.main_region.AutomaticMode)
+	}
+
+	@Test
+	operation test21 () {
+	    enter
+	    raise user.on_button
+	    proceed 1 cycle
+	    assert is_active
+	    assert !active (_03_nested_composite_states.main_region.AutomaticMode)
+	}
+
+	@Test
+	operation test22 () {
+	    enter
+	    raise user.on_button
+	    proceed 1 cycle
+	    assert is_active
+	    assert active (_03_nested_composite_states.main_region.ManualMode)
+	}
+
+	@Test
+	operation test24 () {
+	    assert !active (_03_nested_composite_states.main_region.AutomaticMode.r1.MotionDetectionMode)
+	}
+
+	@Test
+	operation test25 () {
+	    assert !active (_03_nested_composite_states.main_region.AutomaticMode.r1.TwilightDetectionMode)
+	}
+
+	@Test
+	operation test26 () {
+	    assert !active (_03_nested_composite_states.main_region.AutomaticMode.r1.MotionDetectionMode.r1.MotionDetected)
+	}
+
+	@Test
+	operation test27 () {
+	    assert !active (_03_nested_composite_states.main_region.AutomaticMode.r1.MotionDetectionMode.r1.Idle)
+	}
+
+	@Test
+	operation test28 () {
+	    assert !active (_03_nested_composite_states.main_region.AutomaticMode.r1.TwilightDetectionMode.r1.TwilightDetected)
+	}
+
+	@Test
+	operation test29 () {
+	    assert !active (_03_nested_composite_states.main_region.AutomaticMode.r1.TwilightDetectionMode.r1.Idle)
+	}
+
+	@Test
+	operation test30 () {
+	    assert !active (_03_nested_composite_states.main_region.AutomaticMode)
+	}
+
+	@Test
+	operation test31 () {
+	    assert !active (_03_nested_composite_states.main_region.ManualMode)
+	}
+
+	@Test
+	operation test32 () {
+	    proceed 1 cycle
+	    assert !is_final
+	}
+
+	@Test
+	operation test33 () {
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test34 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test35 () {
+	    exit
+	    assert !is_final
+	}
+
+	@Test
+	operation test37 () {
+	    raise lum_sensor.dark
+	}
+
+	@Test
+	operation test38 () {
+	    raise lum_sensor.bright
+	}
+
+	@Test
+	operation test39 () {
+	    proceed 30s
+	    assert !is_active
+	}
+
+	@Test
+	operation test40 () {
+	    assert !is_active
+	    enter
+	    raise user.mode_button
+	    proceed 1 cycle
+	    raise user.mode_button
+	    proceed 1 cycle
+	    assert is_active
+	}
+
+	@Test
+	operation test41 () {
+	    assert !is_active
+	    enter
+	    raise user.on_button
+	    proceed 1 cycle
+	    raise user.off_button
+	    proceed 1 cycle
+	    assert is_active
+	}
+
+	@Test
+	operation test43 () {
+	    raise sensor.motion
+	    assert !is_active
+	    enter
+	    proceed 1 cycle
+	    raise user.mode_button
+	    proceed 1 cycle
+	    assert is_active
+	}
+
+	@Test
+	operation test44 () {
+	    assert !is_final
+	    assert !is_active
+	}
+
+}

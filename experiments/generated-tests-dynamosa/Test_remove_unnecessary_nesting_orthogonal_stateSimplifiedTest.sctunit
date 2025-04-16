@@ -1,0 +1,122 @@
+testclass test_remove_unnecessary_nesting_orthogonal_stateSimplifiedTest for statechart test_remove_unnecessary_nesting_orthogonal_state {
+	@Test
+	operation test00 () {
+	    enter
+	    raise hello
+	    assert is_active
+	}
+
+	@Test
+	operation test01 () {
+	    enter
+	    raise operate
+	    raise hello
+	    assert is_active
+	}
+
+	@Test
+	operation test02 () {
+	    enter
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test03 () {
+	    enter
+	    raise operate
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test04 () {
+	    enter
+	    raise operate
+	    assert is_active
+	    assert active (test_remove_unnecessary_nesting_orthogonal_state.main_region.C.E.F)
+	}
+
+	@Test
+	operation test05 () {
+	    enter
+	    raise operate
+	    assert is_active
+	    assert active (test_remove_unnecessary_nesting_orthogonal_state.main_region.C.D.B)
+	}
+
+	@Test
+	operation test06 () {
+	    enter
+	    raise operate
+	    assert is_active
+	    assert active (test_remove_unnecessary_nesting_orthogonal_state.main_region.C)
+	}
+
+	@Test
+	operation test08 () {
+	    assert !active (test_remove_unnecessary_nesting_orthogonal_state.main_region.C)
+	}
+
+	@Test
+	operation test09 () {
+	    assert !active (test_remove_unnecessary_nesting_orthogonal_state.main_region.C.E.F)
+	}
+
+	@Test
+	operation test10 () {
+	    assert !active (test_remove_unnecessary_nesting_orthogonal_state.main_region.A)
+	}
+
+	@Test
+	operation test11 () {
+	    assert !active (test_remove_unnecessary_nesting_orthogonal_state.main_region.C.D.B)
+	}
+
+	@Test
+	operation test12 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test13 () {
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test14 () {
+	    exit
+	    assert !is_final
+	}
+
+	@Test
+	operation test15 () {
+	    raise hello
+	    assert !is_active
+	}
+
+	@Test
+	operation test16 () {
+	    triggerWithoutEvent
+	    assert !is_active
+	}
+
+	@Test
+	operation test17 () {
+	    assert !is_active
+	    assert !is_final
+	}
+
+	@Test
+	operation test18 () {
+	    assert !is_active
+	    enter
+	    raise operate
+	    raise operate
+	    assert active (test_remove_unnecessary_nesting_orthogonal_state.main_region.A)
+	}
+
+}

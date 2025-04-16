@@ -1,0 +1,215 @@
+testclass rgbTest for statechart rgb {
+	@Test
+	operation test00 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test04 () {
+	    mock init returns (687)
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test06 () {
+	    mock init returns (0)
+	    enter
+	    proceed 1 cycle
+	    raise green
+	    proceed 1 cycle
+	    proceed 1 cycle
+	    assert is_active
+	}
+
+	@Test
+	operation test07 () {
+	    mock init returns (569)
+	    enter
+	    proceed 1 cycle
+	    assert is_active
+	}
+
+	@Test
+	operation test08 () {
+	    exit
+	    assert !is_final
+	}
+
+	@Test
+	operation test10 () {
+	    mock init returns (0)
+	    enter
+	    proceed 1 cycle
+	    raise green
+	    proceed 1 cycle
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test11 () {
+	    mock init returns (0)
+	    enter
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test12 () {
+	    mock init returns (1)
+	    enter
+	    proceed 1 cycle
+	    assert is_active
+	    assert active (rgb.main_region._final_)
+	}
+
+	@Test
+	operation test13 () {
+	    mock init returns (0)
+	    enter
+	    proceed 1 cycle
+	    raise blue
+	    proceed 1 cycle
+	    assert is_active
+	    assert active (rgb.main_region.blue)
+	}
+
+	@Test
+	operation test14 () {
+	    mock init returns (0)
+	    enter
+	    proceed 1 cycle
+	    raise green
+	    proceed 1 cycle
+	    assert is_active
+	    assert active (rgb.main_region.green)
+	}
+
+	@Test
+	operation test15 () {
+	    mock init returns (0)
+	    enter
+	    proceed 1 cycle
+	    raise blue
+	    proceed 1 cycle
+	    raise blue
+	    proceed 1 cycle
+	    assert is_active
+	    assert active (rgb.main_region.idle)
+	}
+
+	@Test
+	operation test16 () {
+	    mock init returns (569)
+	    enter
+	    assert is_active
+	    assert active (rgb.main_region.init)
+	}
+
+	@Test
+	operation test18 () {
+	    assert !active (rgb.main_region._final_)
+	}
+
+	@Test
+	operation test19 () {
+	    assert !active (rgb.main_region.blue)
+	}
+
+	@Test
+	operation test20 () {
+	    assert !active (rgb.main_region.green)
+	}
+
+	@Test
+	operation test21 () {
+	    assert !active (rgb.main_region.idle)
+	}
+
+	@Test
+	operation test22 () {
+	    assert !active (rgb.main_region.red)
+	}
+
+	@Test
+	operation test23 () {
+	    assert !active (rgb.main_region.init)
+	}
+
+	@Test
+	operation test24 () {
+	    proceed 1 cycle
+	    assert !is_active
+	}
+
+	@Test
+	operation test25 () {
+	    mock init returns (1)
+	    enter
+	    proceed 1 cycle
+	    proceed 1 cycle
+	    assert is_final
+	}
+
+	@Test
+	operation test27 () {
+	    mock init returns (1)
+	    enter
+	    proceed 1 cycle
+	    assert is_final
+	}
+
+	@Test
+	operation test28 () {
+	    assert !is_active
+	    assert !is_final
+	}
+
+	@Test
+	operation test29 () {
+	    mock init returns (1544)
+	    assert !is_active
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test31 () {
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test32 () {
+	    enter
+	    assert !is_active
+	}
+
+	@Test
+	operation test35 () {
+	    mock init returns (0)
+	    assert !is_active
+	    enter
+	    proceed 1 cycle
+	    raise red
+	    proceed 1 cycle
+	    assert is_active
+	}
+
+	@Test
+	operation test38 () {
+	    mock init returns (0)
+	    assert !is_active
+	    enter
+	    proceed 1 cycle
+	    raise green
+	    proceed 1 cycle
+	    raise green
+	    proceed 1 cycle
+	    assert is_active
+	}
+
+}

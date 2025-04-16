@@ -1,0 +1,109 @@
+testclass ChildTest for statechart Child {
+	@Test
+	operation test01 () {
+	    raise myEvent
+	}
+
+	@Test
+	operation test05 () {
+	    enter
+	    raise myEvent
+	    triggerWithoutEvent
+	    assert is_active
+	}
+
+	@Test
+	operation test06 () {
+	    enter
+	    triggerWithoutEvent
+	    assert is_active
+	}
+
+	@Test
+	operation test07 () {
+	    enter
+	    raise myEvent
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test08 () {
+	    enter
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test09 () {
+	    enter
+	    raise myEvent
+	    assert is_active
+	    assert active (Child.main_region.StateB)
+	}
+
+	@Test
+	operation test10 () {
+	    enter
+	    assert is_active
+	    assert active (Child.main_region.StateA)
+	}
+
+	@Test
+	operation test12 () {
+	    assert !active (Child.main_region.StateB)
+	}
+
+	@Test
+	operation test13 () {
+	    assert !active (Child.main_region.StateA)
+	}
+
+	@Test
+	operation test14 () {
+	    raise myEvent
+	    raise myEvent
+	    assert !is_final
+	}
+
+	@Test
+	operation test15 () {
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test16 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test17 () {
+	    exit
+	    assert !is_final
+	}
+
+	@Test
+	operation test19 () {
+	    enter
+	    assert !is_active
+	}
+
+	@Test
+	operation test21 () {
+	    assert !is_active
+	    assert !is_final
+	}
+
+	@Test
+	operation test22 () {
+	    assert !is_active
+	    enter
+	    raise myEvent
+	    raise myEvent
+	    assert is_active
+	}
+
+}

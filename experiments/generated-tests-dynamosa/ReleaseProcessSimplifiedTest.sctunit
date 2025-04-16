@@ -1,0 +1,38 @@
+testclass ReleaseProcessSimplifiedTest for statechart ReleaseProcess {
+	@Test
+	operation test00 () {
+	    assert !is_final
+	}
+
+	@Test
+	operation test03 () {
+	    assert !active (ReleaseProcess.process._final_)
+	}
+
+	@Test
+	operation test04 () {
+	    assert !active (ReleaseProcess.process.Start_Release)
+	}
+
+	@Test
+	operation test05 () {
+	    assert !active (ReleaseProcess.process.Released)
+	}
+
+	@Test
+	operation test06 () {
+	    assert !active (ReleaseProcess.process.Safe)
+	}
+
+	@Test
+	operation test08 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test14 () {
+	    exit
+	    assert !is_active
+	}
+
+}

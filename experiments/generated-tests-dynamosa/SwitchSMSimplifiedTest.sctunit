@@ -1,0 +1,167 @@
+testclass SwitchSimplifiedTest for statechart mrw.^statechart.Switch {
+	@Test
+	operation test00 () {
+	    triggerWithoutEvent
+	    assert !is_final
+	}
+
+	@Test
+	operation test01 () {
+	    raise unlock
+	    assert !is_active
+	}
+
+	@Test
+	operation test03 () {
+	    raise start
+	    assert !is_final
+	}
+
+	@Test
+	operation test04 () {
+	    raise rightResponse
+	    assert !is_final
+	}
+
+	@Test
+	operation test05 () {
+	    raise response
+	    assert !is_active
+	}
+
+	@Test
+	operation test06 () {
+	    raise queued
+	    assert !is_final
+	}
+
+	@Test
+	operation test07 () {
+	    raise leftResponse
+	    assert !is_final
+	}
+
+	@Test
+	operation test08 () {
+	    raise clear
+	    assert !is_active
+	}
+
+	@Test
+	operation test09 () {
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test10 () {
+	    enter
+	    assert is_active
+	    assert !active (mrw.^statechart.Switch.main_region.Operating.operating.Turning)
+	}
+
+	@Test
+	operation test11 () {
+	    enter
+	    assert is_active
+	    assert !active (mrw.^statechart.Switch.main_region.Operating)
+	}
+
+	@Test
+	operation test12 () {
+	    enter
+	    assert is_active
+	    assert active (mrw.^statechart.Switch.main_region.Wait_for_Start)
+	}
+
+	@Test
+	operation test14 () {
+	    assert !active (mrw.^statechart.Switch.main_region.Operating.operating.Turning)
+	}
+
+	@Test
+	operation test15 () {
+	    assert !active (mrw.^statechart.Switch.main_region.Operating)
+	}
+
+	@Test
+	operation test16 () {
+	    assert !active (mrw.^statechart.Switch.main_region.Failed)
+	}
+
+	@Test
+	operation test17 () {
+	    assert !active (mrw.^statechart.Switch.main_region.Operating.operating.Turning.Turning_process.Pending)
+	}
+
+	@Test
+	operation test18 () {
+	    assert !active (mrw.^statechart.Switch.main_region.Operating.operating.Turning.Turning_process.Turn_Left)
+	}
+
+	@Test
+	operation test19 () {
+	    assert !active (mrw.^statechart.Switch.main_region.Operating.operating.Turning.Turning_process.Turn_Right)
+	}
+
+	@Test
+	operation test20 () {
+	    assert !active (mrw.^statechart.Switch.main_region.Operating.operating.Locked)
+	}
+
+	@Test
+	operation test21 () {
+	    assert !active (mrw.^statechart.Switch.main_region.Operating.operating.Unlocked)
+	}
+
+	@Test
+	operation test22 () {
+	    assert !active (mrw.^statechart.Switch.main_region.Init)
+	}
+
+	@Test
+	operation test23 () {
+	    assert !active (mrw.^statechart.Switch.main_region.Wait_for_Start)
+	}
+
+	@Test
+	operation test25 () {
+	    raise turn
+	    assert !is_final
+	}
+
+	@Test
+	operation test26 () {
+	    assert !is_active
+	    enter
+	    raise failed
+	    assert is_active
+	}
+
+	@Test
+	operation test27 () {
+	    assert !is_active
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test28 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test31 () {
+	    assert !is_final
+	    assert !is_active
+	}
+
+	@Test
+	operation test33 () {
+	    enter
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+}

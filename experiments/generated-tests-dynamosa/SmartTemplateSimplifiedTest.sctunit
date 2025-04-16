@@ -1,0 +1,65 @@
+testclass SmartTemplateSimplifiedTest for statechart SmartTemplate {
+	@Test
+	operation test00 () {
+	    assert !is_final
+	}
+
+	@Test
+	operation test01 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test07 () {
+	    assert !active (SmartTemplate._IoT_Template_.IoT_Template.trackingDeviceTemperature._Initialize_DeviceTemp_Component_)
+	}
+
+	@Test
+	operation test11 () {
+	    assert !active (SmartTemplate._IoT_Template_.IoT_Template)
+	    assert !is_active
+	}
+
+	@Test
+	operation test22 () {
+	    assert !active (SmartTemplate._IoT_Template_.IoT_Template.ActuatorComponent.off)
+	    assert !is_active
+	}
+
+	@Test
+	operation test23 () {
+	    assert !active (SmartTemplate._IoT_Template_.IoT_Template.ActuatorComponent._Device_Actuated_)
+	    assert !is_active
+	}
+
+	@Test
+	operation test24 () {
+	    assert !active (SmartTemplate._IoT_Template_.IoT_Template.ActuatorComponent._Actuator_onStandby_)
+	    assert !is_active
+	}
+
+	@Test
+	operation test25 () {
+	    assert !is_active
+	    assert !active (SmartTemplate._IoT_Template_.IoT_Template.DeviceSwitchStatus.on)
+	}
+
+	@Test
+	operation test27 () {
+	    assert !is_active
+	    assert !active (SmartTemplate._IoT_Template_.IoT_Template.DeviceSwitchStatus.off)
+	}
+
+	@Test
+	operation test34 () {
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test39 () {
+	    assert !is_final
+	    assert !is_active
+	}
+
+}

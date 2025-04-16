@@ -1,0 +1,125 @@
+testclass Statechart5SimplifiedTest for statechart Statechart5 {
+	@Test
+	operation test02 () {
+	    raise buttonCancel.ON
+	}
+
+	@Test
+	operation test03 () {
+	    raise buttonCancel.OFF
+	}
+
+	@Test
+	operation test05 () {
+	    raise buttonActuation.OFF
+	}
+
+	@Test
+	operation test06 () {
+	    proceed 5s
+	    assert !is_active
+	}
+
+	@Test
+	operation test07 () {
+	    enter
+	    triggerWithoutEvent
+	    assert is_active
+	}
+
+	@Test
+	operation test08 () {
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test09 () {
+	    enter
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test10 () {
+	    assert !is_active
+	    enter
+	    raise buttonActuation.ON
+	    assert active (Statechart5.main_region.State1PrepareActuation)
+	}
+
+	@Test
+	operation test11 () {
+	    assert !is_active
+	    enter
+	    assert active (Statechart5.main_region.DecisionActivate)
+	}
+
+	@Test
+	operation test12 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test13 () {
+	    assert !is_active
+	    assert !active (Statechart5.main_region.State2PrepareActuation)
+	}
+
+	@Test
+	operation test14 () {
+	    assert !is_active
+	    assert !active (Statechart5.main_region.StateCancelActuation)
+	}
+
+	@Test
+	operation test15 () {
+	    assert !active (Statechart5.main_region.State1PrepareActuation)
+	    assert !is_active
+	}
+
+	@Test
+	operation test16 () {
+	    assert !active (Statechart5.main_region.StateMotorOn)
+	    assert !is_active
+	}
+
+	@Test
+	operation test17 () {
+	    assert !active (Statechart5.main_region.DecisionActivate)
+	    assert !is_active
+	}
+
+	@Test
+	operation test22 () {
+	    assert !is_active
+	    assert !is_final
+	}
+
+	@Test
+	operation test23 () {
+	    enter
+	    raise buttonActuation.ON
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test25 () {
+	    assert !is_active
+	    enter
+	    raise buttonActuation.ON
+	    triggerWithoutEvent
+	    assert is_active
+	}
+
+	@Test
+	operation test26 () {
+	    assert !is_active
+	    enter
+	    assert is_active
+	}
+
+}

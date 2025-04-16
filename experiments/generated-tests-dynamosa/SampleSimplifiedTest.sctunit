@@ -1,0 +1,244 @@
+testclass sampleSimplifiedTest for statechart sample {
+	@Test
+	operation test00 () {
+	    triggerWithoutEvent
+	    assert !is_active
+	}
+
+	@Test
+	operation test01 () {
+	    enter
+	    raise toggle
+	    proceed 1s
+	    assert is_active
+	}
+
+	@Test
+	operation test02 () {
+	    enter
+	    raise toggle
+	    raise toggle_brightness
+	    raise toggle_brightness
+	    raise toggle_brightness
+	    assert is_active
+	}
+
+	@Test
+	operation test03 () {
+	    enter
+	    raise toggle_brightness
+	    assert is_active
+	}
+
+	@Test
+	operation test04 () {
+	    enter
+	    raise toggle
+	    exit
+	    exit
+	    exit
+	    assert is_active
+	}
+
+	@Test
+	operation test05 () {
+	    enter
+	    raise toggle
+	    raise toggle_brightness
+	    raise toggle_brightness
+	    exit
+	    assert is_active
+	}
+
+	@Test
+	operation test06 () {
+	    enter
+	    raise toggle
+	    raise toggle_brightness
+	    exit
+	    assert is_active
+	}
+
+	@Test
+	operation test07 () {
+	    enter
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test08 () {
+	    enter
+	    raise toggle
+	    raise toggle_brightness
+	    raise toggle
+	    raise toggle
+	    assert !is_final
+	}
+
+	@Test
+	operation test09 () {
+	    enter
+	    raise toggle
+	    raise toggle
+	    raise toggle
+	    assert is_active
+	}
+
+	@Test
+	operation test10 () {
+	    enter
+	    raise toggle
+	    assert active (sample.Sample_Light.Lights_On.Timer.timer_working.timer_status.counting_down)
+	}
+
+	@Test
+	operation test11 () {
+	    enter
+	    raise toggle
+	    assert active (sample.Sample_Light.Lights_On.Timer.timer_working)
+	}
+
+	@Test
+	operation test12 () {
+	    enter
+	    raise toggle
+	    raise toggle_brightness
+	    raise toggle_brightness
+	    assert active (sample.Sample_Light.Lights_On.Brightness_Level.high)
+	}
+
+	@Test
+	operation test13 () {
+	    enter
+	    raise toggle
+	    assert is_active
+	    assert active (sample.Sample_Light.Lights_On.Brightness_Level.low)
+	}
+
+	@Test
+	operation test14 () {
+	    enter
+	    raise toggle
+	    assert is_active
+	    assert active (sample.Sample_Light.Lights_On)
+	}
+
+	@Test
+	operation test15 () {
+	    enter
+	    assert is_active
+	    assert !active (sample.Sample_Light.Lights_On)
+	}
+
+	@Test
+	operation test16 () {
+	    enter
+	    assert is_active
+	    assert active (sample.Sample_Light.Lights__Off)
+	}
+
+	@Test
+	operation test18 () {
+	    assert !is_active
+	    assert !active (sample.Sample_Light.Lights_On.Timer.timer_working)
+	}
+
+	@Test
+	operation test19 () {
+	    assert !is_active
+	    assert !active (sample.Sample_Light.Lights_On)
+	}
+
+	@Test
+	operation test20 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test22 () {
+	    assert !is_active
+	    assert !active (sample.Sample_Light.Lights_On.Brightness_Level.med)
+	}
+
+	@Test
+	operation test23 () {
+	    assert !active (sample.Sample_Light.Lights_On.Brightness_Level.low)
+	    assert !is_active
+	}
+
+	@Test
+	operation test24 () {
+	    assert !is_active
+	    assert !active (sample.Sample_Light.Lights_On.Brightness_Level.high)
+	}
+
+	@Test
+	operation test25 () {
+	    assert !active (sample.Sample_Light.Lights__Off)
+	    assert !is_active
+	}
+
+	@Test
+	operation test26 () {
+	    assert !is_active
+	    enter
+	    raise toggle
+	    exit
+	    assert is_active
+	}
+
+	@Test
+	operation test28 () {
+	    assert !is_active
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test30 () {
+	    assert !is_active
+	    enter
+	    raise toggle
+	    exit
+	    exit
+	    assert !active (sample.Sample_Light.Lights_On.Timer.timer_working)
+	}
+
+	@Test
+	operation test32 () {
+	    assert !is_active
+	    enter
+	    raise toggle
+	    proceed 1s
+	    assert is_active
+	}
+
+	@Test
+	operation test33 () {
+	    assert !is_active
+	    assert !is_final
+	}
+
+	@Test
+	operation test34 () {
+	    enter
+	    raise toggle
+	    raise toggle_brightness
+	    raise toggle_brightness
+	    raise toggle
+	    raise toggle
+	    assert !is_final
+	}
+
+	@Test
+	operation test35 () {
+	    assert !is_active
+	    enter
+	    raise toggle
+	    raise toggle_brightness
+	    assert active (sample.Sample_Light.Lights_On.Brightness_Level.med)
+	}
+
+}

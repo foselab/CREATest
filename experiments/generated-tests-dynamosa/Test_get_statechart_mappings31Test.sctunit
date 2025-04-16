@@ -1,0 +1,142 @@
+testclass test_get_statechart_mappings31Test for statechart test_get_statechart_mappings31 {
+	@Test
+	operation test00 () {
+	    raise myEvent
+	}
+
+	@Test
+	operation test04 () {
+	    enter
+	    raise myEvent
+	    raise myEvent
+	    triggerWithoutEvent
+	    assert is_active
+	}
+
+	@Test
+	operation test05 () {
+	    enter
+	    raise myEvent
+	    triggerWithoutEvent
+	    assert is_active
+	}
+
+	@Test
+	operation test06 () {
+	    enter
+	    triggerWithoutEvent
+	    assert is_active
+	}
+
+	@Test
+	operation test07 () {
+	    enter
+	    raise myEvent
+	    raise myEvent
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test08 () {
+	    enter
+	    raise myEvent
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test09 () {
+	    enter
+	    raise myEvent
+	    raise myEvent
+	    assert is_active
+	    assert active (test_get_statechart_mappings31.main_region.StateC)
+	}
+
+	@Test
+	operation test10 () {
+	    enter
+	    raise myEvent
+	    assert is_active
+	    assert active (test_get_statechart_mappings31.main_region.StateB)
+	}
+
+	@Test
+	operation test11 () {
+	    enter
+	    assert is_active
+	    assert active (test_get_statechart_mappings31.main_region.StateA)
+	}
+
+	@Test
+	operation test13 () {
+	    assert !active (test_get_statechart_mappings31.main_region.StateB)
+	}
+
+	@Test
+	operation test14 () {
+	    assert !active (test_get_statechart_mappings31.main_region.StateC)
+	}
+
+	@Test
+	operation test15 () {
+	    assert !active (test_get_statechart_mappings31.main_region.StateA)
+	}
+
+	@Test
+	operation test16 () {
+	    raise myEvent
+	    raise myEvent
+	    assert !is_active
+	}
+
+	@Test
+	operation test17 () {
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test18 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test19 () {
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test20 () {
+	    exit
+	    assert !is_final
+	}
+
+	@Test
+	operation test21 () {
+	    enter
+	    assert !is_active
+	}
+
+	@Test
+	operation test22 () {
+	    assert !is_final
+	    assert !is_active
+	}
+
+	@Test
+	operation test23 () {
+	    enter
+	    raise myEvent
+	    raise myEvent
+	    raise myEvent
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+}

@@ -1,0 +1,65 @@
+testclass SmartTVSystemSimplifiedTest for statechart SmartTVSystem {
+	@Test
+	operation test02 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test03 () {
+	    assert !is_final
+	}
+
+	@Test
+	operation test10 () {
+	    assert !active (SmartTVSystem._SmartTVSystem_.SmartTVSystem.trackingDeviceTemperature._Initialize_DeviceTemp_Component_)
+	}
+
+	@Test
+	operation test25 () {
+	    assert !active (SmartTVSystem._SmartTVSystem_.SmartTVSystem.ActuatorComponent.off)
+	    assert !is_active
+	}
+
+	@Test
+	operation test26 () {
+	    assert !is_active
+	    assert !active (SmartTVSystem._SmartTVSystem_.SmartTVSystem.ActuatorComponent._Device_Functioning_)
+	}
+
+	@Test
+	operation test27 () {
+	    assert !active (SmartTVSystem._SmartTVSystem_.SmartTVSystem.ActuatorComponent._Actuator_Updates_)
+	    assert !is_active
+	}
+
+	@Test
+	operation test28 () {
+	    assert !active (SmartTVSystem._SmartTVSystem_.SmartTVSystem.SystemStatus.on)
+	    assert !is_active
+	}
+
+	@Test
+	operation test29 () {
+	    assert !is_active
+	    assert !active (SmartTVSystem._SmartTVSystem_.SmartTVSystem)
+	}
+
+	@Test
+	operation test30 () {
+	    assert !active (SmartTVSystem._SmartTVSystem_.SmartTVSystem.SystemStatus.off)
+	    assert !is_active
+	}
+
+	@Test
+	operation test42 () {
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test43 () {
+	    assert !is_active
+	    assert !is_final
+	}
+
+}

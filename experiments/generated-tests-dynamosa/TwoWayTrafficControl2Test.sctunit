@@ -1,0 +1,115 @@
+testclass TwoWayTrafficControl2Test for statechart TwoWayTrafficControl2 {
+	@Test
+	operation test08 () {
+	    exit
+	    assert !is_final
+	}
+
+	@Test
+	operation test09 () {
+	    enter
+	    assert is_active
+	    assert !active (TwoWayTrafficControl2.main.Operate)
+	}
+
+	@Test
+	operation test10 () {
+	    enter
+	    assert is_active
+	    assert active (TwoWayTrafficControl2.main.Off)
+	}
+
+	@Test
+	operation test11 () {
+	    assert !active (TwoWayTrafficControl2.main.Operate)
+	}
+
+	@Test
+	operation test12 () {
+	    assert !active (TwoWayTrafficControl2.main.Operate.r.Process_B)
+	}
+
+	@Test
+	operation test13 () {
+	    assert !active (TwoWayTrafficControl2.main.Operate.r.Process_A)
+	}
+
+	@Test
+	operation test14 () {
+	    assert !active (TwoWayTrafficControl2.main.Standby)
+	}
+
+	@Test
+	operation test16 () {
+	    assert !active (TwoWayTrafficControl2.main.Off)
+	}
+
+	@Test
+	operation test17 () {
+	    enter
+	    proceed 1 cycle
+	    assert is_active
+	}
+
+	@Test
+	operation test18 () {
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test19 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test21 () {
+	    enter
+	    assert !is_final
+	}
+
+	@Test
+	operation test22 () {
+	    proceed 1 cycle
+	    assert !is_active
+	}
+
+	@Test
+	operation test24 () {
+	    raise off
+	    assert !is_active
+	}
+
+	@Test
+	operation test25 () {
+	    assert !is_final
+	    assert !is_active
+	}
+
+	@Test
+	operation test27 () {
+	    raise operate
+	    assert !is_active
+	}
+
+	@Test
+	operation test28 () {
+	    raise on
+	    assert !is_active
+	}
+
+	@Test
+	operation test29 () {
+	    raise standby
+	    assert !is_active
+	}
+
+	@Test
+	operation test30 () {
+	    enter
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+}

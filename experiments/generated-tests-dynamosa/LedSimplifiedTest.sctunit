@@ -1,0 +1,102 @@
+testclass ledSimplifiedTest for statechart led {
+	@Test
+	operation test00 () {
+	    enter
+	    raise on
+	    raise on
+	    assert is_active
+	}
+
+	@Test
+	operation test01 () {
+	    enter
+	    triggerWithoutEvent
+	    assert is_active
+	}
+
+	@Test
+	operation test02 () {
+	    enter
+	    raise on
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test03 () {
+	    enter
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test04 () {
+	    enter
+	    raise on
+	    assert is_active
+	    assert active (led.main_region.On)
+	}
+
+	@Test
+	operation test05 () {
+	    enter
+	    assert is_active
+	    assert active (led.main_region.Off)
+	}
+
+	@Test
+	operation test07 () {
+	    assert !active (led.main_region.On)
+	}
+
+	@Test
+	operation test08 () {
+	    assert !active (led.main_region.Off)
+	}
+
+	@Test
+	operation test09 () {
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test10 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test11 () {
+	    exit
+	    assert !is_final
+	}
+
+	@Test
+	operation test12 () {
+	    triggerWithoutEvent
+	    assert !is_final
+	}
+
+	@Test
+	operation test13 () {
+	    assert !is_final
+	}
+
+	@Test
+	operation test14 () {
+	    raise off
+	    assert !is_active
+	}
+
+	@Test
+	operation test15 () {
+	    assert !is_active
+	    enter
+	    raise on
+	    raise off
+	    assert is_active
+	}
+
+}

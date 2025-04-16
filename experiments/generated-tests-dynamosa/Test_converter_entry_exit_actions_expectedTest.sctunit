@@ -1,0 +1,49 @@
+testclass test_converter_entry_exit_actions_expectedTest for statechart test_converter_entry_exit_actions_expected {
+	@Test
+	operation test08 () {
+	    assert !active (test_converter_entry_exit_actions_expected.main_region.MotionSensing)
+	}
+
+	@Test
+	operation test09 () {
+	    assert !active (test_converter_entry_exit_actions_expected.main_region.Hello)
+	}
+
+	@Test
+	operation test10 () {
+	    assert !active (test_converter_entry_exit_actions_expected.main_region.Manual)
+	}
+
+	@Test
+	operation test11 () {
+	    assert !active (test_converter_entry_exit_actions_expected.main_region.MotionSensing.r1.On)
+	}
+
+	@Test
+	operation test12 () {
+	    assert !active (test_converter_entry_exit_actions_expected.main_region.MotionSensing.r1.Off)
+	}
+
+	@Test
+	operation test14 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test19 () {
+	    assert !is_final
+	}
+
+	@Test
+	operation test20 () {
+	    exit
+	    assert !is_final
+	}
+
+	@Test
+	operation test27 () {
+	    exit
+	    assert !is_active
+	}
+
+}

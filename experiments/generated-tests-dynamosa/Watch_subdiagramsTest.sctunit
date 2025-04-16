@@ -1,0 +1,187 @@
+testclass watch_subdiagramsTest for statechart watch_subdiagrams {
+	@Test
+	operation test31 () {
+	    assert !active (watch_subdiagrams.modes.SetTime)
+	}
+
+	@Test
+	operation test32 () {
+	    assert !active (watch_subdiagrams.modes.Regular._region0.Stop_Watch.r1.Operation)
+	}
+
+	@Test
+	operation test33 () {
+	    assert !active (watch_subdiagrams.modes.Regular._region0.Stop_Watch)
+	}
+
+	@Test
+	operation test34 () {
+	    assert !active (watch_subdiagrams.modes.Regular._region0.Clock)
+	}
+
+	@Test
+	operation test35 () {
+	    assert !active (watch_subdiagrams.modes.Regular)
+	}
+
+	@Test
+	operation test36 () {
+	    assert !active (watch_subdiagrams.light.on)
+	}
+
+	@Test
+	operation test37 () {
+	    assert !active (watch_subdiagrams.light.off)
+	}
+
+	@Test
+	operation test38 () {
+	    assert !active (watch_subdiagrams.chime.beep)
+	}
+
+	@Test
+	operation test39 () {
+	    assert !active (watch_subdiagrams.chime.quiet)
+	}
+
+	@Test
+	operation test40 () {
+	    assert !active (watch_subdiagrams.modes.Regular._region0.Stop_Watch.r1.Operation.run.pause)
+	}
+
+	@Test
+	operation test41 () {
+	    assert !active (watch_subdiagrams.modes.Regular._region0.Stop_Watch.r1.Operation.run.count)
+	}
+
+	@Test
+	operation test42 () {
+	    assert !active (watch_subdiagrams.modes.SetTime._region0.hr)
+	}
+
+	@Test
+	operation test43 () {
+	    assert !active (watch_subdiagrams.modes.SetTime._region0.min)
+	}
+
+	@Test
+	operation test44 () {
+	    assert !active (watch_subdiagrams.modes.SetTime._region0.sec)
+	}
+
+	@Test
+	operation test45 () {
+	    assert !active (watch_subdiagrams.modes.Alarm.r1.alarm_2_beeps)
+	}
+
+	@Test
+	operation test46 () {
+	    assert !active (watch_subdiagrams.modes.Alarm.r1.alarm_1_beeps)
+	}
+
+	@Test
+	operation test47 () {
+	    assert !active (watch_subdiagrams.modes.Regular._region0.Stop_Watch.r1.Operation.display.lap)
+	}
+
+	@Test
+	operation test48 () {
+	    assert !active (watch_subdiagrams.modes.Regular._region0.Stop_Watch.r1.Operation.display.regular)
+	}
+
+	@Test
+	operation test49 () {
+	    assert !active (watch_subdiagrams.modes.Regular._region0.Stop_Watch.r1.Zero)
+	}
+
+	@Test
+	operation test50 () {
+	    assert !active (watch_subdiagrams.modes.Regular._region0.Set_Chime)
+	}
+
+	@Test
+	operation test51 () {
+	    assert !active (watch_subdiagrams.modes.Regular._region0.Alarm_2)
+	}
+
+	@Test
+	operation test52 () {
+	    assert !active (watch_subdiagrams.modes.Regular._region0.Alarm_1)
+	}
+
+	@Test
+	operation test53 () {
+	    assert !active (watch_subdiagrams.modes.Regular._region0.Date)
+	}
+
+	@Test
+	operation test54 () {
+	    assert !active (watch_subdiagrams.modes.Regular._region0.Clock._region0.normal)
+	}
+
+	@Test
+	operation test55 () {
+	    assert !active (watch_subdiagrams.modes.Alarm)
+	}
+
+	@Test
+	operation test56 () {
+	    assert !active (watch_subdiagrams.modes.Regular._region0.Clock._region0.wait_set)
+	}
+
+	@Test
+	operation test57 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test58 () {
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test61 () {
+	    raise button.onoff
+	}
+
+	@Test
+	operation test62 () {
+	    raise button.light
+	}
+
+	@Test
+	operation test63 () {
+	    raise button.set
+	}
+
+	@Test
+	operation test64 () {
+	    raise button.light_r
+	}
+
+	@Test
+	operation test72 () {
+	    exit
+	    assert !is_final
+	}
+
+	@Test
+	operation test74 () {
+	    proceed 2s
+	    assert !is_active
+	}
+
+	@Test
+	operation test80 () {
+	    raise button.mode
+	    assert !is_active
+	}
+
+	@Test
+	operation test84 () {
+	    assert !is_active
+	    assert !is_final
+	}
+
+}

@@ -1,0 +1,136 @@
+testclass UpdateSimplifiedTest for statechart mrw.^statechart.Update {
+	@Test
+	operation test00 () {
+	    triggerWithoutEvent
+	    assert !is_final
+	}
+
+	@Test
+	operation test02 () {
+	    enter
+	    raise failed
+	    assert is_active
+	}
+
+	@Test
+	operation test03 () {
+	    enter
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test04 () {
+	    exit
+	    assert !is_final
+	}
+
+	@Test
+	operation test05 () {
+	    enter
+	    assert is_active
+	    assert active (mrw.^statechart.Update.main_region.Wait_for_Connect)
+	}
+
+	@Test
+	operation test06 () {
+	    enter
+	    raise connected
+	    assert is_active
+	    assert active (mrw.^statechart.Update.main_region.Ping)
+	}
+
+	@Test
+	operation test08 () {
+	    assert !active (mrw.^statechart.Update.main_region.Wait_for_Connect)
+	}
+
+	@Test
+	operation test09 () {
+	    assert !active (mrw.^statechart.Update.main_region.Failed)
+	}
+
+	@Test
+	operation test10 () {
+	    assert !active (mrw.^statechart.Update.main_region.Wait_Bootloader)
+	}
+
+	@Test
+	operation test11 () {
+	    assert !active (mrw.^statechart.Update.main_region.Flash_Check)
+	}
+
+	@Test
+	operation test12 () {
+	    assert !active (mrw.^statechart.Update.main_region.Flash_Rest)
+	}
+
+	@Test
+	operation test13 () {
+	    assert !active (mrw.^statechart.Update.main_region.Flash_Complete_Page)
+	}
+
+	@Test
+	operation test14 () {
+	    assert !active (mrw.^statechart.Update.main_region.Flash_Request)
+	}
+
+	@Test
+	operation test15 () {
+	    assert !active (mrw.^statechart.Update.main_region.Reset)
+	}
+
+	@Test
+	operation test16 () {
+	    assert !active (mrw.^statechart.Update.main_region.Booted)
+	}
+
+	@Test
+	operation test17 () {
+	    assert !active (mrw.^statechart.Update.main_region.Ping)
+	}
+
+	@Test
+	operation test19 () {
+	    raise complete
+	    assert !is_final
+	}
+
+	@Test
+	operation test20 () {
+	    assert !is_active
+	    enter
+	    raise connected
+	    raise failed
+	    assert is_active
+	}
+
+	@Test
+	operation test21 () {
+	    assert !is_active
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test22 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test26 () {
+	    enter
+	    raise connected
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test27 () {
+	    assert !is_final
+	    assert !is_active
+	}
+
+}

@@ -1,0 +1,124 @@
+testclass lightSimplifiedTest for statechart light {
+	@Test
+	operation test00 () {
+	    enter
+	    raise on
+	    triggerWithoutEvent
+	    assert is_active
+	}
+
+	@Test
+	operation test01 () {
+	    enter
+	    raise on
+	    raise off
+	    assert is_active
+	}
+
+	@Test
+	operation test02 () {
+	    enter
+	    proceed 10s
+	    assert is_active
+	}
+
+	@Test
+	operation test03 () {
+	    enter
+	    raise on
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test04 () {
+	    enter
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test05 () {
+	    enter
+	    raise on
+	    assert is_active
+	    assert active (light.main_region.On)
+	}
+
+	@Test
+	operation test06 () {
+	    enter
+	    assert is_active
+	    assert active (light.main_region.Off)
+	}
+
+	@Test
+	operation test08 () {
+	    assert !active (light.main_region.On)
+	}
+
+	@Test
+	operation test09 () {
+	    assert !active (light.main_region.Off)
+	}
+
+	@Test
+	operation test10 () {
+	    raise on
+	    assert !is_active
+	}
+
+	@Test
+	operation test11 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test12 () {
+	    exit
+	    assert !is_final
+	}
+
+	@Test
+	operation test15 () {
+	    assert !is_active
+	    enter
+	    raise on
+	    raise on
+	    raise on
+	    raise on
+	    raise on
+	    raise on
+	    raise on
+	    raise on
+	    raise on
+	    raise on
+	    raise on
+	    assert is_active
+	}
+
+	@Test
+	operation test16 () {
+	    assert !is_active
+	    assert !is_final
+	}
+
+	@Test
+	operation test17 () {
+	    assert !is_active
+	    enter
+	    raise on
+	    proceed 10s
+	    assert is_active
+	}
+
+	@Test
+	operation test18 () {
+	    assert !is_active
+	    enter
+	    assert is_active
+	}
+
+}

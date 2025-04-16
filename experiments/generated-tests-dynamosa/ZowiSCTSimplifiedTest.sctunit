@@ -1,0 +1,91 @@
+testclass ZowiSCTSimplifiedTest for statechart ZowiSCT {
+	@Test
+	operation test00 () {
+	    proceed 0 cycle
+	    assert !is_final
+	}
+
+	@Test
+	operation test02 () {
+	    assert !active (ZowiSCT.main_region.ObstacleDetected)
+	}
+
+	@Test
+	operation test03 () {
+	    assert !active (ZowiSCT.main_region.IsSomeOneHere)
+	}
+
+	@Test
+	operation test04 () {
+	    assert !active (ZowiSCT.main_region.ObstacleDetected.RemoveTheObstacle.WalkForward)
+	}
+
+	@Test
+	operation test05 () {
+	    assert !active (ZowiSCT.main_region.ObstacleDetected.RemoveTheObstacle.WalkBack)
+	}
+
+	@Test
+	operation test06 () {
+	    assert !active (ZowiSCT.main_region.IsSomeOneHere.Changing_mood.Sad)
+	}
+
+	@Test
+	operation test07 () {
+	    assert !active (ZowiSCT.main_region.IsSomeOneHere.Changing_mood.Suprised)
+	}
+
+	@Test
+	operation test08 () {
+	    assert !active (ZowiSCT.main_region.Awake.walkAndAvoidObstacles.WaitForWalking)
+	}
+
+	@Test
+	operation test09 () {
+	    assert !active (ZowiSCT.main_region.Awake.walkAndAvoidObstacles.TurnLeft)
+	}
+
+	@Test
+	operation test10 () {
+	    assert !active (ZowiSCT.main_region.Awake.walkAndAvoidObstacles.WaitForTurn)
+	}
+
+	@Test
+	operation test11 () {
+	    assert !active (ZowiSCT.main_region.Awake.walkAndAvoidObstacles.WalkStraight)
+	}
+
+	@Test
+	operation test12 () {
+	    assert !active (ZowiSCT.main_region.Awake)
+	}
+
+	@Test
+	operation test13 () {
+	    assert !active (ZowiSCT.main_region.WelcomeZowi)
+	}
+
+	@Test
+	operation test14 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test19 () {
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test20 () {
+	    assert !is_final
+	    assert !is_active
+	}
+
+	@Test
+	operation test22 () {
+	    proceed 2s
+	    assert !is_active
+	}
+
+}

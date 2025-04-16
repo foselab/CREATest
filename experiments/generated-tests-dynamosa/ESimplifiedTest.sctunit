@@ -1,0 +1,88 @@
+testclass ESimplifiedTest for statechart E {
+	@Test
+	operation test00 () {
+	    triggerWithoutEvent
+	    assert !is_active
+	}
+
+	@Test
+	operation test01 () {
+	    exit
+	    assert !is_final
+	}
+
+	@Test
+	operation test02 () {
+	    enter
+	    assert is_active
+	    assert active (E.main_region.OrthogonalState.r2.StateB)
+	}
+
+	@Test
+	operation test03 () {
+	    enter
+	    assert is_active
+	    assert active (E.main_region.OrthogonalState.r1.StateA)
+	}
+
+	@Test
+	operation test04 () {
+	    enter
+	    assert is_active
+	    assert active (E.main_region.OrthogonalState)
+	}
+
+	@Test
+	operation test06 () {
+	    assert !active (E.main_region.OrthogonalState)
+	}
+
+	@Test
+	operation test07 () {
+	    assert !active (E.main_region.OrthogonalState.r2.StateB)
+	}
+
+	@Test
+	operation test08 () {
+	    assert !active (E.main_region.OrthogonalState.r1.StateA)
+	}
+
+	@Test
+	operation test09 () {
+	    proceed 1s
+	    assert !is_final
+	}
+
+	@Test
+	operation test10 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test11 () {
+	    assert !is_active
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test13 () {
+	    assert !is_final
+	    assert !is_active
+	}
+
+	@Test
+	operation test15 () {
+	    enter
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test16 () {
+	    enter
+	    triggerWithoutEvent
+	}
+
+}

@@ -1,0 +1,48 @@
+testclass _04_LightAndMotionSensingLightSwitchTest for statechart _04_LightAndMotionSensingLightSwitch {
+	@Test
+	operation test10 () {
+	    assert !active (_04_LightAndMotionSensingLightSwitch.modes.Automatic.modes.Motion_Sensing)
+	}
+
+	@Test
+	operation test11 () {
+	    assert !active (_04_LightAndMotionSensingLightSwitch.modes.Automatic)
+	}
+
+	@Test
+	operation test18 () {
+	    assert !active (_04_LightAndMotionSensingLightSwitch.modes.Automatic.modes.Motion_Sensing.r1.Motion)
+	}
+
+	@Test
+	operation test19 () {
+	    assert !active (_04_LightAndMotionSensingLightSwitch.modes.Automatic.modes.Light_Sensing)
+	}
+
+	@Test
+	operation test20 () {
+	    assert !active (_04_LightAndMotionSensingLightSwitch.modes.Automatic.modes.Motion_Sensing.r1.Still)
+	}
+
+	@Test
+	operation test22 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test30 () {
+	    assert !is_final
+	}
+
+	@Test
+	operation test31 () {
+	    exit
+	}
+
+	@Test
+	operation test36 () {
+	    assert !is_active
+	    exit
+	}
+
+}

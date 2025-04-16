@@ -1,0 +1,167 @@
+testclass keyboardTest for statechart keyboard {
+	@Test
+	operation test01 () {
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test05 () {
+	    raise pressNumLock
+	    enter
+	    proceed 1 cycle
+	    proceed 1 cycle
+	    assert is_active
+	}
+
+	@Test
+	operation test06 () {
+	    enter
+	    raise pressCapsLock
+	    proceed 1 cycle
+	    raise pressCapsLock
+	    proceed 1 cycle
+	    assert is_active
+	}
+
+	@Test
+	operation test07 () {
+	    raise pressNumLock
+	    enter
+	    proceed 1 cycle
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test08 () {
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test09 () {
+	    enter
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test10 () {
+	    raise pressNumLock
+	    enter
+	    proceed 1 cycle
+	    assert is_active
+	    assert active (keyboard.NumLock.NumLock_ON)
+	}
+
+	@Test
+	operation test11 () {
+	    enter
+	    assert is_active
+	    assert active (keyboard.NumLock.NumLock_OFF)
+	}
+
+	@Test
+	operation test12 () {
+	    enter
+	    raise pressCapsLock
+	    proceed 1 cycle
+	    assert is_active
+	    assert active (keyboard.CapsLock.CapsLock_ON)
+	}
+
+	@Test
+	operation test13 () {
+	    enter
+	    assert is_active
+	    assert active (keyboard.CapsLock.CapsLock_OFF)
+	}
+
+	@Test
+	operation test15 () {
+	    assert !active (keyboard.NumLock.NumLock_OFF)
+	}
+
+	@Test
+	operation test16 () {
+	    assert !active (keyboard.CapsLock.CapsLock_ON)
+	}
+
+	@Test
+	operation test17 () {
+	    assert !active (keyboard.NumLock.NumLock_ON)
+	}
+
+	@Test
+	operation test18 () {
+	    assert !active (keyboard.CapsLock.CapsLock_OFF)
+	}
+
+	@Test
+	operation test19 () {
+	    enter
+	    raise pressCapsLock
+	    proceed 1 cycle
+	    proceed 1 cycle
+	    assert is_active
+	}
+
+	@Test
+	operation test20 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test21 () {
+	    assert !is_active
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test22 () {
+	    exit
+	    assert !is_final
+	}
+
+	@Test
+	operation test23 () {
+	    enter
+	    assert !is_active
+	}
+
+	@Test
+	operation test24 () {
+	    assert !is_final
+	}
+
+	@Test
+	operation test25 () {
+	    raise pressNumLock
+	    enter
+	    proceed 1 cycle
+	    raise pressNumLock
+	    proceed 1 cycle
+	    assert is_active
+	}
+
+	@Test
+	operation test26 () {
+	    proceed 1 cycle
+	    assert !is_active
+	}
+
+	@Test
+	operation test28 () {
+	    enter
+	    raise pressCapsLock
+	    proceed 1 cycle
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+}

@@ -1,0 +1,206 @@
+testclass SectionSimplifiedTest for statechart mrw.^statechart.Section {
+	@Test
+	operation test00 () {
+	    triggerWithoutEvent
+	    assert !is_final
+	}
+
+	@Test
+	operation test02 () {
+	    raise stateResponse: false
+	    assert !is_active
+	}
+
+	@Test
+	operation test03 () {
+	    raise start
+	    assert !is_final
+	}
+
+	@Test
+	operation test04 () {
+	    raise relaisResponse
+	    assert !is_active
+	}
+
+	@Test
+	operation test05 () {
+	    raise next
+	    assert !is_active
+	}
+
+	@Test
+	operation test06 () {
+	    raise failed
+	    assert !is_active
+	}
+
+	@Test
+	operation test07 () {
+	    raise enable: true
+	    assert !is_active
+	}
+
+	@Test
+	operation test08 () {
+	    raise disable
+	    assert !is_final
+	}
+
+	@Test
+	operation test10 () {
+	    assert !active (mrw.^statechart.Section.main_region.Operating.Processing.Pending)
+	}
+
+	@Test
+	operation test11 () {
+	    assert !active (mrw.^statechart.Section.main_region.Operating.Processing.Locked.Route_active.Waiting)
+	}
+
+	@Test
+	operation test12 () {
+	    assert !active (mrw.^statechart.Section.main_region.Operating.Processing.Locked)
+	}
+
+	@Test
+	operation test13 () {
+	    assert !active (mrw.^statechart.Section.main_region.Operating)
+	}
+
+	@Test
+	operation test14 () {
+	    assert !active (mrw.^statechart.Section.main_region.Init.Init_Process.Requesting)
+	}
+
+	@Test
+	operation test15 () {
+	    assert !active (mrw.^statechart.Section.main_region.Init)
+	}
+
+	@Test
+	operation test16 () {
+	    assert !active (mrw.^statechart.Section.main_region.Operating.Processing.Locked.Occupation.Next_Reached)
+	}
+
+	@Test
+	operation test17 () {
+	    assert !active (mrw.^statechart.Section.main_region.Operating.Processing.Locked.Occupation._final_)
+	}
+
+	@Test
+	operation test18 () {
+	    assert !active (mrw.^statechart.Section.main_region.Operating.Processing.Locked.Occupation.Occupied)
+	}
+
+	@Test
+	operation test19 () {
+	    assert !active (mrw.^statechart.Section.main_region.Operating.Processing.Locked.Occupation.Free)
+	}
+
+	@Test
+	operation test20 () {
+	    assert !active (mrw.^statechart.Section.main_region.Init.Init_Process.Requesting.state.Wait)
+	}
+
+	@Test
+	operation test21 () {
+	    assert !active (mrw.^statechart.Section.main_region.Init.Init_Process.Requesting.state.Occupation)
+	}
+
+	@Test
+	operation test22 () {
+	    assert !active (mrw.^statechart.Section.main_region.Wait_for_Start)
+	}
+
+	@Test
+	operation test23 () {
+	    assert !active (mrw.^statechart.Section.main_region.Failed)
+	}
+
+	@Test
+	operation test24 () {
+	    assert !active (mrw.^statechart.Section.main_region.Operating.Processing.Pending.Relais_processing.Disabling)
+	}
+
+	@Test
+	operation test25 () {
+	    assert !active (mrw.^statechart.Section.main_region.Operating.Processing.Pending.Relais_processing.Enabling)
+	}
+
+	@Test
+	operation test26 () {
+	    assert !active (mrw.^statechart.Section.main_region.Operating.Processing.Locked.Route_active.Disabled)
+	}
+
+	@Test
+	operation test27 () {
+	    assert !active (mrw.^statechart.Section.main_region.Operating.Processing.Locked.Route_active.Waiting.Relais_processing.Enabling)
+	}
+
+	@Test
+	operation test28 () {
+	    assert !active (mrw.^statechart.Section.main_region.Operating.Processing.Locked.Route_active.Waiting.Relais_processing.Disabling)
+	}
+
+	@Test
+	operation test29 () {
+	    assert !active (mrw.^statechart.Section.main_region.Operating.Processing.Locked.Route_active.Waiting.Relais_processing.Left)
+	}
+
+	@Test
+	operation test30 () {
+	    assert !active (mrw.^statechart.Section.main_region.Operating.Processing.Locked.Route_active.Enabled)
+	}
+
+	@Test
+	operation test31 () {
+	    assert !active (mrw.^statechart.Section.main_region.Operating.Processing.Unlocked)
+	}
+
+	@Test
+	operation test32 () {
+	    assert !active (mrw.^statechart.Section.main_region.Init.Init_Process.Requesting.relais.Wait)
+	}
+
+	@Test
+	operation test33 () {
+	    assert !active (mrw.^statechart.Section.main_region.Operating.Processing.Locked.Route_active.Passed)
+	}
+
+	@Test
+	operation test36 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test37 () {
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test41 () {
+	    assert !is_final
+	}
+
+	@Test
+	operation test42 () {
+	    enter
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test43 () {
+	    raise clear
+	    assert !is_active
+	}
+
+	@Test
+	operation test44 () {
+	    exit
+	    assert !is_active
+	}
+
+}

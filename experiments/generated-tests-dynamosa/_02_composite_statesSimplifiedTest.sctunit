@@ -1,0 +1,188 @@
+testclass _02_composite_statesSimplifiedTest for statechart _02_composite_states {
+	@Test
+	operation test02 () {
+	    proceed 30s
+	    assert !is_final
+	}
+
+	@Test
+	operation test03 () {
+	    enter
+	    proceed 824 cycle
+	    assert is_active
+	}
+
+	@Test
+	operation test04 () {
+	    exit
+	    assert !is_final
+	}
+
+	@Test
+	operation test05 () {
+	    enter
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test06 () {
+	    enter
+	    assert is_active
+	    assert active (_02_composite_states.main_region.MotionDetectionMode.r1.Idle)
+	}
+
+	@Test
+	operation test07 () {
+	    enter
+	    assert is_active
+	    assert active (_02_composite_states.main_region.MotionDetectionMode)
+	}
+
+	@Test
+	operation test08 () {
+	    raise user.on_button
+	    enter
+	    proceed 803 cycle
+	    assert is_active
+	    assert !active (_02_composite_states.main_region.MotionDetectionMode)
+	}
+
+	@Test
+	operation test09 () {
+	    raise user.mode_button
+	    enter
+	    proceed 811 cycle
+	    assert is_active
+	    assert active (_02_composite_states.main_region.TwilightDetectionMode.r1.Idle)
+	}
+
+	@Test
+	operation test10 () {
+	    raise user.mode_button
+	    enter
+	    proceed 811 cycle
+	    assert is_active
+	    assert active (_02_composite_states.main_region.TwilightDetectionMode)
+	}
+
+	@Test
+	operation test11 () {
+	    raise user.on_button
+	    enter
+	    proceed 837 cycle
+	    assert is_active
+	}
+
+	@Test
+	operation test13 () {
+	    assert !active (_02_composite_states.main_region.MotionDetectionMode)
+	}
+
+	@Test
+	operation test14 () {
+	    assert !active (_02_composite_states.main_region.MotionDetectionMode.r1.MotionDetected)
+	}
+
+	@Test
+	operation test15 () {
+	    assert !active (_02_composite_states.main_region.MotionDetectionMode.r1.Idle)
+	}
+
+	@Test
+	operation test16 () {
+	    assert !active (_02_composite_states.main_region.TwilightDetectionMode.r1.TwilightDetected)
+	}
+
+	@Test
+	operation test17 () {
+	    assert !active (_02_composite_states.main_region.TwilightDetectionMode.r1.Idle)
+	}
+
+	@Test
+	operation test18 () {
+	    assert !active (_02_composite_states.main_region.TwilightDetectionMode)
+	}
+
+	@Test
+	operation test19 () {
+	    assert !active (_02_composite_states.main_region.ManualMode)
+	}
+
+	@Test
+	operation test20 () {
+	    proceed 1 cycle
+	    assert !is_active
+	}
+
+	@Test
+	operation test21 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test24 () {
+	    raise lum_sensor.dark
+	}
+
+	@Test
+	operation test25 () {
+	    raise lum_sensor.bright
+	}
+
+	@Test
+	operation test26 () {
+	    raise user.off_button
+	    assert !is_active
+	}
+
+	@Test
+	operation test28 () {
+	    assert !is_active
+	    assert !is_final
+	}
+
+	@Test
+	operation test29 () {
+	    raise user.on_button
+	    enter
+	    proceed 837 cycle
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test30 () {
+	    raise user.mode_button
+	    enter
+	    proceed 811 cycle
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test31 () {
+	    raise sensor.motion
+	    assert !is_active
+	}
+
+	@Test
+	operation test32 () {
+	    raise user.on_button
+	    assert !is_active
+	    enter
+	    proceed 1659 cycle
+	    assert active (_02_composite_states.main_region.ManualMode)
+	}
+
+	@Test
+	operation test33 () {
+	    assert !is_active
+	    enter
+	    assert is_active
+	}
+
+}

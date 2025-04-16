@@ -1,0 +1,113 @@
+testclass watchTest for statechart watch {
+	@Test
+	operation test30 () {
+	    assert !active (watch.modes.SetTime)
+	}
+
+	@Test
+	operation test31 () {
+	    assert !active (watch.modes.Alarm)
+	}
+
+	@Test
+	operation test32 () {
+	    assert !active (watch.modes.Regular._region0.Stop_Watch.r1.Operation)
+	}
+
+	@Test
+	operation test33 () {
+	    assert !active (watch.modes.Regular._region0.Stop_Watch)
+	}
+
+	@Test
+	operation test34 () {
+	    assert !active (watch.modes.Regular._region0.Clock)
+	}
+
+	@Test
+	operation test35 () {
+	    assert !is_active
+	    assert !active (watch.modes.Regular)
+	}
+
+	@Test
+	operation test36 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test51 () {
+	    assert !is_active
+	    assert !active (watch.modes.Regular._region0.Alarm_1)
+	}
+
+	@Test
+	operation test52 () {
+	    assert !is_active
+	    assert !active (watch.modes.Regular._region0.Date)
+	}
+
+	@Test
+	operation test53 () {
+	    assert !is_active
+	    assert !active (watch.modes.Regular._region0.Clock._region0.normal)
+	}
+
+	@Test
+	operation test55 () {
+	    assert !is_active
+	    assert !active (watch.modes.Regular._region0.Clock._region0.wait_set)
+	}
+
+	@Test
+	operation test62 () {
+	    raise button.light
+	    assert !is_active
+	}
+
+	@Test
+	operation test63 () {
+	    raise button.light_r
+	}
+
+	@Test
+	operation test64 () {
+	    raise button.set
+	}
+
+	@Test
+	operation test65 () {
+	    raise button.onoff
+	    assert !is_active
+	}
+
+	@Test
+	operation test66 () {
+	    raise button.mode
+	}
+
+	@Test
+	operation test70 () {
+	    exit
+	    assert !is_final
+	}
+
+	@Test
+	operation test74 () {
+	    proceed 2s
+	    assert !is_active
+	}
+
+	@Test
+	operation test78 () {
+	    assert !is_active
+	    assert !is_final
+	}
+
+	@Test
+	operation test84 () {
+	    exit
+	    assert !is_active
+	}
+
+}

@@ -1,0 +1,215 @@
+testclass Statechart4SimplifiedTest for statechart Statechart4 {
+	@Test
+	operation test00 () {
+	    enter
+	    raise left_button_clicked
+	    raise left_button_clicked
+	    raise right_button_clicked
+	    assert is_active
+	}
+
+	@Test
+	operation test01 () {
+	    enter
+	    raise left_button_clicked
+	    raise left_button_clicked
+	    raise left_button_clicked
+	    assert is_active
+	}
+
+	@Test
+	operation test02 () {
+	    enter
+	    raise left_button_clicked
+	    raise left_button_clicked
+	    triggerWithoutEvent
+	    assert is_active
+	}
+
+	@Test
+	operation test03 () {
+	    enter
+	    raise left_button_clicked
+	    raise motion_detected
+	    triggerWithoutEvent
+	    assert is_active
+	}
+
+	@Test
+	operation test04 () {
+	    enter
+	    raise left_button_clicked
+	    raise double_button_clicked
+	    assert is_active
+	}
+
+	@Test
+	operation test05 () {
+	    enter
+	    triggerWithoutEvent
+	    assert is_active
+	}
+
+	@Test
+	operation test06 () {
+	    mock verify_password returns (false)
+	    assert !is_active
+	    enter
+	    raise left_button_clicked
+	    raise left_button_clicked
+	    raise double_button_clicked
+	    assert is_active
+	}
+
+	@Test
+	operation test07 () {
+	    exit
+	    assert !is_final
+	}
+
+	@Test
+	operation test08 () {
+	    enter
+	    raise left_button_clicked
+	    raise left_button_clicked
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test09 () {
+	    enter
+	    raise left_button_clicked
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test10 () {
+	    enter
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test11 () {
+	    enter
+	    raise left_button_clicked
+	    raise left_button_clicked
+	    assert is_active
+	    assert active (Statechart4.main_region.PasswordPrompt.r1.Ready)
+	}
+
+	@Test
+	operation test12 () {
+	    enter
+	    raise left_button_clicked
+	    raise left_button_clicked
+	    assert is_active
+	    assert active (Statechart4.main_region.PasswordPrompt)
+	}
+
+	@Test
+	operation test13 () {
+	    enter
+	    assert is_active
+	    assert !active (Statechart4.main_region.PasswordPrompt)
+	}
+
+	@Test
+	operation test14 () {
+	    enter
+	    raise left_button_clicked
+	    raise motion_detected
+	    assert is_active
+	    assert active (Statechart4.main_region.Alarm)
+	}
+
+	@Test
+	operation test15 () {
+	    enter
+	    raise left_button_clicked
+	    assert is_active
+	    assert active (Statechart4.main_region.Secured)
+	}
+
+	@Test
+	operation test16 () {
+	    enter
+	    assert is_active
+	    assert active (Statechart4.main_region.Ride)
+	}
+
+	@Test
+	operation test18 () {
+	    assert !active (Statechart4.main_region.PasswordPrompt)
+	}
+
+	@Test
+	operation test19 () {
+	    assert !active (Statechart4.main_region.Alarm)
+	}
+
+	@Test
+	operation test20 () {
+	    assert !active (Statechart4.main_region.Secured)
+	}
+
+	@Test
+	operation test21 () {
+	    assert !active (Statechart4.main_region.PasswordPrompt.r1.Ready)
+	}
+
+	@Test
+	operation test22 () {
+	    assert !active (Statechart4.main_region.Ride)
+	}
+
+	@Test
+	operation test23 () {
+	    raise left_button_clicked
+	    assert !is_active
+	}
+
+	@Test
+	operation test24 () {
+	    assert !is_active
+	    enter
+	    raise left_button_clicked
+	    raise motion_detected
+	    raise left_button_clicked
+	    assert is_active
+	}
+
+	@Test
+	operation test25 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test28 () {
+	    assert !is_final
+	    assert !is_active
+	}
+
+	@Test
+	operation test29 () {
+	    enter
+	    raise left_button_clicked
+	    raise motion_detected
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test30 () {
+	    assert !is_active
+	    enter
+	    assert is_active
+	}
+
+}

@@ -1,0 +1,84 @@
+testclass Statechart12Test for statechart Statechart12 {
+	@Test
+	operation test05 () {
+	    assert !active (Statechart12.main_region.TrafficLight.trafficLightsHandling.NormalBehavior.r1.green)
+	}
+
+	@Test
+	operation test06 () {
+	    assert !active (Statechart12.main_region.TrafficLight.trafficLightsHandling.PoliceInterruptBehavior)
+	}
+
+	@Test
+	operation test07 () {
+	    assert !active (Statechart12.main_region.TrafficLight)
+	}
+
+	@Test
+	operation test08 () {
+	    assert !active (Statechart12.main_region.TrafficLight.toggleButtonHandling.PressedLong)
+	}
+
+	@Test
+	operation test09 () {
+	    assert !active (Statechart12.main_region.TrafficLight.toggleButtonHandling.PressedShort)
+	}
+
+	@Test
+	operation test10 () {
+	    assert !active (Statechart12.main_region.TrafficLight.toggleButtonHandling.ToggleModeUnpressed)
+	}
+
+	@Test
+	operation test11 () {
+	    assert !active (Statechart12.main_region.TrafficLight.trafficLightsHandling.NormalBehavior.r1.yellow)
+	}
+
+	@Test
+	operation test12 () {
+	    assert !active (Statechart12.main_region.TrafficLight.trafficLightsHandling.NormalBehavior.r1.green.exitLogic.exitTimerResetter)
+	}
+
+	@Test
+	operation test13 () {
+	    assert !active (Statechart12.main_region.TrafficLight.trafficLightsHandling.NormalBehavior.r1.red)
+	}
+
+	@Test
+	operation test14 () {
+	    assert !active (Statechart12.main_region.TrafficLight.trafficLightsHandling.PoliceInterruptBehavior.r1.YellowOff)
+	}
+
+	@Test
+	operation test15 () {
+	    assert !active (Statechart12.main_region.TrafficLight.trafficLightsHandling.NormalBehavior)
+	}
+
+	@Test
+	operation test16 () {
+	    assert !active (Statechart12.main_region.TrafficLight.trafficLightsHandling.PoliceInterruptBehavior.r1.YellowOn)
+	}
+
+	@Test
+	operation test18 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test20 () {
+	    assert !is_final
+	}
+
+	@Test
+	operation test32 () {
+	    exit
+	    assert !is_final
+	}
+
+	@Test
+	operation test37 () {
+	    assert !is_active
+	    exit
+	}
+
+}

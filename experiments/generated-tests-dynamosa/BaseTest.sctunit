@@ -1,0 +1,34 @@
+testclass baseTest for statechart base {
+	@Test
+	operation test04 () {
+	    assert !active (base.main_region.green)
+	}
+
+	@Test
+	operation test05 () {
+	    assert !active (base.main_region.yellow)
+	}
+
+	@Test
+	operation test06 () {
+	    assert !active (base.main_region.red)
+	}
+
+	@Test
+	operation test08 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test09 () {
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test22 () {
+	    assert !is_final
+	    assert !is_active
+	}
+
+}

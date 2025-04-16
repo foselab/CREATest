@@ -1,0 +1,54 @@
+testclass SectionTest for statechart mrw.^statechart.Section {
+	@Test
+	operation test13 () {
+	    assert !active (mrw.^statechart.Section.main_region.Init.Init_Process.Requesting)
+	}
+
+	@Test
+	operation test14 () {
+	    assert !active (mrw.^statechart.Section.main_region.Init)
+	}
+
+	@Test
+	operation test19 () {
+	    assert !active (mrw.^statechart.Section.main_region.Init.Init_Process.Requesting.state.Wait)
+	}
+
+	@Test
+	operation test20 () {
+	    assert !active (mrw.^statechart.Section.main_region.Init.Init_Process.Requesting.state.Occupation)
+	}
+
+	@Test
+	operation test32 () {
+	    assert !active (mrw.^statechart.Section.main_region.Init.Init_Process.Requesting.relais.Wait)
+	}
+
+	@Test
+	operation test33 () {
+	    assert !active (mrw.^statechart.Section.main_region.Init.Init_Process.Requesting.relais.Relay)
+	}
+
+	@Test
+	operation test36 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test37 () {
+	    exit
+	}
+
+	@Test
+	operation test60 () {
+	    assert !is_active
+	    exit
+	}
+
+	@Test
+	operation test68 () {
+	    assert !is_active
+	    assert !is_final
+	}
+
+}

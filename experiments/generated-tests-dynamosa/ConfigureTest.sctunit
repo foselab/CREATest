@@ -1,0 +1,49 @@
+testclass ConfigureTest for statechart mrw.^statechart.Configure {
+	@Test
+	operation test09 () {
+	    assert !active (mrw.^statechart.Configure.main_region.Booted)
+	}
+
+	@Test
+	operation test10 () {
+	    assert !active (mrw.^statechart.Configure.main_region.Failed)
+	}
+
+	@Test
+	operation test11 () {
+	    assert !active (mrw.^statechart.Configure.main_region.Wait_for_Boot)
+	}
+
+	@Test
+	operation test12 () {
+	    assert !active (mrw.^statechart.Configure.main_region.Configure)
+	}
+
+	@Test
+	operation test13 () {
+	    assert !active (mrw.^statechart.Configure.main_region.Wait_for_Connect)
+	}
+
+	@Test
+	operation test15 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test18 () {
+	    assert !is_final
+	}
+
+	@Test
+	operation test21 () {
+	    assert !is_active
+	    exit
+	}
+
+	@Test
+	operation test29 () {
+	    exit
+	    assert !is_active
+	}
+
+}

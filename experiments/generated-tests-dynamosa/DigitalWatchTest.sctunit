@@ -1,0 +1,90 @@
+testclass DigitalWatchTest for statechart DigitalWatch {
+	@Test
+	operation test00 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test33 () {
+	    assert !active (DigitalWatch.modes.Regular.clock_regular.Clock)
+	    assert !is_active
+	}
+
+	@Test
+	operation test34 () {
+	    assert !is_active
+	    assert !active (DigitalWatch.modes.Regular)
+	}
+
+	@Test
+	operation test50 () {
+	    assert !active (DigitalWatch.modes.Regular.clock_regular.Alarm_1)
+	    assert !is_active
+	}
+
+	@Test
+	operation test51 () {
+	    assert !is_active
+	    assert !active (DigitalWatch.modes.Regular.clock_regular.Date)
+	}
+
+	@Test
+	operation test52 () {
+	    assert !active (DigitalWatch.modes.Regular.clock_regular.Clock.double_click.normal)
+	    assert !is_active
+	}
+
+	@Test
+	operation test54 () {
+	    assert !active (DigitalWatch.modes.Regular.clock_regular.Clock.double_click.wait)
+	    assert !is_active
+	}
+
+	@Test
+	operation test59 () {
+	    raise button.onoff
+	    assert !is_active
+	}
+
+	@Test
+	operation test60 () {
+	    raise button.light_r
+	}
+
+	@Test
+	operation test61 () {
+	    raise button.mode
+	    assert !is_active
+	}
+
+	@Test
+	operation test62 () {
+	    raise button.set
+	    assert !is_active
+	}
+
+	@Test
+	operation test69 () {
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test75 () {
+	    assert !is_active
+	    assert !is_final
+	}
+
+	@Test
+	operation test82 () {
+	    proceed 2s
+	    assert !is_active
+	}
+
+	@Test
+	operation test85 () {
+	    raise button.light
+	    assert !is_active
+	}
+
+}

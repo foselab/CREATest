@@ -1,0 +1,253 @@
+testclass TV_UnitSimplifiedTest for statechart TV_Unit {
+	@Test
+	operation test02 () {
+	    triggerWithoutEvent
+	    assert !is_final
+	}
+
+	@Test
+	operation test03 () {
+	    enter
+	    raise change
+	    assert is_active
+	}
+
+	@Test
+	operation test04 () {
+	    enter
+	    raise device.on
+	    raise input.hdmi
+	    raise input.satellite
+	    assert is_active
+	}
+
+	@Test
+	operation test05 () {
+	    enter
+	    raise device.on
+	    raise input.hdmi
+	    raise input.cable
+	    assert is_active
+	}
+
+	@Test
+	operation test06 () {
+	    enter
+	    raise device.on
+	    raise input.cable
+	    raise input.toggle
+	    assert is_active
+	}
+
+	@Test
+	operation test07 () {
+	    enter
+	    raise device.on
+	    raise input.cable
+	    raise input.hdmi
+	}
+
+	@Test
+	operation test08 () {
+	    enter
+	    raise device.on
+	    raise change
+	    assert is_active
+	}
+
+	@Test
+	operation test09 () {
+	    enter
+	    raise device.on
+	    raise input.hdmi
+	    raise device.off
+	    assert is_active
+	}
+
+	@Test
+	operation test10 () {
+	    enter
+	    raise device.on
+	    raise input.cable
+	    raise device.off
+	    assert is_active
+	}
+
+	@Test
+	operation test11 () {
+	    enter
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test12 () {
+	    enter
+	    raise device.on
+	    raise input.hdmi
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test13 () {
+	    enter
+	    raise device.on
+	    raise input.cable
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test14 () {
+	    enter
+	    raise device.on
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test15 () {
+	    enter
+	    assert is_active
+	    assert active (TV_Unit._TV_Unit_._TV_onSleep_)
+	}
+
+	@Test
+	operation test16 () {
+	    enter
+	    raise device.on
+	    raise input.hdmi
+	    assert is_active
+	    assert active (TV_Unit._TV_Unit_._TV_On_._TV_Working_.hdmi)
+	}
+
+	@Test
+	operation test17 () {
+	    enter
+	    raise device.on
+	    raise input.cable
+	    assert is_active
+	    assert active (TV_Unit._TV_Unit_._TV_On_._TV_Working_.cable)
+	}
+
+	@Test
+	operation test18 () {
+	    enter
+	    raise device.on
+	    assert is_active
+	    assert active (TV_Unit._TV_Unit_._TV_On_._TV_Working_.satelliteTV._Changing_Channel_.changeChannel)
+	}
+
+	@Test
+	operation test19 () {
+	    enter
+	    raise device.on
+	    assert is_active
+	    assert active (TV_Unit._TV_Unit_._TV_On_._TV_Working_.satelliteTV)
+	}
+
+	@Test
+	operation test20 () {
+	    enter
+	    raise device.on
+	    assert is_active
+	    assert active (TV_Unit._TV_Unit_._TV_On_)
+	}
+
+	@Test
+	operation test22 () {
+	    assert !active (TV_Unit._TV_Unit_._TV_On_._TV_Working_.satelliteTV)
+	}
+
+	@Test
+	operation test23 () {
+	    assert !active (TV_Unit._TV_Unit_._TV_On_)
+	}
+
+	@Test
+	operation test24 () {
+	    assert !active (TV_Unit._TV_Unit_._TV_onSleep_)
+	}
+
+	@Test
+	operation test25 () {
+	    assert !active (TV_Unit._TV_Unit_._TV_On_._TV_Working_.hdmi)
+	}
+
+	@Test
+	operation test26 () {
+	    assert !active (TV_Unit._TV_Unit_._TV_On_._TV_Working_.cable)
+	}
+
+	@Test
+	operation test27 () {
+	    assert !active (TV_Unit._TV_Unit_._TV_On_._TV_Working_.satelliteTV._Changing_Channel_.changeChannel)
+	}
+
+	@Test
+	operation test28 () {
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test29 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test30 () {
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test32 () {
+	    assert !is_active
+	    enter
+	    raise device.on
+	    proceed 500ms
+	    assert is_active
+	}
+
+	@Test
+	operation test34 () {
+	    assert !is_active
+	    assert !is_final
+	}
+
+	@Test
+	operation test35 () {
+	    assert !is_active
+	    enter
+	    raise device.on
+	    raise device.off
+	    assert is_active
+	}
+
+	@Test
+	operation test36 () {
+	    assert !is_active
+	    enter
+	    raise device.on
+	    raise input.hdmi
+	    raise input.toggle
+	    assert is_active
+	}
+
+	@Test
+	operation test37 () {
+	    assert !is_active
+	    enter
+	    raise device.on
+	    raise input.cable
+	    raise input.satellite
+	    assert is_active
+	}
+
+}

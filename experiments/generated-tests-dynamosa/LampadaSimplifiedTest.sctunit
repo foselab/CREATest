@@ -1,0 +1,139 @@
+testclass LampadaSimplifiedTest for statechart Lampada {
+	@Test
+	operation test00 () {
+	    enter
+	    raise poweron
+	    raise pushbutton
+	    raise poweroff
+	    assert is_active
+	}
+
+	@Test
+	operation test01 () {
+	    enter
+	    raise poweron
+	    raise poweron
+	    assert is_active
+	}
+
+	@Test
+	operation test02 () {
+	    enter
+	    raise poweron
+	    raise poweroff
+	    assert is_active
+	}
+
+	@Test
+	operation test03 () {
+	    enter
+	    triggerWithoutEvent
+	    assert is_active
+	}
+
+	@Test
+	operation test04 () {
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test05 () {
+	    enter
+	    raise poweron
+	    raise pushbutton
+	    raise pushbutton
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test06 () {
+	    enter
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test07 () {
+	    enter
+	    raise poweron
+	    raise pushbutton
+	    assert is_active
+	    assert active (Lampada.main_region.ON)
+	}
+
+	@Test
+	operation test08 () {
+	    enter
+	    raise poweron
+	    assert is_active
+	    assert active (Lampada.main_region.STANDBY)
+	}
+
+	@Test
+	operation test09 () {
+	    enter
+	    assert is_active
+	    assert active (Lampada.main_region.OFF)
+	}
+
+	@Test
+	operation test11 () {
+	    assert !active (Lampada.main_region.ON)
+	}
+
+	@Test
+	operation test12 () {
+	    assert !active (Lampada.main_region.STANDBY)
+	}
+
+	@Test
+	operation test13 () {
+	    assert !active (Lampada.main_region.OFF)
+	}
+
+	@Test
+	operation test14 () {
+	    enter
+	    raise poweron
+	    raise pushbutton
+	    raise poweron
+	    assert is_active
+	}
+
+	@Test
+	operation test15 () {
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test16 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test17 () {
+	    assert !is_final
+	}
+
+	@Test
+	operation test18 () {
+	    raise poweroff
+	    assert !is_active
+	}
+
+	@Test
+	operation test19 () {
+	    enter
+	    raise poweron
+	    raise pushbutton
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+}

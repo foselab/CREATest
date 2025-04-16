@@ -1,0 +1,58 @@
+testclass SystemTest for statechart System {
+	@Test
+	operation test02 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test05 () {
+	    assert !is_final
+	}
+
+	@Test
+	operation test06 () {
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test19 () {
+	    assert !active (System.main_region.System)
+	}
+
+	@Test
+	operation test20 () {
+	    assert !active (System.main_region.System.region.Default)
+	}
+
+	@Test
+	operation test23 () {
+	    exit
+	    assert !is_final
+	}
+
+	@Test
+	operation test24 () {
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test29 () {
+	    enter
+	    assert !is_final
+	}
+
+	@Test
+	operation test30 () {
+	    triggerWithoutEvent
+	    assert !is_final
+	}
+
+	@Test
+	operation test32 () {
+	    assert !is_active
+	    assert !is_final
+	}
+
+}

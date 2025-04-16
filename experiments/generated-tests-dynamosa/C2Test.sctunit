@@ -1,0 +1,45 @@
+testclass C2Test for statechart C2 {
+	@Test
+	operation test04 () {
+	    assert !active (C2.main_region.Initial)
+	}
+
+	@Test
+	operation test05 () {
+	    assert !active (C2.main_region.Zero)
+	}
+
+	@Test
+	operation test06 () {
+	    assert !active (C2.main_region.One)
+	}
+
+	@Test
+	operation test07 () {
+	    assert !active (C2.main_region.Temp)
+	}
+
+	@Test
+	operation test09 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test10 () {
+	    assert !is_active
+	    exit
+	}
+
+	@Test
+	operation test13 () {
+	    assert !is_active
+	    assert !is_final
+	}
+
+	@Test
+	operation test18 () {
+	    exit
+	    assert !is_active
+	}
+
+}

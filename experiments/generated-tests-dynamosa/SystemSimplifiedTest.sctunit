@@ -1,0 +1,34 @@
+testclass SystemSimplifiedTest for statechart System {
+	@Test
+	operation test01 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test03 () {
+	    assert !active (System.main_region.System)
+	}
+
+	@Test
+	operation test05 () {
+	    assert !active (System.main_region.System.region.Default)
+	}
+
+	@Test
+	operation test07 () {
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test10 () {
+	    assert !is_final
+	}
+
+	@Test
+	operation test12 () {
+	    triggerWithoutEvent
+	    assert !is_final
+	}
+
+}

@@ -1,0 +1,165 @@
+testclass ConfigureSimplifiedTest for statechart mrw.^statechart.Configure {
+	@Test
+	operation test00 () {
+	    mock hasMore returns (false)
+	    enter
+	    raise connected
+	    triggerWithoutEvent
+	    assert is_active
+	}
+
+	@Test
+	operation test01 () {
+	    enter
+	    triggerWithoutEvent
+	    assert is_active
+	}
+
+	@Test
+	operation test02 () {
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test03 () {
+	    mock hasMore returns (false)
+	    enter
+	    raise connected
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test04 () {
+	    enter
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test05 () {
+	    mock configure returns (1000)
+	    mock hasMore returns (true)
+	    enter
+	    raise connected
+	    assert is_active
+	}
+
+	@Test
+	operation test06 () {
+	    mock configure returns (0)
+	    mock hasMore returns (true)
+	    enter
+	    raise connected
+	    assert is_active
+	    assert active (mrw.^statechart.Configure.main_region.Configure)
+	}
+
+	@Test
+	operation test07 () {
+	    enter
+	    assert is_active
+	    assert active (mrw.^statechart.Configure.main_region.Wait_for_Connect)
+	}
+
+	@Test
+	operation test09 () {
+	    assert !active (mrw.^statechart.Configure.main_region.Booted)
+	}
+
+	@Test
+	operation test10 () {
+	    assert !active (mrw.^statechart.Configure.main_region.Failed)
+	}
+
+	@Test
+	operation test11 () {
+	    assert !active (mrw.^statechart.Configure.main_region.Configure)
+	}
+
+	@Test
+	operation test12 () {
+	    assert !active (mrw.^statechart.Configure.main_region.Wait_for_Boot)
+	}
+
+	@Test
+	operation test13 () {
+	    assert !active (mrw.^statechart.Configure.main_region.Wait_for_Connect)
+	}
+
+	@Test
+	operation test16 () {
+	    mock hasMore returns (false)
+	    assert !is_active
+	    enter
+	    raise connected
+	    raise completed
+	    triggerWithoutEvent
+	    assert is_active
+	}
+
+	@Test
+	operation test18 () {
+	    mock configure returns (0)
+	    mock hasMore returns (true)
+	    assert !is_active
+	    enter
+	    raise connected
+	    triggerWithoutEvent
+	    assert is_active
+	}
+
+	@Test
+	operation test19 () {
+	    assert !is_active
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test20 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test23 () {
+	    assert !is_active
+	    assert !is_final
+	}
+
+	@Test
+	operation test25 () {
+	    mock configure returns (0)
+	    mock hasMore returns (true)
+	    enter
+	    raise connected
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test26 () {
+	    mock hasMore returns (false)
+	    enter
+	    raise connected
+	    raise completed
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test27 () {
+	    mock hasMore returns (false)
+	    assert !is_active
+	    enter
+	    raise connected
+	    assert is_active
+	    assert active (mrw.^statechart.Configure.main_region.Wait_for_Boot)
+	}
+
+}

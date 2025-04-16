@@ -1,0 +1,54 @@
+testclass _05_PresenceSimulationLightSwitchTest for statechart _05_PresenceSimulationLightSwitch {
+	@Test
+	operation test16 () {
+	    assert !active (_05_PresenceSimulationLightSwitch.main.Presence_Simulation.mode.Active)
+	}
+
+	@Test
+	operation test17 () {
+	    assert !active (_05_PresenceSimulationLightSwitch.main.Presence_Simulation)
+	}
+
+	@Test
+	operation test18 () {
+	    assert !active (_05_PresenceSimulationLightSwitch.main.Presence_Simulation.mode.Active.presence.Absent)
+	}
+
+	@Test
+	operation test19 () {
+	    assert !active (_05_PresenceSimulationLightSwitch.main.Presence_Simulation.mode.Active.presence.Present)
+	}
+
+	@Test
+	operation test21 () {
+	    assert !active (_05_PresenceSimulationLightSwitch.main.Presence_Simulation.mode.Active.schedule.Waiting)
+	}
+
+	@Test
+	operation test23 () {
+	    assert !active (_05_PresenceSimulationLightSwitch.main.Presence_Simulation.mode.Idle)
+	}
+
+	@Test
+	operation test25 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test37 () {
+	    assert !is_final
+	}
+
+	@Test
+	operation test40 () {
+	    assert !is_active
+	    exit
+	}
+
+	@Test
+	operation test44 () {
+	    exit
+	    assert !is_active
+	}
+
+}

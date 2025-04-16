@@ -1,0 +1,66 @@
+testclass onoffTest for statechart onoff {
+	@Test
+	operation test019 () {
+	    assert !is_active
+	    assert !active (onoff.main_region.On)
+	}
+
+	@Test
+	operation test020 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test035 () {
+	    assert !active (onoff.main_region.On.Voice.Bark)
+	}
+
+	@Test
+	operation test036 () {
+	    assert !is_active
+	    assert !active (onoff.main_region.On.Voice.Silent)
+	}
+
+	@Test
+	operation test037 () {
+	    assert !is_active
+	    assert !active (onoff.main_region.On.Legs.Run)
+	}
+
+	@Test
+	operation test038 () {
+	    assert !active (onoff.main_region.On.Legs.Walk)
+	    assert !is_active
+	}
+
+	@Test
+	operation test039 () {
+	    assert !active (onoff.main_region.On.Legs.Stand)
+	    assert !is_active
+	}
+
+	@Test
+	operation test041 () {
+	    assert !is_active
+	    assert !active (onoff.main_region.Off)
+	}
+
+	@Test
+	operation test044 () {
+	    assert !is_active
+	    exit
+	}
+
+	@Test
+	operation test076 () {
+	    assert !is_active
+	    assert !is_final
+	}
+
+	@Test
+	operation test088 () {
+	    exit
+	    assert !is_active
+	}
+
+}

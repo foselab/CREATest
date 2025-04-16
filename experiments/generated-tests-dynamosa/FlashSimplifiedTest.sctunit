@@ -1,0 +1,50 @@
+testclass flashSimplifiedTest for statechart flash {
+	@Test
+	operation test01 () {
+	    enter
+	    triggerWithoutEvent
+	    assert is_active
+	}
+
+	@Test
+	operation test03 () {
+	    enter
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test05 () {
+	    enter
+	    assert is_active
+	    assert active (flash.flash.Light)
+	}
+
+	@Test
+	operation test07 () {
+	    assert !active (flash.flash.Dark)
+	}
+
+	@Test
+	operation test08 () {
+	    assert !active (flash.flash.Light)
+	}
+
+	@Test
+	operation test10 () {
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test11 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test15 () {
+	    assert !is_final
+	}
+
+}

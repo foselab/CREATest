@@ -1,0 +1,108 @@
+testclass blink1SimplifiedTest for statechart blink1 {
+	@Test
+	operation test01 () {
+	    enter
+	    raise toggle
+	    triggerWithoutEvent
+	    assert is_active
+	}
+
+	@Test
+	operation test03 () {
+	    enter
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test04 () {
+	    enter
+	    raise toggle
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test06 () {
+	    enter
+	    assert is_active
+	    assert active (blink1.esp.Idle)
+	}
+
+	@Test
+	operation test07 () {
+	    enter
+	    raise toggle
+	    assert is_active
+	    assert active (blink1.esp.Blink.blinky.Off)
+	}
+
+	@Test
+	operation test09 () {
+	    enter
+	    raise toggle
+	    assert is_active
+	    assert active (blink1.esp.Blink)
+	}
+
+	@Test
+	operation test11 () {
+	    assert !active (blink1.esp.Blink)
+	}
+
+	@Test
+	operation test12 () {
+	    assert !active (blink1.esp.Idle)
+	}
+
+	@Test
+	operation test13 () {
+	    assert !active (blink1.esp.Blink.blinky.Off)
+	}
+
+	@Test
+	operation test14 () {
+	    assert !active (blink1.esp.Blink.blinky.On)
+	}
+
+	@Test
+	operation test16 () {
+	    raise toggle
+	    assert !is_active
+	}
+
+	@Test
+	operation test17 () {
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test18 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test19 () {
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test23 () {
+	    assert !is_active
+	    assert !is_final
+	}
+
+	@Test
+	operation test25 () {
+	    assert !is_active
+	    enter
+	    raise toggle
+	    raise toggle
+	    assert is_active
+	}
+
+}

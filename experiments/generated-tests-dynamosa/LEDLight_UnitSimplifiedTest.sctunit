@@ -1,0 +1,104 @@
+testclass LEDLight_UnitSimplifiedTest for statechart LEDLight_Unit {
+	@Test
+	operation test01 () {
+	    raise Brightness.up
+	}
+
+	@Test
+	operation test02 () {
+	    raise Brightness.down
+	}
+
+	@Test
+	operation test03 () {
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test04 () {
+	    enter
+	    assert is_active
+	    assert !active (LEDLight_Unit._LED_Light_Unit_._On_._Bulb_Status_.Bulb_on)
+	}
+
+	@Test
+	operation test05 () {
+	    enter
+	    assert is_active
+	    assert !active (LEDLight_Unit._LED_Light_Unit_._On_)
+	}
+
+	@Test
+	operation test06 () {
+	    enter
+	    assert is_active
+	    assert active (LEDLight_Unit._LED_Light_Unit_._Off_)
+	}
+
+	@Test
+	operation test08 () {
+	    assert !active (LEDLight_Unit._LED_Light_Unit_._On_._Bulb_Status_.Bulb_on)
+	}
+
+	@Test
+	operation test09 () {
+	    assert !active (LEDLight_Unit._LED_Light_Unit_._On_._Bulb_Status_.Bulb_on._Luminosity_.Change_Luminosity_Level)
+	}
+
+	@Test
+	operation test10 () {
+	    assert !active (LEDLight_Unit._LED_Light_Unit_._On_._Bulb_Status_.Bulb_on_standby)
+	}
+
+	@Test
+	operation test11 () {
+	    assert !active (LEDLight_Unit._LED_Light_Unit_._On_)
+	}
+
+	@Test
+	operation test12 () {
+	    assert !active (LEDLight_Unit._LED_Light_Unit_._Off_)
+	}
+
+	@Test
+	operation test13 () {
+	    proceed 500ms
+	    assert !is_final
+	}
+
+	@Test
+	operation test14 () {
+	    assert !is_active
+	    enter
+	    triggerWithoutEvent
+	    assert is_active
+	}
+
+	@Test
+	operation test15 () {
+	    assert !is_active
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test16 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test21 () {
+	    assert !is_active
+	    assert !is_final
+	}
+
+	@Test
+	operation test24 () {
+	    enter
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+}

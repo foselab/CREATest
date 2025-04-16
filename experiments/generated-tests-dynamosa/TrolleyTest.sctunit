@@ -1,0 +1,51 @@
+testclass TrolleyTest for statechart Trolley {
+	@Test
+	operation test18 () {
+	    assert !active (Trolley.main_region.Trolley.BoardingManager.DoorsOpen)
+	}
+
+	@Test
+	operation test19 () {
+	    assert !active (Trolley.main_region.Trolley)
+	}
+
+	@Test
+	operation test34 () {
+	    assert !active (Trolley.main_region.Trolley.BoardingManager.DoorsOpen.r1.DoorsObstructed)
+	}
+
+	@Test
+	operation test35 () {
+	    assert !active (Trolley.main_region.Trolley.BoardingManager.DoorsOpen.r1.BoardingPossible)
+	}
+
+	@Test
+	operation test36 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test37 () {
+	    assert !is_active
+	    assert !active (Trolley.main_region.Trolley.BoardingManager.DoorsClosed)
+	}
+
+	@Test
+	operation test52 () {
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test54 () {
+	    assert !is_active
+	    exit
+	}
+
+	@Test
+	operation test68 () {
+	    assert !is_active
+	    assert !is_final
+	}
+
+}

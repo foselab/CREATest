@@ -1,0 +1,110 @@
+testclass parentfirstSimplifiedTest for statechart parentfirst {
+	@Test
+	operation test00 () {
+	    enter
+	    proceed 3 cycle
+	    assert is_active
+	}
+
+	@Test
+	operation test01 () {
+	    exit
+	    assert !is_final
+	}
+
+	@Test
+	operation test02 () {
+	    enter
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test03 () {
+	    raise e
+	    enter
+	    proceed 1 cycle
+	    assert is_active
+	    assert active (parentfirst.main_region.D)
+	}
+
+	@Test
+	operation test04 () {
+	    enter
+	    assert is_active
+	    assert active (parentfirst.main_region.A.r1.B)
+	}
+
+	@Test
+	operation test05 () {
+	    enter
+	    assert is_active
+	    assert active (parentfirst.main_region.A)
+	}
+
+	@Test
+	operation test06 () {
+	    assert !active (parentfirst.main_region.A)
+	}
+
+	@Test
+	operation test07 () {
+	    assert !active (parentfirst.main_region.D)
+	}
+
+	@Test
+	operation test08 () {
+	    assert !active (parentfirst.main_region.A.r1.C)
+	}
+
+	@Test
+	operation test10 () {
+	    assert !active (parentfirst.main_region.A.r1.B)
+	}
+
+	@Test
+	operation test11 () {
+	    proceed 1 cycle
+	    assert !is_final
+	}
+
+	@Test
+	operation test12 () {
+	    assert !is_active
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test13 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test14 () {
+	    raise e
+	    enter
+	    proceed 1 cycle
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test15 () {
+	    assert !is_final
+	    assert !is_active
+	}
+
+	@Test
+	operation test16 () {
+	    assert !is_active
+	    enter
+	    raise e
+	    proceed 1 cycle
+	    proceed 1 cycle
+	    assert is_active
+	}
+
+}

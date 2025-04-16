@@ -1,0 +1,34 @@
+testclass Statechart6Test for statechart Statechart6 {
+	@Test
+	operation test06 () {
+	    assert !active (Statechart6.main_region.StateLightOn)
+	}
+
+	@Test
+	operation test07 () {
+	    assert !active (Statechart6.main_region.Decision)
+	}
+
+	@Test
+	operation test08 () {
+	    assert !active (Statechart6.main_region.StateLightOff)
+	}
+
+	@Test
+	operation test10 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test16 () {
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test20 () {
+	    assert !is_active
+	    assert !is_final
+	}
+
+}

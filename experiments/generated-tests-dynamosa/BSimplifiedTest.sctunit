@@ -1,0 +1,87 @@
+testclass BSimplifiedTest for statechart B {
+	@Test
+	operation test00 () {
+	    enter
+	    triggerWithoutEvent
+	    assert is_active
+	}
+
+	@Test
+	operation test01 () {
+	    enter
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test02 () {
+	    enter
+	    assert is_active
+	    assert active (B.main_region.Outer.r1.Inner)
+	}
+
+	@Test
+	operation test03 () {
+	    enter
+	    assert is_active
+	    assert active (B.main_region.Outer)
+	}
+
+	@Test
+	operation test05 () {
+	    assert !active (B.main_region.Outer)
+	}
+
+	@Test
+	operation test06 () {
+	    assert !active (B.main_region.Outer.r1.Inner)
+	}
+
+	@Test
+	operation test07 () {
+	    proceed 3s
+	    assert !is_final
+	}
+
+	@Test
+	operation test08 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test09 () {
+	    exit
+	    assert !is_final
+	}
+
+	@Test
+	operation test12 () {
+	    assert !is_active
+	    enter
+	    proceed 2s
+	    assert is_active
+	}
+
+	@Test
+	operation test13 () {
+	    assert !is_final
+	    assert !is_active
+	}
+
+	@Test
+	operation test14 () {
+	    assert !is_active
+	    enter
+	    proceed 3s
+	    assert is_active
+	}
+
+	@Test
+	operation test15 () {
+	    assert !is_active
+	    enter
+	    assert is_active
+	}
+
+}

@@ -1,0 +1,50 @@
+testclass SignalTest for statechart mrw.^statechart.Signal {
+	@Test
+	operation test05 () {
+	    assert !active (mrw.^statechart.Signal.main_region.Fail)
+	}
+
+	@Test
+	operation test06 () {
+	    assert !active (mrw.^statechart.Signal.main_region.Turning.Turn_processing.Send)
+	}
+
+	@Test
+	operation test07 () {
+	    assert !active (mrw.^statechart.Signal.main_region.Turning.Turn_processing.Pending)
+	}
+
+	@Test
+	operation test08 () {
+	    assert !active (mrw.^statechart.Signal.main_region.Turning)
+	}
+
+	@Test
+	operation test09 () {
+	    assert !active (mrw.^statechart.Signal.main_region.Idle)
+	}
+
+	@Test
+	operation test11 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test12 () {
+	    assert !is_active
+	    exit
+	}
+
+	@Test
+	operation test22 () {
+	    assert !is_final
+	    assert !is_active
+	}
+
+	@Test
+	operation test31 () {
+	    exit
+	    assert !is_active
+	}
+
+}

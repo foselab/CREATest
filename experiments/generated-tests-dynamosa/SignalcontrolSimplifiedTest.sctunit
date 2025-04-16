@@ -1,0 +1,135 @@
+testclass signalcontrolSimplifiedTest for statechart signalcontrol {
+	@Test
+	operation test01 () {
+	    enter
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test02 () {
+	    assert !is_final
+	}
+
+	@Test
+	operation test04 () {
+	    enter
+	    assert is_active
+	    assert !active (signalcontrol.main.Blink.r.Left)
+	}
+
+	@Test
+	operation test05 () {
+	    enter
+	    assert is_active
+	    assert !active (signalcontrol.main.Blink.r.Right)
+	}
+
+	@Test
+	operation test06 () {
+	    enter
+	    assert is_active
+	    assert !active (signalcontrol.main.Blink)
+	}
+
+	@Test
+	operation test07 () {
+	    enter
+	    assert is_active
+	    assert active (signalcontrol.main.Idle)
+	}
+
+	@Test
+	operation test09 () {
+	    assert !active (signalcontrol.main.Blink.r.Left)
+	}
+
+	@Test
+	operation test10 () {
+	    assert !active (signalcontrol.main.Blink)
+	}
+
+	@Test
+	operation test11 () {
+	    assert !active (signalcontrol.main.Hazard_Lights)
+	}
+
+	@Test
+	operation test12 () {
+	    assert !active (signalcontrol.main.Blink.r.Left.left.Regular)
+	}
+
+	@Test
+	operation test13 () {
+	    assert !active (signalcontrol.main.Blink.r.Left.left.Comfort)
+	}
+
+	@Test
+	operation test14 () {
+	    assert !active (signalcontrol.main.Blink.r.Right.right.Regular)
+	}
+
+	@Test
+	operation test15 () {
+	    assert !active (signalcontrol.main.Blink.r.Right.right.Comfort)
+	}
+
+	@Test
+	operation test16 () {
+	    assert !active (signalcontrol.main.Blink.r.Right)
+	}
+
+	@Test
+	operation test17 () {
+	    assert !active (signalcontrol.main.Idle)
+	}
+
+	@Test
+	operation test18 () {
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test19 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test22 () {
+	    enter
+	    triggerWithoutEvent
+	}
+
+	@Test
+	operation test23 () {
+	    raise hazard
+	    assert !is_final
+	}
+
+	@Test
+	operation test26 () {
+	    triggerWithoutEvent
+	    assert !is_active
+	}
+
+	@Test
+	operation test27 () {
+	    raise right: false
+	    assert !is_final
+	}
+
+	@Test
+	operation test28 () {
+	    raise left: false
+	    assert !is_final
+	}
+
+	@Test
+	operation test29 () {
+	    exit
+	    assert !is_final
+	}
+
+}

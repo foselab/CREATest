@@ -1,0 +1,50 @@
+testclass light_controllerTest for statechart light_controller {
+	@Test
+	operation test01 () {
+	    assert !is_final
+	}
+
+	@Test
+	operation test02 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test10 () {
+	    assert !active (light_controller.main_region.On)
+	}
+
+	@Test
+	operation test11 () {
+	    assert !active (light_controller.main_region.On.r1.RegularMode)
+	}
+
+	@Test
+	operation test12 () {
+	    assert !active (light_controller.main_region.On.r1.BlinkMode)
+	}
+
+	@Test
+	operation test13 () {
+	    assert !active (light_controller.main_region.Off)
+	}
+
+	@Test
+	operation test20 () {
+	    exit
+	    assert !is_final
+	}
+
+	@Test
+	operation test21 () {
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test28 () {
+	    assert !is_final
+	    assert !is_active
+	}
+
+}

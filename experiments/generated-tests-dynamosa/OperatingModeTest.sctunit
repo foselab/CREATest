@@ -1,0 +1,48 @@
+testclass OperatingModeTest for statechart mrw.^statechart.OperatingMode {
+	@Test
+	operation test03 () {
+	    assert !active (mrw.^statechart.OperatingMode.main_region.Failed)
+	}
+
+	@Test
+	operation test04 () {
+	    assert !active (mrw.^statechart.OperatingMode.main_region.Editing)
+	}
+
+	@Test
+	operation test05 () {
+	    assert !active (mrw.^statechart.OperatingMode.main_region.Init)
+	}
+
+	@Test
+	operation test06 () {
+	    assert !active (mrw.^statechart.OperatingMode.main_region.Operating)
+	}
+
+	@Test
+	operation test07 () {
+	    assert !active (mrw.^statechart.OperatingMode.main_region.Prepare_Bus)
+	}
+
+	@Test
+	operation test09 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test27 () {
+	    assert !is_final
+	}
+
+	@Test
+	operation test32 () {
+	    exit
+	}
+
+	@Test
+	operation test33 () {
+	    exit
+	    assert !is_active
+	}
+
+}

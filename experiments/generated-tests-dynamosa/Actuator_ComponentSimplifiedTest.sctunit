@@ -1,0 +1,138 @@
+testclass Actuator_ComponentSimplifiedTest for statechart Actuator_Component {
+	@Test
+	operation test00 () {
+	    enter
+	    raise off
+	    raise on
+	    assert is_active
+	}
+
+	@Test
+	operation test01 () {
+	    enter
+	    raise on
+	    assert is_active
+	}
+
+	@Test
+	operation test02 () {
+	    enter
+	    proceed 500ms
+	    assert is_active
+	}
+
+	@Test
+	operation test03 () {
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test04 () {
+	    enter
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test05 () {
+	    enter
+	    raise off
+	    assert is_active
+	    assert active (Actuator_Component._Actuator_Component_._off_)
+	}
+
+	@Test
+	operation test06 () {
+	    enter
+	    assert is_active
+	    assert !active (Actuator_Component._Actuator_Component_._ActuatorReceivingSignal_._Actuator_Receives_actuatingSignal_From_Controller_._Actuating_Device_)
+	}
+
+	@Test
+	operation test07 () {
+	    enter
+	    assert is_active
+	    assert !active (Actuator_Component._Actuator_Component_._ActuatorReceivingSignal_)
+	}
+
+	@Test
+	operation test08 () {
+	    enter
+	    assert is_active
+	    assert active (Actuator_Component._Actuator_Component_._Standby_)
+	}
+
+	@Test
+	operation test09 () {
+	    assert !active (Actuator_Component._Actuator_Component_._ActuatorReceivingSignal_._Actuator_Receives_actuatingSignal_From_Controller_._Actuating_Device_)
+	}
+
+	@Test
+	operation test10 () {
+	    assert !active (Actuator_Component._Actuator_Component_._ActuatorReceivingSignal_)
+	}
+
+	@Test
+	operation test11 () {
+	    assert !active (Actuator_Component._Actuator_Component_._off_)
+	}
+
+	@Test
+	operation test12 () {
+	    assert !active (Actuator_Component._Actuator_Component_._ActuatorReceivingSignal_._Actuator_Receives_actuatingSignal_From_Controller_._Error_Handler_)
+	}
+
+	@Test
+	operation test13 () {
+	    assert !active (Actuator_Component._Actuator_Component_._ActuatorReceivingSignal_._Actuator_Receives_actuatingSignal_From_Controller_._Actuating_Device_._Actuator_actuates_device_._DeviceFunctioning_)
+	}
+
+	@Test
+	operation test15 () {
+	    assert !active (Actuator_Component._Actuator_Component_._Standby_)
+	}
+
+	@Test
+	operation test16 () {
+	    enter
+	    raise off
+	    raise off
+	    assert is_active
+	}
+
+	@Test
+	operation test17 () {
+	    triggerWithoutEvent
+	    assert !is_final
+	}
+
+	@Test
+	operation test18 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test21 () {
+	    assert !is_active
+	    assert !is_final
+	}
+
+	@Test
+	operation test22 () {
+	    enter
+	    raise off
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test23 () {
+	    assert !is_active
+	    enter
+	    assert is_active
+	}
+
+}

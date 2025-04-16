@@ -1,0 +1,82 @@
+testclass RouteTest for statechart mrw.^statechart.Route {
+	@Test
+	operation test03 () {
+	    assert !active (mrw.^statechart.Route.main_region.Active)
+	}
+
+	@Test
+	operation test04 () {
+	    assert !active (mrw.^statechart.Route.main_region.Unlock)
+	}
+
+	@Test
+	operation test05 () {
+	    assert !active (mrw.^statechart.Route.main_region.Wait)
+	}
+
+	@Test
+	operation test06 () {
+	    assert !active (mrw.^statechart.Route.main_region.Active.processing.Completed)
+	}
+
+	@Test
+	operation test07 () {
+	    assert !active (mrw.^statechart.Route.main_region.Active.processing.Flank_Turning)
+	}
+
+	@Test
+	operation test08 () {
+	    assert !active (mrw.^statechart.Route.main_region.Active.processing.Signal_Updating)
+	}
+
+	@Test
+	operation test09 () {
+	    assert !active (mrw.^statechart.Route.main_region.Active.processing.Section_Activation)
+	}
+
+	@Test
+	operation test10 () {
+	    assert !active (mrw.^statechart.Route.main_region.Active.processing.Signal_Turning)
+	}
+
+	@Test
+	operation test11 () {
+	    assert !active (mrw.^statechart.Route.main_region.Active.processing.Switch_Turning)
+	}
+
+	@Test
+	operation test12 () {
+	    assert !active (mrw.^statechart.Route.main_region._final_)
+	}
+
+	@Test
+	operation test13 () {
+	    assert !active (mrw.^statechart.Route.main_region.Start)
+	}
+
+	@Test
+	operation test14 () {
+	    assert !active (mrw.^statechart.Route.main_region.Emergency_Shutdown)
+	}
+
+	@Test
+	operation test15 () {
+	    assert !active (mrw.^statechart.Route.main_region.Disable)
+	}
+
+	@Test
+	operation test17 () {
+	    assert !is_final
+	}
+
+	@Test
+	operation test18 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test23 () {
+	    exit
+	}
+
+}

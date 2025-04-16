@@ -1,0 +1,55 @@
+testclass Statechart1Test for statechart Statechart1 {
+	@Test
+	operation test11 () {
+	    assert !active (Statechart1.main_region.Moving)
+	}
+
+	@Test
+	operation test12 () {
+	    assert !active (Statechart1.main_region.Door_Open)
+	}
+
+	@Test
+	operation test17 () {
+	    assert !active (Statechart1.main_region.Moving.Warning_light.Warning_light_is_off)
+	}
+
+	@Test
+	operation test18 () {
+	    assert !active (Statechart1.main_region.Door_Open.Flashing_light.Flashing_light_is_off)
+	}
+
+	@Test
+	operation test19 () {
+	    assert !active (Statechart1.main_region.Door_Open.Flashing_light.Flashing_light_is_on)
+	}
+
+	@Test
+	operation test20 () {
+	    assert !active (Statechart1.main_region.Stop)
+	}
+
+	@Test
+	operation test22 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test30 () {
+	    assert !is_active
+	    exit
+	}
+
+	@Test
+	operation test36 () {
+	    assert !is_active
+	    assert !is_final
+	}
+
+	@Test
+	operation test39 () {
+	    exit
+	    assert !is_active
+	}
+
+}

@@ -1,0 +1,61 @@
+testclass SmartLightSystemTest for statechart SmartLightSystem {
+	@Test
+	operation test31 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test35 () {
+	    assert !active (SmartLightSystem._SmartLightSystem_.SmartLightSystem)
+	    assert !is_active
+	}
+
+	@Test
+	operation test46 () {
+	    assert !is_active
+	    assert !active (SmartLightSystem._SmartLightSystem_.SmartLightSystem.ActuatorComponent.off)
+	}
+
+	@Test
+	operation test47 () {
+	    assert !is_active
+	    assert !active (SmartLightSystem._SmartLightSystem_.SmartLightSystem.ActuatorComponent._Device_Functioning_)
+	}
+
+	@Test
+	operation test48 () {
+	    assert !active (SmartLightSystem._SmartLightSystem_.SmartLightSystem.ActuatorComponent._Actuator_Updates_)
+	    assert !is_active
+	}
+
+	@Test
+	operation test49 () {
+	    assert !is_active
+	    assert !active (SmartLightSystem._SmartLightSystem_.SmartLightSystem.SystemStatus.on)
+	}
+
+	@Test
+	operation test51 () {
+	    assert !active (SmartLightSystem._SmartLightSystem_.SmartLightSystem.SystemStatus.off)
+	    assert !is_active
+	}
+
+	@Test
+	operation test67 () {
+	    assert !is_active
+	    exit
+	}
+
+	@Test
+	operation test76 () {
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test81 () {
+	    assert !is_final
+	    assert !is_active
+	}
+
+}

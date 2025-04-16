@@ -1,0 +1,148 @@
+testclass heatingSysSimplifiedTest for statechart heatingSys {
+	@Test
+	operation test00 () {
+	    enter
+	    raise operate
+	    proceed 60s
+	    raise operate
+	    assert is_active
+	}
+
+	@Test
+	operation test01 () {
+	    enter
+	    raise operate
+	    proceed 60s
+	    raise button2
+	    assert is_active
+	}
+
+	@Test
+	operation test02 () {
+	    enter
+	    raise operate
+	    raise button
+	    assert is_active
+	}
+
+	@Test
+	operation test03 () {
+	    enter
+	    raise operate
+	    raise operate
+	    assert is_active
+	}
+
+	@Test
+	operation test04 () {
+	    enter
+	    triggerWithoutEvent
+	    assert is_active
+	}
+
+	@Test
+	operation test05 () {
+	    enter
+	    raise operate
+	    proceed 60s
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test06 () {
+	    enter
+	    raise operate
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test07 () {
+	    enter
+	    assert is_active
+	    exit
+	    assert !is_active
+	}
+
+	@Test
+	operation test08 () {
+	    enter
+	    raise operate
+	    proceed 60s
+	    assert is_active
+	    assert active (heatingSys.main_region.ONtimer)
+	}
+
+	@Test
+	operation test09 () {
+	    enter
+	    raise operate
+	    assert is_active
+	    assert active (heatingSys.main_region.on)
+	}
+
+	@Test
+	operation test10 () {
+	    enter
+	    assert is_active
+	    assert active (heatingSys.main_region.off)
+	}
+
+	@Test
+	operation test12 () {
+	    assert !active (heatingSys.main_region.on)
+	}
+
+	@Test
+	operation test13 () {
+	    assert !active (heatingSys.main_region.ONtimer)
+	}
+
+	@Test
+	operation test14 () {
+	    assert !active (heatingSys.main_region.off)
+	}
+
+	@Test
+	operation test15 () {
+	    proceed 60s
+	    assert !is_active
+	}
+
+	@Test
+	operation test16 () {
+	    enter
+	    assert is_active
+	}
+
+	@Test
+	operation test17 () {
+	    assert !is_active
+	}
+
+	@Test
+	operation test18 () {
+	    exit
+	    assert !is_final
+	}
+
+	@Test
+	operation test22 () {
+	    assert !is_active
+	    assert !is_final
+	}
+
+	@Test
+	operation test23 () {
+	    assert !is_active
+	    enter
+	    raise operate
+	    proceed 60s
+	    raise button1
+	    assert is_active
+	}
+
+}
